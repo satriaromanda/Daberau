@@ -1,44 +1,3 @@
-import { ImageIcon } from "lucide-react";
-
-/** Neutral, labeled placeholder for imagery (no stock photos, no external URLs). */
-export function ImagePlaceholder({
-  label,
-  className = "",
-  aspect = "aspect-[16/10]",
-  rounded = "rounded-card",
-}: {
-  label: string;
-  className?: string;
-  aspect?: string;
-  rounded?: string;
-}) {
-  return (
-    <div
-      role="img"
-      aria-label={`Image placeholder: ${label}`}
-      className={`img-ph relative flex items-center justify-center overflow-hidden border border-neutral-200 ${aspect} ${rounded} ${className}`}
-    >
-      <span className="inline-flex max-w-[85%] items-center gap-2 rounded-full border border-neutral-200 bg-white/90 px-3 py-1.5 text-center text-xs font-medium text-neutral-600">
-        <ImageIcon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-        {label}
-      </span>
-    </div>
-  );
-}
-
-/** Gray rectangle standing in for a client or partner logo. */
-export function LogoPlaceholder({ index, className = "" }: { index?: number; className?: string }) {
-  return (
-    <div
-      role="img"
-      aria-label={`Client logo placeholder${index ? ` ${index}` : ""}`}
-      className={`flex h-12 w-full items-center justify-center rounded-lg bg-neutral-200/80 text-[11px] font-semibold uppercase tracking-wider text-neutral-500 ${className}`}
-    >
-      Client logo
-    </div>
-  );
-}
-
 /** Tech/tool name chip standing in for a logo. */
 export function TechChip({ name }: { name: string }) {
   return (
@@ -49,10 +8,10 @@ export function TechChip({ name }: { name: string }) {
   );
 }
 
-/** Stylized, neutral product mockup for the homepage hero ("Client dashboard mockup"). */
+/** Stylized product dashboard illustration for the homepage hero. */
 export function DashboardMockup({ label }: { label: string }) {
   return (
-    <div role="img" aria-label={`Image placeholder: ${label}`} className="relative">
+    <div role="img" aria-label={label} className="relative">
       <div className="overflow-hidden rounded-card border border-neutral-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04),0_12px_32px_-12px_rgba(0,0,0,0.12)]">
         <div className="flex items-center gap-1.5 border-b border-neutral-200 bg-neutral-50 px-4 py-2.5">
           <span className="h-2.5 w-2.5 rounded-full bg-neutral-300" />
@@ -96,10 +55,6 @@ export function DashboardMockup({ label }: { label: string }) {
           </div>
         </div>
       </div>
-      <span className="absolute -bottom-3 left-4 inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-medium text-neutral-600">
-        <ImageIcon className="h-3.5 w-3.5" aria-hidden="true" />
-        {label}
-      </span>
     </div>
   );
 }

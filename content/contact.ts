@@ -40,9 +40,10 @@ export const contactPage = {
     title: "Contact info",
     labels: { address: "Address", email: "Email", phone: "Phone", whatsapp: "WhatsApp", hours: "Business hours" },
     mapsLink: "Open in Google Maps",
+    whatsappLink: "Chat on WhatsApp",
     micro: "Messages sent outside business hours will be answered the next business day.",
   },
-  map: { title: "Come *visit us*", label: "Map: Citi Business Park, Kalideres" },
+  map: { title: "Come *visit us*", label: "Map of the Daberau office at Citi Business Park, Kalideres" },
   faq: {
     title: "Before you *reach out*",
     sub: "Quick answers to the questions we hear most.",
@@ -50,17 +51,14 @@ export const contactPage = {
       {
         q: "Is the consultation really free?",
         a: "Yes. The first consultation is free and comes with no obligation to buy.",
-        sample: true,
       },
       {
         q: "How soon will I get a quote?",
         a: "We reply within one business day. For most projects, we send an initial estimate right after the consultation.",
-        sample: true,
       },
       {
         q: "Can we meet in person?",
         a: "Of course. You're welcome at our office in Kalideres, West Jakarta, or we can meet online.",
-        sample: true,
       },
     ],
   },

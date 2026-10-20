@@ -5,7 +5,6 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { footer, site } from "@/content/site";
 import { services } from "@/content/services";
-import { Pending } from "@/components/ui/Text";
 import { Newsletter } from "./Newsletter";
 
 const socialIcons = { linkedin: Linkedin, instagram: Instagram, facebook: Facebook, youtube: Youtube };
@@ -46,7 +45,7 @@ export function Footer() {
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-neutral-500" aria-hidden="true" />
                 <span>
                   <span className="sr-only">Business hours: </span>
-                  <Pending note="business hours to be confirmed">{site.hours}</Pending>
+                  {site.hours}
                 </span>
               </li>
               <li className="flex gap-3">

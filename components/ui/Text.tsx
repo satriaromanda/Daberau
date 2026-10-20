@@ -31,23 +31,3 @@ export function Text({ children, linkEmail = false }: { children: string; linkEm
     </>
   );
 }
-
-/** Marks a real value that is still pending confirmation (e.g. business hours). */
-export function Pending({ children, note = "To be confirmed" }: { children: React.ReactNode; note?: string }) {
-  return (
-    <span className="ph" title={`Placeholder: ${note}`}>
-      {children}
-    </span>
-  );
-}
-
-/** Small badge marking drafted copy that isn't in the IA/UX spec yet. */
-export function SampleTag({ label = "Sample copy", className = "" }: { label?: string; className?: string }) {
-  return (
-    <span
-      className={`inline-flex items-center gap-1 rounded-full border border-dashed border-neutral-400 bg-white px-2 py-0.5 align-middle text-[11px] font-semibold uppercase tracking-wide text-neutral-600 ${className}`}
-    >
-      {label}
-    </span>
-  );
-}

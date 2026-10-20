@@ -8,7 +8,7 @@ export const home = {
     primary: { label: "Get a Free Consultation", href: "/consultation" },
     secondary: { label: "Explore Services", href: "/services" },
     micro: "Free and no commitment. We reply within one business day.",
-    visualLabel: "Client dashboard mockup",
+    visualLabel: "Example client dashboard",
   },
   pain: {
     title: "Does any of this sound like *your business?*",
@@ -49,7 +49,7 @@ export const home = {
       { title: "One team, one point of contact.", body: "No juggling vendors. A single project manager owns your project from kickoff to launch." },
       { title: "Clear pricing from day one.", body: "Itemized quotes for every phase, with no hidden fees." },
       { title: "Progress you can see.", body: "Weekly updates and access to the project board." },
-      { title: "We don't disappear after launch.", body: "A [X]-day bug-fix warranty and monthly maintenance plans." },
+      { title: "We don't disappear after launch.", body: "A 30-day bug-fix warranty and monthly maintenance plans." },
     ],
   },
   process: {

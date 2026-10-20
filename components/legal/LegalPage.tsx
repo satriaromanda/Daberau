@@ -1,4 +1,4 @@
-import { ArrowUp, FileText, Lightbulb } from "lucide-react";
+import { ArrowUp, Lightbulb } from "lucide-react";
 import type { LegalDoc } from "@/content/types";
 import { legalUi as ui } from "@/content/legal";
 import { site } from "@/content/site";
@@ -60,14 +60,22 @@ export function LegalPage({ doc, sectionExtras = {} }: { doc: LegalDoc; sectionE
                   <span className="mr-2 text-neutral-400">{i + 1}.</span>
                   {s.title}
                 </h2>
-                <p className="mt-3 text-[17px] leading-relaxed text-neutral-800">
-                  <Text linkEmail>{s.opening}</Text>
-                </p>
-                <div className="mt-4 flex gap-3 rounded-btn border border-dashed border-amber-400 bg-amber-50/60 px-4 py-3 text-[15px] leading-relaxed text-amber-950">
-                  <FileText className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                  <p>
-                    <span className="font-semibold">{ui.placeholderLabel}</span> {s.covers}
-                  </p>
+                <div className="mt-3 space-y-4 text-[17px] leading-relaxed text-neutral-800">
+                  {s.body.map((block, k) =>
+                    typeof block === "string" ? (
+                      <p key={k}>
+                        <Text linkEmail>{block}</Text>
+                      </p>
+                    ) : (
+                      <ul key={k} className="list-disc space-y-2 pl-6 marker:text-brand">
+                        {block.list.map((item) => (
+                          <li key={item}>
+                            <Text linkEmail>{item}</Text>
+                          </li>
+                        ))}
+                      </ul>
+                    ),
+                  )}
                 </div>
                 {sectionExtras[s.id] && <div className="mt-4">{sectionExtras[s.id]}</div>}
                 <a href="#top" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-neutral-600 hover:text-brand">

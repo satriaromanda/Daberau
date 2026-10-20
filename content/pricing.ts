@@ -5,7 +5,7 @@ export const pricing = {
   },
   h1: "Simple, transparent starting prices",
   micro: "Final pricing depends on your requirements. Consultations and quotes are always free.",
-  startingFrom: "Starting from IDR [X]",
+  startingFrom: "Starting from",
   perService: {
     title: "Starting prices *by service*",
     sub: "A guide to help you plan. Your quote will be itemized by phase.",

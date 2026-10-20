@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { careers as c } from "@/content/careers";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { TitledTextCard } from "@/components/ui/Cards";
-import { ImagePlaceholder } from "@/components/ui/Placeholders";
+import { Photo } from "@/components/ui/Photo";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
-import { SampleTag } from "@/components/ui/Text";
 import { PageHero } from "@/components/sections/PageHero";
 import { OpenRoles } from "@/components/sections/OpenRoles";
 
@@ -17,11 +16,11 @@ export default function CareersPage() {
         crumbs={[{ label: "Careers" }]}
         title={c.h1}
         sub={c.sub}
-        aside={<ImagePlaceholder label="Team at work in the office" aspect="aspect-[16/9] lg:aspect-[4/3]" />}
+        aside={<Photo src={c.images.hero.src} alt={c.images.hero.alt} aspect="aspect-[16/9] lg:aspect-[4/3]" priority />}
       />
 
       <Section labelledBy="why-title">
-        <SectionHeading id="why-title" title={c.why.title} sub={c.why.sub} extra={<SampleTag />} />
+        <SectionHeading id="why-title" title={c.why.title} sub={c.why.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {c.why.items.map((w) => (
             <TitledTextCard key={w.title} title={w.title} body={w.body} />
@@ -34,9 +33,8 @@ export default function CareersPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             <p className="text-lg leading-relaxed text-neutral-700">{c.together.body}</p>
-            <SampleTag className="mt-3" />
           </div>
-          <ImagePlaceholder label="Weekly demo with the project team" aspect="aspect-[16/10]" />
+          <Photo src={c.images.together.src} alt={c.images.together.alt} aspect="aspect-[16/10]" />
         </div>
       </Section>
 
@@ -45,17 +43,12 @@ export default function CareersPage() {
           id="roles-title"
           title={c.roles.title}
           sub={c.roles.sub}
-          extra={
-            <p className="text-sm text-neutral-600">
-              <SampleTag label="Sample roles" /> <span className="ml-2">Add <code className="rounded bg-neutral-100 px-1">?roles=0</code> to preview the empty state.</span>
-            </p>
-          }
         />
         <OpenRoles />
       </Section>
 
       <Section tone="muted" labelledBy="hiring-title">
-        <SectionHeading id="hiring-title" title={c.hiring.title} sub={c.hiring.sub} extra={<SampleTag />} />
+        <SectionHeading id="hiring-title" title={c.hiring.title} sub={c.hiring.sub} />
         <ProcessSteps steps={c.hiring.steps} />
       </Section>
     </>

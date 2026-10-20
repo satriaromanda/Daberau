@@ -7,7 +7,7 @@ import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { TitledTextCard } from "@/components/ui/Cards";
 import { TechChip } from "@/components/ui/Placeholders";
-import { SampleTag, Text } from "@/components/ui/Text";
+import { Text } from "@/components/ui/Text";
 import { PageHero } from "@/components/sections/PageHero";
 
 export const metadata: Metadata = { title: h.meta.title, description: h.meta.description };
@@ -23,7 +23,7 @@ export default function HowWeWorkPage() {
       </PageHero>
 
       <Section labelledBy="stages-title">
-        <SectionHeading id="stages-title" title={h.stagesTitle} extra={<SampleTag label="Stage details are sample copy" />} />
+        <SectionHeading id="stages-title" title={h.stagesTitle} />
         <ol className="space-y-6">
           {processSteps.map((step, i) => {
             const st = h.stages[i];
@@ -54,7 +54,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="models-title">
-        <SectionHeading id="models-title" title={h.engagement.title} sub={h.engagement.sub} extra={<SampleTag />} />
+        <SectionHeading id="models-title" title={h.engagement.title} sub={h.engagement.sub} />
         <div className="grid gap-4 md:grid-cols-3">
           {h.engagement.items.map((m) => (
             <TitledTextCard key={m.title} title={m.title} body={m.body} />
@@ -63,7 +63,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section labelledBy="warranty-title">
-        <SectionHeading id="warranty-title" title={h.warranty.title} sub={h.warranty.sub} extra={<SampleTag />} />
+        <SectionHeading id="warranty-title" title={h.warranty.title} sub={h.warranty.sub} />
         <ul className="grid gap-4 md:grid-cols-3">
           {h.warranty.items.map((w) => (
             <li key={w.title} className="flex gap-4 rounded-card border border-neutral-200 p-6">
@@ -80,7 +80,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="tools-title">
-        <SectionHeading id="tools-title" title={h.tools.title} sub={h.tools.sub} extra={<SampleTag label="Sample tools" />} />
+        <SectionHeading id="tools-title" title={h.tools.title} sub={h.tools.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {h.tools.items.map((t) => (
             <li key={t}>

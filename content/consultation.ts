@@ -11,7 +11,12 @@ export const consultation = {
     "Recommended solutions and technologies",
     "An initial cost and timeline estimate",
   ],
-  scheduleLabel: "Calendar embed (Calendly / Google Calendar) for picking a consultation slot",
+  schedule: {
+    title: "Pick a time for your call",
+    dateLabel: "Preferred date",
+    timeLabel: "Preferred time (WIB)",
+    times: ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"],
+    hint: "We'll confirm the exact time by WhatsApp or email.",
+  },
   submit: "Book My Consultation",
-  proofLogos: 3,
 };

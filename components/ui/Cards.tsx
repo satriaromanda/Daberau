@@ -5,8 +5,7 @@ import type { Service, Stat, Testimonial } from "@/content/types";
 import { microcopy } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { IconTile } from "./Icons";
-import { ImagePlaceholder } from "./Placeholders";
-import { SampleTag, Text } from "./Text";
+import { Text } from "./Text";
 
 const cardBase = "rounded-card border border-neutral-200 bg-white transition-colors duration-150";
 
@@ -16,20 +15,16 @@ const cardBase = "rounded-card border border-neutral-200 bg-white transition-col
 export function ServiceCard({ service, showScope = false }: { service: Service; showScope?: boolean }) {
   return (
     <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
-      {service.image.src ? (
-        <div className="aspect-[16/10] overflow-hidden border-b border-neutral-200 bg-neutral-100">
-          <Image
-            src={asset(service.image.src)}
-            alt={service.image.alt}
-            width={800}
-            height={800}
-            sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-          />
-        </div>
-      ) : (
-        <ImagePlaceholder label={service.image.alt} rounded="rounded-none" className="border-0 border-b" />
-      )}
+      <div className="aspect-[16/10] overflow-hidden border-b border-neutral-200 bg-neutral-100">
+        <Image
+          src={asset(service.image.src)}
+          alt={service.image.alt}
+          width={800}
+          height={800}
+          sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        />
+      </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
         {/* Icon tile overlaps the photo edge */}
         <span className="relative -mt-[52px] mb-1 inline-flex w-fit rounded-xl bg-white ring-4 ring-white md:-mt-14">
@@ -51,7 +46,6 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
                 </li>
               ))}
             </ul>
-            {service.scopeIsSample && <SampleTag className="mt-3" />}
           </div>
         )}
         <span className="mt-auto inline-flex items-center gap-1 pt-5 text-[15px] font-semibold text-brand group-hover:text-brand-700">
@@ -86,7 +80,6 @@ export function TestimonialCard({ t }: { t: Testimonial }) {
           </span>
         </span>
       </figcaption>
-      {t.sample && <SampleTag className="mt-4 self-start" />}
     </figure>
   );
 }

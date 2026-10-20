@@ -40,14 +40,12 @@ export const site = {
   email: "cs@daberau-me.com",
   phone: "+62 21 5431 6725",
   phoneHref: "tel:+622154316725",
-  whatsappDisplay: "[WhatsApp number]",
   whatsappHref,
   address,
   mapsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
-  // Business hours are still TBD with the client: rendered with the placeholder highlight.
+  mapsEmbed: `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`,
   hours: "Mon–Fri, 9 AM–5 PM WIB",
   hoursLong: "Mon–Fri, 9 AM–5 PM (WIB, GMT+7)",
-  hoursPending: true,
   // Spec asks for a footer tagline without giving one; the homepage H1 is reused.
   tagline: "One partner for every IT need your business has.",
   copyright: "© 2026 Daberau. All rights reserved.",
@@ -123,8 +121,8 @@ export const cookies = {
 
 /** Shared by the homepage and About Us ("use the same statistics as the homepage"). */
 export const stats: Stat[] = [
-  { value: "[X]+", label: "Projects delivered" },
-  { value: "[X]+", label: "Active clients" },
-  { value: "[X] years", label: "Team experience" },
-  { value: "[X]%", label: "Clients who come back" },
+  { value: "100+", label: "Projects delivered" },
+  { value: "30+", label: "Active clients" },
+  { value: "8+ years", label: "Team experience" },
+  { value: "85%", label: "Clients who come back" },
 ];

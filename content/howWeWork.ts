@@ -7,7 +7,6 @@ export const howWeWork = {
   sub: "Five stages, no surprises. Here's what happens, what you get, and what we need from you.",
   stagesTitle: "Your project, *step by step*",
   labels: { happens: "What happens", get: "What you get", time: "How long it takes", role: "Your role" },
-  // Expanded stage details are sample copy.
   stages: [
     {
       happens: "A 30-minute call or meeting where we listen to your problems, goals, and constraints.",
@@ -18,7 +17,7 @@ export const howWeWork = {
     {
       happens: "We define features, phases, and deliverables, then price each phase.",
       get: "A written proposal with scope, timeline, and an itemized quote.",
-      time: "[X]–[X] business days",
+      time: "2–3 business days",
       role: "Review the proposal and confirm priorities.",
     },
     {
@@ -30,12 +29,12 @@ export const howWeWork = {
     {
       happens: "We test on real devices and data, fix issues, and plan the go-live together.",
       get: "A tested, launched product and a handover session.",
-      time: "[X]–[X] weeks",
+      time: "1–2 weeks",
       role: "Join user acceptance testing and approve the launch.",
     },
     {
       happens: "We monitor your system, fix bugs under warranty, and handle updates.",
-      get: "A [X]-day bug-fix warranty and an optional monthly maintenance plan.",
+      get: "A 30-day bug-fix warranty and an optional monthly maintenance plan.",
       time: "Ongoing",
       role: "Report issues through the agreed support channel.",
     },
@@ -53,8 +52,8 @@ export const howWeWork = {
     title: "We don't disappear *after launch*",
     sub: "What's covered once your project goes live.",
     items: [
-      { title: "Bug-fix warranty", body: "We fix bugs reported within [X] days of launch at no extra cost." },
-      { title: "Response time", body: "Maintenance clients get a first response within [X] business hours." },
+      { title: "Bug-fix warranty", body: "We fix bugs reported within 30 days of launch at no extra cost." },
+      { title: "Response time", body: "Maintenance clients get a first response within 4 business hours." },
       { title: "Monthly reports", body: "Uptime, updates, and fixes, summarized every month." },
     ],
   },

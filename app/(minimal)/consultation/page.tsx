@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { consultation as c } from "@/content/consultation";
-import { testimonials } from "@/content/testimonials";
-import { LogoPlaceholder } from "@/components/ui/Placeholders";
-import { TestimonialCard } from "@/components/ui/Cards";
+import { stats } from "@/content/site";
 import { LeadForm } from "@/components/forms/LeadForm";
 
 export const metadata: Metadata = { title: c.meta.title, description: c.meta.description };
@@ -45,17 +43,15 @@ export default function ConsultationPage() {
 
 function Proof() {
   return (
-    <section aria-label="What clients say">
-      <ul className="grid grid-cols-3 gap-3" aria-label="Client logos">
-        {Array.from({ length: c.proofLogos }, (_, i) => (
-          <li key={i}>
-            <LogoPlaceholder index={i + 1} />
-          </li>
+    <section aria-label="Why businesses choose Daberau">
+      <dl className="grid grid-cols-2 gap-3">
+        {stats.map((st) => (
+          <div key={st.label} className="flex flex-col-reverse justify-end rounded-card border border-neutral-200 bg-white p-4">
+            <dt className="mt-1.5 text-sm text-neutral-600">{st.label}</dt>
+            <dd className="text-[26px] font-extrabold leading-none tracking-tight text-ink">{st.value}</dd>
+          </div>
         ))}
-      </ul>
-      <div className="mt-4">
-        <TestimonialCard t={testimonials[0]} />
-      </div>
+      </dl>
     </section>
   );
 }

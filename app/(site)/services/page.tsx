@@ -8,7 +8,6 @@ import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { TechChip } from "@/components/ui/Placeholders";
-import { SampleTag } from "@/components/ui/Text";
 import { PageHero } from "@/components/sections/PageHero";
 import { ServicesFilter } from "@/components/sections/ServicesFilter";
 import { ClosingCta } from "@/components/sections/ClosingCta";
@@ -49,7 +48,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section labelledBy="tech-title">
-        <SectionHeading id="tech-title" title={o.tech.title} sub={o.tech.sub} extra={<SampleTag label="Sample stack" />} />
+        <SectionHeading id="tech-title" title={o.tech.title} sub={o.tech.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {o.tech.items.map((t) => (
             <li key={t}>

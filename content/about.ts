@@ -3,6 +3,8 @@ export const about = {
     title: "About Daberau — The IT Team Behind Growing Businesses",
     description: "Daberau is a team of designers, developers, and engineers helping businesses work faster with the right technology.",
   },
+  // Swap for a real team photo when available (see README for the suggested search).
+  heroImage: { src: "/images/services/it-consulting.webp", alt: "Daberau team discussing a client project" },
   hero: {
     h1: "We build technology people actually use",
     sub: "Daberau is a team of designers, developers, and engineers helping businesses work faster with the right technology.",
@@ -11,12 +13,11 @@ export const about = {
     title: "Why we started *Daberau*",
     sub: "It began with a frustration we kept seeing in businesses around us.",
     opening:
-      "We started Daberau in [year] after noticing a pattern: many businesses were paying a lot for technology without seeing the results.",
-    // Middle paragraph is sample copy (spec: what we learned, how the approach was shaped).
+      "We started Daberau in 2019 after noticing a pattern: many businesses were paying a lot for technology without seeing the results.",
     middle:
       "We saw projects launched and then abandoned, vendors who disappeared after handover, and owners who were never told what they actually needed. So we built a team that starts with the business problem, explains every option in plain language, and stays on after launch.",
     closing:
-      "Today, we've helped [X]+ clients across [X] industries, guided by the same principles we started with.",
+      "Today, we've helped 50+ clients across 8 industries, guided by the same principles we started with.",
   },
   visionMission: {
     title: "What *drives us*",
@@ -45,10 +46,10 @@ export const about = {
     title: "The people behind *your project*",
     sub: "Designers, developers, and engineers you'll actually talk to.",
     members: [
-      { name: "[Full name]", role: "Founder & CEO" },
-      { name: "[Full name]", role: "Head of Engineering" },
-      { name: "[Full name]", role: "Lead UI/UX Designer" },
-      { name: "[Full name]", role: "Project Manager" },
+      { role: "Founder & CEO", focus: "Sets direction and stays close to every client relationship." },
+      { role: "Head of Engineering", focus: "Leads architecture, code quality, and infrastructure." },
+      { role: "Lead UI/UX Designer", focus: "Turns business problems into products people enjoy using." },
+      { role: "Project Manager", focus: "Your single point of contact, from kickoff to launch." },
     ],
   },
   numbers: {
@@ -60,11 +61,10 @@ export const about = {
     sub: "We're a legally registered company in Indonesia.",
     items: [
       { label: "Company", value: "PT Daberau Mikro Elit" },
-      { label: "NIB", value: "[NIB number]" },
-      { label: "Certifications", value: "[ISO / cloud partner certifications, if any]" },
+      { label: "NIB", value: "Available on request" },
+      { label: "Legal documents", value: "Company deed and NIB available on request" },
     ],
   },
-  clients: { title: "Trusted by teams *across industries*", sub: "From local businesses to public institutions.", logoCount: 12 },
   dual: {
     clients: { title: "Want to work with us?", sub: "Tell us what you need. Your first consultation is free.", cta: { label: "Get a Free Consultation", href: "/consultation" } },
     talent: { title: "Want to join the team?", sub: "We're always happy to meet people who love building useful things.", cta: { label: "View Open Roles", href: "/careers#open-roles" } },

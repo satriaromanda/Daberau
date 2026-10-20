@@ -3,9 +3,13 @@ export const careers = {
     title: "Careers | Daberau",
     description: "Join a team that values learning, collaboration, and real results.",
   },
+  // Swap for real team photos when available (see README for suggested searches).
+  images: {
+    hero: { src: "/images/services/it-support.webp", alt: "Daberau engineer at work" },
+    together: { src: "/images/services/it-consulting.webp", alt: "Project team reviewing progress together" },
+  },
   h1: "Build digital products people rely on",
   sub: "Join a team that values learning, collaboration, and real results.",
-  // Section bodies below are sample copy.
   why: {
     title: "Why you'll *like it here*",
     sub: "Real projects, room to grow, and a team that has your back.",
@@ -21,9 +25,9 @@ export const careers = {
     body: "Small project teams, one project manager per client, and weekly demos. We review each other's work, share what we learn, and keep meetings short.",
   },
   roles: {
-    title: "Find your *next role*",
-    sub: "Don't see a fit? Send your CV anyway.",
-    apply: "Apply",
+    title: "Roles we *often hire for*",
+    sub: "We hire throughout the year. Send your CV for the role that fits you, and we'll reach out when there's an opening.",
+    apply: "Send Your CV",
     items: [
       { title: "Frontend Developer (React / Next.js)", team: "Engineering", location: "West Jakarta · Hybrid", type: "Full-time" },
       { title: "IT Support Engineer", team: "Support", location: "West Jakarta · On-site", type: "Full-time" },

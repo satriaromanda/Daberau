@@ -2,7 +2,7 @@ import { CheckCircle2 } from "lucide-react";
 import { home } from "@/content/home";
 import { services } from "@/content/services";
 import { processSteps } from "@/content/process";
-import { testimonials } from "@/content/testimonials";
+import { testimonials, testimonialsPublished } from "@/content/testimonials";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { ServiceCard, TestimonialCard, TextLink } from "@/components/ui/Cards";
@@ -100,7 +100,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 6. Testimonials */}
+      {/* 6. Testimonials (hidden until real quotes are added) */}
+      {testimonialsPublished && (
       <Section labelledBy="testimonials-title">
         <SectionHeading id="testimonials-title" title={home.testimonials.title} sub={home.testimonials.sub} />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -109,6 +110,7 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
+      )}
 
       {/* 7. Closing CTA */}
       <ClosingCta headline={home.closing.headline} sub={home.closing.sub} />

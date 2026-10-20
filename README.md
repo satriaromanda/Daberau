@@ -32,20 +32,38 @@ npx serve out      # preview the static export
 ## Section headlines
 
 Section headlines are centered. Wrap key words in `*asterisks*` in the content string to show them in brand red,
-e.g. `title: "Does any of this sound like *your business?*"`. Service card photos live in
-`public/images/services/{slug}.webp` and are set per service in `content/services.ts` (`image.src`); a service without
-`src` shows a labeled placeholder.
+e.g. `title: "Does any of this sound like *your business?*"`.
 
-## Placeholders
+## Content status
 
-- Bracketed tokens in content strings (`[X]`, `[year]`, `[WhatsApp number]`, `[Month DD, YYYY]`, `[Client name]`…) render
-  with a dashed amber highlight via `<Text>` so they are easy to find. Search `content/` for `[` to list them.
-- Business hours are rendered with the same highlight until confirmed (`site.hoursPending`).
-- Copy that is **not** in the spec (sample testimonials, FAQ answers, etc.) carries a
-  dashed "Sample copy" badge.
-- Apart from the service card photos, images, client logos, team photos and the map are neutral labeled placeholder
-  blocks. No external image URLs.
-- Set `WHATSAPP_NUMBER` in `content/site.ts` to point every WhatsApp link at the business number.
+All copy is filled in. A few values are realistic defaults that must be confirmed before launch:
+
+- Numbers in `content/site.ts` (`stats`) and `content/about.ts` (founded 2019, 50+ clients, 8 industries)
+- Prices, timelines and package contents per service in `content/services.ts`
+- Warranty (30 days), down payment (50%), quote validity (14 days), revisions (2 rounds), response time (4 business hours)
+  in `content/services.ts`, `content/howWeWork.ts`, `content/faq.ts` and `content/legal.ts`
+- Careers benefits and the roles list in `content/careers.ts`
+- The Privacy Policy and Terms in `content/legal.ts` are a full draft: have them reviewed by legal counsel
+
+Still needed from the client:
+
+- **WhatsApp number:** set `WHATSAPP_NUMBER` in `content/site.ts` (links work without it, but open WhatsApp with no recipient)
+- **Testimonials:** add real quotes in `content/testimonials.ts` and set `testimonialsPublished = true`
+- **Team names and photos** (team cards currently show roles only), **client logos**, **social media URLs**, and a
+  **company profile PDF**
+
+## Photos
+
+Service photos live in `public/images/services/{slug}.webp` (800×800 WebP). The About and Careers pages reuse two of them
+until real photos arrive. Suggested Freepik searches for replacements (save as WebP, about 1200×900):
+
+| Slot | File to replace / set | Search |
+| --- | --- | --- |
+| About hero | `content/about.ts` → `heroImage` | https://www.freepik.com/search?format=search&query=asian%20it%20team%20office%20meeting |
+| Careers hero | `content/careers.ts` → `images.hero` | https://www.freepik.com/search?format=search&query=software%20developer%20working%20office%20asia |
+| Careers "How we work together" | `content/careers.ts` → `images.together` | https://www.freepik.com/search?format=search&query=team%20collaboration%20laptop%20startup%20office |
+
+Real team photos and client logos should come from the client, not stock sites.
 
 ## Dev-only preview toggles
 

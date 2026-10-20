@@ -3,14 +3,13 @@
 import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { Faq } from "@/content/types";
-import { SampleTag, Text } from "./Text";
+import { Text } from "./Text";
 
 /** Accessible accordion: native buttons with aria-expanded/aria-controls, keyboard-operable by default. */
 export function FaqAccordion({ items, headingLevel = "h3" }: { items: Faq[]; headingLevel?: "h2" | "h3" }) {
   const [open, setOpen] = useState<number | null>(null);
   const uid = useId();
   const H = headingLevel;
-  const hasSample = items.some((i) => i.sample);
 
   return (
     <div>
@@ -52,11 +51,6 @@ export function FaqAccordion({ items, headingLevel = "h3" }: { items: Faq[]; hea
           );
         })}
       </div>
-      {hasSample && (
-        <p className="mt-3 text-sm text-neutral-500">
-          <SampleTag label="Sample answers" />
-        </p>
-      )}
     </div>
   );
 }

@@ -8,7 +8,6 @@ import { consultation } from "@/content/consultation";
 import { microcopy, whatsappCta } from "@/content/site";
 import { Button, LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
-import { ImagePlaceholder } from "@/components/ui/Placeholders";
 
 type Values = {
   name: string;
@@ -67,10 +66,13 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
   const [attempted, setAttempted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [forceError, setForceError] = useState(false);
+  const [schedule, setSchedule] = useState({ date: "", time: "" });
+  const [minDate, setMinDate] = useState<string>();
 
   // Dev-only preview of the system-error state: add ?formError=1 to the URL.
   useEffect(() => {
     setForceError(new URLSearchParams(window.location.search).get("formError") === "1");
+    setMinDate(new Date().toISOString().slice(0, 10));
   }, []);
 
   useEffect(() => {
@@ -374,10 +376,36 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
         </div>
 
         {variant === "consultation" && (
-          <div className="sm:col-span-2">
-            <span className="mb-1.5 block text-[15px] font-semibold text-ink">Schedule</span>
-            <ImagePlaceholder label={consultation.scheduleLabel} aspect="aspect-[16/7]" rounded="rounded-btn" />
-          </div>
+          <fieldset className="sm:col-span-2">
+            <legend className="mb-3 text-[15px] font-semibold text-ink">{consultation.schedule.title}</legend>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label htmlFor={id("date")} className="mb-1.5 block text-sm font-medium text-neutral-700">
+                  {consultation.schedule.dateLabel}
+                </label>
+                <input
+                  id={id("date")}
+                  type="date"
+                  min={minDate}
+                  value={schedule.date}
+                  onChange={(e) => setSchedule({ ...schedule, date: e.target.value })}
+                  className={`${inputBase} h-12 ${inputOk}`}
+                />
+              </div>
+              <div>
+                <label htmlFor={id("time")} className="mb-1.5 block text-sm font-medium text-neutral-700">
+                  {consultation.schedule.timeLabel}
+                </label>
+                <Select
+                  id={id("time")}
+                  value={schedule.time}
+                  onChange={(v) => setSchedule({ ...schedule, time: v })}
+                  options={consultation.schedule.times.map((t) => ({ value: t, label: t }))}
+                />
+              </div>
+            </div>
+            <p className="mt-2 text-sm text-neutral-600">{consultation.schedule.hint}</p>
+          </fieldset>
         )}
 
         <div className="sm:col-span-2">

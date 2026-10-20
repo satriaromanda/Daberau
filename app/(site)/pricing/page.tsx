@@ -26,7 +26,7 @@ export default function PricingPage() {
               <h3 className="mt-5 text-lg font-bold text-ink">{s.name}</h3>
               <p className="mt-2 mb-5 text-[15px] leading-relaxed text-neutral-600">{s.short}</p>
               <p className="mt-auto border-t border-neutral-100 pt-4 text-xl font-bold text-ink">
-                <Text>{p.startingFrom}</Text>
+                {p.startingFrom} {s.startingFrom}
               </p>
               <Link href={`/services/${s.slug}`} className="mt-4 text-sm font-semibold text-brand hover:text-brand-700">
                 {microcopy.learnMore}
@@ -39,7 +39,7 @@ export default function PricingPage() {
       <Section tone="muted" labelledBy="web-packages">
         <SectionHeading id="web-packages" title={p.webPackages.title} sub={p.webPackages.sub} />
         <div className="grid gap-4 md:grid-cols-3">
-          {web.packages.rows!.map((r, i) => (
+          {web.packages.rows.map((r, i) => (
             <div key={r.name} className={`flex flex-col rounded-card bg-white p-6 ${i === 1 ? "border-2 border-brand" : "border border-neutral-200"}`}>
               <h3 className="text-xl font-bold text-ink">{r.name}</h3>
               <p className="mt-1 text-[15px] text-neutral-600">{r.bestFor}</p>
@@ -54,7 +54,7 @@ export default function PricingPage() {
           ))}
         </div>
         <p className="mt-5 text-[15px] text-neutral-600">
-          <Text>{web.packages.note!}</Text>
+          {web.packages.note}
         </p>
       </Section>
     </>

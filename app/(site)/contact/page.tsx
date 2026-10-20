@@ -6,8 +6,6 @@ import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { WhatsAppIcon } from "@/components/ui/Icons";
-import { ImagePlaceholder } from "@/components/ui/Placeholders";
-import { Pending, Text } from "@/components/ui/Text";
 import { PageHero } from "@/components/sections/PageHero";
 import { LeadForm } from "@/components/forms/LeadForm";
 
@@ -75,14 +73,18 @@ export default function ContactPage() {
                     {site.email}
                   </a>
                 </InfoRow>
-                <InfoRow icon={Phone} label={`${c.info.labels.phone} · ${c.info.labels.whatsapp}`}>
+                <InfoRow icon={Phone} label={c.info.labels.phone}>
                   <a href={site.phoneHref} className="hover:text-brand">
                     {site.phone}
-                  </a>{" "}
-                  · <Text>{site.whatsappDisplay}</Text>
+                  </a>
+                </InfoRow>
+                <InfoRow icon={MessageCircle} label={c.info.labels.whatsapp}>
+                  <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand hover:text-brand-700">
+                    {c.info.whatsappLink} →
+                  </a>
                 </InfoRow>
                 <InfoRow icon={Clock} label={c.info.labels.hours}>
-                  <Pending note="business hours to be confirmed">{site.hoursLong}</Pending>
+                  {site.hoursLong}
                 </InfoRow>
               </dl>
               <p className="mt-6 border-t border-neutral-200 pt-5 text-sm text-neutral-600">{c.info.micro}</p>
@@ -94,7 +96,20 @@ export default function ContactPage() {
       {/* Map & office */}
       <Section tone="muted" labelledBy="map-title">
         <SectionHeading id="map-title" title={c.map.title} sub={site.address} />
-        <ImagePlaceholder label={c.map.label} aspect="aspect-[16/9] md:aspect-[21/8]" />
+        <div className="aspect-[4/3] overflow-hidden rounded-card border border-neutral-200 bg-neutral-100 md:aspect-[21/8]">
+          <iframe
+            title={c.map.label}
+            src={site.mapsEmbed}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-full w-full border-0"
+          />
+        </div>
+        <div className="mt-5 flex justify-center">
+          <LinkButton href={site.mapsHref} external variant="secondary">
+            {c.info.mapsLink}
+          </LinkButton>
+        </div>
       </Section>
 
       {/* Quick FAQ */}
