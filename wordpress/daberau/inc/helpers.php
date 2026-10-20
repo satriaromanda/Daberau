@@ -166,45 +166,107 @@ function daberau_to_lines( $rows, $keys = array() ) {
 }
 
 /**
- * URL of the page that uses a given template, falling back to a slug.
+ * Daberau page types: kind => [ template file, slugs recognised without a template ].
  *
- * @param string $template Template file, e.g. "page-templates/template-contact.php".
- * @param string $slug     Fallback slug.
+ * Pages are matched by their template first, then by URL slug. That way existing pages
+ * (e.g. a "Contact" page from a previous theme) get the Daberau layout without any setup.
  */
-function daberau_page_url( $template, $slug ) {
+function daberau_page_kinds() {
+	return array(
+		'services'    => array( 'page-templates/template-services.php', array( 'services', 'layanan' ) ),
+		'about'       => array( 'page-templates/template-about.php', array( 'about-us', 'about', 'tentang-kami' ) ),
+		'how-we-work' => array( 'page-templates/template-how-we-work.php', array( 'how-we-work', 'cara-kerja' ) ),
+		'faq'         => array( 'page-templates/template-faq.php', array( 'faq', 'faqs' ) ),
+		'contact'     => array( 'page-templates/template-contact.php', array( 'contact', 'contact-us', 'kontak', 'hubungi-kami' ) ),
+		'legal'       => array( 'page-templates/template-legal.php', array( 'privacy-policy', 'terms-and-conditions', 'terms', 'kebijakan-privasi', 'syarat-dan-ketentuan' ) ),
+	);
+}
+
+/**
+ * Daberau page type of a page ('' when it is a normal page).
+ *
+ * @param int|WP_Post|null $post Page.
+ */
+function daberau_page_kind( $post = null ) {
+	$post = get_post( $post );
+	if ( ! $post || 'page' !== $post->post_type ) {
+		return '';
+	}
+	$template = get_page_template_slug( $post );
+	foreach ( daberau_page_kinds() as $kind => $def ) {
+		if ( $template === $def[0] ) {
+			return $kind;
+		}
+	}
+	foreach ( daberau_page_kinds() as $kind => $def ) {
+		if ( in_array( $post->post_name, $def[1], true ) ) {
+			return $kind;
+		}
+	}
+	return '';
+}
+
+/**
+ * The published page for a page type, if any.
+ *
+ * @param string $kind Page type.
+ * @param string $slug Prefer this slug (used for the two legal pages).
+ * @return WP_Post|null
+ */
+function daberau_find_page( $kind, $slug = '' ) {
 	static $cache = array();
-	if ( ! isset( $cache[ $template ] ) ) {
-		$pages              = get_pages(
+	$key = $kind . '|' . $slug;
+	if ( array_key_exists( $key, $cache ) ) {
+		return $cache[ $key ];
+	}
+	$def   = daberau_page_kinds()[ $kind ];
+	$found = null;
+	$slugs = $slug ? array( $slug ) : $def[1];
+	if ( ! $slug ) {
+		$pages = get_pages(
 			array(
 				'meta_key'   => '_wp_page_template', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-				'meta_value' => $template, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'meta_value' => $def[0], // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'number'     => 1,
 			)
 		);
-		$cache[ $template ] = $pages ? get_permalink( $pages[0] ) : home_url( '/' . $slug . '/' );
+		$found = $pages ? $pages[0] : null;
 	}
-	return $cache[ $template ];
+	foreach ( $slugs as $s ) {
+		if ( $found ) {
+			break;
+		}
+		$page = get_page_by_path( $s );
+		if ( $page && 'publish' === $page->post_status ) {
+			$found = $page;
+		}
+	}
+	$cache[ $key ] = $found;
+	return $found;
 }
 
 /** Common page URLs. */
 function daberau_url( $key ) {
-	$map = array(
-		'services'    => array( 'page-templates/template-services.php', 'services' ),
-		'about'       => array( 'page-templates/template-about.php', 'about-us' ),
-		'how-we-work' => array( 'page-templates/template-how-we-work.php', 'how-we-work' ),
-		'faq'         => array( 'page-templates/template-faq.php', 'faq' ),
-		'contact'     => array( 'page-templates/template-contact.php', 'contact' ),
-		'privacy'     => array( 'privacy-policy', 'privacy-policy' ),
-		'terms'       => array( 'terms-and-conditions', 'terms-and-conditions' ),
-	);
-	if ( 'privacy' === $key || 'terms' === $key ) {
-		$page = get_page_by_path( $map[ $key ][1] );
-		return $page ? get_permalink( $page ) : home_url( '/' . $map[ $key ][1] . '/' );
-	}
 	if ( 'form' === $key ) {
 		return daberau_url( 'contact' ) . '#contact-form';
 	}
-	return isset( $map[ $key ] ) ? daberau_page_url( $map[ $key ][0], $map[ $key ][1] ) : home_url( '/' );
+	$map = array(
+		'services'    => array( 'services', '', 'services' ),
+		'about'       => array( 'about', '', 'about-us' ),
+		'how-we-work' => array( 'how-we-work', '', 'how-we-work' ),
+		'faq'         => array( 'faq', '', 'faq' ),
+		'contact'     => array( 'contact', '', 'contact' ),
+		'privacy'     => array( 'legal', 'privacy-policy', 'privacy-policy' ),
+		'terms'       => array( 'legal', 'terms-and-conditions', 'terms-and-conditions' ),
+	);
+	if ( ! isset( $map[ $key ] ) ) {
+		return home_url( '/' );
+	}
+	$page = daberau_find_page( $map[ $key ][0], $map[ $key ][1] );
+	if ( ! $page && 'terms' === $key ) {
+		$page = daberau_find_page( 'legal', 'terms' );
+	}
+	return $page ? get_permalink( $page ) : home_url( '/' . $map[ $key ][2] . '/' );
 }
 
 /** WhatsApp chat URL with the prefilled message (and the business number once it is set). */

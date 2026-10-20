@@ -27,8 +27,12 @@ $columns = array(
 <?php if ( daberau_show_prefooter() ) : ?>
 <section aria-labelledby="prefooter-title" class="bg-white pb-16 pt-4 md:pb-24">
 	<div class="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-		<div class="relative overflow-hidden rounded-card bg-ink px-6 py-10 text-white md:px-12 md:py-14">
-			<span aria-hidden="true" class="absolute inset-y-0 left-0 w-1.5 bg-brand"></span>
+		<div class="relative isolate overflow-hidden rounded-card bg-ink px-6 py-12 text-white md:px-12 md:py-16">
+			<?php $cta_bg = daberau_mod( 'prefooter_image' ); ?>
+			<?php if ( $cta_bg ) : ?>
+				<img src="<?php echo esc_url( $cta_bg ); ?>" alt="" width="1440" height="540" loading="lazy" decoding="async" class="absolute inset-0 -z-10 h-full w-full object-cover">
+				<span aria-hidden="true" class="absolute inset-0 -z-10 bg-gradient-to-r from-black/35 via-black/10 to-black/20"></span>
+			<?php endif; ?>
 			<div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
 				<div class="max-w-2xl">
 					<h2 id="prefooter-title" class="text-[26px] font-bold leading-tight md:text-[32px]"><?php echo daberau_accent( daberau_mod( 'prefooter_title' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

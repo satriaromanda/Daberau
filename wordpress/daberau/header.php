@@ -10,7 +10,16 @@ defined( 'ABSPATH' ) || exit;
 $services        = array_map( 'daberau_service_card', daberau_services() );
 $services_url    = daberau_url( 'services' );
 $services_active = is_singular( 'daberau_service' ) || daberau_is_current( $services_url );
-$nav_links       = daberau_default_menu( 'primary' );
+// "Services" is the mega menu and the logo links home, so menu items for those pages would only repeat them.
+$skip_urls       = array( untrailingslashit( home_url( '/' ) ), untrailingslashit( $services_url ) );
+$nav_links       = array_values(
+	array_filter(
+		daberau_default_menu( 'primary' ),
+		function ( $link ) use ( $skip_urls ) {
+			return ! in_array( untrailingslashit( strtok( $link['url'], '#' ) ), $skip_urls, true );
+		}
+	)
+);
 $nav_base        = 'nav-link relative inline-flex h-10 items-center gap-1 rounded-btn px-3 text-[15px] font-medium transition-colors hover:text-brand';
 ?><!doctype html>
 <html <?php language_attributes(); ?>>

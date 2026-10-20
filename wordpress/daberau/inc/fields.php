@@ -241,7 +241,7 @@ function daberau_schema( $schema, $post = null ) {
 			);
 
 		case 'legal':
-			$doc = ( $post && 'terms-and-conditions' === $post->post_name ) ? $d( 'terms' ) : $d( 'privacy' );
+			$doc = ( $post && in_array( $post->post_name, array( 'terms-and-conditions', 'terms', 'syarat-dan-ketentuan' ), true ) ) ? $d( 'terms' ) : $d( 'privacy' );
 			return array(
 				__( 'Legal page', 'daberau' ) => array(
 					'last_updated' => daberau_f_text( __( 'Last updated', 'daberau' ), $doc['lastUpdated'] ),
@@ -323,16 +323,7 @@ function daberau_schema_key( $post ) {
 	if ( (int) get_option( 'page_on_front' ) === $post->ID ) {
 		return 'home';
 	}
-	$map = array(
-		'page-templates/template-services.php'    => 'services',
-		'page-templates/template-about.php'       => 'about',
-		'page-templates/template-how-we-work.php' => 'how-we-work',
-		'page-templates/template-contact.php'     => 'contact',
-		'page-templates/template-faq.php'         => 'faq',
-		'page-templates/template-legal.php'       => 'legal',
-	);
-	$template = get_page_template_slug( $post );
-	return isset( $map[ $template ] ) ? $map[ $template ] : '';
+	return daberau_page_kind( $post );
 }
 
 /**

@@ -94,7 +94,8 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		$custom = is_front_page() || is_singular( 'daberau_service' ) || ( is_page() && get_page_template_slug() && ! is_page_template( 'page-templates/template-legal.php' ) );
+		$kind   = is_page() ? daberau_page_kind( get_queried_object() ) : '';
+		$custom = is_front_page() || is_singular( 'daberau_service' ) || ( $kind && 'legal' !== $kind );
 		if ( $custom ) {
 			wp_dequeue_style( 'wp-block-library' );
 			wp_dequeue_style( 'global-styles' );
@@ -224,5 +225,26 @@ function daberau_whatsapp_icon( $class = 'h-5 w-5' ) {
 
 /** Whether the pre-footer CTA shows on this page (not on Contact or legal pages). */
 function daberau_show_prefooter() {
-	return ! is_404() && ! is_page_template( 'page-templates/template-contact.php' ) && ! is_page_template( 'page-templates/template-legal.php' );
+	$kind = is_page() ? daberau_page_kind( get_queried_object() ) : '';
+	return ! is_404() && 'contact' !== $kind && 'legal' !== $kind;
 }
+
+/*
+ * Daberau pages always use their Daberau layout, even when an existing page still has another template
+ * (a "Default" template or a page builder's canvas from the previous theme). Runs late so it wins.
+ */
+add_filter(
+	'template_include',
+	function ( $template ) {
+		if ( ! is_page() || is_front_page() ) {
+			return $template;
+		}
+		$kind = daberau_page_kind( get_queried_object() );
+		if ( ! $kind ) {
+			return $template;
+		}
+		$file = DABERAU_DIR . '/' . daberau_page_kinds()[ $kind ][0];
+		return file_exists( $file ) ? $file : $template;
+	},
+	99
+);

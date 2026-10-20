@@ -4,16 +4,31 @@ A classic WordPress theme for daberau-me.com. It matches the approved mockup, an
 
 ## Install (Hostinger or any WordPress host)
 
-1. In WordPress, go to **Appearance → Themes → Add New → Upload Theme** and upload `daberau-theme.zip`.
-2. Click **Activate**. On activation the theme:
-   - creates the pages (Home, Services, About Us, How We Work, FAQ, Contact, Privacy Policy, Terms & Conditions) and sets Home as the front page;
-   - creates the 6 services with their photos, the FAQs and the header and footer menus;
-   - switches permalinks to "Post name" if they were still on "Plain".
-   It only adds what is missing and never overwrites edited content. To re-run it, go to **Appearance → Daberau setup**.
-3. Go to **Appearance → Customize → Daberau → Contact details & WhatsApp** and enter the **WhatsApp number**. Until it is set, WhatsApp buttons open WhatsApp without a recipient.
-4. Send a test inquiry from the Contact page and check that the email arrives. On Hostinger, outgoing mail from WordPress usually needs an SMTP plugin (for example WP Mail SMTP) set up with the domain's mailbox. Inquiries are also saved under **Inquiries** even if the email fails.
+No plugins are needed. Page builders such as Elementor aren't used by the Daberau pages.
 
-Requirements: WordPress 6.2+ and PHP 7.4+. No plugins are needed.
+1. In WordPress, go to **Appearance → Themes → Add New → Upload Theme** and upload `daberau-theme.zip`.
+   If an older Daberau version is installed, choose **Replace current with uploaded**.
+2. Click **Activate**. The theme then:
+   - reuses pages that already exist with a matching URL (`/services/`, `/about-us/`, `/contact/`…), and creates the missing ones (How We Work, FAQ, Privacy Policy, Terms & Conditions);
+   - creates the 6 services with their photos, the FAQs and, if none are set, the header and footer menus;
+   - switches permalinks to "Post name" if they were still on "Plain".
+   It never deletes or overwrites content.
+3. Open **Appearance → Daberau setup** (a notice links to it). It shows which page is used for each part of the site and has three buttons:
+   - **Create missing content**: run the setup again.
+   - **Use Daberau menus**: replace menus carried over from the previous theme.
+   - **Send test email**: check that contact form emails arrive.
+4. Go to **Appearance → Customize → Daberau → Contact details & WhatsApp** and enter the **WhatsApp number**. Until it is set, WhatsApp buttons open WhatsApp without a recipient.
+5. If the test email doesn't arrive, open **Customize → Daberau → Email delivery** and enter the mailbox from your hosting panel. For Hostinger: server `smtp.hostinger.com`, port `465`, encryption SSL, your mailbox address and its password. Inquiries are also saved under **Inquiries**, so none are lost while email is being set up.
+
+Requirements: WordPress 6.2+ and PHP 7.4+.
+
+### Pages from a previous theme
+
+A page is used as a Daberau page when its template is a Daberau template **or** its URL matches one of these:
+services, about-us / about, how-we-work, faq, contact / contact-us, privacy-policy, terms-and-conditions / terms
+(and the Indonesian slugs layanan, tentang-kami, cara-kerja, kontak, hubungi-kami, kebijakan-privasi, syarat-dan-ketentuan).
+The old page content (e.g. from Elementor) stays in the database but isn't shown. To use a page with a different URL,
+open it and pick the template under **Page Attributes → Template**.
 
 ## Where to edit what
 
@@ -24,7 +39,7 @@ Requirements: WordPress 6.2+ and PHP 7.4+. No plugins are needed.
 | Shared service-page headings | **Customize → Daberau → Service page headings** |
 | FAQs | **FAQs**. Each FAQ Group becomes a section on the FAQ page. Groups "Contact page" and "Services page" show on those pages |
 | Phone, email, address, hours, WhatsApp | **Customize → Daberau → Contact details & WhatsApp** |
-| Header button, pre-footer CTA | **Customize → Daberau → Header & calls to action** |
+| Header button, pre-footer CTA text and background image | **Customize → Daberau → Header & calls to action** |
 | Footer tagline, copyright, social links | **Customize → Daberau → Footer & social links**. Social icons appear only when a URL is set |
 | Header and footer links | **Appearance → Menus** (locations: Header, Footer: Company, Footer: Help, Footer: Legal) |
 | Logo | **Customize → Site Identity → Logo** (optional; the bundled logo is used otherwise) |
@@ -46,6 +61,7 @@ Each page has **SEO title** and **SEO description** fields. The theme outputs th
 
 ## Contact form
 
+- Emails come from the company address (when it is on the site's domain) or the SMTP mailbox, which keeps them out of spam.
 - Validated in the browser and again on the server, with the same messages.
 - Spam protection: a hidden honeypot field and a limit of 5 submissions per 10 minutes per IP. There is no nonce, so the form keeps working with page caching (LiteSpeed Cache etc.).
 - Without JavaScript the form still submits and shows the success or error message.

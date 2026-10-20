@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { asset } from "@/lib/asset";
 import { preFooter, primaryCta, whatsappCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
@@ -14,8 +16,9 @@ export function PreFooterCTA() {
   return (
     <section aria-labelledby="prefooter-title" className="bg-white pb-16 pt-4 md:pb-24">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-card bg-ink px-6 py-10 text-white md:px-12 md:py-14">
-          <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1.5 bg-brand" />
+        <div className="relative isolate overflow-hidden rounded-card bg-ink px-6 py-12 text-white md:px-12 md:py-16">
+          <Image src={asset("/images/cta-bg.webp")} alt="" fill sizes="(min-width: 1200px) 1136px, 100vw" className="-z-10 object-cover" />
+          <span aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-black/35 via-black/10 to-black/20" />
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <h2 id="prefooter-title" className="text-[26px] font-bold leading-tight md:text-[32px]">
