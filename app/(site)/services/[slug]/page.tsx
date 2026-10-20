@@ -213,8 +213,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 9. Service FAQ */}
       <Section tone="muted" labelledBy="faq-title">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading id="faq-title" title={t.faq.title} sub={t.faq.sub} className="mb-0" />
+        <SectionHeading id="faq-title" title={t.faq.title} sub={t.faq.sub} />
+        <div className="mx-auto max-w-3xl">
           <FaqAccordion items={s.faqs} />
         </div>
       </Section>

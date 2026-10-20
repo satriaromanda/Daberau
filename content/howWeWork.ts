@@ -5,7 +5,7 @@ export const howWeWork = {
   },
   h1: "A clear process, from day one to long after launch",
   sub: "Five stages, no surprises. Here's what happens, what you get, and what we need from you.",
-  stagesTitle: "Your project, step by step",
+  stagesTitle: "Your project, *step by step*",
   labels: { happens: "What happens", get: "What you get", time: "How long it takes", role: "Your role" },
   // Expanded stage details are sample copy.
   stages: [
@@ -41,7 +41,7 @@ export const howWeWork = {
     },
   ],
   engagement: {
-    title: "Choose how we work together",
+    title: "Choose how we *work together*",
     sub: "Three ways to engage, depending on how clear your scope is.",
     items: [
       { title: "Fixed Price", body: "Best when the scope is clear. One price, agreed upfront, paid by milestone." },
@@ -50,7 +50,7 @@ export const howWeWork = {
     ],
   },
   warranty: {
-    title: "We don't disappear after launch",
+    title: "We don't disappear *after launch*",
     sub: "What's covered once your project goes live.",
     items: [
       { title: "Bug-fix warranty", body: "We fix bugs reported within [X] days of launch at no extra cost." },
@@ -59,7 +59,7 @@ export const howWeWork = {
     ],
   },
   tools: {
-    title: "Work with us in the tools you already use",
+    title: "Work with us in the tools *you already use*",
     sub: "Updates, files, and feedback stay in one place.",
     items: ["Google Meet", "Zoom", "WhatsApp", "Slack", "Jira", "Trello", "Figma", "Google Drive"],
   },

@@ -23,20 +23,18 @@ export default function AboutPage() {
 
       {/* Our story */}
       <Section labelledBy="story-title">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <SectionHeading id="story-title" title={about.story.title} sub={about.story.sub} className="mb-0" />
-          <div className="space-y-5 text-lg leading-relaxed text-neutral-700">
-            <p>
-              <Text>{about.story.opening}</Text>
-            </p>
-            <div>
-              <p>{about.story.middle}</p>
-              <SampleTag className="mt-2" />
-            </div>
-            <p>
-              <Text>{about.story.closing}</Text>
-            </p>
+        <SectionHeading id="story-title" title={about.story.title} sub={about.story.sub} />
+        <div className="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-neutral-700">
+          <p>
+            <Text>{about.story.opening}</Text>
+          </p>
+          <div>
+            <p>{about.story.middle}</p>
+            <SampleTag className="mt-2" />
           </div>
+          <p>
+            <Text>{about.story.closing}</Text>
+          </p>
         </div>
       </Section>
 
@@ -111,8 +109,8 @@ export default function AboutPage() {
 
       {/* Legal & certifications */}
       <Section tone="muted" labelledBy="legal-title">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <SectionHeading id="legal-title" title={about.legal.title} sub={about.legal.sub} className="mb-0" />
+        <SectionHeading id="legal-title" title={about.legal.title} sub={about.legal.sub} />
+        <div className="mx-auto max-w-3xl">
           <div>
             <dl className="divide-y divide-neutral-200 rounded-card border border-neutral-200 bg-white">
               {about.legal.items.map((it) => (

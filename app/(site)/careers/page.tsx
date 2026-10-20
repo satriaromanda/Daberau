@@ -30,10 +30,10 @@ export default function CareersPage() {
       </Section>
 
       <Section tone="muted" labelledBy="together-title">
+        <SectionHeading id="together-title" title={c.together.title} />
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
-            <SectionHeading id="together-title" title={c.together.title} className="mb-0" />
-            <p className="mt-5 text-lg leading-relaxed text-neutral-700">{c.together.body}</p>
+            <p className="text-lg leading-relaxed text-neutral-700">{c.together.body}</p>
             <SampleTag className="mt-3" />
           </div>
           <ImagePlaceholder label="Weekly demo with the project team" aspect="aspect-[16/10]" />

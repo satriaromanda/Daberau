@@ -43,10 +43,10 @@ export function Icon({ name, ...props }: { name: IconName } & LucideProps) {
 
 /** Icon tile used on cards: light brand tint with a brand-colored glyph. */
 export function IconTile({ name, size = "md" }: { name: IconName; size?: "sm" | "md" }) {
-  const box = size === "sm" ? "h-9 w-9" : "h-11 w-11";
+  const box = size === "sm" ? "h-9 w-9 rounded-[10px]" : "h-14 w-14 rounded-xl";
   return (
-    <span className={`inline-flex ${box} shrink-0 items-center justify-center rounded-[10px] bg-brand-50 text-brand`}>
-      <Icon name={name} className={size === "sm" ? "h-[18px] w-[18px]" : "h-5 w-5"} strokeWidth={1.8} />
+    <span className={`inline-flex ${box} shrink-0 items-center justify-center bg-brand-50 text-brand`}>
+      <Icon name={name} className={size === "sm" ? "h-[18px] w-[18px]" : "h-7 w-7"} strokeWidth={size === "sm" ? 1.8 : 2.2} />
     </span>
   );
 }

@@ -2,7 +2,7 @@ import type { Faq, NeedFilter, Service, ServiceSlug } from "./types";
 
 const placeholderBody = (name: string) => ({
   problem: {
-    title: "Does this sound like you?",
+    title: "Does this *sound like you?*",
     points: ["[Pain point 1]", "[Pain point 2]", "[Pain point 3]"],
   },
   deliver: {
@@ -34,6 +34,7 @@ export const services: Service[] = [
     name: "Web Development",
     short: "Company websites, online stores, and landing pages that load fast and rank on Google.",
     icon: "globe",
+    image: { alt: "Developer writing website code on a laptop" },
     keyword: "web development services",
     needs: ["found-online"],
     scope: ["Company websites", "Campaign landing pages", "Online stores"],
@@ -50,7 +51,7 @@ export const services: Service[] = [
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
-      title: "Does your website look like this?",
+      title: "Does your website *look like this?*",
       points: [
         "It takes more than 5 seconds to load, and visitors leave before it opens",
         "It doesn't show up on Google's first page for your own services",
@@ -129,6 +130,7 @@ export const services: Service[] = [
     name: "Web & Mobile Apps",
     short: "Custom apps for your operations, your customers, or your next digital product.",
     icon: "smartphone",
+    image: { alt: "Mobile app dashboard on a smartphone" },
     keyword: "custom app development",
     needs: ["automate"],
     scope: ["Internal operations apps", "Customer-facing mobile apps", "Integrations with your existing tools"],
@@ -151,6 +153,7 @@ export const services: Service[] = [
     name: "UI/UX Design",
     short: "Interfaces people find easy to use, validated before a single line of code.",
     icon: "pen",
+    image: { src: "/images/services/ui-ux-design.webp", alt: "Website wireframes and UI sketches in a notebook" },
     keyword: "UI/UX design services",
     needs: ["found-online"],
     scope: ["User research & interviews", "Wireframes & clickable prototypes", "Usability testing"],
@@ -173,6 +176,7 @@ export const services: Service[] = [
     name: "Cloud & Infrastructure",
     short: "Servers, hosting, cloud migration, and backups that stay secure and monitored.",
     icon: "cloud",
+    image: { src: "/images/services/cloud-infrastructure.webp", alt: "Connected cloud network illustration" },
     keyword: "cloud migration / managed servers",
     needs: ["stable"],
     scope: ["Cloud migration & hosting", "Server setup & hardening", "Automated backups & monitoring"],
@@ -195,6 +199,7 @@ export const services: Service[] = [
     name: "IT Support & Maintenance",
     short: "A team on standby for fixes, updates, and system monitoring.",
     icon: "wrench",
+    image: { src: "/images/services/it-support.webp", alt: "IT engineer monitoring systems in a server room" },
     keyword: "managed IT support",
     needs: ["stable"],
     scope: ["Helpdesk & on-call fixes", "Updates & security patches", "System monitoring & monthly reports"],
@@ -217,6 +222,7 @@ export const services: Service[] = [
     name: "IT Consulting & Digital Transformation",
     short: "A clear digital roadmap before you commit a big budget.",
     icon: "compass",
+    image: { src: "/images/services/it-consulting.webp", alt: "Team reviewing business charts in a meeting" },
     keyword: "IT consulting services",
     needs: ["automate"],
     scope: ["IT audit & assessment", "Digital roadmap & budgeting", "Vendor & technology selection"],
@@ -242,16 +248,16 @@ export const serviceBySlug = (slug: ServiceSlug) => services.find((s) => s.slug 
 /** Section headings for the 11-section service detail template (shared by all services) */
 export const serviceTemplate = {
   problemSub: "If any of these hit close to home, you're in the right place.",
-  deliver: { title: "Everything we can take off your plate", sub: "Pick what you need now. Add more as your business grows." },
-  benefits: { title: "What changes for your business", sub: "The results our clients care about most." },
-  process: { title: "How we'll get it done", sub: "A clear path from kickoff to launch, with your review at every stage." },
-  caseStudies: { title: "See it in action", sub: "Real projects, real numbers." },
-  packages: { title: "Pick a package that fits", sub: "Transparent starting prices. Your final quote is itemized and always free." },
-  tech: { title: "Built with tools that last", sub: "Proven, well-supported technology your team won't outgrow." },
-  faq: { title: "Still have questions?", sub: "Here are the ones we hear most." },
-  related: { title: "Often paired with", sub: "Services clients commonly combine with this one." },
+  deliver: { title: "Everything we can *take off your plate*", sub: "Pick what you need now. Add more as your business grows." },
+  benefits: { title: "What changes for *your business*", sub: "The results our clients care about most." },
+  process: { title: "How we'll *get it done*", sub: "A clear path from kickoff to launch, with your review at every stage." },
+  caseStudies: { title: "See it *in action*", sub: "Real projects, real numbers." },
+  packages: { title: "Pick a package *that fits*", sub: "Transparent starting prices. Your final quote is itemized and always free." },
+  tech: { title: "Built with *tools that last*", sub: "Proven, well-supported technology your team won't outgrow." },
+  faq: { title: "Still have *questions?*", sub: "Here are the ones we hear most." },
+  related: { title: "Often *paired with*", sub: "Services clients commonly combine with this one." },
   closing: {
-    headline: "Ready to get your IT sorted?",
+    headline: "Ready to get *your IT sorted?*",
     sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
   },
 };
@@ -268,7 +274,7 @@ export const servicesOverview = {
     { id: "not-sure", label: "I'm not sure yet" },
   ] as { id: NeedFilter; label: string }[],
   grid: {
-    title: "What do you need help with?",
+    title: "What do you need *help with?*",
     sub: "Pick what fits your situation, and we'll show you where to start.",
   },
   bundled: {
@@ -276,11 +282,11 @@ export const servicesOverview = {
     sub: "Bundle services under one contract and one project manager. Less back-and-forth, faster results.",
   },
   tech: {
-    title: "The right tools, not the trendy ones",
+    title: "The *right tools,* not the trendy ones",
     sub: "We pick technology based on what your business needs and what your team can maintain.",
     items: ["React", "Next.js", "Laravel", "Flutter", "WordPress", "Figma", "AWS", "Google Cloud", "Docker", "PostgreSQL", "MySQL", "Cloudflare"],
   },
-  faqTitle: "Questions we hear a lot",
+  faqTitle: "Questions we *hear a lot*",
   faqSub: "Short answers to what most clients ask before getting started.",
   faqs: [
     {

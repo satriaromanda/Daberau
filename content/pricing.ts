@@ -7,11 +7,11 @@ export const pricing = {
   micro: "Final pricing depends on your requirements. Consultations and quotes are always free.",
   startingFrom: "Starting from IDR [X]",
   perService: {
-    title: "Starting prices by service",
+    title: "Starting prices *by service*",
     sub: "A guide to help you plan. Your quote will be itemized by phase.",
   },
   webPackages: {
-    title: "Website packages at a glance",
+    title: "Website packages *at a glance*",
     sub: "Three ways to start, from a simple landing page to a custom build.",
   },
 };

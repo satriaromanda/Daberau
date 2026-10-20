@@ -26,31 +26,50 @@ export function Section({
   );
 }
 
+/** Renders *marked words* in a heading string in brand red, e.g. "Does this sound like *your business?*" */
+export function Accent({ children }: { children: string }) {
+  return (
+    <>
+      {children.split(/(\*[^*]+\*)/).filter(Boolean).map((part, i) =>
+        part.startsWith("*") && part.endsWith("*") ? (
+          <span key={i} className="text-brand">
+            {part.slice(1, -1)}
+          </span>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
+/** Section headline + subheadline. Centered by default; wrap key words in *asterisks* to color them brand red. */
 export function SectionHeading({
   id,
   title,
   sub,
   eyebrow,
-  align = "left",
+  align = "center",
   extra,
   className = "",
 }: {
   id?: string;
-  title: React.ReactNode;
+  title: string;
   sub?: React.ReactNode;
   eyebrow?: string;
   align?: "left" | "center";
   extra?: React.ReactNode;
   className?: string;
 }) {
+  const centered = align === "center";
   return (
-    <div className={`mb-10 max-w-2xl md:mb-12 ${align === "center" ? "mx-auto text-center" : ""} ${className}`}>
+    <div className={`mb-10 max-w-3xl md:mb-14 ${centered ? "mx-auto text-center" : ""} ${className}`}>
       {eyebrow && <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-brand">{eyebrow}</p>}
-      <h2 id={id} className="text-[28px] font-bold leading-tight tracking-tight text-ink md:text-[36px]">
-        {title}
+      <h2 id={id} className="text-[30px] font-extrabold leading-[1.12] tracking-tight text-ink md:text-[44px] lg:text-[48px]">
+        <Accent>{title}</Accent>
       </h2>
-      {sub && <p className="mt-4 text-lg leading-relaxed text-neutral-600">{sub}</p>}
-      {extra && <div className="mt-3">{extra}</div>}
+      {sub && <p className="mt-4 text-lg leading-relaxed text-neutral-600 md:text-xl">{sub}</p>}
+      {extra && <div className={`mt-4 flex flex-wrap items-center gap-2 ${centered ? "justify-center" : ""}`}>{extra}</div>}
     </div>
   );
 }

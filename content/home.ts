@@ -15,7 +15,7 @@ export const home = {
     logoCount: 8,
   },
   pain: {
-    title: "Does any of this sound like your business?",
+    title: "Does any of this sound like *your business?*",
     sub: "Most of our clients came to us with at least one of these.",
     cards: [
       {
@@ -42,12 +42,12 @@ export const home = {
     closing: "The good news? Every one of these can be fixed, one step at a time.",
   },
   services: {
-    title: "Everything your business runs on, built by one team",
+    title: "Everything your business runs on, built by *one team*",
     sub: "Start with one service or combine several. Either way, you get one team and one point of contact.",
     cta: { label: "Explore All Services", href: "/services" },
   },
   why: {
-    title: "Why clients stay with us long after launch",
+    title: "Why clients stay with us *long after launch*",
     sub: "Clear pricing, progress you can see, and a team that's still here when something needs fixing.",
     points: [
       { title: "One team, one point of contact.", body: "No juggling vendors. A single project manager owns your project from kickoff to launch." },
@@ -57,30 +57,30 @@ export const home = {
     ],
   },
   stats: {
-    title: "Results we can stand behind",
+    title: "Results we can *stand behind*",
     sub: "Every number here comes from projects we've actually delivered.",
   },
   featured: {
-    title: "Proof, not promises",
+    title: "*Proof,* not promises",
     sub: "See how businesses like yours saved time, won more customers, and stopped firefighting.",
     cta: { label: "View All Case Studies", href: "/case-studies" },
   },
   process: {
-    title: "From first call to launch in 5 clear steps",
+    title: "From first call to launch in *5 clear steps*",
     sub: "You'll always know what happens next, what it costs, and when it's done.",
     link: { label: "See how we work →", href: "/how-we-work" },
   },
   testimonials: {
-    title: "Don't just take our word for it",
+    title: "Don't just take *our word* for it",
     sub: "Here's what owners and managers say after working with us.",
   },
   insights: {
-    title: "Smarter IT decisions start here",
+    title: "*Smarter IT decisions* start here",
     sub: "Practical, jargon-free guides for business owners who want to make the right call.",
     cta: { label: "Read All Insights", href: "/insights" },
   },
   closing: {
-    headline: "Ready to get your IT sorted?",
+    headline: "Ready to get *your IT sorted?*",
     sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
   },
 };

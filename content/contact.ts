@@ -11,7 +11,7 @@ export const contactPage = {
     sub: "Fill in the form below or reach us however suits you best. We reply within one business day.",
   },
   optionsHeading: {
-    title: "Choose the fastest way to reach us",
+    title: "Choose the *fastest way* to reach us",
     sub: "Pick the option that fits what you need right now.",
   },
   options: [
@@ -34,7 +34,7 @@ export const contactPage = {
       kind: "support",
     },
   ],
-  formTitle: "Tell us about your project",
+  formTitle: "Tell us about *your project*",
   formSub: "The more you share, the better our first recommendation will be.",
   info: {
     title: "Contact info",
@@ -42,9 +42,9 @@ export const contactPage = {
     mapsLink: "Open in Google Maps",
     micro: "Messages sent outside business hours will be answered the next business day.",
   },
-  map: { title: "Come visit us", label: "Map: Citi Business Park, Kalideres" },
+  map: { title: "Come *visit us*", label: "Map: Citi Business Park, Kalideres" },
   faq: {
-    title: "Before you reach out",
+    title: "Before you *reach out*",
     sub: "Quick answers to the questions we hear most.",
     items: [
       {

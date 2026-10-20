@@ -49,6 +49,8 @@ export type Service = {
   /** Mega menu + service card microcopy (spec, verbatim) */
   short: string;
   icon: IconName;
+  /** Card photo in /public/images/services. Without `src`, a labeled placeholder shows `alt`. */
+  image: { src?: string; alt: string };
   keyword: string;
   needs: NeedFilter[];
   /** 3 scope bullets for the /services grid */

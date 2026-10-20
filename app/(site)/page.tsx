@@ -62,10 +62,10 @@ export default function HomePage() {
         <SectionHeading id="pain-title" title={home.pain.title} sub={home.pain.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {home.pain.cards.map((c) => (
-            <div key={c.title} className="rounded-card border border-neutral-200 bg-white p-6">
-              <IconTile name={c.icon} size="sm" />
-              <h3 className="mt-4 text-[17px] font-bold leading-snug text-pretty text-ink">{c.title}</h3>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-600">{c.body}</p>
+            <div key={c.title} className="rounded-card border border-neutral-200 bg-white p-6 md:p-7">
+              <IconTile name={c.icon} />
+              <h3 className="mt-6 text-[19px] font-bold leading-snug text-pretty text-ink">{c.title}</h3>
+              <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">{c.body}</p>
             </div>
           ))}
         </div>
@@ -92,19 +92,17 @@ export default function HomePage() {
 
       {/* 5. Why Daberau */}
       <Section labelledBy="why-title">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <SectionHeading id="why-title" title={home.why.title} sub={home.why.sub} className="mb-0" />
-          <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
-            {home.why.points.map((p) => (
-              <li key={p.title} className="border-t-2 border-brand pt-5">
-                <h3 className="text-[17px] font-bold text-ink">{p.title}</h3>
-                <p className="mt-2 leading-relaxed text-neutral-600">
-                  <Text>{p.body}</Text>
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SectionHeading id="why-title" title={home.why.title} sub={home.why.sub} />
+        <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          {home.why.points.map((p) => (
+            <li key={p.title} className="border-t-2 border-brand pt-5">
+              <h3 className="text-[19px] font-bold leading-snug text-pretty text-ink">{p.title}</h3>
+              <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">
+                <Text>{p.body}</Text>
+              </p>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       {/* 6. Stats */}

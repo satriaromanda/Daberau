@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* Contact options */}
       <section aria-labelledby="options-title" className="bg-white pt-12 md:pt-16">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionHeading id="options-title" title={c.optionsHeading.title} sub={c.optionsHeading.sub} className="md:mb-10" />
+          <SectionHeading id="options-title" title={c.optionsHeading.title} sub={c.optionsHeading.sub} />
         </div>
         <div className="mx-auto grid w-full max-w-[1200px] gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           {c.options.map((o) => {
@@ -53,9 +53,9 @@ export default function ContactPage() {
 
       {/* Form + info */}
       <Section labelledBy="form-title" id="contact-form">
+        <SectionHeading id="form-title" title={c.formTitle} sub={c.formSub} />
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
           <div>
-            <SectionHeading id="form-title" title={c.formTitle} sub={c.formSub} className="md:mb-8" />
             <LeadForm />
           </div>
           <aside aria-labelledby="info-title">
@@ -99,8 +99,8 @@ export default function ContactPage() {
 
       {/* Quick FAQ */}
       <Section labelledBy="faq-title">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading id="faq-title" title={c.faq.title} sub={c.faq.sub} className="mb-0" />
+        <SectionHeading id="faq-title" title={c.faq.title} sub={c.faq.sub} />
+        <div className="mx-auto max-w-3xl">
           <FaqAccordion items={c.faq.items} />
         </div>
       </Section>

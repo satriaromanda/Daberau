@@ -29,6 +29,13 @@ npx serve out      # preview the static export
 | `app/(site)` | Pages with the full header/footer |
 | `app/(minimal)/consultation` | Logo-only landing page |
 
+## Section headlines
+
+Section headlines are centered. Wrap key words in `*asterisks*` in the content string to show them in brand red,
+e.g. `title: "Does any of this sound like *your business?*"`. Service card photos live in
+`public/images/services/{slug}.webp` and are set per service in `content/services.ts` (`image.src`); a service without
+`src` shows a labeled placeholder.
+
 ## Placeholders
 
 - Bracketed tokens in content strings (`[X]`, `[year]`, `[WhatsApp number]`, `[Month DD, YYYY]`, `[Client name]`…) render
