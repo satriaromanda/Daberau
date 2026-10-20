@@ -1,0 +1,2006 @@
+{
+  "site": {
+    "brand": "Daberau",
+    "legalName": "PT Daberau Mikro Elit",
+    "domain": "daberau-me.com",
+    "email": "cs@daberau-me.com",
+    "phone": "+62 21 5431 6725",
+    "phoneHref": "tel:+622154316725",
+    "whatsappHref": "https://wa.me/?text=Hi%20Daberau%2C%20I'm%20%5Bname%5D%20from%20%5Bcompany%5D.%20I'd%20like%20to%20discuss%E2%80%A6",
+    "address": "Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840",
+    "mapsHref": "https://www.google.com/maps/search/?api=1&query=Jl.%20Peta%20Selatan%2C%20Citi%20Business%20Park%20Blok%20A%20No.%2031%2C%20Kalideres%2C%20West%20Jakarta%2011840",
+    "mapsEmbed": "https://www.google.com/maps?q=Jl.%20Peta%20Selatan%2C%20Citi%20Business%20Park%20Blok%20A%20No.%2031%2C%20Kalideres%2C%20West%20Jakarta%2011840&output=embed",
+    "hours": "Mon–Fri, 9 AM–5 PM WIB",
+    "hoursLong": "Mon–Fri, 9 AM–5 PM (WIB, GMT+7)",
+    "tagline": "One partner for every IT need your business has.",
+    "copyright": "© 2026 Daberau. All rights reserved.",
+    "socials": [
+      {
+        "label": "LinkedIn",
+        "href": "",
+        "icon": "linkedin"
+      },
+      {
+        "label": "Instagram",
+        "href": "",
+        "icon": "instagram"
+      },
+      {
+        "label": "Facebook",
+        "href": "",
+        "icon": "facebook"
+      },
+      {
+        "label": "YouTube",
+        "href": "",
+        "icon": "youtube"
+      }
+    ]
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "About Us",
+        "href": "/about-us"
+      },
+      {
+        "label": "How We Work",
+        "href": "/how-we-work"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "servicesLabel": "Services",
+    "allServices": {
+      "label": "Explore All Services",
+      "href": "/services"
+    },
+    "megaPromo": {
+      "title": "Not sure what you need?",
+      "body": "Tell us the problem. We'll map out the right solution. Free, 30 minutes.",
+      "cta": {
+        "label": "Book a Consultation →",
+        "href": "/contact#contact-form"
+      }
+    },
+    "stickyCta": {
+      "label": "Free Consultation",
+      "href": "/contact#contact-form"
+    }
+  },
+  "footer": {
+    "company": [
+      {
+        "label": "About Us",
+        "href": "/about-us"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "help": [
+      {
+        "label": "FAQ",
+        "href": "/faq"
+      },
+      {
+        "label": "How We Work",
+        "href": "/how-we-work"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      },
+      {
+        "label": "Terms & Conditions",
+        "href": "/terms-and-conditions"
+      }
+    ]
+  },
+  "preFooter": {
+    "title": "Have an IT project you want to get moving?",
+    "body": "Your first consultation is free. We reply within one business day."
+  },
+  "cookies": {
+    "banner": "We use cookies to understand how our site is used and to improve your experience.",
+    "acceptAll": "Accept All",
+    "manage": "Manage Preferences",
+    "modalTitle": "Cookie preferences",
+    "categories": [
+      {
+        "id": "essential",
+        "label": "Essential",
+        "locked": true,
+        "lockedLabel": "(always on)"
+      },
+      {
+        "id": "analytics",
+        "label": "Analytics",
+        "locked": false
+      },
+      {
+        "id": "marketing",
+        "label": "Marketing",
+        "locked": false
+      }
+    ],
+    "save": "Save Preferences"
+  },
+  "stats": [
+    {
+      "value": "100+",
+      "label": "Projects delivered"
+    },
+    {
+      "value": "30+",
+      "label": "Active clients"
+    },
+    {
+      "value": "8+ years",
+      "label": "Team experience"
+    },
+    {
+      "value": "85%",
+      "label": "Clients who come back"
+    }
+  ],
+  "microcopy": {
+    "ctaPrimary": "Get a Free Consultation",
+    "exploreServices": "Explore Services",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "serviceCta": "Talk to Us About [Service]",
+    "sendRequest": "Send Request",
+    "reassurance": "Free and no commitment. We reply within one business day.",
+    "companyProfile": "Download Company Profile (PDF, 3 MB)",
+    "learnMore": "Learn more →",
+    "whatsappPrefill": "Hi Daberau, I'm [name] from [company]. I'd like to discuss…",
+    "budgetTooltip": "A rough range is fine. It helps us suggest the right solution.",
+    "errorSummary": "A few fields need your attention. Please check the highlighted fields.",
+    "notFound": {
+      "title": "We can't find that page.",
+      "body": "It may have moved.",
+      "primary": {
+        "label": "Back to Home",
+        "href": "/"
+      },
+      "secondary": {
+        "label": "Explore Services",
+        "href": "/services"
+      }
+    },
+    "whatsappTooltip": "Questions? Chat with our team.",
+    "loading": "Loading…"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "IT services for businesses ready to grow",
+      "h1": "One partner for every IT need your business has",
+      "sub": "Websites, apps, servers, and day-to-day support, all handled by one team that stays with you after launch.",
+      "primary": {
+        "label": "Get a Free Consultation",
+        "href": "/contact#contact-form"
+      },
+      "secondary": {
+        "label": "Explore Services",
+        "href": "/services"
+      },
+      "micro": "Free and no commitment. We reply within one business day.",
+      "image": {
+        "src": "/images/hero-dashboard.webp",
+        "alt": "Daberau project dashboard showing projects, tasks, upcoming events, and progress charts"
+      }
+    },
+    "pain": {
+      "title": "Does any of this sound like *your business?*",
+      "sub": "Most of our clients came to us with at least one of these.",
+      "cards": [
+        {
+          "icon": "search-x",
+          "title": "Your website looks good, but nobody calls.",
+          "body": "Visitors can't find you on Google, and the few who do leave before getting in touch."
+        },
+        {
+          "icon": "spreadsheet",
+          "title": "Your team still does it by hand.",
+          "body": "Numbers live in spreadsheets and chat threads, so reports run late and the same mistakes return."
+        },
+        {
+          "icon": "server-crash",
+          "title": "Something breaks, and nobody answers.",
+          "body": "The server goes down or data disappears, right when you need it most."
+        },
+        {
+          "icon": "signpost",
+          "title": "You're not sure where to begin.",
+          "body": "Every vendor speaks a different jargon, and your budget can't afford a wrong guess."
+        }
+      ],
+      "closing": "The good news? Every one of these can be fixed, one step at a time."
+    },
+    "services": {
+      "title": "Everything your business runs on, built by *one team*",
+      "sub": "Start with one service or combine several. Either way, you get one team and one point of contact.",
+      "cta": {
+        "label": "Explore All Services",
+        "href": "/services"
+      }
+    },
+    "why": {
+      "title": "Why clients stay with us *long after launch*",
+      "sub": "Clear pricing, progress you can see, and a team that's still here when something needs fixing.",
+      "points": [
+        {
+          "icon": "users",
+          "title": "One team, one point of contact.",
+          "body": "No juggling vendors. A single project manager owns your project from kickoff to launch."
+        },
+        {
+          "icon": "receipt",
+          "title": "Clear pricing from day one.",
+          "body": "Itemized quotes for every phase, with no hidden fees."
+        },
+        {
+          "icon": "chart",
+          "title": "Progress you can see.",
+          "body": "Weekly updates and access to the project board."
+        },
+        {
+          "icon": "shield",
+          "title": "We don't disappear after launch.",
+          "body": "A 30-day bug-fix warranty and monthly maintenance plans."
+        }
+      ]
+    },
+    "process": {
+      "title": "From first call to launch in *5 clear steps*",
+      "sub": "You'll always know what happens next, what it costs, and when it's done.",
+      "link": {
+        "label": "See how we work →",
+        "href": "/how-we-work"
+      }
+    }
+  },
+  "services": [
+    {
+      "slug": "web-development",
+      "name": "Web Development",
+      "short": "Company websites, online stores, and landing pages that load fast and rank on Google.",
+      "icon": "globe",
+      "image": {
+        "src": "/images/services/web-development.webp",
+        "alt": "Developer writing website code on a laptop"
+      },
+      "keyword": "web development services",
+      "needs": [
+        "found-online"
+      ],
+      "scope": [
+        "Company websites",
+        "Campaign landing pages",
+        "Online stores"
+      ],
+      "meta": {
+        "title": "Web Development Services | Daberau",
+        "description": "Fast, easy to find on Google, and designed to turn visitors into leads."
+      },
+      "hero": {
+        "h1": "Websites that bring in customers, not just look good",
+        "sub": "Fast, easy to find on Google, and designed to turn visitors into leads.",
+        "cta": {
+          "label": "Get a Free Website Consultation",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does your website *look like this?*",
+        "points": [
+          "It takes more than 5 seconds to load, and visitors leave before it opens",
+          "It doesn't show up on Google's first page for your own services",
+          "You can't update it without calling a developer"
+        ]
+      },
+      "deliver": [
+        "Company websites",
+        "Campaign landing pages",
+        "Online stores",
+        "Website redesigns",
+        "Technical & on-page SEO",
+        "WhatsApp, payment gateway, and analytics integration"
+      ],
+      "benefits": [
+        {
+          "title": "Get found faster.",
+          "body": "SEO structure built in from day one."
+        },
+        {
+          "title": "Get more inquiries.",
+          "body": "Every page has a clear CTA and form."
+        },
+        {
+          "title": "Manage it yourself.",
+          "body": "A CMS you can update without code."
+        }
+      ],
+      "process": [
+        {
+          "title": "Discovery call",
+          "body": "We agree on your goals, your audience, and the pages you need."
+        },
+        {
+          "title": "Sitemap & wireframes",
+          "body": "You approve the structure before any design work starts."
+        },
+        {
+          "title": "Design & build",
+          "body": "We design key pages, then build them responsive and fast."
+        },
+        {
+          "title": "SEO & testing",
+          "body": "We set up on-page SEO and test speed, forms, and every device."
+        },
+        {
+          "title": "Launch & handover",
+          "body": "We go live and show your team how to update the CMS."
+        }
+      ],
+      "techStack": [
+        "Next.js",
+        "WordPress",
+        "Laravel",
+        "Tailwind CSS",
+        "Google Analytics",
+        "Cloudflare"
+      ],
+      "faqs": [
+        {
+          "q": "How long does it take to build a website?",
+          "a": "Simple sites usually take 2–3 weeks and full company websites 4–6 weeks. We confirm the exact timeline in your written quote."
+        },
+        {
+          "q": "Can I edit the content myself?",
+          "a": "Yes. We set up an easy-to-use CMS and walk your team through it at handover."
+        },
+        {
+          "q": "Are domain and hosting included?",
+          "a": "We can include a domain, hosting, and SSL for the first year. Everything is itemized in your quote."
+        },
+        {
+          "q": "What if I already have a website?",
+          "a": "We can redesign it, move your existing content across, and keep your domain so you don't start from zero."
+        },
+        {
+          "q": "Can you guarantee a first-page ranking on Google?",
+          "a": "No one can honestly guarantee rankings. We build the SEO foundations that give your pages the best chance, and show you how to track progress."
+        }
+      ],
+      "related": [
+        "ui-ux-design",
+        "app-development",
+        "it-support"
+      ]
+    },
+    {
+      "slug": "app-development",
+      "name": "Web & Mobile Apps",
+      "short": "Custom apps for your operations, your customers, or your next digital product.",
+      "icon": "smartphone",
+      "image": {
+        "src": "/images/services/app-development.webp",
+        "alt": "Mobile app dashboard on a smartphone"
+      },
+      "keyword": "custom app development",
+      "needs": [
+        "automate"
+      ],
+      "scope": [
+        "Internal operations apps",
+        "Customer-facing mobile apps",
+        "Integrations with your existing tools"
+      ],
+      "meta": {
+        "title": "Custom App Development | Daberau",
+        "description": "Custom apps for your operations, your customers, or your next digital product."
+      },
+      "hero": {
+        "h1": "Custom apps built around the way your business works",
+        "sub": "Custom apps for your operations, your customers, or your next digital product.",
+        "cta": {
+          "label": "Talk to Us About Web & Mobile Apps",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does this *sound like you?*",
+        "points": [
+          "Your team re-types the same data into spreadsheets, chat, and accounting every day",
+          "Off-the-shelf software forces you to change how you work, or costs more each month",
+          "Customers can't order, book, or check status without calling you"
+        ]
+      },
+      "deliver": [
+        "Internal operations apps (inventory, sales, HR)",
+        "Customer-facing iOS & Android apps",
+        "Web portals & dashboards",
+        "Booking, ordering & payment systems",
+        "Integrations with accounting, ERP & WhatsApp",
+        "Rebuilds of legacy systems"
+      ],
+      "benefits": [
+        {
+          "title": "Hours back every week.",
+          "body": "Repetitive data entry and manual reports are automated."
+        },
+        {
+          "title": "One source of truth.",
+          "body": "Every branch and team works from the same live data."
+        },
+        {
+          "title": "Built to grow with you.",
+          "body": "Start with the features that matter now and add more later."
+        }
+      ],
+      "process": [
+        {
+          "title": "Discovery workshop",
+          "body": "We map your current workflow and agree on what the first version must do."
+        },
+        {
+          "title": "Clickable prototype",
+          "body": "You test the screens with your team before development starts."
+        },
+        {
+          "title": "Build in sprints",
+          "body": "Two-week sprints with a working demo at the end of each one."
+        },
+        {
+          "title": "Test & roll out",
+          "body": "User testing, data migration, and training for your team."
+        },
+        {
+          "title": "Support & improve",
+          "body": "Monitoring, fixes, and new features as your needs change."
+        }
+      ],
+      "techStack": [
+        "React",
+        "Next.js",
+        "Flutter",
+        "Laravel",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "faqs": [
+        {
+          "q": "How long does it take to build an app?",
+          "a": "An MVP usually takes 6–10 weeks. Larger business apps take 3–6 months, delivered in stages so you can start using parts of it early."
+        },
+        {
+          "q": "Do I need both a web app and a mobile app?",
+          "a": "Not always. For internal tools, a mobile-friendly web app is often enough. We'll recommend the simplest option that fits how your team works."
+        },
+        {
+          "q": "Will I own the source code?",
+          "a": "Yes. Ownership of the source code transfers to you once all payments are complete."
+        },
+        {
+          "q": "Can the app connect to the software we already use?",
+          "a": "Usually, yes. We regularly integrate with accounting software, ERPs, payment gateways, and WhatsApp."
+        },
+        {
+          "q": "What happens after the app launches?",
+          "a": "You get a 30-day bug-fix warranty. After that, a monthly maintenance plan covers updates, monitoring, and small changes."
+        }
+      ],
+      "related": [
+        "ui-ux-design",
+        "cloud-infrastructure",
+        "it-consulting"
+      ]
+    },
+    {
+      "slug": "ui-ux-design",
+      "name": "UI/UX Design",
+      "short": "Interfaces people find easy to use, validated before a single line of code.",
+      "icon": "pen",
+      "image": {
+        "src": "/images/services/ui-ux-design.webp",
+        "alt": "Website wireframes and UI sketches in a notebook"
+      },
+      "keyword": "UI/UX design services",
+      "needs": [
+        "found-online"
+      ],
+      "scope": [
+        "User research & interviews",
+        "Wireframes & clickable prototypes",
+        "Usability testing"
+      ],
+      "meta": {
+        "title": "UI/UX Design Services | Daberau",
+        "description": "Interfaces people find easy to use, validated before a single line of code."
+      },
+      "hero": {
+        "h1": "Digital products people find easy to use from version one",
+        "sub": "Interfaces people find easy to use, validated before a single line of code.",
+        "cta": {
+          "label": "Talk to Us About UI/UX Design",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does this *sound like you?*",
+        "points": [
+          "Users sign up, get confused, and never come back",
+          "Your team argues about the design, and every change means rework",
+          "Developers are building screens nobody has tested with real users"
+        ]
+      },
+      "deliver": [
+        "User research & interviews",
+        "UX audits of existing products",
+        "Wireframes & user flows",
+        "Clickable prototypes",
+        "Visual UI design & design systems",
+        "Usability testing"
+      ],
+      "benefits": [
+        {
+          "title": "Fewer costly rebuilds.",
+          "body": "Problems are found in a prototype, not after launch."
+        },
+        {
+          "title": "Higher conversion.",
+          "body": "Clear flows help more visitors finish signing up or buying."
+        },
+        {
+          "title": "Faster development.",
+          "body": "Developers get ready-to-build screens and a design system."
+        }
+      ],
+      "process": [
+        {
+          "title": "Research",
+          "body": "Interviews and data review to understand your users and goals."
+        },
+        {
+          "title": "Wireframes",
+          "body": "Low-fidelity layouts of the key screens and flows."
+        },
+        {
+          "title": "Prototype",
+          "body": "A clickable prototype that looks and feels like the real product."
+        },
+        {
+          "title": "Test & refine",
+          "body": "Usability tests with real users, then improvements."
+        },
+        {
+          "title": "Handoff",
+          "body": "Final designs, a design system, and specs for your developers."
+        }
+      ],
+      "techStack": [
+        "Figma",
+        "Framer",
+        "Maze",
+        "Hotjar",
+        "Google Analytics",
+        "Miro"
+      ],
+      "faqs": [
+        {
+          "q": "What's the difference between UI and UX?",
+          "a": "UX is how the product works: the flows, structure, and ease of use. UI is how it looks: layout, colors, and typography. We design both together."
+        },
+        {
+          "q": "Do you test designs with real users?",
+          "a": "Yes. We test prototypes with people who match your target users before anything goes to development."
+        },
+        {
+          "q": "Can you work with our in-house developers?",
+          "a": "Of course. We hand over Figma files, a design system, and specs, and stay available for questions during the build."
+        },
+        {
+          "q": "Will we get the design files?",
+          "a": "Yes. You receive the editable Figma files once the project is paid in full."
+        },
+        {
+          "q": "How long does a design project take?",
+          "a": "A UX audit takes about 1 week. Full product design usually takes 4–8 weeks, depending on the number of screens."
+        }
+      ],
+      "related": [
+        "web-development",
+        "app-development",
+        "it-consulting"
+      ]
+    },
+    {
+      "slug": "cloud-infrastructure",
+      "name": "Cloud & Infrastructure",
+      "short": "Servers, hosting, cloud migration, and backups that stay secure and monitored.",
+      "icon": "cloud",
+      "image": {
+        "src": "/images/services/cloud-infrastructure.webp",
+        "alt": "Connected cloud network illustration"
+      },
+      "keyword": "cloud migration / managed servers",
+      "needs": [
+        "stable"
+      ],
+      "scope": [
+        "Cloud migration & hosting",
+        "Server setup & hardening",
+        "Automated backups & monitoring"
+      ],
+      "meta": {
+        "title": "Cloud Migration & Managed Servers | Daberau",
+        "description": "Servers, hosting, cloud migration, and backups that stay secure and monitored."
+      },
+      "hero": {
+        "h1": "Infrastructure that stays stable, secure, and ready to scale",
+        "sub": "Servers, hosting, cloud migration, and backups that stay secure and monitored.",
+        "cta": {
+          "label": "Talk to Us About Cloud & Infrastructure",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does this *sound like you?*",
+        "points": [
+          "Your website or system goes down, and you find out from customers",
+          "Backups are manual, and no one has ever tested restoring them",
+          "Server costs keep rising, but nobody knows what you're paying for"
+        ]
+      },
+      "deliver": [
+        "Cloud migration (AWS, Google Cloud, local providers)",
+        "Server setup & security hardening",
+        "Managed hosting",
+        "Automated backups & disaster recovery",
+        "24/7 uptime monitoring & alerts",
+        "Cost review & optimization"
+      ],
+      "benefits": [
+        {
+          "title": "Fewer outages.",
+          "body": "Monitoring alerts us before your customers notice."
+        },
+        {
+          "title": "Data you can recover.",
+          "body": "Daily automated backups, with restores tested regularly."
+        },
+        {
+          "title": "Predictable costs.",
+          "body": "A right-sized setup and a clear monthly bill."
+        }
+      ],
+      "process": [
+        {
+          "title": "Assessment",
+          "body": "We review your current servers, costs, and risks."
+        },
+        {
+          "title": "Architecture plan",
+          "body": "A recommended setup with costs, timeline, and migration steps."
+        },
+        {
+          "title": "Setup & migration",
+          "body": "We build the new environment and move your data with minimal downtime."
+        },
+        {
+          "title": "Monitor & maintain",
+          "body": "Ongoing monitoring, updates, backups, and monthly reports."
+        }
+      ],
+      "techStack": [
+        "AWS",
+        "Google Cloud",
+        "Docker",
+        "Linux",
+        "Cloudflare",
+        "Grafana"
+      ],
+      "faqs": [
+        {
+          "q": "Will my website go down during the migration?",
+          "a": "We plan migrations to keep downtime minimal, usually a few minutes, and schedule the switch outside your business hours."
+        },
+        {
+          "q": "Where will my data be stored?",
+          "a": "You choose. We work with global providers and providers with data centers in Indonesia, depending on your needs and regulations."
+        },
+        {
+          "q": "How often are backups made?",
+          "a": "Daily by default, kept for at least 30 days. We can set a more frequent schedule for critical systems."
+        },
+        {
+          "q": "Do we get access to our own servers?",
+          "a": "Yes. Accounts are created in your company's name, and you keep full access at all times."
+        },
+        {
+          "q": "What if something goes wrong at night?",
+          "a": "Monitoring runs 24/7 and alerts our on-call engineer. Response times depend on your plan and are written into your agreement."
+        }
+      ],
+      "related": [
+        "it-support",
+        "it-consulting",
+        "app-development"
+      ]
+    },
+    {
+      "slug": "it-support",
+      "name": "IT Support & Maintenance",
+      "short": "A team on standby for fixes, updates, and system monitoring.",
+      "icon": "wrench",
+      "image": {
+        "src": "/images/services/it-support.webp",
+        "alt": "IT engineer monitoring systems in a server room"
+      },
+      "keyword": "managed IT support",
+      "needs": [
+        "stable"
+      ],
+      "scope": [
+        "Helpdesk & on-call fixes",
+        "Updates & security patches",
+        "System monitoring & monthly reports"
+      ],
+      "meta": {
+        "title": "Managed IT Support & Maintenance | Daberau",
+        "description": "A team on standby for fixes, updates, and system monitoring."
+      },
+      "hero": {
+        "h1": "Your IT team, without the hiring",
+        "sub": "A team on standby for fixes, updates, and system monitoring.",
+        "cta": {
+          "label": "Talk to Us About IT Support & Maintenance",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does this *sound like you?*",
+        "points": [
+          "When something breaks, you don't know who to call",
+          "Your website and systems haven't been updated in months",
+          "A freelancer built your system, and now they're hard to reach"
+        ]
+      },
+      "deliver": [
+        "Helpdesk via WhatsApp, email & phone",
+        "Website & application maintenance",
+        "Security updates & patching",
+        "Uptime & performance monitoring",
+        "Small changes & content updates",
+        "Monthly health reports"
+      ],
+      "benefits": [
+        {
+          "title": "Fast answers.",
+          "body": "One support channel and a team that knows your systems."
+        },
+        {
+          "title": "Fewer surprises.",
+          "body": "Regular updates and monitoring catch issues early."
+        },
+        {
+          "title": "Lower cost than hiring.",
+          "body": "A whole team for less than one full-time IT employee."
+        }
+      ],
+      "process": [
+        {
+          "title": "System check",
+          "body": "We audit your websites, apps, and servers and document everything."
+        },
+        {
+          "title": "Plan & onboarding",
+          "body": "We agree on response times and set up your support channel."
+        },
+        {
+          "title": "Ongoing support",
+          "body": "Fixes, updates, and small changes, handled as they come in."
+        },
+        {
+          "title": "Monthly review",
+          "body": "A report on uptime, issues fixed, and what to improve next."
+        }
+      ],
+      "techStack": [
+        "WordPress",
+        "Laravel",
+        "Linux",
+        "Cloudflare",
+        "Sentry",
+        "Nginx"
+      ],
+      "faqs": [
+        {
+          "q": "Can you support a system another vendor built?",
+          "a": "Yes. We start with a system check to understand the code and setup, then take it over safely."
+        },
+        {
+          "q": "How fast do you respond?",
+          "a": "During business hours, maintenance clients get a first response within 4 business hours. Exact response times are written into your plan."
+        },
+        {
+          "q": "Do you offer on-site support?",
+          "a": "Yes, in Jakarta and surrounding areas, as part of a support plan."
+        },
+        {
+          "q": "Is there a minimum contract?",
+          "a": "Monthly plans start with a 3-month minimum, then continue month to month."
+        },
+        {
+          "q": "What counts as a support hour?",
+          "a": "Any time spent fixing, updating, or changing your systems. Monitoring and backups don't use your hours."
+        }
+      ],
+      "related": [
+        "cloud-infrastructure",
+        "web-development",
+        "it-consulting"
+      ]
+    },
+    {
+      "slug": "it-consulting",
+      "name": "IT Consulting & Digital Transformation",
+      "short": "A clear digital roadmap before you commit a big budget.",
+      "icon": "compass",
+      "image": {
+        "src": "/images/services/it-consulting.webp",
+        "alt": "Team reviewing business charts in a meeting"
+      },
+      "keyword": "IT consulting services",
+      "needs": [
+        "automate"
+      ],
+      "scope": [
+        "IT audit & assessment",
+        "Digital roadmap & budgeting",
+        "Vendor & technology selection"
+      ],
+      "meta": {
+        "title": "IT Consulting Services | Daberau",
+        "description": "A clear digital roadmap before you commit a big budget."
+      },
+      "hero": {
+        "h1": "A clear digital roadmap before you invest",
+        "sub": "A clear digital roadmap before you commit a big budget.",
+        "cta": {
+          "label": "Talk to Us About IT Consulting & Digital Transformation",
+          "href": "/contact#contact-form"
+        },
+        "micro": "We'll send a cost estimate within one business day."
+      },
+      "problem": {
+        "title": "Does this *sound like you?*",
+        "points": [
+          "You know you need to go digital, but not where to start",
+          "Every vendor recommends something different, and all of them sound expensive",
+          "You've paid for software your team doesn't actually use"
+        ]
+      },
+      "deliver": [
+        "IT audit & assessment",
+        "Digital transformation roadmap",
+        "Budget & ROI planning",
+        "Vendor & software selection",
+        "Requirements & tender documents",
+        "Project oversight on your side"
+      ],
+      "benefits": [
+        {
+          "title": "Spend on what matters.",
+          "body": "A prioritized plan stops money going to the wrong tools."
+        },
+        {
+          "title": "Decide with confidence.",
+          "body": "Clear options, costs, and trade-offs in plain language."
+        },
+        {
+          "title": "An advisor on your side.",
+          "body": "Independent advice, even when another vendor builds it."
+        }
+      ],
+      "process": [
+        {
+          "title": "Interviews",
+          "body": "We talk to owners and key staff about goals and daily problems."
+        },
+        {
+          "title": "Assessment",
+          "body": "We review your current systems, data, and costs."
+        },
+        {
+          "title": "Roadmap",
+          "body": "A step-by-step plan with priorities, budget, and timeline."
+        },
+        {
+          "title": "Support delivery",
+          "body": "Optional help choosing vendors and overseeing the work."
+        }
+      ],
+      "techStack": [
+        "Google Sheets",
+        "Odoo",
+        "Zoho",
+        "Looker",
+        "Airtable",
+        "Notion"
+      ],
+      "faqs": [
+        {
+          "q": "Do we have to build with Daberau after the roadmap?",
+          "a": "No. The roadmap is yours to use with any vendor. If you do build with us, part of the fee can be credited."
+        },
+        {
+          "q": "How long does a roadmap take?",
+          "a": "Usually 2–4 weeks, depending on the size of your company and the number of people we interview."
+        },
+        {
+          "q": "Can you help us choose between vendors?",
+          "a": "Yes. We help you write requirements, compare proposals, and ask the right questions before you sign."
+        },
+        {
+          "q": "Is this only for big companies?",
+          "a": "No. Most of our consulting clients are small and mid-sized businesses without an in-house IT team."
+        },
+        {
+          "q": "What do we receive at the end?",
+          "a": "A written report and roadmap, plus a presentation session with your leadership team."
+        }
+      ],
+      "related": [
+        "app-development",
+        "cloud-infrastructure",
+        "ui-ux-design"
+      ]
+    }
+  ],
+  "serviceTemplate": {
+    "problemSub": "If any of these hit close to home, you're in the right place.",
+    "deliver": {
+      "title": "Everything we can *take off your plate*",
+      "sub": "Pick what you need now. Add more as your business grows."
+    },
+    "benefits": {
+      "title": "What changes for *your business*",
+      "sub": "The results our clients care about most."
+    },
+    "process": {
+      "title": "How we'll *get it done*",
+      "sub": "A clear path from kickoff to launch, with your review at every stage."
+    },
+    "tech": {
+      "title": "Built with *tools that last*",
+      "sub": "Proven, well-supported technology your team won't outgrow."
+    },
+    "faq": {
+      "title": "Still have *questions?*",
+      "sub": "Here are the ones we hear most."
+    },
+    "related": {
+      "title": "Often *paired with*",
+      "sub": "Services clients commonly combine with this one."
+    }
+  },
+  "servicesOverview": {
+    "hero": {
+      "h1": "End-to-end IT services, delivered by one team",
+      "sub": "Start with a single need or build a complete digital ecosystem. We tailor everything to your stage and budget."
+    },
+    "filters": [
+      {
+        "id": "found-online",
+        "label": "I want to be found online"
+      },
+      {
+        "id": "automate",
+        "label": "I want to automate operations"
+      },
+      {
+        "id": "stable",
+        "label": "I want more stable systems"
+      },
+      {
+        "id": "not-sure",
+        "label": "I'm not sure yet"
+      }
+    ],
+    "grid": {
+      "title": "What do you need *help with?*",
+      "sub": "Pick what fits your situation, and we'll show you where to start."
+    },
+    "bundled": {
+      "title": "Need more than one thing fixed?",
+      "sub": "Bundle services under one contract and one project manager. Less back-and-forth, faster results."
+    },
+    "tech": {
+      "title": "The *right tools,* not the trendy ones",
+      "sub": "We pick technology based on what your business needs and what your team can maintain.",
+      "items": [
+        "React",
+        "Next.js",
+        "Laravel",
+        "Flutter",
+        "WordPress",
+        "Figma",
+        "AWS",
+        "Google Cloud",
+        "Docker",
+        "PostgreSQL",
+        "MySQL",
+        "Cloudflare"
+      ]
+    },
+    "faqTitle": "Questions we *hear a lot*",
+    "faqSub": "Short answers to what most clients ask before getting started.",
+    "faqs": [
+      {
+        "q": "Can I start with just one service?",
+        "a": "Yes. Many clients start with a website or a support plan and add services later, with the same team."
+      },
+      {
+        "q": "Do you work with businesses that don't have an IT team?",
+        "a": "That's who we work with most. We explain options in plain language and handle the technical side for you."
+      },
+      {
+        "q": "How do you price your services?",
+        "a": "Every quote is itemized by phase, so you see exactly what you pay for before work starts."
+      },
+      {
+        "q": "What happens after my project launches?",
+        "a": "You get a 30-day bug-fix warranty, and you can move on to a monthly maintenance plan."
+      },
+      {
+        "q": "Can you work with our existing systems or vendor?",
+        "a": "Yes. We start with a short review of what you already have and build on it where it makes sense."
+      }
+    ]
+  },
+  "about": {
+    "meta": {
+      "title": "About Daberau — The IT Team Behind Growing Businesses",
+      "description": "Daberau is a team of designers, developers, and engineers helping businesses work faster with the right technology."
+    },
+    "heroImage": {
+      "src": "/images/services/it-consulting.webp",
+      "alt": "Daberau team discussing a client project"
+    },
+    "hero": {
+      "h1": "We build technology people actually use",
+      "sub": "Daberau is a team of designers, developers, and engineers helping businesses work faster with the right technology."
+    },
+    "story": {
+      "title": "Why we started *Daberau*",
+      "sub": "It began with a frustration we kept seeing in businesses around us.",
+      "opening": "We started Daberau in 2019 after noticing a pattern: many businesses were paying a lot for technology without seeing the results.",
+      "middle": "We saw projects launched and then abandoned, vendors who disappeared after handover, and owners who were never told what they actually needed. So we built a team that starts with the business problem, explains every option in plain language, and stays on after launch.",
+      "closing": "Today, we've helped 50+ clients across 8 industries, guided by the same principles we started with."
+    },
+    "visionMission": {
+      "title": "What *drives us*",
+      "sub": "One vision and three promises guide every project we take on."
+    },
+    "vision": {
+      "title": "Vision",
+      "body": "To be the technology partner businesses trust most."
+    },
+    "mission": {
+      "title": "Mission",
+      "items": [
+        "Make technology easy for business owners to understand",
+        "Build systems that last, not throwaway projects",
+        "Stay with our clients long after launch"
+      ]
+    },
+    "values": {
+      "title": "The principles behind *every project*",
+      "sub": "Four habits our clients notice from day one.",
+      "items": [
+        {
+          "title": "Honest about what you need.",
+          "body": "If you don't need an app, we'll tell you."
+        },
+        {
+          "title": "Transparent.",
+          "body": "Costs, timelines, and progress are always visible to you."
+        },
+        {
+          "title": "Accountable.",
+          "body": "What we build, we maintain."
+        },
+        {
+          "title": "Always learning.",
+          "body": "We keep up with technology so your solution stays relevant."
+        }
+      ]
+    },
+    "team": {
+      "title": "The people behind *your project*",
+      "sub": "Designers, developers, and engineers you'll actually talk to.",
+      "members": [
+        {
+          "role": "Founder & CEO",
+          "focus": "Sets direction and stays close to every client relationship."
+        },
+        {
+          "role": "Head of Engineering",
+          "focus": "Leads architecture, code quality, and infrastructure."
+        },
+        {
+          "role": "Lead UI/UX Designer",
+          "focus": "Turns business problems into products people enjoy using."
+        },
+        {
+          "role": "Project Manager",
+          "focus": "Your single point of contact, from kickoff to launch."
+        }
+      ]
+    },
+    "numbers": {
+      "title": "Our *track record* so far",
+      "sub": "Every number here comes from projects we've actually delivered."
+    }
+  },
+  "contactPage": {
+    "meta": {
+      "title": "Contact Daberau — Free IT Consultation",
+      "description": "Fill in the form below or reach us however suits you best. We reply within one business day."
+    },
+    "hero": {
+      "h1": "Let's talk about your IT needs",
+      "sub": "Fill in the form below or reach us however suits you best. We reply within one business day."
+    },
+    "optionsHeading": {
+      "title": "Choose the *fastest way* to reach us",
+      "sub": "Pick the option that fits what you need right now."
+    },
+    "options": [
+      {
+        "title": "Have a project?",
+        "body": "Fill in the form and we'll send a recommendation and initial estimate.",
+        "cta": {
+          "label": "Fill in the Form ↓",
+          "href": "#contact-form"
+        },
+        "kind": "form"
+      },
+      {
+        "title": "Quick question?",
+        "body": "Chat with our team during business hours.",
+        "cta": {
+          "label": "Chat on WhatsApp",
+          "href": "whatsapp"
+        },
+        "kind": "whatsapp"
+      },
+      {
+        "title": "Need urgent support?",
+        "body": "For active maintenance clients.",
+        "cta": {
+          "label": "Contact Support",
+          "href": "tel:+622154316725"
+        },
+        "kind": "support"
+      }
+    ],
+    "formTitle": "Tell us about *your project*",
+    "formSub": "The more you share, the better our first recommendation will be.",
+    "info": {
+      "title": "Contact info",
+      "labels": {
+        "address": "Address",
+        "email": "Email",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "hours": "Business hours"
+      },
+      "mapsLink": "Open in Google Maps",
+      "whatsappLink": "Chat on WhatsApp",
+      "micro": "Messages sent outside business hours will be answered the next business day."
+    },
+    "map": {
+      "title": "Come *visit us*",
+      "label": "Map of the Daberau office at Citi Business Park, Kalideres"
+    },
+    "faq": {
+      "title": "Before you *reach out*",
+      "sub": "Quick answers to the questions we hear most.",
+      "items": [
+        {
+          "q": "Is the consultation really free?",
+          "a": "Yes. The first consultation is free and comes with no obligation to buy."
+        },
+        {
+          "q": "How soon will I get a quote?",
+          "a": "We reply within one business day. For most projects, we send an initial estimate right after the consultation."
+        },
+        {
+          "q": "Can we meet in person?",
+          "a": "Of course. You're welcome at our office in Kalideres, West Jakarta, or we can meet online."
+        }
+      ]
+    }
+  },
+  "leadForm": {
+    "helper": "Fields marked * are required. Your data is safe and never shared with third parties.",
+    "selectPlaceholder": "Select an option",
+    "fields": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "e.g. John Smith",
+        "error": "Please enter your name."
+      },
+      "company": {
+        "label": "Company name",
+        "placeholder": "e.g. Acme Corp (leave blank if individual)"
+      },
+      "email": {
+        "label": "Work email",
+        "placeholder": "name@company.com",
+        "error": "Please enter a valid email, e.g. name@company.com"
+      },
+      "whatsapp": {
+        "label": "WhatsApp number",
+        "placeholder": "+62 812 xxxx xxxx",
+        "error": "Please enter an active number with at least 10 digits."
+      },
+      "service": {
+        "label": "What do you need help with?",
+        "error": "Please choose a service.",
+        "options": [
+          {
+            "value": "Web Development",
+            "label": "Web Development"
+          },
+          {
+            "value": "Web & Mobile Apps",
+            "label": "Web & Mobile Apps"
+          },
+          {
+            "value": "UI/UX Design",
+            "label": "UI/UX Design"
+          },
+          {
+            "value": "Cloud & Infrastructure",
+            "label": "Cloud & Infrastructure"
+          },
+          {
+            "value": "IT Support & Maintenance",
+            "label": "IT Support & Maintenance"
+          },
+          {
+            "value": "IT Consulting & Digital Transformation",
+            "label": "IT Consulting & Digital Transformation"
+          },
+          {
+            "value": "Not sure yet, I need advice",
+            "label": "Not sure yet, I need advice"
+          }
+        ]
+      },
+      "budget": {
+        "label": "Estimated budget",
+        "options": [
+          {
+            "value": "Under IDR 10M",
+            "label": "Under IDR 10M"
+          },
+          {
+            "value": "IDR 10–50M",
+            "label": "IDR 10–50M"
+          },
+          {
+            "value": "IDR 50–150M",
+            "label": "IDR 50–150M"
+          },
+          {
+            "value": "Over IDR 150M",
+            "label": "Over IDR 150M"
+          },
+          {
+            "value": "Not sure yet",
+            "label": "Not sure yet"
+          }
+        ]
+      },
+      "timeline": {
+        "label": "When would you like to start?",
+        "options": [
+          {
+            "value": "ASAP",
+            "label": "ASAP"
+          },
+          {
+            "value": "In 1–3 months",
+            "label": "In 1–3 months"
+          },
+          {
+            "value": "In 3+ months",
+            "label": "In 3+ months"
+          }
+        ]
+      },
+      "message": {
+        "label": "Tell us about your project",
+        "placeholder": "e.g. We need an inventory app for our 3 store branches…",
+        "error": "Tell us a bit about your needs so we can prepare the right advice."
+      },
+      "attachment": {
+        "label": "Attachment (optional)",
+        "hint": "PDF, DOCX, or images. Max 10 MB",
+        "error": "This file is too large. The maximum size is 10 MB.",
+        "button": "Choose file",
+        "remove": "Remove"
+      },
+      "consent": {
+        "before": "I agree to the ",
+        "privacy": "Privacy Policy",
+        "and": " and ",
+        "terms": "Terms & Conditions",
+        "after": ", and consent to being contacted about this inquiry.",
+        "error": "Please accept the Privacy Policy to continue."
+      }
+    },
+    "submit": "Send Request",
+    "loading": "Sending…",
+    "success": {
+      "title": "Thanks, [Name]! We've received your request.",
+      "body": "Our team will reach out via WhatsApp or email within one business day. In the meantime, take a look at what we can do for you.",
+      "primary": {
+        "label": "Explore Services",
+        "href": "/services"
+      },
+      "secondary": {
+        "label": "Back to Home",
+        "href": "/"
+      }
+    },
+    "failure": {
+      "title": "Sorry, your message didn't go through.",
+      "body": "Something went wrong on our end. Your answers are still here, so try again or reach us directly on WhatsApp.",
+      "retry": "Try Again"
+    }
+  },
+  "howWeWork": {
+    "meta": {
+      "title": "How We Work | Daberau",
+      "description": "A clear process, from day one to long after launch: consult, scope, build, launch, and support."
+    },
+    "h1": "A clear process, from day one to long after launch",
+    "sub": "Five stages, no surprises. Here's what happens, what you get, and what we need from you.",
+    "stagesTitle": "Your project, *step by step*",
+    "labels": {
+      "happens": "What happens",
+      "get": "What you get",
+      "time": "How long it takes",
+      "role": "Your role"
+    },
+    "stages": [
+      {
+        "happens": "A 30-minute call or meeting where we listen to your problems, goals, and constraints.",
+        "get": "A short summary of what we heard and our first recommendation.",
+        "time": "1–2 days",
+        "role": "Share your goals, current tools, and any deadlines."
+      },
+      {
+        "happens": "We define features, phases, and deliverables, then price each phase.",
+        "get": "A written proposal with scope, timeline, and an itemized quote.",
+        "time": "2–3 business days",
+        "role": "Review the proposal and confirm priorities."
+      },
+      {
+        "happens": "We design and build in short sprints and demo progress at the end of each one.",
+        "get": "Weekly updates and access to the project board.",
+        "time": "Depends on scope, confirmed in the proposal",
+        "role": "Give feedback at each review so we stay on schedule."
+      },
+      {
+        "happens": "We test on real devices and data, fix issues, and plan the go-live together.",
+        "get": "A tested, launched product and a handover session.",
+        "time": "1–2 weeks",
+        "role": "Join user acceptance testing and approve the launch."
+      },
+      {
+        "happens": "We monitor your system, fix bugs under warranty, and handle updates.",
+        "get": "A 30-day bug-fix warranty and an optional monthly maintenance plan.",
+        "time": "Ongoing",
+        "role": "Report issues through the agreed support channel."
+      }
+    ],
+    "engagement": {
+      "title": "Choose how we *work together*",
+      "sub": "Three ways to engage, depending on how clear your scope is.",
+      "items": [
+        {
+          "title": "Fixed Price",
+          "body": "Best when the scope is clear. One price, agreed upfront, paid by milestone."
+        },
+        {
+          "title": "Time & Materials",
+          "body": "Best when the scope will evolve. You pay for the hours used, reported weekly."
+        },
+        {
+          "title": "Monthly Retainer",
+          "body": "Best for ongoing work and support. A set number of hours every month."
+        }
+      ]
+    },
+    "warranty": {
+      "title": "We don't disappear *after launch*",
+      "sub": "What's covered once your project goes live.",
+      "items": [
+        {
+          "title": "Bug-fix warranty",
+          "body": "We fix bugs reported within 30 days of launch at no extra cost."
+        },
+        {
+          "title": "Response time",
+          "body": "Maintenance clients get a first response within 4 business hours."
+        },
+        {
+          "title": "Monthly reports",
+          "body": "Uptime, updates, and fixes, summarized every month."
+        }
+      ]
+    },
+    "tools": {
+      "title": "Work with us in the tools *you already use*",
+      "sub": "Updates, files, and feedback stay in one place.",
+      "items": [
+        "Google Meet",
+        "Zoom",
+        "WhatsApp",
+        "Slack",
+        "Jira",
+        "Trello",
+        "Figma",
+        "Google Drive"
+      ]
+    }
+  },
+  "processSteps": [
+    {
+      "title": "Consult",
+      "body": "We listen to your problems and goals.",
+      "icon": "messages"
+    },
+    {
+      "title": "Scope & Quote",
+      "body": "Scope, timeline, and cost, all in writing.",
+      "icon": "file-text"
+    },
+    {
+      "title": "Design & Build",
+      "body": "Delivered in sprints, with your review at every stage.",
+      "icon": "code"
+    },
+    {
+      "title": "Test & Launch",
+      "body": "Thorough testing before go-live.",
+      "icon": "rocket"
+    },
+    {
+      "title": "Support",
+      "body": "Monitoring and fixes after launch.",
+      "icon": "life-buoy"
+    }
+  ],
+  "faqPage": {
+    "meta": {
+      "title": "FAQ | Daberau",
+      "description": "Answers about pricing, payment, project process, technical questions, and support from the Daberau team."
+    },
+    "h1": "Your questions, answered",
+    "sub": "Pricing, process, ownership, and support: everything clients usually ask before getting started.",
+    "bottom": "Can't find your answer? Ask our team directly.",
+    "categories": [
+      {
+        "id": "general",
+        "title": "General",
+        "items": [
+          {
+            "q": "Do you work with clients outside your city or country?",
+            "a": "Yes. We work with clients across Indonesia and abroad, mostly online, with in-person meetings in Jakarta when needed."
+          },
+          {
+            "q": "What size of business do you usually work with?",
+            "a": "Mostly small and mid-sized businesses with 10–200 employees, plus corporate teams, institutions, and startups."
+          }
+        ]
+      },
+      {
+        "id": "pricing",
+        "title": "Pricing & Payment",
+        "items": [
+          {
+            "q": "How much does a website or app cost?",
+            "a": "It depends on scope. After a free consultation, we send an itemized quote so you know exactly what you're paying for."
+          },
+          {
+            "q": "How does payment work? (e.g. 50% upfront, 50% on handover)",
+            "a": "Unless agreed otherwise, we ask for a 50% down payment before work starts, and the rest follows the milestones in your proposal."
+          }
+        ]
+      },
+      {
+        "id": "process",
+        "title": "Project Process",
+        "items": [
+          {
+            "q": "Can you take over a project from another vendor?",
+            "a": "Yes. We start with a code and infrastructure review, then propose how to continue or fix what's there."
+          },
+          {
+            "q": "How will I know how my project is going?",
+            "a": "You get weekly updates and access to the project board from day one."
+          }
+        ]
+      },
+      {
+        "id": "technical",
+        "title": "Technical",
+        "items": [
+          {
+            "q": "Do we own the source code?",
+            "a": "Yes. Ownership of the final deliverables, including source code, transfers to you once all payments are complete."
+          },
+          {
+            "q": "Which technologies do you use?",
+            "a": "We choose tools based on your needs, not trends. Common choices include Next.js, Laravel, Flutter, and AWS or Google Cloud."
+          }
+        ]
+      },
+      {
+        "id": "support",
+        "title": "Support & Warranty",
+        "items": [
+          {
+            "q": "What happens if we find a bug after launch?",
+            "a": "We fix bugs reported within 30 days of launch at no extra cost. After that, a maintenance plan covers fixes and updates."
+          },
+          {
+            "q": "Do you offer ongoing maintenance?",
+            "a": "Yes. Monthly maintenance plans cover monitoring, updates, and a set number of support hours."
+          }
+        ]
+      }
+    ]
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy | Daberau",
+      "description": "How PT Daberau Mikro Elit collects, uses, and protects your personal data when you visit our website or use our services."
+    },
+    "h1": "Privacy Policy",
+    "intro": "This Privacy Policy explains how PT Daberau Mikro Elit (\"Daberau\", \"we\", \"us\") collects, uses, and protects your personal data when you visit our website or use our services.",
+    "lastUpdated": "October 20, 2026",
+    "effective": "October 20, 2026",
+    "inShort": [
+      "We only collect data you give us or that's needed to run this website.",
+      "We use it to respond to you, deliver our services, and improve our site.",
+      "We never sell your data.",
+      "You can ask us to access, correct, or delete your data at any time."
+    ],
+    "sections": [
+      {
+        "id": "who-we-are",
+        "title": "Who we are",
+        "body": [
+          "PT Daberau Mikro Elit is the data controller responsible for your personal data.",
+          "We are a limited liability company registered in Indonesia, with our office at Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840. You can reach us about anything in this policy at cs@daberau-me.com or +62 21 5431 6725.",
+          "This policy applies to daberau-me.com, our forms, our WhatsApp and email channels, and the services we provide to clients."
+        ]
+      },
+      {
+        "id": "data-we-collect",
+        "title": "Data we collect",
+        "body": [
+          "We collect information you provide directly and information collected automatically when you use our site.",
+          "Information you give us:",
+          {
+            "list": [
+              "Contact details: your name, company, work email, and WhatsApp or phone number.",
+              "Project details: the service you're interested in, your budget range, timeline, message, and any files you attach."
+            ]
+          },
+          "Information collected automatically:",
+          {
+            "list": [
+              "Technical data such as your IP address, browser type, device, and the pages you visit.",
+              "Cookie data, depending on the preferences you choose (see Cookies & analytics)."
+            ]
+          },
+          "If you become a client, we also keep records of our agreement, invoices, and project communication."
+        ]
+      },
+      {
+        "id": "how-we-use",
+        "title": "How we use your data",
+        "body": [
+          "We use your data only for the purposes listed below.",
+          {
+            "list": [
+              "To reply to your inquiry and send recommendations or quotes.",
+              "To plan, deliver, and support the projects you engage us for.",
+              "To send invoices and manage payments.",
+              "To understand how visitors use our site and improve it, if you've allowed analytics cookies.",
+              "To meet our legal, tax, and accounting obligations."
+            ]
+          },
+          "We don't use your data for automated decision-making that has legal or similarly significant effects on you."
+        ]
+      },
+      {
+        "id": "legal-basis",
+        "title": "Legal basis for processing",
+        "body": [
+          "We process your data only when we have a valid legal basis to do so.",
+          "Under the Personal Data Protection Law (UU PDP), we rely on:",
+          {
+            "list": [
+              "Your consent, for example when you submit a form or accept analytics cookies.",
+              "The performance of a contract, when we prepare a proposal or deliver services you've requested.",
+              "A legal obligation, such as keeping financial records.",
+              "Our legitimate interests, such as keeping our website secure, as long as these don't override your rights."
+            ]
+          },
+          "Where we rely on consent, you can withdraw it at any time. This doesn't affect processing that happened before you withdrew it."
+        ]
+      },
+      {
+        "id": "cookies",
+        "title": "Cookies & analytics",
+        "body": [
+          "We use cookies to understand how visitors use our website. You can change your preferences at any time.",
+          {
+            "list": [
+              "Essential cookies keep the site working, for example by remembering your cookie choices. They're always on.",
+              "Analytics cookies (such as Google Analytics) tell us which pages are visited and how people find us. They're only set if you allow them.",
+              "Marketing cookies help us measure our advertising. They're only set if you allow them."
+            ]
+          },
+          "You can also block or delete cookies in your browser settings. Blocking essential cookies may affect how the site works."
+        ]
+      },
+      {
+        "id": "sharing",
+        "title": "Sharing your data",
+        "body": [
+          "We share data only with trusted providers who help us run our business, and never sell it.",
+          "These providers include:",
+          {
+            "list": [
+              "Hosting and cloud providers that store our website and systems.",
+              "Email, messaging, and customer relationship (CRM) tools we use to reply to you.",
+              "Analytics tools, if you've allowed analytics cookies.",
+              "Payment and accounting providers, for clients."
+            ]
+          },
+          "Each provider may only use your data to deliver their service to us, under a written agreement. We may also share data when the law requires it, for example at the request of a competent authority."
+        ]
+      },
+      {
+        "id": "international-transfers",
+        "title": "International transfers",
+        "body": [
+          "Some of our providers may store data outside Indonesia. When this happens, we make sure appropriate safeguards are in place.",
+          "We only transfer data to countries or providers that offer a level of protection equal to or higher than the PDP Law, or under contractual safeguards that meet its requirements."
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "Data retention",
+        "body": [
+          "We keep your data only as long as needed for the purposes described here.",
+          {
+            "list": [
+              "Inquiries that don't become projects: up to 2 years after our last contact.",
+              "Client and contract records: for the duration of the project and as long as tax and accounting laws require afterwards.",
+              "Analytics data: up to 14 months."
+            ]
+          },
+          "When data is no longer needed, we delete it or make it anonymous."
+        ]
+      },
+      {
+        "id": "security",
+        "title": "Data security",
+        "body": [
+          "We use technical and organizational measures to protect your data.",
+          "These include encrypted connections (HTTPS), access controls so only staff who need data can see it, regular software updates, and backups. If a data breach could put your rights at risk, we'll notify you and the relevant authority as required by law."
+        ]
+      },
+      {
+        "id": "your-rights",
+        "title": "Your rights",
+        "body": [
+          "You have the right to access, correct, or delete your personal data. To make a request, email us at cs@daberau-me.com.",
+          "Under the PDP Law, you can also:",
+          {
+            "list": [
+              "Withdraw your consent at any time.",
+              "Object to or ask us to restrict certain processing.",
+              "Ask for a copy of your data in a commonly used format.",
+              "Complain to the relevant data protection authority."
+            ]
+          },
+          "We may ask you to confirm your identity before acting on a request. We'll respond within the time required by law, and in any case within 14 days."
+        ]
+      },
+      {
+        "id": "client-project-data",
+        "title": "Client project data",
+        "body": [
+          "When we work on your systems, we handle any data we access according to our agreement with you.",
+          "In those cases you remain the data controller and we act as a data processor. We only access data needed for the work, keep it confidential, and return or delete it when the engagement ends, unless the law requires us to keep it."
+        ]
+      },
+      {
+        "id": "childrens-privacy",
+        "title": "Children's privacy",
+        "body": [
+          "Our services are not intended for children, and we don't knowingly collect their data.",
+          "If you believe a child has sent us personal data, please contact us and we'll delete it."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Changes to this policy",
+        "body": [
+          "If we make significant changes, we'll update the date above and notify you where appropriate.",
+          "We keep previous versions of this policy and can share them on request."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "Contact us",
+        "body": [
+          "Questions about this policy? Contact us at cs@daberau-me.com.",
+          "You can also write to us at PT Daberau Mikro Elit, Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840, or call +62 21 5431 6725."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms & Conditions | Daberau",
+      "description": "The terms that govern your use of the Daberau website and the services we provide."
+    },
+    "h1": "Terms & Conditions",
+    "intro": "These Terms govern your use of the Daberau website and the services we provide. By using our website or engaging our services, you agree to these Terms.",
+    "lastUpdated": "October 20, 2026",
+    "effective": "October 20, 2026",
+    "inShort": [
+      "Project scope, price, and timeline are set in a written proposal or contract.",
+      "Payment follows the agreed schedule (for example, a down payment before work starts).",
+      "You own the final deliverables once paid in full.",
+      "We offer a bug-fix warranty for a set period after launch."
+    ],
+    "sections": [
+      {
+        "id": "definitions",
+        "title": "Definitions",
+        "body": [
+          "In these Terms, the following words have the meanings below.",
+          {
+            "list": [
+              "\"Daberau\", \"we\", \"us\": PT Daberau Mikro Elit.",
+              "\"Client\", \"you\": the person or company that uses our website or engages our services.",
+              "\"Services\": the IT services we provide, such as web and app development, design, cloud, support, and consulting.",
+              "\"Deliverables\": the designs, code, documents, and other work we produce for you.",
+              "\"Proposal\": our written offer describing scope, price, and timeline.",
+              "\"Agreement\": the signed proposal or contract for a specific project, together with these Terms."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "use-of-website",
+        "title": "Use of the website",
+        "body": [
+          "You may use this website for lawful purposes only.",
+          "You agree not to try to break, overload, or gain unauthorized access to the site, and not to copy its content for commercial use without our permission. Information on the site is general and may change; it isn't a binding offer until confirmed in a Proposal."
+        ]
+      },
+      {
+        "id": "our-services",
+        "title": "Our services",
+        "body": [
+          "The specific scope of each project is defined in a written proposal or agreement.",
+          "These Terms apply to every engagement. If the Agreement for a project says something different, the Agreement takes priority for that project."
+        ]
+      },
+      {
+        "id": "quotes",
+        "title": "Quotes & proposals",
+        "body": [
+          "Quotes are valid for 14 days unless stated otherwise.",
+          "Your price depends on the agreed scope and is set out in your Proposal. Any estimate shared before a Proposal is indicative only."
+        ]
+      },
+      {
+        "id": "payment",
+        "title": "Payment terms",
+        "body": [
+          "Unless agreed otherwise, a 50% down payment is required before work begins.",
+          "The remaining balance is paid according to the milestones in your Agreement, usually on handover or launch. Invoices are due within 14 days. Prices exclude VAT (PPN) and other taxes unless stated otherwise.",
+          "If a payment is more than 30 days late, we may pause work until it's settled, and the timeline will shift accordingly."
+        ]
+      },
+      {
+        "id": "client-responsibilities",
+        "title": "Client responsibilities",
+        "body": [
+          "To keep your project on schedule, we rely on you to provide content, access, and feedback on time.",
+          "This includes texts, images, logins, and access to third-party accounts, as well as a contact person who can make decisions. You confirm that you have the right to use any material you give us."
+        ]
+      },
+      {
+        "id": "revisions",
+        "title": "Revisions & change requests",
+        "body": [
+          "Each phase includes 2 rounds of revisions. Additional changes are quoted separately.",
+          "A change request is anything outside the agreed scope. We'll tell you its cost and impact on the timeline before doing the work, and only start once you approve it in writing."
+        ]
+      },
+      {
+        "id": "timelines",
+        "title": "Timelines & delays",
+        "body": [
+          "Timelines are estimates and may shift if inputs from your side are delayed.",
+          "We'll keep you updated weekly and tell you as soon as we see a risk to the schedule. Neither party is responsible for delays caused by events beyond reasonable control, such as natural disasters or major service outages."
+        ]
+      },
+      {
+        "id": "intellectual-property",
+        "title": "Intellectual property",
+        "body": [
+          "Ownership of final deliverables transfers to you once all payments are complete.",
+          "Third-party components, such as open-source libraries, fonts, plugins, and stock images, remain subject to their own licenses. We keep ownership of our general tools and know-how, and may show the finished work in our portfolio unless you ask us not to in writing."
+        ]
+      },
+      {
+        "id": "confidentiality",
+        "title": "Confidentiality",
+        "body": [
+          "We keep your business information confidential.",
+          "Both parties agree not to share confidential information received from the other, except with people who need it to deliver the project, or where the law requires it. We're happy to sign a separate non-disclosure agreement (NDA)."
+        ]
+      },
+      {
+        "id": "warranty",
+        "title": "Warranty & support",
+        "body": [
+          "We fix bugs reported within 30 days of launch at no extra cost.",
+          "A bug is something that doesn't work as agreed in the scope. The warranty doesn't cover new features, changes made by others, or problems caused by third-party services. After the warranty period, support is available through a monthly maintenance plan."
+        ]
+      },
+      {
+        "id": "third-party",
+        "title": "Third-party services",
+        "body": [
+          "Some services rely on third-party providers whose terms also apply.",
+          "This includes domains, hosting, cloud platforms, app stores, payment gateways, and APIs. Their fees are billed separately or at cost, and we're not responsible for their outages or changes to their terms."
+        ]
+      },
+      {
+        "id": "liability",
+        "title": "Limitation of liability",
+        "body": [
+          "Our total liability is limited to the amount paid for the relevant service.",
+          "We're not liable for indirect losses, such as lost profits or lost data, except where the law doesn't allow this to be limited. You remain responsible for keeping your own backups unless backups are part of the agreed service."
+        ]
+      },
+      {
+        "id": "termination",
+        "title": "Cancellation & termination",
+        "body": [
+          "Either party may end an engagement with written notice, as set out in the agreement.",
+          "If you cancel, you pay for the work completed up to the cancellation date, and the down payment is non-refundable unless agreed otherwise. If we end an engagement for reasons not caused by you, we'll refund payments for work not yet delivered."
+        ]
+      },
+      {
+        "id": "governing-law",
+        "title": "Governing law & disputes",
+        "body": [
+          "These Terms are governed by the laws of the Republic of Indonesia.",
+          "We'll first try to resolve any dispute through good-faith discussion. If that fails within 30 days, the dispute will be settled at the West Jakarta District Court (Pengadilan Negeri Jakarta Barat), unless the Agreement names another forum."
+        ]
+      },
+      {
+        "id": "changes",
+        "title": "Changes to these Terms",
+        "body": [
+          "We may update these Terms from time to time. The latest version is always on this page.",
+          "Changes don't affect projects already under an Agreement, unless both parties agree in writing."
+        ]
+      },
+      {
+        "id": "contact",
+        "title": "Contact us",
+        "body": [
+          "Questions about these Terms? Contact us at cs@daberau-me.com.",
+          "PT Daberau Mikro Elit, Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840."
+        ]
+      }
+    ]
+  },
+  "legalUi": {
+    "inShort": "In short",
+    "contents": "Contents",
+    "backToTop": "Back to top",
+    "lastUpdated": "Last updated:",
+    "effective": "Effective date:",
+    "contactTitle": "Legal contact",
+    "managePrefs": "Manage Preferences"
+  },
+  "eyebrows": {
+    "home": {
+      "pain": "Sound Familiar?",
+      "services": "Our Services",
+      "why": "Why Daberau",
+      "process": "How We Work"
+    },
+    "servicesOverview": {
+      "grid": "Find Your Fit",
+      "tech": "Our Stack",
+      "faq": "FAQ"
+    },
+    "serviceDetail": {
+      "problem": "The Problem",
+      "deliver": "What We Deliver",
+      "benefits": "Benefits",
+      "process": "Our Process",
+      "tech": "Tech Stack",
+      "faq": "FAQ",
+      "related": "Related Services"
+    },
+    "about": {
+      "story": "Our Story",
+      "visionMission": "Vision & Mission",
+      "values": "Our Values",
+      "team": "Our Team",
+      "numbers": "By the Numbers"
+    },
+    "contact": {
+      "options": "Get in Touch",
+      "form": "Project Inquiry",
+      "map": "Our Office",
+      "faq": "FAQ"
+    },
+    "howWeWork": {
+      "stages": "Our Process",
+      "models": "Engagement Models",
+      "warranty": "After Launch",
+      "tools": "Collaboration"
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "IT Services & Software Development for Growing Businesses | Daberau",
+      "description": "Web development, custom apps, UI/UX, cloud, and IT support under one roof. Free consultation, transparent process, and support after launch."
+    },
+    "services": {
+      "title": "IT Services for Businesses: Web, Apps, Cloud & Support | Daberau",
+      "description": "Start with a single need or build a complete digital ecosystem. We tailor everything to your stage and budget."
+    },
+    "notFound": {
+      "title": "Page not found | Daberau",
+      "description": "We can't find that page. It may have moved."
+    }
+  }
+}

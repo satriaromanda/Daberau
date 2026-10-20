@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:theme": "tailwindcss -i wordpress/daberau/src/theme.css -o wordpress/daberau/assets/css/main.css --minify",
+    "export:theme": "tsx scripts/export-theme-content.ts && node scripts/export-theme-icons.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -17,13 +19,16 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.28",
+    "lucide-static": "^0.468.0",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

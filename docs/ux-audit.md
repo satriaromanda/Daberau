@@ -17,6 +17,15 @@ Each finding lists what was wrong, why it matters, and what changed.
 | 8 | Readability | Card body text used neutral-500 (about 4.7:1 contrast). | Passes AA but is tiring to read at 15–17 px on light backgrounds. | Body text is now neutral-600 (about 7.6:1). |
 | 9 | Perceived speed | Scroll fade-in moved 18 px over 0.6 s. | Fast scrollers briefly saw empty areas. | 10 px over 0.45 s; disabled entirely for "reduce motion" users; never hides content without JavaScript. |
 
+## Carried into the WordPress theme
+
+All fixes above apply to the WordPress theme too. The theme adds:
+
+- The contact form works without JavaScript (it submits and returns with a success or error message) and is validated again on the server with the same messages.
+- FAQ answers are in the page HTML and readable without JavaScript; they collapse once scripts load.
+- Empty content fields fall back to the default copy, so an editor can't accidentally leave a section blank.
+- Spam protection that doesn't break behind page caching (honeypot + rate limit instead of a nonce).
+
 ## Kept (already working well)
 
 - Clear page hierarchy: eyebrow → headline (key words in brand red) → one-line subheadline → content.

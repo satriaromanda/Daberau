@@ -1,0 +1,15 @@
+/*
+Theme Name: Daberau
+Theme URI: https://daberau-me.com
+Author: PT Daberau Mikro Elit
+Description: Corporate theme for Daberau IT services. Pages, services, FAQs and contact details are editable in WordPress; inquiries from the contact form are saved under "Inquiries" and emailed.
+Version: 1.0.0
+Requires at least: 6.2
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: daberau
+*/
+
+/* Styles live in assets/css/main.css (compiled from src/theme.css with Tailwind CSS). */

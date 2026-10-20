@@ -6,6 +6,16 @@ The source of truth for structure and copy is [`docs/ia-ux-writing.md`](docs/ia-
 - Next.js 15 (App Router) + TypeScript + Tailwind CSS v4, exported as static HTML (`output: "export"`)
 - No backend: forms, filters, search and the cookie banner are mocked client-side
 
+## WordPress theme
+
+The production site is the classic WordPress theme in [`wordpress/daberau/`](wordpress/daberau/README.md): same design, with every
+text editable in WordPress and a working contact form. Install and editing instructions are in its README.
+
+```bash
+npm run export:theme   # copy content/*.ts defaults and icons into the theme
+npm run build:theme    # compile the theme's Tailwind CSS
+```
+
 ## Run it
 
 ```bash
