@@ -21,7 +21,10 @@ export default function ContactPage() {
       <PageHero crumbs={[{ label: "Contact" }]} title={c.hero.h1} sub={c.hero.sub} />
 
       {/* Contact options */}
-      <section aria-label="Ways to reach us" className="bg-white pt-12 md:pt-16">
+      <section aria-labelledby="options-title" className="bg-white pt-12 md:pt-16">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <SectionHeading id="options-title" title={c.optionsHeading.title} sub={c.optionsHeading.sub} className="md:mb-10" />
+        </div>
         <div className="mx-auto grid w-full max-w-[1200px] gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           {c.options.map((o) => {
             const Icon = optionIcons[o.kind as keyof typeof optionIcons];
@@ -31,7 +34,7 @@ export default function ContactPage() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] bg-brand-50 text-brand">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <h2 className="mt-4 text-lg font-bold text-ink">{o.title}</h2>
+                <h3 className="mt-4 text-lg font-bold text-ink">{o.title}</h3>
                 <p className="mt-1.5 flex-1 leading-relaxed text-neutral-600">{o.body}</p>
                 <LinkButton
                   href={isWa ? site.whatsappHref : o.cta.href}
@@ -52,12 +55,10 @@ export default function ContactPage() {
       <Section labelledBy="form-title" id="contact-form">
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
           <div>
-            <h2 id="form-title" className="mb-6 text-[28px] font-bold text-ink">
-              {c.formTitle}
-            </h2>
+            <SectionHeading id="form-title" title={c.formTitle} sub={c.formSub} className="md:mb-8" />
             <LeadForm />
           </div>
-          <aside aria-labelledby="info-title" className="lg:pt-[68px]">
+          <aside aria-labelledby="info-title">
             <div className="rounded-card border border-neutral-200 bg-neutral-50 p-6 md:p-8 lg:sticky lg:top-28">
               <h2 id="info-title" className="text-lg font-bold text-ink">
                 {c.info.title}
@@ -99,7 +100,7 @@ export default function ContactPage() {
       {/* Quick FAQ */}
       <Section labelledBy="faq-title">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading id="faq-title" title={c.faq.title} className="mb-0" />
+          <SectionHeading id="faq-title" title={c.faq.title} sub={c.faq.sub} className="mb-0" />
           <FaqAccordion items={c.faq.items} />
         </div>
       </Section>

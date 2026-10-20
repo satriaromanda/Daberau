@@ -8,6 +8,9 @@ import { SampleTag, Text } from "./Text";
 
 const cardBase = "rounded-card border border-neutral-200 bg-white transition-colors duration-150";
 
+// Linked cards use a stretched title link (after:absolute after:inset-0) so the whole card is clickable.
+// Readable text is lifted above that overlay with `relative z-10` so visitors can still select and copy it.
+
 export function ServiceCard({ service, showScope = false }: { service: Service; showScope?: boolean }) {
   return (
     <article className={`${cardBase} group relative flex h-full flex-col p-6 hover:border-neutral-300`}>
@@ -17,9 +20,9 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
           {service.name}
         </Link>
       </h3>
-      <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">{service.short}</p>
+      <p className="relative z-10 mt-2 text-[15px] leading-relaxed text-neutral-600">{service.short}</p>
       {showScope && (
-        <div className="mt-4">
+        <div className="relative z-10 mt-4">
           <ul className="space-y-2">
             {service.scope.map((s) => (
               <li key={s} className="flex items-start gap-2 text-sm text-neutral-700">
@@ -46,7 +49,7 @@ export function CaseStudyCard({ cs, headingLevel = "h3" }: { cs: CaseStudy; head
     <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
       <ImagePlaceholder label={cs.imageLabel} rounded="rounded-none" className="border-0 border-b" />
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-sm text-neutral-600">
+        <p className="relative z-10 text-sm text-neutral-600">
           <span className="font-semibold text-ink">{cs.client}</span> · {cs.industry}
         </p>
         <H className="mt-2 text-lg font-bold leading-snug text-ink">
@@ -54,13 +57,13 @@ export function CaseStudyCard({ cs, headingLevel = "h3" }: { cs: CaseStudy; head
             <Text>{cs.title}</Text>
           </Link>
         </H>
-        <div className="mt-4 rounded-lg bg-neutral-50 px-4 py-3">
+        <div className="relative z-10 mt-4 rounded-lg bg-neutral-50 px-4 py-3">
           <p className="text-xl font-bold text-brand">
             <Text>{cs.metric.value}</Text>
           </p>
           <p className="text-sm text-neutral-600">{cs.metric.label}</p>
         </div>
-        <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Services">
+        <ul className="relative z-10 mt-4 flex flex-wrap gap-1.5" aria-label="Services">
           {cs.categories.map((c) => (
             <li key={c} className="rounded-full border border-neutral-200 px-2.5 py-0.5 text-xs font-medium text-neutral-700">
               {c}
@@ -157,14 +160,14 @@ export function ArticleCard({ a, headingLevel = "h3" }: { a: import("@/content/t
     <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
       <ImagePlaceholder label={a.imageLabel} rounded="rounded-none" aspect="aspect-[16/9]" className="border-0 border-b" />
       <div className="flex flex-1 flex-col p-6">
-        <p className="text-sm font-semibold text-brand">{a.category}</p>
+        <p className="relative z-10 text-sm font-semibold text-brand">{a.category}</p>
         <H className="mt-2 text-lg font-bold leading-snug text-ink">
           <Link href={`/insights/${a.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">
             {a.title}
           </Link>
         </H>
-        <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-neutral-600">{a.excerpt}</p>
-        <p className="mt-auto pt-5 text-sm text-neutral-500">
+        <p className="relative z-10 mt-2 line-clamp-3 text-[15px] leading-relaxed text-neutral-600">{a.excerpt}</p>
+        <p className="relative z-10 mt-auto pt-5 text-sm text-neutral-500">
           <time>{a.date}</time> · {a.readTime}
         </p>
       </div>

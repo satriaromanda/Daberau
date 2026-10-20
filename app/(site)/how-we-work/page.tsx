@@ -16,19 +16,14 @@ export default function HowWeWorkPage() {
   const labels = [h.labels.happens, h.labels.get, h.labels.time, h.labels.role];
   return (
     <>
-      <PageHero crumbs={[{ label: "How We Work" }]} title={h.h1}>
+      <PageHero crumbs={[{ label: "How We Work" }]} title={h.h1} sub={h.sub}>
         <LinkButton href={primaryCta.href} size="lg">
           {primaryCta.label}
         </LinkButton>
       </PageHero>
 
       <Section labelledBy="stages-title">
-        <h2 id="stages-title" className="sr-only">
-          The 5 stages
-        </h2>
-        <div className="mb-6">
-          <SampleTag label="Stage details are sample copy" />
-        </div>
+        <SectionHeading id="stages-title" title={h.stagesTitle} extra={<SampleTag label="Stage details are sample copy" />} />
         <ol className="space-y-6">
           {processSteps.map((step, i) => {
             const st = h.stages[i];
@@ -59,7 +54,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="models-title">
-        <SectionHeading id="models-title" title={h.engagement.title} extra={<SampleTag />} />
+        <SectionHeading id="models-title" title={h.engagement.title} sub={h.engagement.sub} extra={<SampleTag />} />
         <div className="grid gap-4 md:grid-cols-3">
           {h.engagement.items.map((m) => (
             <TitledTextCard key={m.title} title={m.title} body={m.body} />
@@ -68,7 +63,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section labelledBy="warranty-title">
-        <SectionHeading id="warranty-title" title={h.warranty.title} extra={<SampleTag />} />
+        <SectionHeading id="warranty-title" title={h.warranty.title} sub={h.warranty.sub} extra={<SampleTag />} />
         <ul className="grid gap-4 md:grid-cols-3">
           {h.warranty.items.map((w) => (
             <li key={w.title} className="flex gap-4 rounded-card border border-neutral-200 p-6">
@@ -85,7 +80,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="tools-title">
-        <SectionHeading id="tools-title" title={h.tools.title} extra={<SampleTag label="Sample tools" />} />
+        <SectionHeading id="tools-title" title={h.tools.title} sub={h.tools.sub} extra={<SampleTag label="Sample tools" />} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {h.tools.items.map((t) => (
             <li key={t}>

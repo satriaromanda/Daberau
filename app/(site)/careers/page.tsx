@@ -21,7 +21,7 @@ export default function CareersPage() {
       />
 
       <Section labelledBy="why-title">
-        <SectionHeading id="why-title" title={c.why.title} extra={<SampleTag />} />
+        <SectionHeading id="why-title" title={c.why.title} sub={c.why.sub} extra={<SampleTag />} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {c.why.items.map((w) => (
             <TitledTextCard key={w.title} title={w.title} body={w.body} />
@@ -44,6 +44,7 @@ export default function CareersPage() {
         <SectionHeading
           id="roles-title"
           title={c.roles.title}
+          sub={c.roles.sub}
           extra={
             <p className="text-sm text-neutral-600">
               <SampleTag label="Sample roles" /> <span className="ml-2">Add <code className="rounded bg-neutral-100 px-1">?roles=0</code> to preview the empty state.</span>
@@ -54,7 +55,7 @@ export default function CareersPage() {
       </Section>
 
       <Section tone="muted" labelledBy="hiring-title">
-        <SectionHeading id="hiring-title" title={c.hiring.title} extra={<SampleTag />} />
+        <SectionHeading id="hiring-title" title={c.hiring.title} sub={c.hiring.sub} extra={<SampleTag />} />
         <ProcessSteps steps={c.hiring.steps} />
       </Section>
     </>

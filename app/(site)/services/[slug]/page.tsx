@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 2. Problem */}
       <Section labelledBy="problem-title">
-        <SectionHeading id="problem-title" title={s.problem.title} />
+        <SectionHeading id="problem-title" title={s.problem.title} sub={t.problemSub} />
         <ul className="grid gap-4 lg:grid-cols-3">
           {s.problem.points.map((p) => (
             <li key={p} className="flex gap-3 rounded-card border border-neutral-200 bg-white p-6">
@@ -81,7 +81,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 3. Solution & scope */}
       <Section tone="muted" labelledBy="deliver-title">
-        <SectionHeading id="deliver-title" title={s.deliver.title} />
+        <SectionHeading id="deliver-title" title={t.deliver.title} sub={t.deliver.sub} />
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {s.deliver.items.map((d, i) => (
             <li key={i} className="flex items-center gap-3 rounded-card border border-neutral-200 bg-white px-5 py-4 font-semibold text-ink">
@@ -94,7 +94,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 4. Benefits */}
       <Section labelledBy="benefits-title">
-        <SectionHeading id="benefits-title" title={t.benefitsTitle} />
+        <SectionHeading id="benefits-title" title={t.benefits.title} sub={t.benefits.sub} />
         <div className="grid gap-4 md:grid-cols-3">
           {s.benefits.map((b, i) => (
             <TitledTextCard key={i} title={b.title} body={b.body} index={i + 1} />
@@ -104,13 +104,13 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 5. Process */}
       <Section tone="muted" labelledBy="process-title">
-        <SectionHeading id="process-title" title={t.processTitle} extra={s.process.sample ? <SampleTag /> : undefined} />
+        <SectionHeading id="process-title" title={t.process.title} sub={t.process.sub} extra={s.process.sample ? <SampleTag /> : undefined} />
         <ProcessSteps steps={s.process.steps} />
       </Section>
 
       {/* 6. Related case studies */}
       <Section labelledBy="cases-title">
-        <SectionHeading id="cases-title" title={t.caseStudiesTitle} />
+        <SectionHeading id="cases-title" title={t.caseStudies.title} sub={t.caseStudies.sub} />
         {related.length ? (
           <div className="grid gap-6 md:grid-cols-2">
             {related.map((c) => (
@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 7. Packages / pricing */}
       <Section tone="muted" labelledBy="packages-title">
-        <SectionHeading id="packages-title" title={t.packagesTitle} />
+        <SectionHeading id="packages-title" title={t.packages.title} sub={t.packages.sub} />
         {s.packages.rows ? (
           <>
             <div className="hidden overflow-hidden rounded-card border border-neutral-200 bg-white md:block">
@@ -201,7 +201,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 8. Tech stack */}
       <Section labelledBy="tech-title">
-        <SectionHeading id="tech-title" title={t.techTitle} extra={s.techStack.sample ? <SampleTag label="Sample stack" /> : undefined} />
+        <SectionHeading id="tech-title" title={t.tech.title} sub={t.tech.sub} extra={s.techStack.sample ? <SampleTag label="Sample stack" /> : undefined} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {s.techStack.items.map((x, i) => (
             <li key={i}>
@@ -214,14 +214,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       {/* 9. Service FAQ */}
       <Section tone="muted" labelledBy="faq-title">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading id="faq-title" title={t.faqTitle} className="mb-0" />
+          <SectionHeading id="faq-title" title={t.faq.title} sub={t.faq.sub} className="mb-0" />
           <FaqAccordion items={s.faqs} />
         </div>
       </Section>
 
       {/* 10. Related services */}
       <Section labelledBy="related-title">
-        <SectionHeading id="related-title" title={t.relatedTitle} />
+        <SectionHeading id="related-title" title={t.related.title} sub={t.related.sub} />
         <div className="grid gap-4 md:grid-cols-3">
           {s.related.map((r) => (
             <ServiceCard key={r} service={serviceBySlug(r)} />

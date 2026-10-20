@@ -49,7 +49,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </PageHero>
 
       <Section labelledBy="challenges-title">
-        <SectionHeading id="challenges-title" title={p.labels.challenges} extra={<SampleTag />} />
+        <SectionHeading id="challenges-title" title={p.labels.challenges} sub={p.labels.challengesSub} extra={<SampleTag />} />
         <div className="grid gap-4 md:grid-cols-3">
           {ind.challenges.map((c, i) => (
             <TitledTextCard key={c.title} title={c.title} body={c.body} index={i + 1} />
@@ -58,7 +58,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </Section>
 
       <Section tone="muted" labelledBy="solutions-title">
-        <SectionHeading id="solutions-title" title={p.labels.solutions} />
+        <SectionHeading id="solutions-title" title={p.labels.solutions} sub={p.labels.solutionsSub} />
         <div className="grid gap-4 md:grid-cols-3">
           {ind.services.map((s) => (
             <ServiceCard key={s} service={serviceBySlug(s)} />
@@ -67,7 +67,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </Section>
 
       <Section labelledBy="cases-title">
-        <SectionHeading id="cases-title" title={p.labels.caseStudies} />
+        <SectionHeading id="cases-title" title={p.labels.caseStudies} sub={p.labels.caseStudiesSub} />
         {cases.length ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cases.map((c) => (

@@ -24,7 +24,7 @@ export default function AboutPage() {
       {/* Our story */}
       <Section labelledBy="story-title">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <SectionHeading id="story-title" title={about.story.title} className="mb-0" />
+          <SectionHeading id="story-title" title={about.story.title} sub={about.story.sub} className="mb-0" />
           <div className="space-y-5 text-lg leading-relaxed text-neutral-700">
             <p>
               <Text>{about.story.opening}</Text>
@@ -42,9 +42,7 @@ export default function AboutPage() {
 
       {/* Vision & Mission */}
       <Section tone="muted" labelledBy="vm-title">
-        <h2 id="vm-title" className="sr-only">
-          Vision &amp; Mission
-        </h2>
+        <SectionHeading id="vm-title" title={about.visionMission.title} sub={about.visionMission.sub} />
         <div className="grid gap-4 lg:grid-cols-2">
           <div className="rounded-card border border-neutral-200 bg-white p-8">
             <Eye className="h-6 w-6 text-brand" aria-hidden="true" />
@@ -68,7 +66,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <Section labelledBy="values-title">
-        <SectionHeading id="values-title" title={about.values.title} />
+        <SectionHeading id="values-title" title={about.values.title} sub={about.values.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {about.values.items.map((v) => (
             <TitledTextCard key={v.title} title={v.title} body={v.body} />
@@ -78,7 +76,7 @@ export default function AboutPage() {
 
       {/* Team */}
       <Section tone="muted" labelledBy="team-title">
-        <SectionHeading id="team-title" title={about.team.title} />
+        <SectionHeading id="team-title" title={about.team.title} sub={about.team.sub} />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {about.team.members.map((m, i) => (
             <li key={i} className="overflow-hidden rounded-card border border-neutral-200 bg-white">
@@ -107,7 +105,7 @@ export default function AboutPage() {
 
       {/* Numbers */}
       <Section labelledBy="numbers-title">
-        <SectionHeading id="numbers-title" title={about.numbersTitle} />
+        <SectionHeading id="numbers-title" title={about.numbers.title} sub={about.numbers.sub} />
         <StatsGrid stats={stats} />
       </Section>
 
@@ -144,7 +142,7 @@ export default function AboutPage() {
 
       {/* Clients & partners */}
       <Section labelledBy="clients-title">
-        <SectionHeading id="clients-title" title={about.clients.title} />
+        <SectionHeading id="clients-title" title={about.clients.title} sub={about.clients.sub} />
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {Array.from({ length: about.clients.logoCount }, (_, i) => (
             <li key={i}>
@@ -160,6 +158,7 @@ export default function AboutPage() {
           {[about.dual.clients, about.dual.talent].map((d, i) => (
             <div key={d.title} className="flex flex-col items-start rounded-card border border-neutral-200 bg-neutral-50 p-8">
               <h2 className="text-[24px] font-bold text-ink">{d.title}</h2>
+              <p className="mt-2 text-lg leading-relaxed text-neutral-600">{d.sub}</p>
               <LinkButton href={d.cta.href} variant={i === 0 ? "primary" : "secondary"} size="lg" className="mt-6">
                 {d.cta.label}
               </LinkButton>

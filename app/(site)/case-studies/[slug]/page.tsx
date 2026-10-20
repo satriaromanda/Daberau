@@ -103,13 +103,13 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
 
       {/* 4. Process */}
       <Section labelledBy="process-title">
-        <SectionHeading id="process-title" title={d.process} />
+        <SectionHeading id="process-title" title={d.process} sub={d.processSub} />
         <ProcessSteps steps={c.process} />
       </Section>
 
       {/* 5. Results */}
       <Section tone="muted" labelledBy="results-title">
-        <SectionHeading id="results-title" title={d.results} />
+        <SectionHeading id="results-title" title={d.results} sub={d.resultsSub} />
         <div className="overflow-x-auto rounded-card border border-neutral-200 bg-white">
           <table className="w-full min-w-[480px] text-left">
             <thead className="bg-neutral-50 text-sm uppercase tracking-wider text-neutral-600">
@@ -156,7 +156,7 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
 
       {/* 7. Gallery */}
       <Section tone="muted" labelledBy="gallery-title">
-        <SectionHeading id="gallery-title" title={d.gallery} />
+        <SectionHeading id="gallery-title" title={d.gallery} sub={d.gallerySub} />
         <div className="grid gap-4 md:grid-cols-3">
           {c.gallery.map((g) => (
             <ImagePlaceholder key={g} label={g} aspect="aspect-[16/9] lg:aspect-[4/3]" />
@@ -167,9 +167,12 @@ export default async function CaseStudyDetail({ params }: { params: Promise<{ sl
       {/* 8. CTA */}
       <section aria-labelledby="cs-cta" className="bg-white py-16 md:py-20">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col items-start gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <h2 id="cs-cta" className="text-[28px] font-bold leading-tight text-ink md:text-[36px]">
-            {d.cta}
-          </h2>
+          <div className="max-w-xl">
+            <h2 id="cs-cta" className="text-[28px] font-bold leading-tight text-ink md:text-[36px]">
+              {d.cta}
+            </h2>
+            <p className="mt-3 text-lg leading-relaxed text-neutral-600">{d.ctaSub}</p>
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <LinkButton href={primaryCta.href} size="lg">
               {primaryCta.label}

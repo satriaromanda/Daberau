@@ -5,7 +5,8 @@ export const faqPage = {
     title: "FAQ | Daberau",
     description: "Answers about pricing, payment, project process, technical questions, and support from the Daberau team.",
   },
-  h1: "Frequently asked questions",
+  h1: "Your questions, answered",
+  sub: "Pricing, process, ownership, and support: everything clients usually ask before getting started.",
   bottom: "Can't find your answer? Ask our team directly.",
   // Spec example questions are verbatim; answers and extra questions are sample copy.
   categories: [

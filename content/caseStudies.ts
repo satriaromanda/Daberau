@@ -18,11 +18,15 @@ export const caseStudiesPage = {
     glanceLabels: { client: "Client", industry: "Industry", services: "Services", duration: "Duration" },
     challenge: "What our client was facing",
     solution: "What we built",
-    process: "The process",
-    results: "The results",
+    process: "How we got there",
+    processSub: "The key phases and decisions along the way.",
+    results: "The difference it made",
+    resultsSub: "Before and after, in numbers.",
     resultsCols: { before: "Before", after: "After" },
-    gallery: "Gallery",
+    gallery: "A closer look",
+    gallerySub: "Screens from the finished product.",
     cta: "Facing a similar challenge? Let's talk.",
+    ctaSub: "Tell us what's going on. We'll show you how we'd approach it, free of charge.",
   },
 };
 

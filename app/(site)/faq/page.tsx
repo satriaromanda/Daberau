@@ -21,7 +21,7 @@ export default function FaqPage() {
           mainEntity: all.map((q) => ({ "@type": "Question", name: q.q, acceptedAnswer: { "@type": "Answer", text: q.a } })),
         }}
       />
-      <PageHero crumbs={[{ label: "FAQ" }]} title={f.h1}>
+      <PageHero crumbs={[{ label: "FAQ" }]} title={f.h1} sub={f.sub}>
         <nav aria-label="FAQ categories">
           <ul className="flex flex-wrap gap-2">
             {f.categories.map((c) => (

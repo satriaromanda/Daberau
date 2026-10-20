@@ -93,7 +93,7 @@ export default function HomePage() {
       {/* 5. Why Daberau */}
       <Section labelledBy="why-title">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <SectionHeading id="why-title" title={home.why.title} className="mb-0" />
+          <SectionHeading id="why-title" title={home.why.title} sub={home.why.sub} className="mb-0" />
           <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
             {home.why.points.map((p) => (
               <li key={p.title} className="border-t-2 border-brand pt-5">
@@ -108,15 +108,14 @@ export default function HomePage() {
       </Section>
 
       {/* 6. Stats */}
-      <section aria-label="Company numbers" className="border-y border-neutral-200/70 bg-neutral-50 py-12 md:py-16">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <StatsGrid stats={stats} />
-        </div>
-      </section>
+      <Section tone="muted" labelledBy="stats-title">
+        <SectionHeading id="stats-title" title={home.stats.title} sub={home.stats.sub} />
+        <StatsGrid stats={stats} />
+      </Section>
 
       {/* 7. Featured case studies */}
       <Section labelledBy="cases-title">
-        <SectionHeading id="cases-title" title={home.featured.title} extra={<SampleTag label="Sample case studies" />} />
+        <SectionHeading id="cases-title" title={home.featured.title} sub={home.featured.sub} extra={<SampleTag label="Sample case studies" />} />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((cs) => (
             <CaseStudyCard key={cs.slug} cs={cs} />
@@ -131,7 +130,7 @@ export default function HomePage() {
 
       {/* 8. How we work */}
       <Section tone="muted" labelledBy="process-title">
-        <SectionHeading id="process-title" title={home.process.title} />
+        <SectionHeading id="process-title" title={home.process.title} sub={home.process.sub} />
         <ProcessSteps steps={processSteps} />
         <div className="mt-10">
           <TextLink href={home.process.link.href}>{home.process.link.label}</TextLink>
@@ -140,7 +139,7 @@ export default function HomePage() {
 
       {/* 9. Testimonials */}
       <Section labelledBy="testimonials-title">
-        <SectionHeading id="testimonials-title" title={home.testimonials.title} />
+        <SectionHeading id="testimonials-title" title={home.testimonials.title} sub={home.testimonials.sub} />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <TestimonialCard key={i} t={t} />
@@ -150,7 +149,7 @@ export default function HomePage() {
 
       {/* 10. Latest insights */}
       <Section tone="muted" labelledBy="insights-title">
-        <SectionHeading id="insights-title" title={home.insights.title} extra={<SampleTag label="Sample articles" />} />
+        <SectionHeading id="insights-title" title={home.insights.title} sub={home.insights.sub} extra={<SampleTag label="Sample articles" />} />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {articles.map((a) => (
             <ArticleCard key={a.slug} a={a} />

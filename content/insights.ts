@@ -14,7 +14,7 @@ export const insightsPage = {
   empty: 'No articles found for "[keyword]". Try another term or browse our latest posts.',
   browseLatest: "Browse latest posts",
   articleCta: "Need help putting this into practice? Book a free consultation with our team.",
-  related: "More insights",
+  related: "Keep reading",
   readMore: "Read article →",
 };
 

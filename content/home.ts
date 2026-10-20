@@ -4,7 +4,7 @@ export const home = {
   hero: {
     eyebrow: "IT services for businesses ready to grow",
     h1: "One partner for every IT need your business has",
-    sub: "From websites and apps to servers and day-to-day support, we design, build, and maintain your digital systems with one dedicated team.",
+    sub: "Websites, apps, servers, and day-to-day support, all handled by one team that stays with you after launch.",
     primary: { label: "Get a Free Consultation", href: "/consultation" },
     secondary: { label: "See Our Work", href: "/case-studies" },
     micro: "Free and no commitment. We reply within one business day.",
@@ -42,12 +42,13 @@ export const home = {
     closing: "The good news? Every one of these can be fixed, one step at a time.",
   },
   services: {
-    title: "What we do",
-    sub: "Pick one service or combine several. The same team handles everything.",
+    title: "Everything your business runs on, built by one team",
+    sub: "Start with one service or combine several. Either way, you get one team and one point of contact.",
     cta: { label: "Explore All Services", href: "/services" },
   },
   why: {
-    title: "Why businesses choose to work with us",
+    title: "Why clients stay with us long after launch",
+    sub: "Clear pricing, progress you can see, and a team that's still here when something needs fixing.",
     points: [
       { title: "One team, one point of contact.", body: "No juggling vendors. A single project manager owns your project from kickoff to launch." },
       { title: "Clear pricing from day one.", body: "Itemized quotes for every phase, with no hidden fees." },
@@ -55,21 +56,31 @@ export const home = {
       { title: "We don't disappear after launch.", body: "A [X]-day bug-fix warranty and monthly maintenance plans." },
     ],
   },
+  stats: {
+    title: "Results we can stand behind",
+    sub: "Every number here comes from projects we've actually delivered.",
+  },
   featured: {
-    title: "Real results for real clients",
+    title: "Proof, not promises",
+    sub: "See how businesses like yours saved time, won more customers, and stopped firefighting.",
     cta: { label: "View All Case Studies", href: "/case-studies" },
   },
   process: {
-    title: "From idea to launch in 5 steps",
+    title: "From first call to launch in 5 clear steps",
+    sub: "You'll always know what happens next, what it costs, and when it's done.",
     link: { label: "See how we work →", href: "/how-we-work" },
   },
-  testimonials: { title: "What our clients say" },
+  testimonials: {
+    title: "Don't just take our word for it",
+    sub: "Here's what owners and managers say after working with us.",
+  },
   insights: {
-    title: "Insights for smarter IT decisions",
+    title: "Smarter IT decisions start here",
+    sub: "Practical, jargon-free guides for business owners who want to make the right call.",
     cta: { label: "Read All Insights", href: "/insights" },
   },
   closing: {
     headline: "Ready to get your IT sorted?",
-    sub: "Tell us what you need. We'll send a recommendation and an initial estimate, free of charge.",
+    sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
   },
 };

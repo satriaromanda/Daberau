@@ -25,9 +25,7 @@ export default function ServicesPage() {
       </PageHero>
 
       <Section labelledBy="grid-title">
-        <h2 id="grid-title" className="sr-only">
-          Our services
-        </h2>
+        <SectionHeading id="grid-title" title={o.grid.title} sub={o.grid.sub} />
         <ServicesFilter />
       </Section>
 
@@ -63,7 +61,7 @@ export default function ServicesPage() {
 
       <Section tone="muted" labelledBy="faq-title">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading id="faq-title" title="Frequently asked questions" className="mb-0" />
+          <SectionHeading id="faq-title" title={o.faqTitle} sub={o.faqSub} className="mb-0" />
           <FaqAccordion items={o.faqs} />
         </div>
       </Section>

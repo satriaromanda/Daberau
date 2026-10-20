@@ -239,18 +239,20 @@ export const services: Service[] = [
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 export const serviceBySlug = (slug: ServiceSlug) => services.find((s) => s.slug === slug)!;
 
-/** Section labels for the 11-section service detail template */
+/** Section headings for the 11-section service detail template (shared by all services) */
 export const serviceTemplate = {
-  benefitsTitle: "What you get",
-  processTitle: "How we work on it",
-  caseStudiesTitle: "Related case studies",
-  packagesTitle: "Packages",
-  techTitle: "Technologies we use",
-  faqTitle: "Frequently asked questions",
-  relatedTitle: "Related services",
+  problemSub: "If any of these hit close to home, you're in the right place.",
+  deliver: { title: "Everything we can take off your plate", sub: "Pick what you need now. Add more as your business grows." },
+  benefits: { title: "What changes for your business", sub: "The results our clients care about most." },
+  process: { title: "How we'll get it done", sub: "A clear path from kickoff to launch, with your review at every stage." },
+  caseStudies: { title: "See it in action", sub: "Real projects, real numbers." },
+  packages: { title: "Pick a package that fits", sub: "Transparent starting prices. Your final quote is itemized and always free." },
+  tech: { title: "Built with tools that last", sub: "Proven, well-supported technology your team won't outgrow." },
+  faq: { title: "Still have questions?", sub: "Here are the ones we hear most." },
+  related: { title: "Often paired with", sub: "Services clients commonly combine with this one." },
   closing: {
     headline: "Ready to get your IT sorted?",
-    sub: "Tell us what you need. We'll send a recommendation and an initial estimate, free of charge.",
+    sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
   },
 };
 
@@ -265,15 +267,21 @@ export const servicesOverview = {
     { id: "stable", label: "I want more stable systems" },
     { id: "not-sure", label: "I'm not sure yet" },
   ] as { id: NeedFilter; label: string }[],
+  grid: {
+    title: "What do you need help with?",
+    sub: "Pick what fits your situation, and we'll show you where to start.",
+  },
   bundled: {
-    title: "Need more than one service?",
-    sub: "Combine services under one contract and one project manager. Less coordination, faster delivery.",
+    title: "Need more than one thing fixed?",
+    sub: "Bundle services under one contract and one project manager. Less back-and-forth, faster results.",
   },
   tech: {
-    title: "Technologies we use",
-    sub: "We choose tools based on your needs, not trends.",
+    title: "The right tools, not the trendy ones",
+    sub: "We pick technology based on what your business needs and what your team can maintain.",
     items: ["React", "Next.js", "Laravel", "Flutter", "WordPress", "Figma", "AWS", "Google Cloud", "Docker", "PostgreSQL", "MySQL", "Cloudflare"],
   },
+  faqTitle: "Questions we hear a lot",
+  faqSub: "Short answers to what most clients ask before getting started.",
   faqs: [
     {
       q: "Can I start with just one service?",
