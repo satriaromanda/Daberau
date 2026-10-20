@@ -8,7 +8,10 @@ export const home = {
     primary: { label: "Get a Free Consultation", href: "/contact#contact-form" },
     secondary: { label: "Explore Services", href: "/services" },
     micro: "Free and no commitment. We reply within one business day.",
-    visualLabel: "Example client dashboard",
+    image: {
+      src: "/images/hero-dashboard.webp",
+      alt: "Daberau project dashboard showing projects, tasks, upcoming events, and progress charts",
+    },
   },
   pain: {
     title: "Does any of this sound like *your business?*",

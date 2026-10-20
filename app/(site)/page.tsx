@@ -6,7 +6,8 @@ import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { ServiceCard, TextLink } from "@/components/ui/Cards";
 import { IconTile } from "@/components/ui/Icons";
-import { DashboardMockup } from "@/components/ui/Placeholders";
+import Image from "next/image";
+import { asset } from "@/lib/asset";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { Text } from "@/components/ui/Text";
 import { ClosingCta } from "@/components/sections/ClosingCta";
@@ -17,7 +18,7 @@ export default function HomePage() {
     <>
       {/* 1. Hero */}
       <section className="relative overflow-hidden border-b border-neutral-200/70 bg-gradient-to-b from-neutral-50 to-white">
-        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:pb-24 md:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:px-8 lg:pt-20">
+        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:pb-24 md:pt-16 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12 lg:px-8 lg:pt-20">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-sm font-semibold text-neutral-700">
               <span aria-hidden="true" className="h-2 w-2 rounded-full bg-brand" />
@@ -38,7 +39,17 @@ export default function HomePage() {
               {hero.micro}
             </p>
           </div>
-          <DashboardMockup label={hero.visualLabel} />
+          <div className="overflow-hidden rounded-card border border-neutral-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.04),0_20px_48px_-20px_rgba(191,30,46,0.25)]">
+            <Image
+              src={asset(hero.image.src)}
+              alt={hero.image.alt}
+              width={1600}
+              height={852}
+              priority
+              sizes="(min-width: 1024px) 620px, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </section>
 

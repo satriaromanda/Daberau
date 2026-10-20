@@ -62,15 +62,6 @@ body {
   box-decoration-break: clone;
 }
 
-/* Neutral image placeholder backdrop */
-.img-ph {
-  background-color: #f5f5f5;
-  background-image: repeating-linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.025) 0 12px,
-    transparent 12px 24px
-  );
-}
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
