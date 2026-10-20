@@ -1,3 +1,5 @@
+import type { IconName } from "./types";
+
 export const home = {
   hero: {
     eyebrow: "IT services for businesses ready to grow",
@@ -13,14 +15,31 @@ export const home = {
     logoCount: 8,
   },
   pain: {
-    title: "Sound familiar?",
+    title: "Does any of this sound like your business?",
+    sub: "Most of our clients came to us with at least one of these.",
     cards: [
-      { title: "Your website exists, but it doesn't sell.", body: "It's slow, hard to find on Google, and rarely brings in customers." },
-      { title: "Work is still manual.", body: "Data lives in spreadsheets and chat threads, reports run late, and mistakes repeat." },
-      { title: "Your systems keep breaking.", body: "Servers go down, data gets lost, and no one picks up when it matters." },
-      { title: "You don't know where to start.", body: "Too many vendors, too much jargon, and a limited budget." },
-    ],
-    closing: "The good news: all of this can be fixed in the right order.",
+      {
+        icon: "search-x",
+        title: "Your website looks good, but nobody calls.",
+        body: "Visitors can't find you on Google, and the few who do leave before getting in touch.",
+      },
+      {
+        icon: "spreadsheet",
+        title: "Your team still does it by hand.",
+        body: "Numbers live in spreadsheets and chat threads, so reports run late and the same mistakes return.",
+      },
+      {
+        icon: "server-crash",
+        title: "Something breaks, and nobody answers.",
+        body: "The server goes down or data disappears, right when you need it most.",
+      },
+      {
+        icon: "signpost",
+        title: "You're not sure where to begin.",
+        body: "Every vendor speaks a different jargon, and your budget can't afford a wrong guess.",
+      },
+    ] as { icon: IconName; title: string; body: string }[],
+    closing: "The good news? Every one of these can be fixed, one step at a time.",
   },
   services: {
     title: "What we do",

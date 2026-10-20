@@ -9,6 +9,7 @@ import { stats } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { ArticleCard, CaseStudyCard, ServiceCard, StatsGrid, TestimonialCard, TextLink } from "@/components/ui/Cards";
+import { IconTile } from "@/components/ui/Icons";
 import { DashboardMockup } from "@/components/ui/Placeholders";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { SampleTag, Text } from "@/components/ui/Text";
@@ -58,13 +59,13 @@ export default function HomePage() {
 
       {/* 3. Pain points */}
       <Section labelledBy="pain-title">
-        <SectionHeading id="pain-title" title={home.pain.title} />
+        <SectionHeading id="pain-title" title={home.pain.title} sub={home.pain.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {home.pain.cards.map((c, i) => (
+          {home.pain.cards.map((c) => (
             <div key={c.title} className="rounded-card border border-neutral-200 bg-white p-6">
-              <span className="text-sm font-bold text-neutral-400">0{i + 1}</span>
-              <h3 className="mt-3 text-[17px] font-bold leading-snug text-ink">{c.title}</h3>
-              <p className="mt-2 leading-relaxed text-neutral-600">{c.body}</p>
+              <IconTile name={c.icon} size="sm" />
+              <h3 className="mt-4 text-[17px] font-bold leading-snug text-pretty text-ink">{c.title}</h3>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-600">{c.body}</p>
             </div>
           ))}
         </div>

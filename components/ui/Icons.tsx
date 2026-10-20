@@ -1,10 +1,14 @@
 import {
   Cloud,
   Compass,
+  FileSpreadsheet,
   Globe,
   GraduationCap,
   Landmark,
   PenTool,
+  SearchX,
+  ServerCrash,
+  Signpost,
   Smartphone,
   Stethoscope,
   Store,
@@ -26,6 +30,10 @@ const map: Record<IconName, React.ComponentType<LucideProps>> = {
   stethoscope: Stethoscope,
   truck: Truck,
   landmark: Landmark,
+  "search-x": SearchX,
+  spreadsheet: FileSpreadsheet,
+  "server-crash": ServerCrash,
+  signpost: Signpost,
 };
 
 export function Icon({ name, ...props }: { name: IconName } & LucideProps) {

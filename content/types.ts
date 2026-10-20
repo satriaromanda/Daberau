@@ -15,7 +15,11 @@ export type IconName =
   | "graduation"
   | "stethoscope"
   | "truck"
-  | "landmark";
+  | "landmark"
+  | "search-x"
+  | "spreadsheet"
+  | "server-crash"
+  | "signpost";
 
 export type TitledText = { title: string; body: string };
 
