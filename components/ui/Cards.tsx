@@ -16,7 +16,7 @@ const cardBase = "rounded-card border border-neutral-200 bg-white transition-col
 export function MoreCue({ label }: { label: string }) {
   return (
     <span className="mt-auto inline-flex items-center gap-3 pt-6 text-[15px] font-semibold text-ink">
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white transition-all duration-300 group-hover:rotate-45 group-hover:bg-brand">
+      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white transition-colors duration-300 group-hover:bg-brand">
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </span>
       <span className="transition-colors group-hover:text-brand">{label}</span>
@@ -51,7 +51,7 @@ export function ServiceCard({ service, showScope = false, index = 0 }: { service
             {service.name}
           </Link>
         </h3>
-        <p className="relative z-10 mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">{service.short}</p>
+        <p className="relative z-10 mt-2.5 leading-relaxed text-neutral-600 md:text-[17px]">{service.short}</p>
         {showScope && (
           <div className="relative z-10 mt-4">
             <ul className="space-y-2">
@@ -74,9 +74,9 @@ export function ServiceCard({ service, showScope = false, index = 0 }: { service
 
 export function StatCard({ stat }: { stat: Stat }) {
   return (
-    <div data-reveal className="card-interactive group flex flex-col-reverse justify-end rounded-card border border-neutral-200 bg-white p-6">
+    <div data-reveal className="flex flex-col-reverse justify-end rounded-card border border-neutral-200 bg-white p-6">
       <dt className="mt-3 text-[15px] text-neutral-600">{stat.label}</dt>
-      <dd className="text-[34px] font-extrabold leading-none tracking-tight text-ink transition-colors group-hover:text-brand md:text-[40px]">
+      <dd className="text-[34px] font-extrabold leading-none tracking-tight text-ink md:text-[40px]">
         <Text>{stat.value}</Text>
       </dd>
     </div>
@@ -107,17 +107,17 @@ export function TitledTextCard({ title, body, index, delay = 0 }: { title: strin
     <div
       data-reveal
       style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
-      className="card-interactive group rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+      className="rounded-card border border-neutral-200 bg-white p-6 md:p-7"
     >
       {index !== undefined && (
-        <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-lg font-extrabold text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+        <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-lg font-extrabold text-brand">
           {index}
         </span>
       )}
       <h3 className="text-[19px] font-bold leading-snug text-pretty text-ink md:text-[21px]">
         <Text>{title}</Text>
       </h3>
-      <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">
+      <p className="mt-2.5 leading-relaxed text-neutral-600 md:text-[17px]">
         <Text>{body}</Text>
       </p>
     </div>

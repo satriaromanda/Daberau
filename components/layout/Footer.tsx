@@ -5,7 +5,6 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { footer, site } from "@/content/site";
 import { services } from "@/content/services";
-import { Newsletter } from "./Newsletter";
 
 const socialIcons = { linkedin: Linkedin, instagram: Instagram, facebook: Facebook, youtube: Youtube };
 
@@ -16,7 +15,7 @@ function FooterCol({ title, links }: { title: string; links: { label: string; hr
       <ul className="mt-4 space-y-2.5">
         {links.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="inline-block text-[15px] text-neutral-600 transition-[color,transform] duration-200 hover:translate-x-0.5 hover:text-brand">
+            <Link href={l.href} className="text-[15px] text-neutral-600 transition-colors hover:text-brand">
               {l.label}
             </Link>
           </li>
@@ -61,22 +60,24 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <ul className="mt-6 flex gap-2" aria-label="Social media">
-              {site.socials.map((s) => {
-                const Icon = socialIcons[s.icon];
-                return (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      aria-label={`${s.label} (link to be added)`}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-btn border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300 hover:text-brand"
-                    >
-                      <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            {site.socials.some((s) => s.href) && (
+              <ul className="mt-6 flex gap-2" aria-label="Social media">
+                {site.socials.filter((s) => s.href).map((s) => {
+                  const Icon = socialIcons[s.icon];
+                  return (
+                    <li key={s.label}>
+                      <a
+                        href={s.href}
+                        aria-label={s.label}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-btn border border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300 hover:text-brand"
+                      >
+                        <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:grid-cols-[1.3fr_1fr_0.8fr_1fr]">
@@ -84,9 +85,6 @@ export function Footer() {
             <FooterCol title="Company" links={footer.company} />
             <FooterCol title="Help" links={footer.help} />
             <FooterCol title="Legal" links={footer.legal} />
-            <div className="col-span-2 sm:col-span-4 lg:col-span-4">
-              <Newsletter />
-            </div>
           </div>
         </div>
 

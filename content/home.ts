@@ -60,8 +60,4 @@ export const home = {
     sub: "You'll always know what happens next, what it costs, and when it's done.",
     link: { label: "See how we work →", href: "/how-we-work" },
   },
-  closing: {
-    headline: "Ready to get *your IT sorted?*",
-    sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
-  },
 };

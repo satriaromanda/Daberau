@@ -29,8 +29,8 @@ export default function ContactPage() {
             const Icon = optionIcons[o.kind as keyof typeof optionIcons];
             const isWa = o.kind === "whatsapp";
             return (
-              <div key={o.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="card-interactive group flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+              <div key={o.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand">
                   <Icon className="h-7 w-7" strokeWidth={2.2} aria-hidden="true" />
                 </span>
                 <h3 className="mt-6 text-[19px] font-bold text-ink">{o.title}</h3>

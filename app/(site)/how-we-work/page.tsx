@@ -34,9 +34,8 @@ export default function HowWeWorkPage() {
               <li
                 key={step.title}
                 data-reveal
-                className="card-interactive group relative grid gap-6 overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-8 lg:grid-cols-[300px_1fr]"
+                className="relative grid gap-6 overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-8 lg:grid-cols-[300px_1fr]"
               >
-                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-brand transition-transform duration-500 group-hover:scale-y-100" />
                 <div className="flex gap-4">
                   {step.icon && <IconTile name={step.icon} />}
                   <div>
@@ -74,8 +73,8 @@ export default function HowWeWorkPage() {
         <SectionHeading id="warranty-title" eyebrow={eyebrows.howWeWork.warranty} title={h.warranty.title} sub={h.warranty.sub} />
         <ul className="grid gap-4 md:grid-cols-3">
           {h.warranty.items.map((w, i) => (
-            <li key={w.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="card-interactive group flex gap-4 rounded-card border border-neutral-200 bg-white p-6">
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+            <li key={w.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="flex gap-4 rounded-card border border-neutral-200 bg-white p-6">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand">
                 <ShieldCheck className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>

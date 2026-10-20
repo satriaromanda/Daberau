@@ -56,13 +56,4 @@ export const about = {
     title: "Our *track record* so far",
     sub: "Every number here comes from projects we've actually delivered.",
   },
-  legal: {
-    title: "Registered and *verified*",
-    sub: "We're a legally registered company in Indonesia.",
-    items: [
-      { label: "Company", value: "PT Daberau Mikro Elit" },
-      { label: "NIB", value: "Available on request" },
-      { label: "Legal documents", value: "Company deed and NIB available on request" },
-    ],
-  },
 };

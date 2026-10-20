@@ -18,7 +18,7 @@ export function ProcessSteps({ steps }: { steps: Step[] }) {
           key={i}
           data-reveal
           style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-          className="group relative pl-16 lg:pl-0"
+          className="relative pl-16 lg:pl-0"
         >
           {/* mobile timeline marker */}
           <span
@@ -28,13 +28,13 @@ export function ProcessSteps({ steps }: { steps: Step[] }) {
             {String(i + 1).padStart(2, "0")}
           </span>
 
-          <div className="card-interactive flex h-full flex-col rounded-card border border-neutral-200 bg-white p-6">
+          <div className="flex h-full flex-col rounded-card border border-neutral-200 bg-white p-6">
             <div className="flex items-center justify-between gap-3">
               <span className="text-[13px] font-bold uppercase tracking-wider text-brand">Step {String(i + 1).padStart(2, "0")}</span>
               {s.icon ? (
                 <IconTile name={s.icon} size="sm" />
               ) : (
-                <span className="hidden h-9 w-9 items-center justify-center rounded-full bg-brand-50 text-sm font-extrabold text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white lg:inline-flex">
+                <span className="hidden h-9 w-9 items-center justify-center rounded-full bg-brand-50 text-sm font-extrabold text-brand transition-colors duration-300 lg:inline-flex">
                   {i + 1}
                 </span>
               )}

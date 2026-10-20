@@ -1,7 +1,7 @@
 import type { Faq, NeedFilter, Service, ServiceSlug } from "./types";
 
-// Prices, timelines and warranty terms below are typical market values used as a starting point.
-// Confirm them against Daberau's real rate card before launch.
+// Timelines, warranty and support terms below are typical market values used as a starting point.
+// Confirm them against Daberau's real contracts before launch.
 
 export const services: Service[] = [
   {
@@ -13,7 +13,6 @@ export const services: Service[] = [
     keyword: "web development services",
     needs: ["found-online"],
     scope: ["Company websites", "Campaign landing pages", "Online stores"],
-    startingFrom: "IDR 3.5M",
     meta: {
       title: "Web Development Services | Daberau",
       description: "Fast, easy to find on Google, and designed to turn visitors into leads.",
@@ -52,22 +51,14 @@ export const services: Service[] = [
       { title: "SEO & testing", body: "We set up on-page SEO and test speed, forms, and every device." },
       { title: "Launch & handover", body: "We go live and show your team how to update the CMS." },
     ],
-    packages: {
-      rows: [
-        { name: "Starter", bestFor: "New businesses, landing pages", included: "1–3 pages, responsive, contact form", price: "From IDR 3.5M" },
-        { name: "Business", bestFor: "Company websites", included: "Up to 10 pages, CMS, basic SEO, blog", price: "From IDR 8.5M" },
-        { name: "Custom", bestFor: "E-commerce & custom features", included: "Scoped to your needs, system integrations", price: "Let's talk" },
-      ],
-      note: "All packages include a domain and hosting for the first year, SSL, and a 30-day bug-fix warranty.",
-    },
     techStack: ["Next.js", "WordPress", "Laravel", "Tailwind CSS", "Google Analytics", "Cloudflare"],
     faqs: [
       {
         q: "How long does it take to build a website?",
-        a: "Starter sites usually take 2–3 weeks and Business sites 4–6 weeks. We confirm the exact timeline in your written quote.",
+        a: "Simple sites usually take 2–3 weeks and full company websites 4–6 weeks. We confirm the exact timeline in your written quote.",
       },
-      { q: "Can I edit the content myself?", a: "Yes. Business and Custom packages include a CMS, and we walk your team through it at handover." },
-      { q: "Are domain and hosting included?", a: "Yes. All packages include a domain and hosting for the first year, plus SSL." },
+      { q: "Can I edit the content myself?", a: "Yes. We set up an easy-to-use CMS and walk your team through it at handover." },
+      { q: "Are domain and hosting included?", a: "We can include a domain, hosting, and SSL for the first year. Everything is itemized in your quote." },
       {
         q: "What if I already have a website?",
         a: "We can redesign it, move your existing content across, and keep your domain so you don't start from zero.",
@@ -88,7 +79,6 @@ export const services: Service[] = [
     keyword: "custom app development",
     needs: ["automate"],
     scope: ["Internal operations apps", "Customer-facing mobile apps", "Integrations with your existing tools"],
-    startingFrom: "IDR 25M",
     meta: {
       title: "Custom App Development | Daberau",
       description: "Custom apps for your operations, your customers, or your next digital product.",
@@ -127,14 +117,6 @@ export const services: Service[] = [
       { title: "Test & roll out", body: "User testing, data migration, and training for your team." },
       { title: "Support & improve", body: "Monitoring, fixes, and new features as your needs change." },
     ],
-    packages: {
-      rows: [
-        { name: "MVP", bestFor: "Testing a new product idea", included: "Core features, one platform, admin panel", price: "From IDR 25M" },
-        { name: "Business App", bestFor: "Internal operations or customer apps", included: "Web + mobile, roles & permissions, integrations", price: "From IDR 60M" },
-        { name: "Enterprise", bestFor: "Complex, multi-branch systems", included: "Scoped to your needs, ERP integration, SLA", price: "Let's talk" },
-      ],
-      note: "All packages include source code ownership after full payment and a 30-day bug-fix warranty.",
-    },
     techStack: ["React", "Next.js", "Flutter", "Laravel", "Node.js", "PostgreSQL"],
     faqs: [
       {
@@ -166,7 +148,6 @@ export const services: Service[] = [
     keyword: "UI/UX design services",
     needs: ["found-online"],
     scope: ["User research & interviews", "Wireframes & clickable prototypes", "Usability testing"],
-    startingFrom: "IDR 7.5M",
     meta: {
       title: "UI/UX Design Services | Daberau",
       description: "Interfaces people find easy to use, validated before a single line of code.",
@@ -205,14 +186,6 @@ export const services: Service[] = [
       { title: "Test & refine", body: "Usability tests with real users, then improvements." },
       { title: "Handoff", body: "Final designs, a design system, and specs for your developers." },
     ],
-    packages: {
-      rows: [
-        { name: "UX Audit", bestFor: "Existing websites or apps", included: "Expert review, usability issues, prioritized fixes", price: "From IDR 7.5M" },
-        { name: "Design Sprint", bestFor: "Validating a new idea fast", included: "Research, prototype, and user testing in 1–2 weeks", price: "From IDR 15M" },
-        { name: "Full Product Design", bestFor: "New apps and platforms", included: "Research to final UI, design system, dev handoff", price: "Let's talk" },
-      ],
-      note: "All packages include editable Figma files and two rounds of revisions per phase.",
-    },
     techStack: ["Figma", "Framer", "Maze", "Hotjar", "Google Analytics", "Miro"],
     faqs: [
       {
@@ -238,7 +211,6 @@ export const services: Service[] = [
     keyword: "cloud migration / managed servers",
     needs: ["stable"],
     scope: ["Cloud migration & hosting", "Server setup & hardening", "Automated backups & monitoring"],
-    startingFrom: "IDR 1.5M/month",
     meta: {
       title: "Cloud Migration & Managed Servers | Daberau",
       description: "Servers, hosting, cloud migration, and backups that stay secure and monitored.",
@@ -276,14 +248,6 @@ export const services: Service[] = [
       { title: "Setup & migration", body: "We build the new environment and move your data with minimal downtime." },
       { title: "Monitor & maintain", body: "Ongoing monitoring, updates, backups, and monthly reports." },
     ],
-    packages: {
-      rows: [
-        { name: "Managed Server", bestFor: "Websites and small systems", included: "Hosting, monitoring, daily backups, updates", price: "From IDR 1.5M/month" },
-        { name: "Cloud Setup", bestFor: "New projects", included: "Architecture, setup, security hardening, documentation", price: "From IDR 5M" },
-        { name: "Migration Project", bestFor: "Moving existing systems", included: "Assessment, migration plan, cutover, and support", price: "Let's talk" },
-      ],
-      note: "Cloud provider fees are billed at cost and shown separately in your quote.",
-    },
     techStack: ["AWS", "Google Cloud", "Docker", "Linux", "Cloudflare", "Grafana"],
     faqs: [
       {
@@ -312,7 +276,6 @@ export const services: Service[] = [
     keyword: "managed IT support",
     needs: ["stable"],
     scope: ["Helpdesk & on-call fixes", "Updates & security patches", "System monitoring & monthly reports"],
-    startingFrom: "IDR 1.5M/month",
     meta: {
       title: "Managed IT Support & Maintenance | Daberau",
       description: "A team on standby for fixes, updates, and system monitoring.",
@@ -350,14 +313,6 @@ export const services: Service[] = [
       { title: "Ongoing support", body: "Fixes, updates, and small changes, handled as they come in." },
       { title: "Monthly review", body: "A report on uptime, issues fixed, and what to improve next." },
     ],
-    packages: {
-      rows: [
-        { name: "Basic", bestFor: "One website or small system", included: "Updates, backups, monitoring, 4 support hours/month", price: "From IDR 1.5M/month" },
-        { name: "Business", bestFor: "Multiple systems", included: "Priority response, 12 support hours/month, monthly report", price: "From IDR 4M/month" },
-        { name: "Dedicated", bestFor: "Critical operations", included: "Agreed SLA, on-site visits, dedicated engineer", price: "Let's talk" },
-      ],
-      note: "Unused support hours don't roll over. Extra hours are billed at the rate in your agreement.",
-    },
     techStack: ["WordPress", "Laravel", "Linux", "Cloudflare", "Sentry", "Nginx"],
     faqs: [
       {
@@ -366,9 +321,9 @@ export const services: Service[] = [
       },
       {
         q: "How fast do you respond?",
-        a: "During business hours, Business plan clients get a first response within 4 business hours. Exact response times are written into your plan.",
+        a: "During business hours, maintenance clients get a first response within 4 business hours. Exact response times are written into your plan.",
       },
-      { q: "Do you offer on-site support?", a: "Yes, in Jakarta and surrounding areas, on the Dedicated plan or as an add-on." },
+      { q: "Do you offer on-site support?", a: "Yes, in Jakarta and surrounding areas, as part of a support plan." },
       { q: "Is there a minimum contract?", a: "Monthly plans start with a 3-month minimum, then continue month to month." },
       { q: "What counts as a support hour?", a: "Any time spent fixing, updating, or changing your systems. Monitoring and backups don't use your hours." },
     ],
@@ -383,7 +338,6 @@ export const services: Service[] = [
     keyword: "IT consulting services",
     needs: ["automate"],
     scope: ["IT audit & assessment", "Digital roadmap & budgeting", "Vendor & technology selection"],
-    startingFrom: "IDR 5M",
     meta: {
       title: "IT Consulting Services | Daberau",
       description: "A clear digital roadmap before you commit a big budget.",
@@ -421,14 +375,6 @@ export const services: Service[] = [
       { title: "Roadmap", body: "A step-by-step plan with priorities, budget, and timeline." },
       { title: "Support delivery", body: "Optional help choosing vendors and overseeing the work." },
     ],
-    packages: {
-      rows: [
-        { name: "IT Health Check", bestFor: "Small businesses", included: "Assessment of current systems, risks, and quick wins", price: "From IDR 5M" },
-        { name: "Digital Roadmap", bestFor: "Growing companies", included: "Interviews, assessment, 12-month roadmap and budget", price: "From IDR 15M" },
-        { name: "Ongoing Advisory", bestFor: "Companies without a CTO", included: "Monthly strategy sessions and vendor oversight", price: "From IDR 7.5M/month" },
-      ],
-      note: "Consulting fees can be credited toward a build project with Daberau within 3 months.",
-    },
     techStack: ["Google Sheets", "Odoo", "Zoho", "Looker", "Airtable", "Notion"],
     faqs: [
       {
@@ -459,14 +405,9 @@ export const serviceTemplate = {
   deliver: { title: "Everything we can *take off your plate*", sub: "Pick what you need now. Add more as your business grows." },
   benefits: { title: "What changes for *your business*", sub: "The results our clients care about most." },
   process: { title: "How we'll *get it done*", sub: "A clear path from kickoff to launch, with your review at every stage." },
-  packages: { title: "Pick a package *that fits*", sub: "Transparent starting prices. Your final quote is itemized and always free." },
   tech: { title: "Built with *tools that last*", sub: "Proven, well-supported technology your team won't outgrow." },
   faq: { title: "Still have *questions?*", sub: "Here are the ones we hear most." },
   related: { title: "Often *paired with*", sub: "Services clients commonly combine with this one." },
-  closing: {
-    headline: "Ready to get *your IT sorted?*",
-    sub: "Tell us what's slowing you down. We'll reply within one business day with a recommendation and a free estimate.",
-  },
 };
 
 export const servicesOverview = {

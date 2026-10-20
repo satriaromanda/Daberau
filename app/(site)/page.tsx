@@ -11,7 +11,6 @@ import Image from "next/image";
 import { asset } from "@/lib/asset";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { Text } from "@/components/ui/Text";
-import { ClosingCta } from "@/components/sections/ClosingCta";
 
 export default function HomePage() {
   const { hero } = home;
@@ -63,11 +62,11 @@ export default function HomePage() {
               key={c.title}
               data-reveal
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-              className="card-interactive group rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+              className="rounded-card border border-neutral-200 bg-white p-6 md:p-7"
             >
               <IconTile name={c.icon} />
               <h3 className="mt-6 text-[19px] font-bold leading-snug text-pretty text-ink">{c.title}</h3>
-              <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">{c.body}</p>
+              <p className="mt-2.5 leading-relaxed text-neutral-600 md:text-[17px]">{c.body}</p>
             </div>
           ))}
         </div>
@@ -101,12 +100,11 @@ export default function HomePage() {
               key={p.title}
               data-reveal
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-              className="card-interactive group relative overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+              className="relative overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-7"
             >
-              <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-brand transition-transform duration-500 group-hover:scale-x-100" />
               <IconTile name={p.icon} />
               <h3 className="mt-6 text-[19px] font-bold leading-snug text-pretty text-ink">{p.title}</h3>
-              <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">
+              <p className="mt-2.5 leading-relaxed text-neutral-600 md:text-[17px]">
                 <Text>{p.body}</Text>
               </p>
             </li>
@@ -122,9 +120,6 @@ export default function HomePage() {
           <TextLink href={home.process.link.href}>{home.process.link.label}</TextLink>
         </div>
       </Section>
-
-      {/* 6. Closing CTA */}
-      <ClosingCta headline={home.closing.headline} sub={home.closing.sub} />
     </>
   );
 }

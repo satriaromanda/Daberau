@@ -13,7 +13,6 @@ import { Photo } from "@/components/ui/Photo";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
 import { Text } from "@/components/ui/Text";
 import { PageHero } from "@/components/sections/PageHero";
-import { ClosingCta } from "@/components/sections/ClosingCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export function generateStaticParams() {
@@ -61,9 +60,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               key={p}
               data-reveal
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-              className="card-interactive group flex gap-4 rounded-card border border-neutral-200 bg-white p-6"
+              className="flex gap-4 rounded-card border border-neutral-200 bg-white p-6"
             >
-              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600">
                 <CircleAlert className="h-5 w-5" aria-hidden="true" />
               </span>
               <span className="pt-1.5 text-[17px] leading-relaxed text-ink">
@@ -83,9 +82,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               key={i}
               data-reveal
               style={{ "--reveal-delay": `${(i % 3) * 70}ms` } as React.CSSProperties}
-              className="card-interactive group flex items-center gap-3 rounded-card border border-neutral-200 bg-white px-5 py-4 font-semibold text-ink"
+              className="flex items-center gap-3 rounded-card border border-neutral-200 bg-white px-5 py-4 font-semibold text-ink"
             >
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand">
                 <Check className="h-4 w-4" aria-hidden="true" />
               </span>
               <Text>{d}</Text>
@@ -110,62 +109,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <ProcessSteps steps={s.process} />
       </Section>
 
-      {/* 6. Packages / pricing */}
-      <Section tone="muted" labelledBy="packages-title">
-        <SectionHeading id="packages-title" eyebrow={eyebrows.serviceDetail.packages} title={t.packages.title} sub={t.packages.sub} />
-        <div className="hidden overflow-hidden rounded-card border border-neutral-200 bg-white md:block">
-          <table className="w-full text-left">
-            <thead className="bg-neutral-50 text-sm uppercase tracking-wider text-neutral-600">
-              <tr>
-                {["Package", "Best for", "What's included", "Price"].map((h) => (
-                  <th key={h} scope="col" className="px-6 py-4 font-semibold">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-200">
-              {s.packages.rows.map((r) => (
-                <tr key={r.name} className="transition-colors hover:bg-brand-50/50">
-                  <th scope="row" className="px-6 py-5 text-lg font-bold text-ink">
-                    {r.name}
-                  </th>
-                  <td className="px-6 py-5 text-neutral-700">{r.bestFor}</td>
-                  <td className="px-6 py-5 text-neutral-700">{r.included}</td>
-                  <td className="px-6 py-5 font-semibold text-ink">
-                    <Text>{r.price}</Text>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <ul className="grid gap-4 md:hidden">
-          {s.packages.rows.map((r) => (
-            <li key={r.name} className="rounded-card border border-neutral-200 bg-white p-5">
-              <div className="flex items-baseline justify-between gap-3">
-                <h3 className="text-lg font-bold text-ink">{r.name}</h3>
-                <p className="font-semibold text-ink">
-                  <Text>{r.price}</Text>
-                </p>
-              </div>
-              <dl className="mt-3 space-y-2 text-[15px]">
-                <div>
-                  <dt className="text-neutral-500">Best for</dt>
-                  <dd className="text-neutral-700">{r.bestFor}</dd>
-                </div>
-                <div>
-                  <dt className="text-neutral-500">What&apos;s included</dt>
-                  <dd className="text-neutral-700">{r.included}</dd>
-                </div>
-              </dl>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-5 text-center text-[15px] text-neutral-600">{s.packages.note}</p>
-      </Section>
-
-      {/* 7. Tech stack */}
+      {/* 6. Tech stack */}
       <Section labelledBy="tech-title">
         <SectionHeading id="tech-title" eyebrow={eyebrows.serviceDetail.tech} title={t.tech.title} sub={t.tech.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -177,7 +121,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </ul>
       </Section>
 
-      {/* 8. Service FAQ */}
+      {/* 7. Service FAQ */}
       <Section tone="muted" labelledBy="faq-title">
         <SectionHeading id="faq-title" eyebrow={eyebrows.serviceDetail.faq} title={t.faq.title} sub={t.faq.sub} />
         <div className="mx-auto max-w-3xl">
@@ -185,7 +129,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </Section>
 
-      {/* 9. Related services */}
+      {/* 8. Related services */}
       <Section labelledBy="related-title">
         <SectionHeading id="related-title" eyebrow={eyebrows.serviceDetail.related} title={t.related.title} sub={t.related.sub} />
         <div className="grid gap-4 md:grid-cols-3">
@@ -194,9 +138,6 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           ))}
         </div>
       </Section>
-
-      {/* 10. Closing CTA */}
-      <ClosingCta headline={t.closing.headline} sub={t.closing.sub} primary={s.hero.cta} />
     </>
   );
 }

@@ -4,14 +4,12 @@ import { meta } from "@/content/meta";
 import { eyebrows } from "@/content/eyebrows";
 import { servicesOverview as o } from "@/content/services";
 import { primaryCta } from "@/content/site";
-import { home } from "@/content/home";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { TechChip } from "@/components/ui/Placeholders";
 import { PageHero } from "@/components/sections/PageHero";
 import { ServicesFilter } from "@/components/sections/ServicesFilter";
-import { ClosingCta } from "@/components/sections/ClosingCta";
 
 export const metadata: Metadata = { title: meta.services.title, description: meta.services.description };
 
@@ -30,9 +28,9 @@ export default function ServicesPage() {
       </Section>
 
       <Section tone="muted" labelledBy="bundled-title">
-        <div data-reveal className="card-interactive group flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
+        <div data-reveal className="flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
           <div className="flex gap-5">
-            <span className="hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white sm:inline-flex">
+            <span className="hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 sm:inline-flex">
               <Layers className="h-6 w-6" aria-hidden="true" />
             </span>
             <div>
@@ -65,8 +63,6 @@ export default function ServicesPage() {
           <FaqAccordion items={o.faqs} />
         </div>
       </Section>
-
-      <ClosingCta headline={home.closing.headline} sub={home.closing.sub} />
     </>
   );
 }

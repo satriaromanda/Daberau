@@ -38,7 +38,7 @@ e.g. `title: "Does any of this sound like *your business?*"`.
 All copy is filled in. A few values are realistic defaults that must be confirmed before launch:
 
 - Numbers in `content/site.ts` (`stats`) and `content/about.ts` (founded 2019, 50+ clients, 8 industries)
-- Prices, timelines and package contents per service in `content/services.ts`
+- Timelines and support terms per service in `content/services.ts`
 - Warranty (30 days), down payment (50%), quote validity (14 days), revisions (2 rounds), response time (4 business hours)
   in `content/services.ts`, `content/howWeWork.ts`, `content/faq.ts` and `content/legal.ts`
 - The Privacy Policy and Terms in `content/legal.ts` are a full draft: have them reviewed by legal counsel
@@ -47,8 +47,8 @@ Still needed from the client:
 
 - **WhatsApp number:** set `WHATSAPP_NUMBER` in `content/site.ts` (links work without it, but open WhatsApp with no recipient)
 - **Testimonials:** none on the site yet; add a section once real, approved quotes exist
-- **Team names and photos** (team cards currently show roles only), **client logos**, **social media URLs**, and a
-  **company profile PDF**
+- **Team names and photos** (team cards currently show roles only), **client logos**, and **social media URLs**
+  (footer icons appear once a URL is set in `content/site.ts`)
 
 ## Photos
 
@@ -61,6 +61,8 @@ team photo arrives. Suggested Freepik searches for replacements (save as WebP, a
 
 Real team photos and client logos should come from the client, not stock sites.
 
+See [`docs/ux-audit.md`](docs/ux-audit.md) for the UX audit and what changed.
+
 ## Dev-only preview toggles
 
 | URL / action | Shows |
@@ -71,7 +73,7 @@ Real team photos and client logos should come from the client, not stock sites.
 ## Routes
 
 `/` · `/services` · `/services/{web-development, app-development, ui-ux-design, cloud-infrastructure, it-support, it-consulting}` ·
-`/about-us` · `/contact` · `/privacy-policy` · `/terms-and-conditions` · `/how-we-work` · `/faq` · `/pricing` · 404
+`/about-us` · `/contact` · `/privacy-policy` · `/terms-and-conditions` · `/how-we-work` · `/faq` · 404
 
-Case Studies, Industries, Insights, Careers and the Consultation landing page from the spec were removed at the
-client's request. Every "Get a Free Consultation" button links to the form on `/contact`.
+Case Studies, Industries, Insights, Careers, Pricing and the Consultation landing page from the spec were removed at
+the client's request. Every "Get a Free Consultation" button links to the form on `/contact`.

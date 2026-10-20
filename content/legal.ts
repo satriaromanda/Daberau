@@ -51,7 +51,6 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
           list: [
             "Contact details: your name, company, work email, and WhatsApp or phone number.",
             "Project details: the service you're interested in, your budget range, timeline, message, and any files you attach.",
-            "Newsletter sign-ups: your email address and your consent to receive emails.",
           ],
         },
         "Information collected automatically:",
@@ -74,7 +73,6 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
             "To reply to your inquiry and send recommendations or quotes.",
             "To plan, deliver, and support the projects you engage us for.",
             "To send invoices and manage payments.",
-            "To send our newsletter, if you've subscribed. You can unsubscribe at any time.",
             "To understand how visitors use our site and improve it, if you've allowed analytics cookies.",
             "To meet our legal, tax, and accounting obligations.",
           ],
@@ -90,7 +88,7 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
         "Under the Personal Data Protection Law (UU PDP), we rely on:",
         {
           list: [
-            "Your consent, for example when you submit a form, subscribe to our newsletter, or accept analytics cookies.",
+            "Your consent, for example when you submit a form or accept analytics cookies.",
             "The performance of a contract, when we prepare a proposal or deliver services you've requested.",
             "A legal obligation, such as keeping financial records.",
             "Our legitimate interests, such as keeping our website secure, as long as these don't override your rights.",
@@ -148,7 +146,6 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
           list: [
             "Inquiries that don't become projects: up to 2 years after our last contact.",
             "Client and contract records: for the duration of the project and as long as tax and accounting laws require afterwards.",
-            "Newsletter data: until you unsubscribe.",
             "Analytics data: up to 14 months.",
           ],
         },
@@ -270,7 +267,7 @@ export const terms: LegalDoc & { meta: { title: string; description: string } } 
       title: "Quotes & proposals",
       body: [
         "Quotes are valid for 14 days unless stated otherwise.",
-        "Prices on our website are starting prices. Your final price depends on the agreed scope and is set out in your Proposal. Estimates given before a Proposal are indicative only.",
+        "Your price depends on the agreed scope and is set out in your Proposal. Any estimate shared before a Proposal is indicative only.",
       ],
     },
     {

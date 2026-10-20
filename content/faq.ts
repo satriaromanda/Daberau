@@ -21,7 +21,7 @@ export const faqPage = {
       id: "pricing",
       title: "Pricing & Payment",
       items: [
-        { q: "How much does a website or app cost?", a: "It depends on scope. Websites start from IDR 3.5M and apps from IDR 25M. Consultations and quotes are always free." },
+        { q: "How much does a website or app cost?", a: "It depends on scope. After a free consultation, we send an itemized quote so you know exactly what you're paying for." },
         { q: "How does payment work? (e.g. 50% upfront, 50% on handover)", a: "Unless agreed otherwise, we ask for a 50% down payment before work starts, and the rest follows the milestones in your proposal." },
       ],
     },

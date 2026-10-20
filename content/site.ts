@@ -21,7 +21,6 @@ export const microcopy = {
     primary: { label: "Back to Home", href: "/" },
     secondary: { label: "Explore Services", href: "/services" },
   },
-  newsletterSuccess: "You're in! Check your inbox to confirm your subscription.",
   whatsappTooltip: "Questions? Chat with our team.",
   loading: "Loading…",
 } as const;
@@ -48,11 +47,12 @@ export const site = {
   // Spec asks for a footer tagline without giving one; the homepage H1 is reused.
   tagline: "One partner for every IT need your business has.",
   copyright: "© 2026 Daberau. All rights reserved.",
+  // Add each profile URL to show its icon in the footer; empty entries are hidden.
   socials: [
-    { label: "LinkedIn", href: "#", icon: "linkedin" },
-    { label: "Instagram", href: "#", icon: "instagram" },
-    { label: "Facebook", href: "#", icon: "facebook" },
-    { label: "YouTube", href: "#", icon: "youtube" },
+    { label: "LinkedIn", href: "", icon: "linkedin" },
+    { label: "Instagram", href: "", icon: "instagram" },
+    { label: "Facebook", href: "", icon: "facebook" },
+    { label: "YouTube", href: "", icon: "youtube" },
   ] as const,
 };
 
@@ -78,7 +78,6 @@ export const nav = {
 export const footer = {
   company: [
     { label: "About Us", href: "/about-us" },
-    { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
   ],
   help: [
@@ -89,14 +88,6 @@ export const footer = {
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },
   ],
-  newsletter: {
-    title: "Newsletter",
-    body: "IT tips for growing businesses, once a month. No spam.",
-    placeholder: "name@company.com",
-    button: "Subscribe",
-    consent: "I'd like to receive occasional emails from Daberau. Unsubscribe anytime.",
-    emailError: "Please enter a valid email, e.g. name@company.com",
-  },
 };
 
 export const preFooter = {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BadgeCheck, ClipboardList, Code2, Eye, Lightbulb, PenTool, Target } from "lucide-react";
+import { ClipboardList, Code2, Eye, Lightbulb, PenTool, Target } from "lucide-react";
 import { about } from "@/content/about";
 import { eyebrows } from "@/content/eyebrows";
 import { stats } from "@/content/site";
@@ -43,15 +43,15 @@ export default function AboutPage() {
       <Section tone="muted" labelledBy="vm-title">
         <SectionHeading id="vm-title" eyebrow={eyebrows.about.visionMission} title={about.visionMission.title} sub={about.visionMission.sub} />
         <div className="grid gap-4 lg:grid-cols-2">
-          <div data-reveal className="card-interactive group rounded-card border border-neutral-200 bg-white p-8">
-            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+          <div data-reveal className="rounded-card border border-neutral-200 bg-white p-8">
+            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand">
               <Eye className="h-7 w-7" strokeWidth={2.2} aria-hidden="true" />
             </span>
             <h3 className="mt-4 text-sm font-bold uppercase tracking-wider text-neutral-600">{about.vision.title}</h3>
             <p className="mt-3 text-[24px] font-bold leading-snug text-ink md:text-[28px]">{about.vision.body}</p>
           </div>
-          <div data-reveal style={{ "--reveal-delay": "90ms" } as React.CSSProperties} className="card-interactive group rounded-card border border-neutral-200 bg-white p-8">
-            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+          <div data-reveal style={{ "--reveal-delay": "90ms" } as React.CSSProperties} className="rounded-card border border-neutral-200 bg-white p-8">
+            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand">
               <Target className="h-7 w-7" strokeWidth={2.2} aria-hidden="true" />
             </span>
             <h3 className="mt-4 text-sm font-bold uppercase tracking-wider text-neutral-600">{about.mission.title}</h3>
@@ -88,13 +88,13 @@ export default function AboutPage() {
                 key={m.role}
                 data-reveal
                 style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-                className="card-interactive group rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+                className="rounded-card border border-neutral-200 bg-white p-6 md:p-7"
               >
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand">
                   <RoleIcon className="h-7 w-7" strokeWidth={2.2} aria-hidden="true" />
                 </span>
                 <h3 className="mt-6 text-[19px] font-bold leading-snug text-ink">{m.role}</h3>
-                <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">{m.focus}</p>
+                <p className="mt-2.5 leading-relaxed text-neutral-600 md:text-[17px]">{m.focus}</p>
               </li>
             );
           })}
@@ -107,27 +107,6 @@ export default function AboutPage() {
         <StatsGrid stats={stats} />
       </Section>
 
-      {/* Legal & certifications */}
-      <Section tone="muted" labelledBy="legal-title">
-        <SectionHeading id="legal-title" eyebrow={eyebrows.about.legal} title={about.legal.title} sub={about.legal.sub} />
-        <div className="mx-auto max-w-3xl">
-          <div>
-            <dl data-reveal className="divide-y divide-neutral-200 rounded-card border border-neutral-200 bg-white">
-              {about.legal.items.map((it) => (
-                <div key={it.label} className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:gap-6">
-                  <dt className="flex w-40 shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-wider text-neutral-600">
-                    <BadgeCheck className="h-4 w-4 text-brand" aria-hidden="true" />
-                    {it.label}
-                  </dt>
-                  <dd className="font-semibold text-ink">
-                    <Text>{it.value}</Text>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </Section>
     </>
   );
 }

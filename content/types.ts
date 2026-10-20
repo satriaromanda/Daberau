@@ -45,8 +45,6 @@ export type ServiceSlug =
 
 export type NeedFilter = "found-online" | "automate" | "stable" | "not-sure";
 
-export type PackageRow = { name: string; bestFor: string; included: string; price: string };
-
 export type Service = {
   slug: ServiceSlug;
   name: string;
@@ -59,15 +57,12 @@ export type Service = {
   needs: NeedFilter[];
   /** 3 scope bullets for the /services grid */
   scope: string[];
-  /** Lowest price, shown on /pricing (e.g. "IDR 3.5M") */
-  startingFrom: string;
   meta: PageMeta;
   hero: { h1: string; sub: string; cta: Cta; micro?: string };
   problem: { title: string; points: string[] };
   deliver: string[];
   benefits: TitledText[];
   process: Step[];
-  packages: { rows: PackageRow[]; note: string };
   techStack: string[];
   faqs: Faq[];
   related: ServiceSlug[];
