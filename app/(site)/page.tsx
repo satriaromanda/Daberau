@@ -69,7 +69,7 @@ export default function HomePage() {
             <ServiceCard key={s.slug} service={s} />
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <LinkButton href={home.services.cta.href} variant="secondary">
             {home.services.cta.label}
           </LinkButton>
@@ -95,7 +95,7 @@ export default function HomePage() {
       <Section tone="muted" labelledBy="process-title">
         <SectionHeading id="process-title" title={home.process.title} sub={home.process.sub} />
         <ProcessSteps steps={processSteps} />
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <TextLink href={home.process.link.href}>{home.process.link.label}</TextLink>
         </div>
       </Section>
