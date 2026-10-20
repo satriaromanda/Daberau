@@ -5,7 +5,7 @@ export const home = {
     eyebrow: "IT services for businesses ready to grow",
     h1: "One partner for every IT need your business has",
     sub: "Websites, apps, servers, and day-to-day support, all handled by one team that stays with you after launch.",
-    primary: { label: "Get a Free Consultation", href: "/consultation" },
+    primary: { label: "Get a Free Consultation", href: "/contact#contact-form" },
     secondary: { label: "Explore Services", href: "/services" },
     micro: "Free and no commitment. We reply within one business day.",
     visualLabel: "Example client dashboard",
@@ -56,10 +56,6 @@ export const home = {
     title: "From first call to launch in *5 clear steps*",
     sub: "You'll always know what happens next, what it costs, and when it's done.",
     link: { label: "See how we work →", href: "/how-we-work" },
-  },
-  testimonials: {
-    title: "Don't just take *our word* for it",
-    sub: "Here's what owners and managers say after working with us.",
   },
   closing: {
     headline: "Ready to get *your IT sorted?*",

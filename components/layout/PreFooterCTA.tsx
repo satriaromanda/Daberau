@@ -5,8 +5,8 @@ import { preFooter, primaryCta, whatsappCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 
-// Spec: shown on every page except Contact, Consultation, and the legal pages.
-const EXCLUDED = ["/contact", "/consultation", "/privacy-policy", "/terms-and-conditions"];
+// Spec: shown on every page except Contact and the legal pages.
+const EXCLUDED = ["/contact", "/privacy-policy", "/terms-and-conditions"];
 
 export function PreFooterCTA() {
   const pathname = usePathname().replace(/(.)\/$/, "$1");

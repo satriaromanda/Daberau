@@ -1,9 +1,11 @@
-/** Tech/tool name chip standing in for a logo. */
+import { TechLogo } from "./TechLogo";
+
+/** Technology or tool shown with its real logo. */
 export function TechChip({ name }: { name: string }) {
   return (
-    <div className="flex h-14 items-center justify-center gap-2 rounded-card border border-neutral-200 bg-white px-3 text-sm font-semibold text-neutral-700">
-      <span aria-hidden="true" className="h-5 w-5 rounded-md bg-neutral-200" />
-      {name.startsWith("[") ? <span className="ph">{name}</span> : name}
+    <div className="flex h-16 items-center justify-center gap-2.5 rounded-card border border-neutral-200 bg-white px-3 text-[15px] font-semibold text-neutral-800">
+      <TechLogo name={name} className="h-6 w-6 shrink-0" />
+      {name}
     </div>
   );
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Paperclip, X, XCircle } from "lucide-react";
 import { leadForm as f } from "@/content/contact";
-import { consultation } from "@/content/consultation";
 import { microcopy, whatsappCta } from "@/content/site";
 import { Button, LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
@@ -45,7 +44,7 @@ const inputBase =
 const inputOk = "border border-neutral-300 hover:border-neutral-400 focus:border-brand focus:ring-2 focus:ring-brand/25";
 const inputErr = "border-2 border-brand-700 focus:ring-2 focus:ring-brand-700/25";
 
-export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consultation" }) {
+export function LeadForm() {
   const uid = useId();
   const id = (k: string) => `${uid}-${k}`;
   const formRef = useRef<HTMLFormElement>(null);
@@ -66,13 +65,10 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
   const [attempted, setAttempted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [forceError, setForceError] = useState(false);
-  const [schedule, setSchedule] = useState({ date: "", time: "" });
-  const [minDate, setMinDate] = useState<string>();
 
   // Dev-only preview of the system-error state: add ?formError=1 to the URL.
   useEffect(() => {
     setForceError(new URLSearchParams(window.location.search).get("formError") === "1");
-    setMinDate(new Date().toISOString().slice(0, 10));
   }, []);
 
   useEffect(() => {
@@ -112,7 +108,6 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
   };
 
   const hasErrors = attempted && Object.keys(errors).length > 0;
-  const submitLabel = variant === "consultation" ? consultation.submit : f.submit;
 
   if (status === "success") {
     return (
@@ -375,39 +370,6 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
           <ErrorText k="attachment" />
         </div>
 
-        {variant === "consultation" && (
-          <fieldset className="sm:col-span-2">
-            <legend className="mb-3 text-[15px] font-semibold text-ink">{consultation.schedule.title}</legend>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label htmlFor={id("date")} className="mb-1.5 block text-sm font-medium text-neutral-700">
-                  {consultation.schedule.dateLabel}
-                </label>
-                <input
-                  id={id("date")}
-                  type="date"
-                  min={minDate}
-                  value={schedule.date}
-                  onChange={(e) => setSchedule({ ...schedule, date: e.target.value })}
-                  className={`${inputBase} h-12 ${inputOk}`}
-                />
-              </div>
-              <div>
-                <label htmlFor={id("time")} className="mb-1.5 block text-sm font-medium text-neutral-700">
-                  {consultation.schedule.timeLabel}
-                </label>
-                <Select
-                  id={id("time")}
-                  value={schedule.time}
-                  onChange={(v) => setSchedule({ ...schedule, time: v })}
-                  options={consultation.schedule.times.map((t) => ({ value: t, label: t }))}
-                />
-              </div>
-            </div>
-            <p className="mt-2 text-sm text-neutral-600">{consultation.schedule.hint}</p>
-          </fieldset>
-        )}
-
         <div className="sm:col-span-2">
           <div className="flex items-start gap-3">
             <input
@@ -448,7 +410,7 @@ export function LeadForm({ variant = "contact" }: { variant?: "contact" | "consu
               {f.loading}
             </>
           ) : (
-            submitLabel
+            f.submit
           )}
         </Button>
         <p className="text-sm text-neutral-600">{microcopy.reassurance}</p>

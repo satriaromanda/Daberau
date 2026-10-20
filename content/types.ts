@@ -64,13 +64,6 @@ export type Service = {
   related: ServiceSlug[];
 };
 
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-};
-
 /** A paragraph, or a bulleted list */
 export type LegalBlock = string | { list: string[] };
 

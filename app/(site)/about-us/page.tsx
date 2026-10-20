@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { BadgeCheck, ClipboardList, Code2, Eye, Lightbulb, PenTool, Target } from "lucide-react";
 import { about } from "@/content/about";
 import { stats } from "@/content/site";
-import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { StatsGrid, TitledTextCard } from "@/components/ui/Cards";
 import { Photo } from "@/components/ui/Photo";
@@ -119,21 +118,6 @@ export default function AboutPage() {
           </div>
         </div>
       </Section>
-
-      {/* Dual CTA */}
-      <section aria-label="Work with us or join us" className="bg-white pb-16 md:pb-24">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-4 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
-          {[about.dual.clients, about.dual.talent].map((d, i) => (
-            <div key={d.title} className="flex flex-col items-start rounded-card border border-neutral-200 bg-neutral-50 p-8">
-              <h2 className="text-[24px] font-bold text-ink">{d.title}</h2>
-              <p className="mt-2 text-lg leading-relaxed text-neutral-600">{d.sub}</p>
-              <LinkButton href={d.cta.href} variant={i === 0 ? "primary" : "secondary"} size="lg" className="mt-6">
-                {d.cta.label}
-              </LinkButton>
-            </div>
-          ))}
-        </div>
-      </section>
     </>
   );
 }

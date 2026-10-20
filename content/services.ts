@@ -21,7 +21,7 @@ export const services: Service[] = [
     hero: {
       h1: "Websites that bring in customers, not just look good",
       sub: "Fast, easy to find on Google, and designed to turn visitors into leads.",
-      cta: { label: "Get a Free Website Consultation", href: "/consultation" },
+      cta: { label: "Get a Free Website Consultation", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -96,7 +96,7 @@ export const services: Service[] = [
     hero: {
       h1: "Custom apps built around the way your business works",
       sub: "Custom apps for your operations, your customers, or your next digital product.",
-      cta: { label: "Talk to Us About Web & Mobile Apps", href: "/consultation" },
+      cta: { label: "Talk to Us About Web & Mobile Apps", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -174,7 +174,7 @@ export const services: Service[] = [
     hero: {
       h1: "Digital products people find easy to use from version one",
       sub: "Interfaces people find easy to use, validated before a single line of code.",
-      cta: { label: "Talk to Us About UI/UX Design", href: "/consultation" },
+      cta: { label: "Talk to Us About UI/UX Design", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -213,7 +213,7 @@ export const services: Service[] = [
       ],
       note: "All packages include editable Figma files and two rounds of revisions per phase.",
     },
-    techStack: ["Figma", "FigJam", "Maze", "Hotjar", "Google Analytics", "Miro"],
+    techStack: ["Figma", "Framer", "Maze", "Hotjar", "Google Analytics", "Miro"],
     faqs: [
       {
         q: "What's the difference between UI and UX?",
@@ -246,7 +246,7 @@ export const services: Service[] = [
     hero: {
       h1: "Infrastructure that stays stable, secure, and ready to scale",
       sub: "Servers, hosting, cloud migration, and backups that stay secure and monitored.",
-      cta: { label: "Talk to Us About Cloud & Infrastructure", href: "/consultation" },
+      cta: { label: "Talk to Us About Cloud & Infrastructure", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -320,7 +320,7 @@ export const services: Service[] = [
     hero: {
       h1: "Your IT team, without the hiring",
       sub: "A team on standby for fixes, updates, and system monitoring.",
-      cta: { label: "Talk to Us About IT Support & Maintenance", href: "/consultation" },
+      cta: { label: "Talk to Us About IT Support & Maintenance", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -358,7 +358,7 @@ export const services: Service[] = [
       ],
       note: "Unused support hours don't roll over. Extra hours are billed at the rate in your agreement.",
     },
-    techStack: ["WordPress", "Laravel", "Linux", "Cloudflare", "UptimeRobot", "Google Workspace"],
+    techStack: ["WordPress", "Laravel", "Linux", "Cloudflare", "Sentry", "Nginx"],
     faqs: [
       {
         q: "Can you support a system another vendor built?",
@@ -391,7 +391,7 @@ export const services: Service[] = [
     hero: {
       h1: "A clear digital roadmap before you invest",
       sub: "A clear digital roadmap before you commit a big budget.",
-      cta: { label: "Talk to Us About IT Consulting & Digital Transformation", href: "/consultation" },
+      cta: { label: "Talk to Us About IT Consulting & Digital Transformation", href: "/contact#contact-form" },
       micro: "We'll send a cost estimate within one business day.",
     },
     problem: {
@@ -429,7 +429,7 @@ export const services: Service[] = [
       ],
       note: "Consulting fees can be credited toward a build project with Daberau within 3 months.",
     },
-    techStack: ["Google Workspace", "Microsoft 365", "Odoo", "Jurnal", "Power BI", "Notion"],
+    techStack: ["Google Sheets", "Odoo", "Zoho", "Looker", "Airtable", "Notion"],
     faqs: [
       {
         q: "Do we have to build with Daberau after the roadmap?",

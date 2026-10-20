@@ -65,8 +65,4 @@ export const about = {
       { label: "Legal documents", value: "Company deed and NIB available on request" },
     ],
   },
-  dual: {
-    clients: { title: "Want to work with us?", sub: "Tell us what you need. Your first consultation is free.", cta: { label: "Get a Free Consultation", href: "/consultation" } },
-    talent: { title: "Want to join the team?", sub: "We're always happy to meet people who love building useful things.", cta: { label: "View Open Roles", href: "/careers#open-roles" } },
-  },
 };

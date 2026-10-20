@@ -8,7 +8,7 @@ import { services, servicesOverview } from "@/content/services";
 import { nav } from "@/content/site";
 import { ServiceCard } from "@/components/ui/Cards";
 
-/** Clickable "need" chips that narrow the service grid. "I'm not sure yet" shows everything plus a consultation prompt. */
+/** Clickable "need" chips that narrow the service grid. "I'm not sure yet" shows everything plus a prompt to get in touch. */
 export function ServicesFilter() {
   const [need, setNeed] = useState<NeedFilter | null>(null);
   const visible = need && need !== "not-sure" ? services.filter((s) => s.needs.includes(need)) : services;

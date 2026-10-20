@@ -9,7 +9,6 @@ export const microcopy = {
   chatWhatsApp: "Chat on WhatsApp",
   serviceCta: "Talk to Us About [Service]",
   sendRequest: "Send Request",
-  bookConsultation: "Book My Consultation",
   reassurance: "Free and no commitment. We reply within one business day.",
   companyProfile: "Download Company Profile (PDF, 3 MB)",
   learnMore: "Learn more →",
@@ -57,7 +56,7 @@ export const site = {
   ] as const,
 };
 
-export const primaryCta: Cta = { label: microcopy.ctaPrimary, href: "/consultation" };
+export const primaryCta: Cta = { label: microcopy.ctaPrimary, href: "/contact#contact-form" };
 export const whatsappCta: Cta = { label: microcopy.chatWhatsApp, href: whatsappHref, external: true };
 
 export const nav = {
@@ -71,15 +70,14 @@ export const nav = {
   megaPromo: {
     title: "Not sure what you need?",
     body: "Tell us the problem. We'll map out the right solution. Free, 30 minutes.",
-    cta: { label: "Book a Consultation →", href: "/consultation" },
+    cta: { label: "Book a Consultation →", href: "/contact#contact-form" },
   },
-  stickyCta: { label: "Free Consultation", href: "/consultation" },
+  stickyCta: { label: "Free Consultation", href: "/contact#contact-form" },
 };
 
 export const footer = {
   company: [
     { label: "About Us", href: "/about-us" },
-    { label: "Careers", href: "/careers" },
     { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
   ],

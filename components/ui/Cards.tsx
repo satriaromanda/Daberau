@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, Quote, UserRound } from "lucide-react";
-import type { Service, Stat, Testimonial } from "@/content/types";
+import { ArrowRight, Check } from "lucide-react";
+import type { Service, Stat } from "@/content/types";
 import { microcopy } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { IconTile } from "./Icons";
@@ -55,32 +55,6 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
       {/* Visible focus ring for the stretched link */}
       <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-card ring-brand group-has-[a:focus-visible]:ring-2" />
     </article>
-  );
-}
-
-export function TestimonialCard({ t }: { t: Testimonial }) {
-  return (
-    <figure className={`${cardBase} flex h-full flex-col p-6`}>
-      <Quote className="h-7 w-7 text-brand/80" aria-hidden="true" />
-      <blockquote className="mt-4 flex-1 text-[17px] leading-relaxed text-ink">“{t.quote}”</blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-neutral-100 pt-5">
-        <span
-          role="img"
-          aria-label="Photo placeholder"
-          className="img-ph flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-neutral-200 text-neutral-400"
-        >
-          <UserRound className="h-5 w-5" aria-hidden="true" />
-        </span>
-        <span className="min-w-0">
-          <span className="block font-semibold text-ink">
-            <Text>{t.name}</Text>
-          </span>
-          <span className="block text-sm text-neutral-600">
-            {t.role}, {t.company}
-          </span>
-        </span>
-      </figcaption>
-    </figure>
   );
 }
 

@@ -22,12 +22,11 @@ npx serve out      # preview the static export
 | `content/*.ts` | **All copy**, typed (`content/types.ts`). Edit copy here, not in JSX. |
 | `content/site.ts` | Contact data, nav, footer, microcopy library, cookie copy, stats, `WHATSAPP_NUMBER` |
 | `components/layout` | Header + Services mega menu, mobile menu, sticky mobile CTA, WhatsApp button, pre-footer CTA, footer |
-| `components/ui` | Buttons, cards (service, testimonial, stat), process steps, FAQ accordion, breadcrumb, placeholders |
-| `components/forms/LeadForm.tsx` | Contact / consultation form (validation, loading, success, system error) |
+| `components/ui` | Buttons, cards (service, stat), process steps, FAQ accordion, breadcrumb, placeholders |
+| `components/forms/LeadForm.tsx` | Contact form (validation, loading, success, system error) |
 | `components/cookies` | Cookie banner + Manage Preferences modal |
 | `components/legal` | Legal page layout (sticky TOC with scroll-spy, "In short" box, Back to top) |
-| `app/(site)` | Pages with the full header/footer |
-| `app/(minimal)/consultation` | Logo-only landing page |
+| `app/(site)` | All pages (full header/footer) |
 
 ## Section headlines
 
@@ -42,26 +41,23 @@ All copy is filled in. A few values are realistic defaults that must be confirme
 - Prices, timelines and package contents per service in `content/services.ts`
 - Warranty (30 days), down payment (50%), quote validity (14 days), revisions (2 rounds), response time (4 business hours)
   in `content/services.ts`, `content/howWeWork.ts`, `content/faq.ts` and `content/legal.ts`
-- Careers benefits and the roles list in `content/careers.ts`
 - The Privacy Policy and Terms in `content/legal.ts` are a full draft: have them reviewed by legal counsel
 
 Still needed from the client:
 
 - **WhatsApp number:** set `WHATSAPP_NUMBER` in `content/site.ts` (links work without it, but open WhatsApp with no recipient)
-- **Testimonials:** add real quotes in `content/testimonials.ts` and set `testimonialsPublished = true`
+- **Testimonials:** none on the site yet; add a section once real, approved quotes exist
 - **Team names and photos** (team cards currently show roles only), **client logos**, **social media URLs**, and a
   **company profile PDF**
 
 ## Photos
 
-Service photos live in `public/images/services/{slug}.webp` (800×800 WebP). The About and Careers pages reuse two of them
-until real photos arrive. Suggested Freepik searches for replacements (save as WebP, about 1200×900):
+Service photos live in `public/images/services/{slug}.webp` (800×800 WebP). The About page reuses one of them until a real
+team photo arrives. Suggested Freepik searches for replacements (save as WebP, about 1200×900):
 
 | Slot | File to replace / set | Search |
 | --- | --- | --- |
 | About hero | `content/about.ts` → `heroImage` | https://www.freepik.com/search?format=search&query=asian%20it%20team%20office%20meeting |
-| Careers hero | `content/careers.ts` → `images.hero` | https://www.freepik.com/search?format=search&query=software%20developer%20working%20office%20asia |
-| Careers "How we work together" | `content/careers.ts` → `images.together` | https://www.freepik.com/search?format=search&query=team%20collaboration%20laptop%20startup%20office |
 
 Real team photos and client logos should come from the client, not stock sites.
 
@@ -69,14 +65,13 @@ Real team photos and client logos should come from the client, not stock sites.
 
 | URL / action | Shows |
 | --- | --- |
-| `/contact?formError=1`, `/consultation?formError=1` | System-error state after submitting a valid form |
-| `/careers?roles=0` | "No open roles" empty state |
+| `/contact?formError=1` | System-error state after submitting a valid form |
 | Clear `localStorage` key `daberau-cookie-consent` | Cookie banner again |
 
 ## Routes
 
 `/` · `/services` · `/services/{web-development, app-development, ui-ux-design, cloud-infrastructure, it-support, it-consulting}` ·
-`/about-us` · `/contact` · `/privacy-policy` · `/terms-and-conditions` · `/consultation` · `/how-we-work` · `/faq` · `/careers` ·
-`/pricing` · 404
+`/about-us` · `/contact` · `/privacy-policy` · `/terms-and-conditions` · `/how-we-work` · `/faq` · `/pricing` · 404
 
-Case Studies, Industries and Insights from the spec were removed at the client's request.
+Case Studies, Industries, Insights, Careers and the Consultation landing page from the spec were removed at the
+client's request. Every "Get a Free Consultation" button links to the form on `/contact`.
