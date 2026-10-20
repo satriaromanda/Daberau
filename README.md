@@ -43,7 +43,8 @@ e.g. `title: "Does any of this sound like *your business?*"`. Service card photo
 - Business hours are rendered with the same highlight until confirmed (`site.hoursPending`).
 - Copy that is **not** in the spec (sample case studies, articles, testimonials, FAQ answers, etc.) carries a
   dashed "Sample copy" badge.
-- Images, client logos, team photos and the map are neutral labeled placeholder blocks. No stock photos or external images.
+- Apart from the service card photos, images, client logos, team photos and the map are neutral labeled placeholder
+  blocks. No external image URLs.
 - Set `WHATSAPP_NUMBER` in `content/site.ts` to point every WhatsApp link at the business number.
 
 ## Dev-only preview toggles
