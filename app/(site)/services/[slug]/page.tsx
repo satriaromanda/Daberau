@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CheckCircle2, CircleAlert, Info } from "lucide-react";
 import { getService, serviceBySlug, services, serviceTemplate as t } from "@/content/services";
-import { caseStudies, caseStudiesPage } from "@/content/caseStudies";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
-import { CaseStudyCard, ServiceCard, TitledTextCard } from "@/components/ui/Cards";
+import { ServiceCard, TitledTextCard } from "@/components/ui/Cards";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 import { IconTile } from "@/components/ui/Icons";
 import { ImagePlaceholder, TechChip } from "@/components/ui/Placeholders";
@@ -27,7 +26,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const s = getService((await params).slug);
   if (!s) notFound();
-  const related = caseStudies.filter((c) => c.services.includes(s.slug)).slice(0, 2);
 
   return (
     <>
@@ -108,26 +106,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <ProcessSteps steps={s.process.steps} />
       </Section>
 
-      {/* 6. Related case studies */}
-      <Section labelledBy="cases-title">
-        <SectionHeading id="cases-title" title={t.caseStudies.title} sub={t.caseStudies.sub} />
-        {related.length ? (
-          <div className="grid gap-6 md:grid-cols-2">
-            {related.map((c) => (
-              <CaseStudyCard key={c.slug} cs={c} />
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-card border border-dashed border-neutral-300 bg-neutral-50 p-8 text-center">
-            <p className="mx-auto max-w-lg text-neutral-600">{caseStudiesPage.empty}</p>
-            <LinkButton href={caseStudiesPage.emptyCta.href} variant="secondary" className="mt-5">
-              {caseStudiesPage.emptyCta.label}
-            </LinkButton>
-          </div>
-        )}
-      </Section>
-
-      {/* 7. Packages / pricing */}
+      {/* 6. Packages / pricing */}
       <Section tone="muted" labelledBy="packages-title">
         <SectionHeading id="packages-title" title={t.packages.title} sub={t.packages.sub} />
         {s.packages.rows ? (
@@ -199,7 +178,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         )}
       </Section>
 
-      {/* 8. Tech stack */}
+      {/* 7. Tech stack */}
       <Section labelledBy="tech-title">
         <SectionHeading id="tech-title" title={t.tech.title} sub={t.tech.sub} extra={s.techStack.sample ? <SampleTag label="Sample stack" /> : undefined} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
@@ -211,7 +190,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </ul>
       </Section>
 
-      {/* 9. Service FAQ */}
+      {/* 8. Service FAQ */}
       <Section tone="muted" labelledBy="faq-title">
         <SectionHeading id="faq-title" title={t.faq.title} sub={t.faq.sub} />
         <div className="mx-auto max-w-3xl">
@@ -219,7 +198,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </Section>
 
-      {/* 10. Related services */}
+      {/* 9. Related services */}
       <Section labelledBy="related-title">
         <SectionHeading id="related-title" title={t.related.title} sub={t.related.sub} />
         <div className="grid gap-4 md:grid-cols-3">
@@ -229,7 +208,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </Section>
 
-      {/* 11. Closing CTA */}
+      {/* 10. Closing CTA */}
       <ClosingCta headline={t.closing.headline} sub={t.closing.sub} primary={s.hero.cta} />
     </>
   );

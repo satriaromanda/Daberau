@@ -115,8 +115,8 @@ export const leadForm = {
   loading: "Sending…",
   success: {
     title: "Thanks, [Name]! We've received your request.",
-    body: "Our team will reach out via WhatsApp or email within one business day. In the meantime, take a look at some of our recent work.",
-    primary: { label: "View Case Studies", href: "/case-studies" },
+    body: "Our team will reach out via WhatsApp or email within one business day. In the meantime, take a look at what we can do for you.",
+    primary: { label: "Explore Services", href: "/services" },
     secondary: { label: "Back to Home", href: "/" },
   },
   failure: {

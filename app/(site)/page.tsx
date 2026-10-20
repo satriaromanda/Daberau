@@ -1,19 +1,15 @@
 import { CheckCircle2 } from "lucide-react";
 import { home } from "@/content/home";
 import { services } from "@/content/services";
-import { caseStudies } from "@/content/caseStudies";
 import { processSteps } from "@/content/process";
 import { testimonials } from "@/content/testimonials";
-import { articles } from "@/content/insights";
-import { stats } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
-import { ArticleCard, CaseStudyCard, ServiceCard, StatsGrid, TestimonialCard, TextLink } from "@/components/ui/Cards";
+import { ServiceCard, TestimonialCard, TextLink } from "@/components/ui/Cards";
 import { IconTile } from "@/components/ui/Icons";
 import { DashboardMockup } from "@/components/ui/Placeholders";
 import { ProcessSteps } from "@/components/ui/ProcessSteps";
-import { SampleTag, Text } from "@/components/ui/Text";
-import { LogoStrip } from "@/components/sections/LogoStrip";
+import { Text } from "@/components/ui/Text";
 import { ClosingCta } from "@/components/sections/ClosingCta";
 
 export default function HomePage() {
@@ -47,17 +43,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Trust bar */}
-      <section aria-labelledby="trust-label" className="border-b border-neutral-200/70 bg-white py-10">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <h2 id="trust-label" className="mb-6 text-center text-sm font-semibold text-neutral-600">
-            {home.trust.label}
-          </h2>
-          <LogoStrip count={home.trust.logoCount} />
-        </div>
-      </section>
-
-      {/* 3. Pain points */}
+      {/* 2. Pain points */}
       <Section labelledBy="pain-title">
         <SectionHeading id="pain-title" title={home.pain.title} sub={home.pain.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -75,7 +61,7 @@ export default function HomePage() {
         </p>
       </Section>
 
-      {/* 4. Services */}
+      {/* 3. Services */}
       <Section tone="muted" labelledBy="services-title">
         <SectionHeading id="services-title" title={home.services.title} sub={home.services.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,7 +76,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 5. Why Daberau */}
+      {/* 4. Why Daberau */}
       <Section labelledBy="why-title">
         <SectionHeading id="why-title" title={home.why.title} sub={home.why.sub} />
         <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -105,28 +91,7 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      {/* 6. Stats */}
-      <Section tone="muted" labelledBy="stats-title">
-        <SectionHeading id="stats-title" title={home.stats.title} sub={home.stats.sub} />
-        <StatsGrid stats={stats} />
-      </Section>
-
-      {/* 7. Featured case studies */}
-      <Section labelledBy="cases-title">
-        <SectionHeading id="cases-title" title={home.featured.title} sub={home.featured.sub} extra={<SampleTag label="Sample case studies" />} />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((cs) => (
-            <CaseStudyCard key={cs.slug} cs={cs} />
-          ))}
-        </div>
-        <div className="mt-10">
-          <LinkButton href={home.featured.cta.href} variant="secondary">
-            {home.featured.cta.label}
-          </LinkButton>
-        </div>
-      </Section>
-
-      {/* 8. How we work */}
+      {/* 5. How we work */}
       <Section tone="muted" labelledBy="process-title">
         <SectionHeading id="process-title" title={home.process.title} sub={home.process.sub} />
         <ProcessSteps steps={processSteps} />
@@ -135,7 +100,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 9. Testimonials */}
+      {/* 6. Testimonials */}
       <Section labelledBy="testimonials-title">
         <SectionHeading id="testimonials-title" title={home.testimonials.title} sub={home.testimonials.sub} />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -145,22 +110,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 10. Latest insights */}
-      <Section tone="muted" labelledBy="insights-title">
-        <SectionHeading id="insights-title" title={home.insights.title} sub={home.insights.sub} extra={<SampleTag label="Sample articles" />} />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((a) => (
-            <ArticleCard key={a.slug} a={a} />
-          ))}
-        </div>
-        <div className="mt-10">
-          <LinkButton href={home.insights.cta.href} variant="secondary">
-            {home.insights.cta.label}
-          </LinkButton>
-        </div>
-      </Section>
-
-      {/* 11. Closing CTA */}
+      {/* 7. Closing CTA */}
       <ClosingCta headline={home.closing.headline} sub={home.closing.sub} />
     </>
   );

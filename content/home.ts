@@ -6,13 +6,9 @@ export const home = {
     h1: "One partner for every IT need your business has",
     sub: "Websites, apps, servers, and day-to-day support, all handled by one team that stays with you after launch.",
     primary: { label: "Get a Free Consultation", href: "/consultation" },
-    secondary: { label: "See Our Work", href: "/case-studies" },
+    secondary: { label: "Explore Services", href: "/services" },
     micro: "Free and no commitment. We reply within one business day.",
     visualLabel: "Client dashboard mockup",
-  },
-  trust: {
-    label: "Trusted by businesses and institutions across industries",
-    logoCount: 8,
   },
   pain: {
     title: "Does any of this sound like *your business?*",
@@ -56,15 +52,6 @@ export const home = {
       { title: "We don't disappear after launch.", body: "A [X]-day bug-fix warranty and monthly maintenance plans." },
     ],
   },
-  stats: {
-    title: "Results we can *stand behind*",
-    sub: "Every number here comes from projects we've actually delivered.",
-  },
-  featured: {
-    title: "*Proof,* not promises",
-    sub: "See how businesses like yours saved time, won more customers, and stopped firefighting.",
-    cta: { label: "View All Case Studies", href: "/case-studies" },
-  },
   process: {
     title: "From first call to launch in *5 clear steps*",
     sub: "You'll always know what happens next, what it costs, and when it's done.",
@@ -73,11 +60,6 @@ export const home = {
   testimonials: {
     title: "Don't just take *our word* for it",
     sub: "Here's what owners and managers say after working with us.",
-  },
-  insights: {
-    title: "*Smarter IT decisions* start here",
-    sub: "Practical, jargon-free guides for business owners who want to make the right call.",
-    cta: { label: "Read All Insights", href: "/insights" },
   },
   closing: {
     headline: "Ready to get *your IT sorted?*",

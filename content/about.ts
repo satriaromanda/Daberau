@@ -53,7 +53,7 @@ export const about = {
   },
   numbers: {
     title: "Our *track record* so far",
-    sub: "The same numbers you'll see on our homepage, all from real projects.",
+    sub: "Every number here comes from projects we've actually delivered.",
   },
   legal: {
     title: "Registered and *verified*",

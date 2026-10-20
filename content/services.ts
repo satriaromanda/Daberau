@@ -251,7 +251,6 @@ export const serviceTemplate = {
   deliver: { title: "Everything we can *take off your plate*", sub: "Pick what you need now. Add more as your business grows." },
   benefits: { title: "What changes for *your business*", sub: "The results our clients care about most." },
   process: { title: "How we'll *get it done*", sub: "A clear path from kickoff to launch, with your review at every stage." },
-  caseStudies: { title: "See it *in action*", sub: "Real projects, real numbers." },
   packages: { title: "Pick a package *that fits*", sub: "Transparent starting prices. Your final quote is itemized and always free." },
   tech: { title: "Built with *tools that last*", sub: "Proven, well-supported technology your team won't outgrow." },
   faq: { title: "Still have *questions?*", sub: "Here are the ones we hear most." },

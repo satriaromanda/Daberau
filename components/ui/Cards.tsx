@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Quote, UserRound } from "lucide-react";
-import type { CaseStudy, Service, Stat, Testimonial } from "@/content/types";
+import type { Service, Stat, Testimonial } from "@/content/types";
 import { microcopy } from "@/content/site";
 import { asset } from "@/lib/asset";
 import { IconTile } from "./Icons";
@@ -10,7 +10,7 @@ import { SampleTag, Text } from "./Text";
 
 const cardBase = "rounded-card border border-neutral-200 bg-white transition-colors duration-150";
 
-// Linked cards use a stretched title link (after:absolute after:inset-0) so the whole card is clickable.
+// Service cards use a stretched title link (after:absolute after:inset-0) so the whole card is clickable.
 // Readable text is lifted above that overlay with `relative z-10` so visitors can still select and copy it.
 
 export function ServiceCard({ service, showScope = false }: { service: Service; showScope?: boolean }) {
@@ -59,42 +59,6 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
         </span>
       </div>
       {/* Visible focus ring for the stretched link */}
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-card ring-brand group-has-[a:focus-visible]:ring-2" />
-    </article>
-  );
-}
-
-export function CaseStudyCard({ cs, headingLevel = "h3" }: { cs: CaseStudy; headingLevel?: "h2" | "h3" }) {
-  const H = headingLevel;
-  return (
-    <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
-      <ImagePlaceholder label={cs.imageLabel} rounded="rounded-none" className="border-0 border-b" />
-      <div className="flex flex-1 flex-col p-6">
-        <p className="relative z-10 text-sm text-neutral-600">
-          <span className="font-semibold text-ink">{cs.client}</span> · {cs.industry}
-        </p>
-        <H className="mt-2 text-lg font-bold leading-snug text-ink">
-          <Link href={`/case-studies/${cs.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">
-            <Text>{cs.title}</Text>
-          </Link>
-        </H>
-        <div className="relative z-10 mt-4 rounded-lg bg-neutral-50 px-4 py-3">
-          <p className="text-xl font-bold text-brand">
-            <Text>{cs.metric.value}</Text>
-          </p>
-          <p className="text-sm text-neutral-600">{cs.metric.label}</p>
-        </div>
-        <ul className="relative z-10 mt-4 flex flex-wrap gap-1.5" aria-label="Services">
-          {cs.categories.map((c) => (
-            <li key={c} className="rounded-full border border-neutral-200 px-2.5 py-0.5 text-xs font-medium text-neutral-700">
-              {c}
-            </li>
-          ))}
-        </ul>
-        <span className="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-semibold text-brand">
-          {microcopy.readCaseStudy}
-        </span>
-      </div>
       <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-card ring-brand group-has-[a:focus-visible]:ring-2" />
     </article>
   );
@@ -172,27 +136,5 @@ export function TitledTextCard({ title, body, index }: { title: string; body: st
         <Text>{body}</Text>
       </p>
     </div>
-  );
-}
-
-export function ArticleCard({ a, headingLevel = "h3" }: { a: import("@/content/types").Article; headingLevel?: "h2" | "h3" }) {
-  const H = headingLevel;
-  return (
-    <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
-      <ImagePlaceholder label={a.imageLabel} rounded="rounded-none" aspect="aspect-[16/9]" className="border-0 border-b" />
-      <div className="flex flex-1 flex-col p-6">
-        <p className="relative z-10 text-sm font-semibold text-brand">{a.category}</p>
-        <H className="mt-2 text-lg font-bold leading-snug text-ink">
-          <Link href={`/insights/${a.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">
-            {a.title}
-          </Link>
-        </H>
-        <p className="relative z-10 mt-2 line-clamp-3 text-[15px] leading-relaxed text-neutral-600">{a.excerpt}</p>
-        <p className="relative z-10 mt-auto pt-5 text-sm text-neutral-500">
-          <time>{a.date}</time> · {a.readTime}
-        </p>
-      </div>
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-card ring-brand group-has-[a:focus-visible]:ring-2" />
-    </article>
   );
 }

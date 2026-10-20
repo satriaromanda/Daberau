@@ -11,11 +11,6 @@ export type IconName =
   | "cloud"
   | "wrench"
   | "compass"
-  | "store"
-  | "graduation"
-  | "stethoscope"
-  | "truck"
-  | "landmark"
   | "search-x"
   | "spreadsheet"
   | "server-crash"
@@ -70,56 +65,12 @@ export type Service = {
   related: ServiceSlug[];
 };
 
-export type CaseCategory = "Websites" | "Apps" | "UI/UX" | "Infrastructure";
-
-export type CaseStudy = {
-  slug: string;
-  client: string;
-  industry: string;
-  industrySlug: string;
-  title: string;
-  metric: { value: string; label: string };
-  categories: CaseCategory[];
-  services: ServiceSlug[];
-  imageLabel: string;
-  glance: { duration: string; metrics: Stat[] };
-  challenge: string[];
-  solution: string[];
-  process: Step[];
-  results: { label: string; before: string; after: string }[];
-  testimonial: Testimonial;
-  gallery: string[];
-};
-
 export type Testimonial = {
   quote: string;
   name: string;
   role: string;
   company: string;
   sample?: boolean;
-};
-
-export type Industry = {
-  slug: string;
-  name: string;
-  icon: IconName;
-  h1: string;
-  sub: string;
-  challenges: TitledText[];
-  services: ServiceSlug[];
-  meta: PageMeta;
-};
-
-export type Article = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  author: string;
-  imageLabel: string;
-  body: ({ type: "p"; text: string } | { type: "h2"; text: string } | { type: "ul"; items: string[] })[];
 };
 
 export type LegalSection = {

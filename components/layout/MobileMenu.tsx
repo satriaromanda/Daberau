@@ -8,14 +8,13 @@ import { createPortal } from "react-dom";
 import { ChevronDown, Mail, Phone, X } from "lucide-react";
 import { nav, primaryCta, site, whatsappCta } from "@/content/site";
 import { services } from "@/content/services";
-import { industries } from "@/content/industries";
 import { LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 
 export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose: () => void; pathname: string }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const [section, setSection] = useState<"services" | "industries" | null>(null);
+  const [section, setSection] = useState<"services" | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -81,7 +80,6 @@ export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose
           {(
             [
               { id: "services", label: nav.servicesLabel, items: services.map((s) => ({ href: `/services/${s.slug}`, label: s.name })), all: nav.allServices },
-              { id: "industries", label: nav.industriesLabel, items: industries.map((i) => ({ href: `/industries/${i.slug}`, label: i.name })), all: nav.allIndustries },
             ] as const
           ).map((group) => {
             const expanded = section === group.id;

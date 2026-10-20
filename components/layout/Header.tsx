@@ -8,12 +8,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { nav, site, primaryCta } from "@/content/site";
 import { services } from "@/content/services";
-import { industries } from "@/content/industries";
 import { IconTile, WhatsAppIcon } from "@/components/ui/Icons";
 import { LinkButton } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
 
-type MenuId = "services" | "industries" | null;
+type MenuId = "services" | null;
 
 const navLinkBase =
   "relative inline-flex h-10 items-center gap-1 rounded-btn px-3 text-[15px] font-medium transition-colors hover:text-ink hover:bg-neutral-50";
@@ -52,12 +51,11 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const servicesBtn = useRef<HTMLButtonElement>(null);
-  const industriesBtn = useRef<HTMLButtonElement>(null);
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const closeAndFocus = useCallback((id: Exclude<MenuId, null>) => {
+  const closeAndFocus = useCallback(() => {
     setOpen(null);
-    (id === "services" ? servicesBtn : industriesBtn).current?.focus();
+    servicesBtn.current?.focus();
   }, []);
 
   // Close menus on route change
@@ -103,7 +101,6 @@ export function Header() {
   };
 
   const servicesActive = isActive(pathname, "/services");
-  const industriesActive = isActive(pathname, "/industries");
   const current = services[activeService];
 
   return (
@@ -148,7 +145,7 @@ export function Header() {
               <div
                 id="services-menu"
                 hidden={open !== "services"}
-                onKeyDown={(e) => handleMenuKeys(e, () => closeAndFocus("services"))}
+                onKeyDown={(e) => handleMenuKeys(e, closeAndFocus)}
                 className="absolute inset-x-0 top-full border-b border-neutral-200 bg-white shadow-[0_16px_32px_-16px_rgba(0,0,0,0.12)]"
               >
                 <div className="mx-auto grid max-w-[1200px] grid-cols-[1.15fr_1fr_0.95fr] gap-8 px-8 py-8">
@@ -196,53 +193,6 @@ export function Header() {
                       {nav.megaPromo.cta.label}
                     </LinkButton>
                   </div>
-                </div>
-              </div>
-            </li>
-
-            <li className="relative" onMouseEnter={() => openOnHover("industries")} onMouseLeave={closeOnLeave} onBlur={onItemBlur}>
-              <button
-                ref={industriesBtn}
-                type="button"
-                aria-expanded={open === "industries"}
-                aria-controls="industries-menu"
-                onClick={() => setOpen(open === "industries" ? null : "industries")}
-                onKeyDown={(e) => onTriggerKey(e, "industries")}
-                className={`${navLinkBase} ${industriesActive || open === "industries" ? "text-brand" : "text-neutral-700"}`}
-              >
-                {nav.industriesLabel}
-                <ChevronDown aria-hidden="true" className={`h-4 w-4 transition-transform ${open === "industries" ? "rotate-180" : ""}`} />
-                {industriesActive && <ActiveBar />}
-              </button>
-              <div
-                id="industries-menu"
-                hidden={open !== "industries"}
-                onKeyDown={(e) => handleMenuKeys(e, () => closeAndFocus("industries"))}
-                className="absolute left-0 top-full w-72 pt-2"
-              >
-                <div className="rounded-card border border-neutral-200 bg-white p-2 shadow-[0_16px_32px_-16px_rgba(0,0,0,0.16)]">
-                  <ul aria-label="Industries">
-                    {industries.map((ind) => (
-                      <li key={ind.slug}>
-                        <Link
-                          href={`/industries/${ind.slug}`}
-                          data-menu-item
-                          aria-current={pathname === `/industries/${ind.slug}` ? "page" : undefined}
-                          className="flex items-center gap-3 rounded-btn px-3 py-2.5 text-[15px] font-medium text-neutral-700 hover:bg-neutral-50 hover:text-ink aria-[current=page]:text-brand"
-                        >
-                          <IconTile name={ind.icon} size="sm" />
-                          {ind.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={nav.allIndustries.href}
-                    data-menu-item
-                    className="mt-1 flex items-center gap-1 rounded-btn border-t border-neutral-100 px-3 py-2.5 text-sm font-semibold text-brand hover:bg-neutral-50"
-                  >
-                    {nav.allIndustries.label} <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
                 </div>
               </div>
             </li>

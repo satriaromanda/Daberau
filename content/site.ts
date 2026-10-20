@@ -5,7 +5,6 @@ export const WHATSAPP_NUMBER = "";
 
 export const microcopy = {
   ctaPrimary: "Get a Free Consultation",
-  seeOurWork: "See Our Work",
   exploreServices: "Explore Services",
   chatWhatsApp: "Chat on WhatsApp",
   serviceCta: "Talk to Us About [Service]",
@@ -14,7 +13,6 @@ export const microcopy = {
   reassurance: "Free and no commitment. We reply within one business day.",
   companyProfile: "Download Company Profile (PDF, 3 MB)",
   learnMore: "Learn more →",
-  readCaseStudy: "Read the case study →",
   whatsappPrefill: "Hi Daberau, I'm [name] from [company]. I'd like to discuss…",
   budgetTooltip: "A rough range is fine. It helps us suggest the right solution.",
   errorSummary: "A few fields need your attention. Please check the highlighted fields.",
@@ -66,15 +64,12 @@ export const whatsappCta: Cta = { label: microcopy.chatWhatsApp, href: whatsappH
 
 export const nav = {
   links: [
-    { label: "Case Studies", href: "/case-studies" },
     { label: "About Us", href: "/about-us" },
-    { label: "Insights", href: "/insights" },
+    { label: "How We Work", href: "/how-we-work" },
     { label: "Contact", href: "/contact" },
   ],
   servicesLabel: "Services",
-  industriesLabel: "Industries",
   allServices: { label: "Explore All Services", href: "/services" },
-  allIndustries: { label: "All Industries", href: "/industries" },
   megaPromo: {
     title: "Not sure what you need?",
     body: "Tell us the problem. We'll map out the right solution. Free, 30 minutes.",
@@ -86,9 +81,8 @@ export const nav = {
 export const footer = {
   company: [
     { label: "About Us", href: "/about-us" },
-    { label: "Case Studies", href: "/case-studies" },
     { label: "Careers", href: "/careers" },
-    { label: "Insights", href: "/insights" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
   ],
   help: [
