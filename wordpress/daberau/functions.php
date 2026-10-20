@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DABERAU_VERSION', '1.1.0' );
+define( 'DABERAU_VERSION', '1.2.0' );
 define( 'DABERAU_DIR', get_template_directory() );
 define( 'DABERAU_URI', get_template_directory_uri() );
 

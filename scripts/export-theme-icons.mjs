@@ -18,6 +18,8 @@ const ui = {
   "server-crash": "server-crash", signpost: "signpost", rocket: "rocket", "life-buoy": "life-buoy", users: "users",
   receipt: "receipt", chart: "chart-column", code: "code-xml", messages: "messages-square", pen: "pen-tool",
   shield: "shield-check", linkedin: "linkedin", instagram: "instagram", facebook: "facebook", youtube: "youtube",
+  store: "store", factory: "factory", truck: "truck", stethoscope: "stethoscope", graduation: "graduation-cap",
+  landmark: "landmark", "alert-triangle": "triangle-alert",
 };
 
 const svgInner = (file) => {

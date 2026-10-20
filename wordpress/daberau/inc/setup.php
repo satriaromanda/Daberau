@@ -153,8 +153,8 @@ function daberau_menu_links( $location, $defaults ) {
 /** Default links per menu location. */
 function daberau_default_menu( $location ) {
 	$sets = array(
-		'primary'        => array( array( __( 'About Us', 'daberau' ), daberau_url( 'about' ) ), array( __( 'How We Work', 'daberau' ), daberau_url( 'how-we-work' ) ), array( __( 'Contact', 'daberau' ), daberau_url( 'contact' ) ) ),
-		'footer_company' => array( array( __( 'About Us', 'daberau' ), daberau_url( 'about' ) ), array( __( 'Contact', 'daberau' ), daberau_url( 'contact' ) ) ),
+		'primary'        => array( array( __( 'Industries', 'daberau' ), daberau_url( 'industries' ) ), array( __( 'How We Work', 'daberau' ), daberau_url( 'how-we-work' ) ), array( __( 'About Us', 'daberau' ), daberau_url( 'about' ) ), array( __( 'Contact', 'daberau' ), daberau_url( 'contact' ) ) ),
+		'footer_company' => array( array( __( 'About Us', 'daberau' ), daberau_url( 'about' ) ), array( __( 'Industries', 'daberau' ), daberau_url( 'industries' ) ), array( __( 'Contact', 'daberau' ), daberau_url( 'contact' ) ) ),
 		'footer_help'    => array( array( __( 'FAQ', 'daberau' ), daberau_url( 'faq' ) ), array( __( 'How We Work', 'daberau' ), daberau_url( 'how-we-work' ) ) ),
 		'footer_legal'   => array( array( __( 'Privacy Policy', 'daberau' ), daberau_url( 'privacy' ) ), array( __( 'Terms & Conditions', 'daberau' ), daberau_url( 'terms' ) ) ),
 	);

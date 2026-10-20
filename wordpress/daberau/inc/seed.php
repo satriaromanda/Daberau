@@ -30,6 +30,7 @@ function daberau_seed() {
 		'home'                 => array( __( 'Home', 'daberau' ), '', '', '' ),
 		'services'             => array( __( 'Services', 'daberau' ), 'page-templates/template-services.php', '', 'services' ),
 		'about-us'             => array( __( 'About Us', 'daberau' ), 'page-templates/template-about.php', '', 'about' ),
+		'industries'           => array( __( 'Industries', 'daberau' ), 'page-templates/template-industries.php', '', 'industries' ),
 		'how-we-work'          => array( __( 'How We Work', 'daberau' ), 'page-templates/template-how-we-work.php', '', 'how-we-work' ),
 		'faq'                  => array( __( 'FAQ', 'daberau' ), 'page-templates/template-faq.php', '', 'faq' ),
 		'contact'              => array( __( 'Contact', 'daberau' ), 'page-templates/template-contact.php', '', 'contact' ),
@@ -121,6 +122,27 @@ function daberau_seed() {
 		}
 	}
 
+	// Industries.
+	foreach ( $d( 'industries', array() ) as $i => $ind ) {
+		if ( get_page_by_path( $ind['slug'], OBJECT, 'daberau_industry' ) ) {
+			continue;
+		}
+		$id = wp_insert_post(
+			array(
+				'post_type'   => 'daberau_industry',
+				'post_status' => 'publish',
+				'post_title'  => $ind['name'],
+				'post_name'   => $ind['slug'],
+				'menu_order'  => $i,
+			)
+		);
+		if ( $id && ! is_wp_error( $id ) ) {
+			daberau_seed_image( $id, 'images/industries/' . $ind['slug'] . '.webp', isset( $ind['image']['alt'] ) ? $ind['image']['alt'] : $ind['name'] );
+			/* translators: %s: industry name */
+			$log[] = sprintf( __( 'Industry created: %s', 'daberau' ), $ind['name'] );
+		}
+	}
+
 	// FAQs.
 	$groups = array();
 	foreach ( $d( 'faqPage.categories', array() ) as $cat ) {
@@ -171,8 +193,8 @@ function daberau_seed() {
 function daberau_seed_menus( $ids, $force ) {
 	$log   = array();
 	$menus = array(
-		'primary'        => array( __( 'Daberau Header', 'daberau' ), array( 'about-us', 'how-we-work', 'contact' ) ),
-		'footer_company' => array( __( 'Daberau Footer: Company', 'daberau' ), array( 'about-us', 'contact' ) ),
+		'primary'        => array( __( 'Daberau Header', 'daberau' ), array( 'industries', 'how-we-work', 'about-us', 'contact' ) ),
+		'footer_company' => array( __( 'Daberau Footer: Company', 'daberau' ), array( 'about-us', 'industries', 'contact' ) ),
 		'footer_help'    => array( __( 'Daberau Footer: Help', 'daberau' ), array( 'faq', 'how-we-work' ) ),
 		'footer_legal'   => array( __( 'Daberau Footer: Legal', 'daberau' ), array( 'privacy-policy', 'terms-and-conditions' ) ),
 	);
@@ -215,7 +237,7 @@ function daberau_seed_menus( $ids, $force ) {
 /** Page IDs of the Daberau pages, by default slug. */
 function daberau_page_ids() {
 	$ids = array();
-	foreach ( array( 'services' => 'services', 'about-us' => 'about', 'how-we-work' => 'how-we-work', 'faq' => 'faq', 'contact' => 'contact' ) as $slug => $kind ) {
+	foreach ( array( 'services' => 'services', 'industries' => 'industries', 'about-us' => 'about', 'how-we-work' => 'how-we-work', 'faq' => 'faq', 'contact' => 'contact' ) as $slug => $kind ) {
 		$page = daberau_find_page( $kind );
 		if ( $page ) {
 			$ids[ $slug ] = $page->ID;
@@ -336,6 +358,7 @@ function daberau_setup_page() {
 	$rows  = array(
 		array( __( 'Home (front page)', 'daberau' ), $front ),
 		array( __( 'Services', 'daberau' ), daberau_find_page( 'services' ) ),
+		array( __( 'Industries', 'daberau' ), daberau_find_page( 'industries' ) ),
 		array( __( 'About Us', 'daberau' ), daberau_find_page( 'about' ) ),
 		array( __( 'How We Work', 'daberau' ), daberau_find_page( 'how-we-work' ) ),
 		array( __( 'FAQ', 'daberau' ), daberau_find_page( 'faq' ) ),
@@ -358,7 +381,7 @@ function daberau_setup_page() {
 	echo ' <span class="description">' . esc_html__( 'Adds missing pages, services, FAQs and menus. Never changes content you edited.', 'daberau' ) . '</span></p>';
 
 	echo '<h2>' . esc_html__( '2. Menus', 'daberau' ) . '</h2>';
-	echo '<p>' . esc_html__( 'If the header shows links from your previous theme, replace them with the Daberau menus (About Us, How We Work, Contact; footer links). You can still edit them later in Appearance → Menus.', 'daberau' ) . '</p><p>';
+	echo '<p>' . esc_html__( 'Replaces the header and footer menus with the Daberau ones (Industries, How We Work, About Us, Contact; footer links). Use it after an update that adds pages, or when the header still shows links from your previous theme. You can edit the menus later in Appearance → Menus.', 'daberau' ) . '</p><p>';
 	submit_button( __( 'Use Daberau menus', 'daberau' ), 'secondary', 'daberau_menus', false );
 	echo '</p>';
 
@@ -376,6 +399,7 @@ function daberau_setup_page() {
 	$links = array(
 		array( admin_url( 'edit.php?post_type=page' ), __( 'Pages: open a page and use the "Page content (Daberau)" box', 'daberau' ) ),
 		array( admin_url( 'edit.php?post_type=daberau_service' ), __( 'Services: one entry per service page', 'daberau' ) ),
+		array( admin_url( 'edit.php?post_type=daberau_industry' ), __( 'Industries: text and photo (featured image) for each industry', 'daberau' ) ),
 		array( admin_url( 'edit.php?post_type=daberau_faq' ), __( 'FAQs, grouped by FAQ Group', 'daberau' ) ),
 		array( admin_url( 'customize.php?autofocus[panel]=daberau' ), __( 'Customizer → Daberau: phone, email, WhatsApp, address, CTA background, footer, social links', 'daberau' ) ),
 		array( admin_url( 'nav-menus.php' ), __( 'Menus: header and footer links', 'daberau' ) ),
@@ -391,15 +415,20 @@ function daberau_setup_page() {
 add_action(
 	'admin_notices',
 	function () {
-		if ( ! current_user_can( 'manage_options' ) || get_option( 'daberau_setup_seen' ) || ( isset( $_GET['page'] ) && 'daberau-setup' === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$seen = (string) get_option( 'daberau_setup_seen' );
+		if ( ! current_user_can( 'manage_options' ) || DABERAU_VERSION === $seen || ( isset( $_GET['page'] ) && 'daberau-setup' === $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			return;
 		}
-		echo '<div class="notice notice-info"><p><strong>Daberau:</strong> ' . esc_html__( 'Check that all pages are connected and send a test email.', 'daberau' ) . ' <a class="button button-primary" href="' . esc_url( admin_url( 'themes.php?page=daberau-setup' ) ) . '">' . esc_html__( 'Open Daberau setup', 'daberau' ) . '</a></p></div>';
+		$text = $seen
+			/* translators: %s: theme version */
+			? sprintf( __( 'Version %s adds an Industries page. Open setup, click "Create missing content", then "Use Daberau menus".', 'daberau' ), DABERAU_VERSION )
+			: __( 'Check that all pages are connected and send a test email.', 'daberau' );
+		echo '<div class="notice notice-info"><p><strong>Daberau:</strong> ' . esc_html( $text ) . ' <a class="button button-primary" href="' . esc_url( admin_url( 'themes.php?page=daberau-setup' ) ) . '">' . esc_html__( 'Open Daberau setup', 'daberau' ) . '</a></p></div>';
 	}
 );
 add_action(
 	'load-appearance_page_daberau-setup',
 	function () {
-		update_option( 'daberau_setup_seen', 1, false );
+		update_option( 'daberau_setup_seen', DABERAU_VERSION, false );
 	}
 );

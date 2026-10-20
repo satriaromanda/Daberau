@@ -2,6 +2,10 @@ import { CheckCircle2 } from "lucide-react";
 import { home } from "@/content/home";
 import { eyebrows } from "@/content/eyebrows";
 import { services } from "@/content/services";
+import { industries, industriesPage } from "@/content/industries";
+import { IndustryVisual } from "@/components/ui/IndustryVisual";
+import { Icon } from "@/components/ui/Icons";
+import Link from "next/link";
 import { processSteps } from "@/content/process";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
@@ -91,8 +95,33 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 4. Why Daberau */}
-      <Section labelledBy="why-title">
+      {/* 4. Industries */}
+      <Section labelledBy="industries-title">
+        <SectionHeading id="industries-title" eyebrow={eyebrows.home.industries} title={industriesPage.home.title} sub={industriesPage.home.sub} />
+        <ul className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
+          {industries.map((ind, i) => (
+            <li key={ind.slug} data-reveal style={{ "--reveal-delay": `${(i % 3) * 90}ms` } as React.CSSProperties}>
+              <Link
+                href={`/industries#${ind.slug}`}
+                className="card-interactive group relative block aspect-[4/3] overflow-hidden rounded-card border border-neutral-200"
+              >
+                <IndustryVisual industry={ind} sizes="(min-width: 1024px) 380px, 50vw" />
+                <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                <span className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-4 text-[15px] font-bold leading-snug text-white md:p-5 md:text-[17px]">
+                  <Icon name={ind.icon} className="h-5 w-5 shrink-0" />
+                  {ind.name}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 flex justify-center">
+          <TextLink href="/industries">{industriesPage.home.link}</TextLink>
+        </div>
+      </Section>
+
+      {/* 5. Why Daberau */}
+      <Section tone="muted" labelledBy="why-title">
         <SectionHeading id="why-title" eyebrow={eyebrows.home.why} title={home.why.title} sub={home.why.sub} />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {home.why.points.map((p, i) => (
@@ -112,8 +141,8 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      {/* 5. How we work */}
-      <Section tone="muted" labelledBy="process-title">
+      {/* 6. How we work */}
+      <Section labelledBy="process-title">
         <SectionHeading id="process-title" eyebrow={eyebrows.home.process} title={home.process.title} sub={home.process.sub} />
         <ProcessSteps steps={processSteps} />
         <div className="mt-10 flex justify-center">

@@ -18,6 +18,12 @@ import {
   Smartphone,
   Users,
   Wrench,
+  Store,
+  Factory,
+  Truck,
+  Stethoscope,
+  GraduationCap,
+  Landmark,
   type LucideProps,
 } from "lucide-react";
 import type { IconName } from "@/content/types";
@@ -42,6 +48,12 @@ const map: Record<IconName, React.ComponentType<LucideProps>> = {
   receipt: Receipt,
   chart: BarChart3,
   shield: ShieldCheck,
+  store: Store,
+  factory: Factory,
+  truck: Truck,
+  stethoscope: Stethoscope,
+  graduation: GraduationCap,
+  landmark: Landmark,
 };
 
 export function Icon({ name, ...props }: { name: IconName } & LucideProps) {

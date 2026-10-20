@@ -32,6 +32,30 @@ add_action(
 		);
 
 		register_post_type(
+			'daberau_industry',
+			array(
+				'labels'              => array(
+					'name'          => __( 'Industries', 'daberau' ),
+					'singular_name' => __( 'Industry', 'daberau' ),
+					'add_new'       => __( 'Add New Industry', 'daberau' ),
+					'add_new_item'  => __( 'Add New Industry', 'daberau' ),
+					'edit_item'     => __( 'Edit Industry', 'daberau' ),
+					'all_items'     => __( 'All Industries', 'daberau' ),
+					'featured_image'     => __( 'Industry photo', 'daberau' ),
+					'set_featured_image' => __( 'Set industry photo', 'daberau' ),
+				),
+				'description'         => __( 'Shown on the Industries page and on the home page, in "Order" sequence.', 'daberau' ),
+				'public'              => false,
+				'show_ui'             => true,
+				'show_in_rest'        => false,
+				'exclude_from_search' => true,
+				'menu_icon'           => 'dashicons-building',
+				'menu_position'       => 21,
+				'supports'            => array( 'title', 'thumbnail', 'page-attributes' ),
+			)
+		);
+
+		register_post_type(
 			'daberau_faq',
 			array(
 				'labels'              => array(
@@ -90,6 +114,53 @@ add_action(
 		);
 	}
 );
+
+/** Industries in menu order, as arrays ready for templates. */
+function daberau_industries() {
+	static $out = null;
+	if ( null !== $out ) {
+		return $out;
+	}
+	$out   = array();
+	$posts = get_posts(
+		array(
+			'post_type'      => 'daberau_industry',
+			'posts_per_page' => 50,
+			'orderby'        => array( 'menu_order' => 'ASC', 'title' => 'ASC' ),
+			'no_found_rows'  => true,
+		)
+	);
+	foreach ( $posts as $post ) {
+		$f     = daberau_fields( $post, 'industry' );
+		$image = '';
+		$alt   = '';
+		if ( has_post_thumbnail( $post ) ) {
+			$image = get_the_post_thumbnail_url( $post, 'large' );
+			$alt   = get_post_meta( get_post_thumbnail_id( $post ), '_wp_attachment_image_alt', true );
+		} elseif ( file_exists( DABERAU_DIR . '/assets/images/industries/' . $post->post_name . '.webp' ) ) {
+			$image = daberau_asset( 'images/industries/' . $post->post_name . '.webp' );
+		}
+		$services = array();
+		foreach ( daberau_lines( $f['services'] ) as $slug ) {
+			$service = get_page_by_path( sanitize_title( $slug ), OBJECT, 'daberau_service' );
+			if ( $service && 'publish' === $service->post_status ) {
+				$services[] = daberau_service_card( $service );
+			}
+		}
+		$out[] = array(
+			'slug'       => $post->post_name,
+			'name'       => get_the_title( $post ),
+			'icon'       => $f['icon'],
+			'title'      => $f['title'],
+			'body'       => $f['body'],
+			'challenges' => daberau_lines( $f['challenges'], array( 'title', 'body' ) ),
+			'services'   => $services,
+			'image'      => $image,
+			'alt'        => $alt ? $alt : '',
+		);
+	}
+	return $out;
+}
 
 /** FAQ group slugs that belong to other pages, not the FAQ page. */
 function daberau_page_faq_groups() {

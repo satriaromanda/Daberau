@@ -231,8 +231,8 @@
     var prefs = { essential: true, analytics: false, marketing: false };
     var returnFocus = null;
 
-    function read() { try { var raw = localStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; } }
-    function write(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch (e) { /* storage unavailable */ } }
+    function read() { try { var raw = localStorage.getItem(KEY); return raw ? JSON.parse(raw) : null; } catch { return null; } }
+    function write(p) { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* storage unavailable */ } }
     function sync() {
       $$("[data-cookie-switch]", modal).forEach(function (s) {
         var id = s.getAttribute("data-cookie-switch");

@@ -61,8 +61,9 @@ export const whatsappCta: Cta = { label: microcopy.chatWhatsApp, href: whatsappH
 
 export const nav = {
   links: [
-    { label: "About Us", href: "/about-us" },
+    { label: "Industries", href: "/industries" },
     { label: "How We Work", href: "/how-we-work" },
+    { label: "About Us", href: "/about-us" },
     { label: "Contact", href: "/contact" },
   ],
   servicesLabel: "Services",
@@ -78,6 +79,7 @@ export const nav = {
 export const footer = {
   company: [
     { label: "About Us", href: "/about-us" },
+    { label: "Industries", href: "/industries" },
     { label: "Contact", href: "/contact" },
   ],
   help: [

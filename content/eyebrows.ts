@@ -1,6 +1,6 @@
 // Small labels shown above section headlines ("Our Services", "Why Daberau"…), keyed by page and section.
 export const eyebrows = {
-  home: { pain: "Sound Familiar?", services: "Our Services", why: "Why Daberau", process: "How We Work" },
+  home: { pain: "Sound Familiar?", services: "Our Services", industries: "Industries", why: "Why Daberau", process: "How We Work" },
   servicesOverview: { grid: "Find Your Fit", tech: "Our Stack", faq: "FAQ" },
   serviceDetail: {
     problem: "The Problem",

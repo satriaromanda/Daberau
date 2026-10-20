@@ -7,7 +7,7 @@ A classic WordPress theme for daberau-me.com. It matches the approved mockup, an
 No plugins are needed. Page builders such as Elementor aren't used by the Daberau pages.
 
 1. In WordPress, go to **Appearance → Themes → Add New → Upload Theme** and upload `daberau-theme.zip`.
-   If an older Daberau version is installed, choose **Replace current with uploaded**.
+   If an older Daberau version is installed, choose **Replace current with uploaded**, then open **Appearance → Daberau setup** and click **Create missing content** and **Use Daberau menus** to add pages and menu links that are new in the update (1.2 adds Industries).
 2. Click **Activate**. The theme then:
    - reuses pages that already exist with a matching URL (`/services/`, `/about-us/`, `/contact/`…), and creates the missing ones (How We Work, FAQ, Privacy Policy, Terms & Conditions);
    - creates the 6 services with their photos, the FAQs and, if none are set, the header and footer menus;
@@ -35,6 +35,7 @@ open it and pick the template under **Page Attributes → Template**.
 | What | Where |
 |---|---|
 | Page text (headlines, cards, steps, stats…) | **Pages → (page) → "Page content (Daberau)"** box below the editor |
+| Industries (Industries page and home section) | **Industries → (industry)**. Photo: "Industry photo" (featured image, 4:3 landscape works best). Until a photo is set, a red tile with the industry icon is shown. Order: "Page Attributes → Order" |
 | Service pages and service cards | **Services → (service)**. Order: "Post Attributes → Order". Photo: "Featured image" |
 | Shared service-page headings | **Customize → Daberau → Service page headings** |
 | FAQs | **FAQs**. Each FAQ Group becomes a section on the FAQ page. Groups "Contact page" and "Services page" show on those pages |

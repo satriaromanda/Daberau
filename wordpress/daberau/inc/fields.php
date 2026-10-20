@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 /** Icon keys editors can use in "icon" columns. */
 function daberau_icon_keys() {
-	return 'globe, smartphone, pen, cloud, wrench, compass, search-x, spreadsheet, server-crash, signpost, messages, file-text, code, rocket, life-buoy, users, receipt, chart, shield';
+	return 'globe, smartphone, pen, cloud, wrench, compass, search-x, spreadsheet, server-crash, signpost, messages, file-text, code, rocket, life-buoy, users, receipt, chart, shield, store, factory, truck, stethoscope, graduation, landmark';
 }
 
 /** Field helpers: [ label, type, default, hint ]. */
@@ -76,6 +76,12 @@ function daberau_schema( $schema, $post = null ) {
 					'services_sub'     => daberau_f_area( __( 'Subheadline', 'daberau' ), $h['services']['sub'] ),
 					'services_cta'     => daberau_f_text( __( 'Button label', 'daberau' ), $h['services']['cta']['label'] ),
 				),
+				__( 'Industries', 'daberau' )       => array(
+					'industries_eyebrow' => daberau_f_text( __( 'Label', 'daberau' ), $eb['home']['industries'] ),
+					'industries_title'   => daberau_f_text( __( 'Headline (industries come from Industries)', 'daberau' ), $d( 'industriesPage.home.title' ) ),
+					'industries_sub'     => daberau_f_text( __( 'Subheadline', 'daberau' ), $d( 'industriesPage.home.sub' ) ),
+					'industries_link'    => daberau_f_text( __( 'Link label', 'daberau' ), $d( 'industriesPage.home.link' ) ),
+				),
 				__( 'Why Daberau', 'daberau' )      => array(
 					'why_eyebrow' => daberau_f_text( __( 'Label', 'daberau' ), $eb['home']['why'] ),
 					'why_title'   => daberau_f_text( __( 'Headline', 'daberau' ), $h['why']['title'] ),
@@ -120,6 +126,37 @@ function daberau_schema( $schema, $post = null ) {
 					'faq_sub'     => daberau_f_text( __( 'Subheadline (questions come from FAQs → "Services page")', 'daberau' ), $o['faqSub'] ),
 				),
 				__( 'SEO', 'daberau' )          => daberau_f_seo( $d( 'meta.services.title' ), $d( 'meta.services.description' ) ),
+			);
+
+		case 'industries':
+			$p = $d( 'industriesPage' );
+			return array(
+				__( 'Hero', 'daberau' )    => array(
+					'hero_h1'  => daberau_f_text( __( 'Headline (H1)', 'daberau' ), $p['h1'] ),
+					'hero_sub' => daberau_f_area( __( 'Subheadline', 'daberau' ), $p['sub'] ),
+				),
+				__( 'Labels', 'daberau' )  => array(
+					'label_challenges' => daberau_f_text( __( 'Challenges label', 'daberau' ), $p['labels']['challenges'] ),
+					'label_services'   => daberau_f_text( __( 'Services label', 'daberau' ), $p['labels']['services'] ),
+					'label_cta'        => daberau_f_text( __( 'Link label ([industry] = industry name)', 'daberau' ), $p['labels']['cta'] ),
+				),
+				__( 'Closing', 'daberau' ) => array(
+					'closing_title' => daberau_f_text( __( 'Headline', 'daberau' ), $p['closing']['title'] ),
+					'closing_body'  => daberau_f_area( __( 'Text', 'daberau' ), $p['closing']['body'] ),
+				),
+				__( 'SEO', 'daberau' )     => daberau_f_seo( $p['meta']['title'], $p['meta']['description'] ),
+			);
+
+		case 'industry':
+			$i = daberau_default_industry( $post ? $post->post_name : '' );
+			return array(
+				__( 'Industry', 'daberau' ) => array(
+					'icon'       => array( __( 'Icon', 'daberau' ), 'text', $i['icon'], __( 'One of:', 'daberau' ) . ' ' . daberau_icon_keys() ),
+					'title'      => daberau_f_text( __( 'Headline', 'daberau' ), $i['title'] ),
+					'body'       => daberau_f_area( __( 'Description', 'daberau' ), $i['body'] ),
+					'challenges' => daberau_f_lines( __( 'Challenges', 'daberau' ), $i['challenges'], array( 'title', 'body' ) ),
+					'services'   => array( __( 'Services (slugs)', 'daberau' ), 'lines', implode( "\n", $i['services'] ), __( 'One per line, e.g. web-development, app-development, ui-ux-design, cloud-infrastructure, it-support, it-consulting', 'daberau' ) ),
+				),
 			);
 
 		case 'about':
@@ -309,6 +346,20 @@ function daberau_default_service( $slug ) {
 }
 
 /**
+ * Default content for an industry by slug.
+ *
+ * @param string $slug Industry slug.
+ */
+function daberau_default_industry( $slug ) {
+	foreach ( daberau_default( 'industries', array() ) as $industry ) {
+		if ( $industry['slug'] === $slug ) {
+			return $industry;
+		}
+	}
+	return array( 'icon' => 'globe', 'title' => '', 'body' => '', 'challenges' => array(), 'services' => array() );
+}
+
+/**
  * Which schema applies to a post.
  *
  * @param WP_Post $post Post.
@@ -316,6 +367,9 @@ function daberau_default_service( $slug ) {
 function daberau_schema_key( $post ) {
 	if ( 'daberau_service' === $post->post_type ) {
 		return 'service';
+	}
+	if ( 'daberau_industry' === $post->post_type ) {
+		return 'industry';
 	}
 	if ( 'page' !== $post->post_type ) {
 		return '';
@@ -353,7 +407,7 @@ function daberau_fields( $post = null, $schema = null ) {
 add_action(
 	'add_meta_boxes',
 	function ( $post_type, $post ) {
-		if ( ! in_array( $post_type, array( 'page', 'daberau_service' ), true ) || ! daberau_schema_key( $post ) ) {
+		if ( ! in_array( $post_type, array( 'page', 'daberau_service', 'daberau_industry' ), true ) || ! daberau_schema_key( $post ) ) {
 			return;
 		}
 		add_meta_box( 'daberau_fields', __( 'Page content (Daberau)', 'daberau' ), 'daberau_render_fields_box', $post_type, 'normal', 'high' );

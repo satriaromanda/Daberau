@@ -12,6 +12,7 @@ import { faqPage } from "../content/faq";
 import { privacy, terms, legalUi } from "../content/legal";
 import { eyebrows } from "../content/eyebrows";
 import { meta } from "../content/meta";
+import { industries, industriesPage } from "../content/industries";
 
 const data = {
   site,
@@ -36,6 +37,8 @@ const data = {
   legalUi,
   eyebrows,
   meta,
+  industries,
+  industriesPage,
 };
 
 const out = "wordpress/daberau/inc/defaults.json";

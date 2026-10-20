@@ -73,6 +73,13 @@ Real team photos and client logos should come from the client, not stock sites.
 
 See [`docs/ux-audit.md`](docs/ux-audit.md) for the UX audit and what changed.
 
+## Industry photos
+
+`/industries` and the home page show 6 industries (`content/industries.ts`). Until an industry has a photo,
+it shows a red tile with its icon. To add one, put a 4:3 landscape photo (about 1200×900, WebP) in
+`public/images/industries/<slug>.webp` and add `image: { src: "/images/industries/<slug>.webp", alt: "…" }`
+to that industry. In WordPress, set the photo on **Industries → (industry) → Industry photo**.
+
 ## Dev-only preview toggles
 
 | URL / action | Shows |

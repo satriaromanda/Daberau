@@ -64,7 +64,28 @@ $services = array_map( 'daberau_service_card', daberau_services() );
 	</div>
 <?php daberau_section_close(); ?>
 
-<?php daberau_section_open( 'why-title' ); ?>
+<?php $industries = daberau_industries(); ?>
+<?php if ( $industries ) : ?>
+	<?php daberau_section_open( 'industries-title' ); ?>
+		<?php daberau_section_heading( array( 'id' => 'industries-title', 'eyebrow' => $f['industries_eyebrow'], 'title' => $f['industries_title'], 'sub' => $f['industries_sub'] ) ); ?>
+		<ul class="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-3">
+			<?php foreach ( $industries as $i => $ind ) : ?>
+				<li data-reveal<?php echo daberau_delay( ( $i % 3 ) * 90 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+					<a href="<?php echo esc_url( daberau_url( 'industries' ) . '#' . $ind['slug'] ); ?>" class="card-interactive group relative block aspect-[4/3] overflow-hidden rounded-card border border-neutral-200">
+						<?php get_template_part( 'template-parts/industry-visual', null, array( 'industry' => $ind ) ); ?>
+						<span aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></span>
+						<span class="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-4 text-[15px] font-bold leading-snug text-white md:p-5 md:text-[17px]"><?php echo daberau_icon( $ind['icon'], 'h-5 w-5 shrink-0' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo esc_html( $ind['name'] ); ?></span>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<div class="mt-10 flex justify-center">
+			<a href="<?php echo esc_url( daberau_url( 'industries' ) ); ?>" class="inline-flex items-center gap-1.5 font-semibold text-brand hover:text-brand-700"><?php echo esc_html( $f['industries_link'] ); ?><?php echo daberau_icon( 'arrow-right', 'h-4 w-4' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a>
+		</div>
+	<?php daberau_section_close(); ?>
+<?php endif; ?>
+
+<?php daberau_section_open( 'why-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'why-title', 'eyebrow' => $f['why_eyebrow'], 'title' => $f['why_title'], 'sub' => $f['why_sub'] ) ); ?>
 	<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 		<?php foreach ( daberau_lines( $f['why_points'], array( 'icon', 'title', 'body' ) ) as $i => $p ) : ?>
@@ -73,7 +94,7 @@ $services = array_map( 'daberau_service_card', daberau_services() );
 	</ul>
 <?php daberau_section_close(); ?>
 
-<?php daberau_section_open( 'process-title', 'muted' ); ?>
+<?php daberau_section_open( 'process-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'process-title', 'eyebrow' => $f['process_eyebrow'], 'title' => $f['process_title'], 'sub' => $f['process_sub'] ) ); ?>
 	<?php get_template_part( 'template-parts/process-steps', null, array( 'steps' => daberau_lines( $f['process_steps'], array( 'icon', 'title', 'body' ) ) ) ); ?>
 	<div class="mt-10 flex justify-center">

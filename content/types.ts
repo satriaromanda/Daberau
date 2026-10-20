@@ -23,7 +23,13 @@ export type IconName =
   | "users"
   | "receipt"
   | "chart"
-  | "shield";
+  | "shield"
+  | "store"
+  | "factory"
+  | "truck"
+  | "stethoscope"
+  | "graduation"
+  | "landmark";
 
 export type TitledText = { title: string; body: string };
 
@@ -88,3 +94,16 @@ export type LegalDoc = {
 };
 
 export type FormFieldOption = { value: string; label: string };
+
+export type Industry = {
+  slug: string;
+  name: string;
+  icon: IconName;
+  /** Section headline; wrap words in *asterisks* for brand red */
+  title: string;
+  body: string;
+  challenges: TitledText[];
+  services: ServiceSlug[];
+  /** Photo in /public/images/industries. Without one, a branded tile with the icon is shown. */
+  image?: { src: string; alt: string };
+};
