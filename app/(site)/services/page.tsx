@@ -1,0 +1,74 @@
+import type { Metadata } from "next";
+import { Layers } from "lucide-react";
+import { meta } from "@/content/meta";
+import { servicesOverview as o } from "@/content/services";
+import { primaryCta } from "@/content/site";
+import { home } from "@/content/home";
+import { LinkButton } from "@/components/ui/Button";
+import { Section, SectionHeading } from "@/components/ui/Container";
+import { FaqAccordion } from "@/components/ui/FaqAccordion";
+import { TechChip } from "@/components/ui/Placeholders";
+import { SampleTag } from "@/components/ui/Text";
+import { PageHero } from "@/components/sections/PageHero";
+import { ServicesFilter } from "@/components/sections/ServicesFilter";
+import { ClosingCta } from "@/components/sections/ClosingCta";
+
+export const metadata: Metadata = { title: meta.services.title, description: meta.services.description };
+
+export default function ServicesPage() {
+  return (
+    <>
+      <PageHero crumbs={[{ label: "Services" }]} title={o.hero.h1} sub={o.hero.sub}>
+        <LinkButton href={primaryCta.href} size="lg">
+          {primaryCta.label}
+        </LinkButton>
+      </PageHero>
+
+      <Section labelledBy="grid-title">
+        <h2 id="grid-title" className="sr-only">
+          Our services
+        </h2>
+        <ServicesFilter />
+      </Section>
+
+      <Section tone="muted" labelledBy="bundled-title">
+        <div className="flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
+          <div className="flex gap-5">
+            <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-card bg-brand-50 text-brand sm:inline-flex">
+              <Layers className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <div>
+              <h2 id="bundled-title" className="text-[24px] font-bold text-ink md:text-[28px]">
+                {o.bundled.title}
+              </h2>
+              <p className="mt-2 max-w-xl text-lg text-neutral-600">{o.bundled.sub}</p>
+            </div>
+          </div>
+          <LinkButton href={primaryCta.href} size="lg" className="shrink-0">
+            {primaryCta.label}
+          </LinkButton>
+        </div>
+      </Section>
+
+      <Section labelledBy="tech-title">
+        <SectionHeading id="tech-title" title={o.tech.title} sub={o.tech.sub} extra={<SampleTag label="Sample stack" />} />
+        <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          {o.tech.items.map((t) => (
+            <li key={t}>
+              <TechChip name={t} />
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section tone="muted" labelledBy="faq-title">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <SectionHeading id="faq-title" title="Frequently asked questions" className="mb-0" />
+          <FaqAccordion items={o.faqs} />
+        </div>
+      </Section>
+
+      <ClosingCta headline={home.closing.headline} sub={home.closing.sub} />
+    </>
+  );
+}

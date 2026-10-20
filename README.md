@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Daberau website mockup
 
-## Getting Started
+High-fidelity, clickable, static mockup of the Daberau (PT Daberau Mikro Elit) IT-services website.
+The source of truth for structure and copy is [`docs/ia-ux-writing.md`](docs/ia-ux-writing.md).
 
-First, run the development server:
+- Next.js 15 (App Router) + TypeScript + Tailwind CSS v4, exported as static HTML (`output: "export"`)
+- No backend: forms, filters, search and the cookie banner are mocked client-side
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static site in ./out
+npx serve out      # preview the static export
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What |
+| --- | --- |
+| `content/*.ts` | **All copy**, typed (`content/types.ts`). Edit copy here, not in JSX. |
+| `content/site.ts` | Contact data, nav, footer, microcopy library, cookie copy, stats, `WHATSAPP_NUMBER` |
+| `components/layout` | Header + Services mega menu + Industries dropdown, mobile menu, sticky mobile CTA, WhatsApp button, pre-footer CTA, footer |
+| `components/ui` | Buttons, cards (service, case study, testimonial, stat, article), process steps, FAQ accordion, breadcrumb, placeholders |
+| `components/forms/LeadForm.tsx` | Contact / consultation form (validation, loading, success, system error) |
+| `components/cookies` | Cookie banner + Manage Preferences modal |
+| `components/legal` | Legal page layout (sticky TOC with scroll-spy, "In short" box, Back to top) |
+| `app/(site)` | Pages with the full header/footer |
+| `app/(minimal)/consultation` | Logo-only landing page |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Placeholders
 
-## Learn More
+- Bracketed tokens in content strings (`[X]`, `[year]`, `[WhatsApp number]`, `[Month DD, YYYY]`, `[Client name]`…) render
+  with a dashed amber highlight via `<Text>` so they are easy to find. Search `content/` for `[` to list them.
+- Business hours are rendered with the same highlight until confirmed (`site.hoursPending`).
+- Copy that is **not** in the spec (sample case studies, articles, testimonials, FAQ answers, etc.) carries a
+  dashed "Sample copy" badge.
+- Images, client logos, team photos and the map are neutral labeled placeholder blocks. No stock photos or external images.
+- Set `WHATSAPP_NUMBER` in `content/site.ts` to point every WhatsApp link at the business number.
 
-To learn more about Next.js, take a look at the following resources:
+## Dev-only preview toggles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| URL / action | Shows |
+| --- | --- |
+| `/contact?formError=1`, `/consultation?formError=1` | System-error state after submitting a valid form |
+| `/careers?roles=0` | "No open roles" empty state |
+| Case studies → "Infrastructure" filter | Case study filter empty state |
+| Insights → search for an unmatched term | Search empty state |
+| Clear `localStorage` key `daberau-cookie-consent` | Cookie banner again |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`/` · `/services` · `/services/{web-development, app-development, ui-ux-design, cloud-infrastructure, it-support, it-consulting}` ·
+`/about-us` · `/contact` · `/privacy-policy` · `/terms-and-conditions` · `/case-studies` ·
+`/case-studies/{sales-reporting-automation, clinic-online-booking, retail-website-redesign}` · `/consultation` · `/how-we-work` ·
+`/faq` · `/industries` · `/industries/{retail-smes, education, healthcare-clinics, logistics-distribution, government-public-sector}` ·
+`/insights` · `/insights/{how-fast-should-your-website-load, spreadsheet-or-custom-app, choosing-an-it-partner}` · `/careers` ·
+`/pricing` · 404
