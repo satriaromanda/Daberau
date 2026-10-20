@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ShieldCheck } from "lucide-react";
 import { howWeWork as h } from "@/content/howWeWork";
+import { eyebrows } from "@/content/eyebrows";
+import { IconTile } from "@/components/ui/Icons";
 import { processSteps } from "@/content/process";
 import { primaryCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
@@ -23,17 +25,23 @@ export default function HowWeWorkPage() {
       </PageHero>
 
       <Section labelledBy="stages-title">
-        <SectionHeading id="stages-title" title={h.stagesTitle} />
+        <SectionHeading id="stages-title" eyebrow={eyebrows.howWeWork.stages} title={h.stagesTitle} />
         <ol className="space-y-6">
           {processSteps.map((step, i) => {
             const st = h.stages[i];
             const vals = [st.happens, st.get, st.time, st.role];
             return (
-              <li key={step.title} className="grid gap-6 rounded-card border border-neutral-200 bg-white p-6 md:p-8 lg:grid-cols-[280px_1fr]">
+              <li
+                key={step.title}
+                data-reveal
+                className="card-interactive group relative grid gap-6 overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-8 lg:grid-cols-[300px_1fr]"
+              >
+                <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-brand transition-transform duration-500 group-hover:scale-y-100" />
                 <div className="flex gap-4">
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-lg font-bold text-white">{i + 1}</span>
+                  {step.icon && <IconTile name={step.icon} />}
                   <div>
-                    <h3 className="text-[22px] font-bold text-ink">{step.title}</h3>
+                    <p className="text-[13px] font-bold uppercase tracking-wider text-brand">Step {String(i + 1).padStart(2, "0")}</p>
+                    <h3 className="mt-1 text-[22px] font-bold text-ink">{step.title}</h3>
                     <p className="mt-1 text-neutral-600">{step.body}</p>
                   </div>
                 </div>
@@ -54,20 +62,22 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="models-title">
-        <SectionHeading id="models-title" title={h.engagement.title} sub={h.engagement.sub} />
+        <SectionHeading id="models-title" eyebrow={eyebrows.howWeWork.models} title={h.engagement.title} sub={h.engagement.sub} />
         <div className="grid gap-4 md:grid-cols-3">
-          {h.engagement.items.map((m) => (
-            <TitledTextCard key={m.title} title={m.title} body={m.body} />
+          {h.engagement.items.map((m, i) => (
+            <TitledTextCard key={m.title} title={m.title} body={m.body} delay={i * 90} />
           ))}
         </div>
       </Section>
 
       <Section labelledBy="warranty-title">
-        <SectionHeading id="warranty-title" title={h.warranty.title} sub={h.warranty.sub} />
+        <SectionHeading id="warranty-title" eyebrow={eyebrows.howWeWork.warranty} title={h.warranty.title} sub={h.warranty.sub} />
         <ul className="grid gap-4 md:grid-cols-3">
-          {h.warranty.items.map((w) => (
-            <li key={w.title} className="flex gap-4 rounded-card border border-neutral-200 p-6">
-              <ShieldCheck className="h-6 w-6 shrink-0 text-brand" aria-hidden="true" />
+          {h.warranty.items.map((w, i) => (
+            <li key={w.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="card-interactive group flex gap-4 rounded-card border border-neutral-200 bg-white p-6">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              </span>
               <div>
                 <h3 className="font-bold text-ink">{w.title}</h3>
                 <p className="mt-1.5 leading-relaxed text-neutral-600">
@@ -80,7 +90,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section tone="muted" labelledBy="tools-title">
-        <SectionHeading id="tools-title" title={h.tools.title} sub={h.tools.sub} />
+        <SectionHeading id="tools-title" eyebrow={eyebrows.howWeWork.tools} title={h.tools.title} sub={h.tools.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {h.tools.items.map((t) => (
             <li key={t}>

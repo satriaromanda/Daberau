@@ -14,13 +14,22 @@ export type IconName =
   | "search-x"
   | "spreadsheet"
   | "server-crash"
-  | "signpost";
+  | "signpost"
+  | "messages"
+  | "file-text"
+  | "code"
+  | "rocket"
+  | "life-buoy"
+  | "users"
+  | "receipt"
+  | "chart"
+  | "shield";
 
 export type TitledText = { title: string; body: string };
 
 export type Faq = { q: string; a: string };
 
-export type Step = { title: string; body: string };
+export type Step = { title: string; body: string; icon?: IconName };
 
 export type Stat = { value: string; label: string };
 

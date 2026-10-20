@@ -2,6 +2,7 @@ import { primaryCta, whatsappCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 import { Accent } from "@/components/ui/Container";
+import { eyebrows } from "@/content/eyebrows";
 
 /** In-page closing CTA (light). The dark pre-footer CTA is rendered by the layout. */
 export function ClosingCta({
@@ -18,7 +19,11 @@ export function ClosingCta({
   return (
     <section aria-labelledby="closing-cta" className="bg-white py-16 md:py-24">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="rounded-card border border-neutral-200 bg-brand-50/60 px-6 py-12 text-center md:px-12 md:py-16">
+        <div data-reveal className="rounded-card border border-neutral-200 bg-brand-50/60 px-6 py-12 text-center md:px-12 md:py-16">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/15 bg-white px-3.5 py-1 text-[13px] font-semibold uppercase tracking-wider text-brand">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
+            {eyebrows.closing}
+          </p>
           <h2 id="closing-cta" className="mx-auto max-w-3xl text-[30px] font-extrabold leading-[1.12] tracking-tight text-ink md:text-[44px] lg:text-[48px]">
             <Accent>{headline}</Accent>
           </h2>

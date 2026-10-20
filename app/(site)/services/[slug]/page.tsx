@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CheckCircle2, CircleAlert } from "lucide-react";
+import { Check, CircleAlert } from "lucide-react";
 import { getService, serviceBySlug, services, serviceTemplate as t } from "@/content/services";
+import { eyebrows } from "@/content/eyebrows";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { ServiceCard, TitledTextCard } from "@/components/ui/Cards";
@@ -53,12 +54,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 2. Problem */}
       <Section labelledBy="problem-title">
-        <SectionHeading id="problem-title" title={s.problem.title} sub={t.problemSub} />
+        <SectionHeading id="problem-title" eyebrow={eyebrows.serviceDetail.problem} title={s.problem.title} sub={t.problemSub} />
         <ul className="grid gap-4 lg:grid-cols-3">
-          {s.problem.points.map((p) => (
-            <li key={p} className="flex gap-3 rounded-card border border-neutral-200 bg-white p-6">
-              <CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-neutral-500" aria-hidden="true" />
-              <span className="text-[17px] leading-relaxed text-ink">
+          {s.problem.points.map((p, i) => (
+            <li
+              key={p}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+              className="card-interactive group flex gap-4 rounded-card border border-neutral-200 bg-white p-6"
+            >
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-600 transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                <CircleAlert className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="pt-1.5 text-[17px] leading-relaxed text-ink">
                 <Text>{p}</Text>
               </span>
             </li>
@@ -68,11 +76,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 3. Solution & scope */}
       <Section tone="muted" labelledBy="deliver-title">
-        <SectionHeading id="deliver-title" title={t.deliver.title} sub={t.deliver.sub} />
+        <SectionHeading id="deliver-title" eyebrow={eyebrows.serviceDetail.deliver} title={t.deliver.title} sub={t.deliver.sub} />
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {s.deliver.map((d, i) => (
-            <li key={i} className="flex items-center gap-3 rounded-card border border-neutral-200 bg-white px-5 py-4 font-semibold text-ink">
-              <CheckCircle2 className="h-5 w-5 shrink-0 text-brand" aria-hidden="true" />
+            <li
+              key={i}
+              data-reveal
+              style={{ "--reveal-delay": `${(i % 3) * 70}ms` } as React.CSSProperties}
+              className="card-interactive group flex items-center gap-3 rounded-card border border-neutral-200 bg-white px-5 py-4 font-semibold text-ink"
+            >
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                <Check className="h-4 w-4" aria-hidden="true" />
+              </span>
               <Text>{d}</Text>
             </li>
           ))}
@@ -81,23 +96,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 4. Benefits */}
       <Section labelledBy="benefits-title">
-        <SectionHeading id="benefits-title" title={t.benefits.title} sub={t.benefits.sub} />
+        <SectionHeading id="benefits-title" eyebrow={eyebrows.serviceDetail.benefits} title={t.benefits.title} sub={t.benefits.sub} />
         <div className="grid gap-4 md:grid-cols-3">
           {s.benefits.map((b, i) => (
-            <TitledTextCard key={i} title={b.title} body={b.body} index={i + 1} />
+            <TitledTextCard key={i} title={b.title} body={b.body} index={i + 1} delay={i * 90} />
           ))}
         </div>
       </Section>
 
       {/* 5. Process */}
       <Section tone="muted" labelledBy="process-title">
-        <SectionHeading id="process-title" title={t.process.title} sub={t.process.sub} />
+        <SectionHeading id="process-title" eyebrow={eyebrows.serviceDetail.process} title={t.process.title} sub={t.process.sub} />
         <ProcessSteps steps={s.process} />
       </Section>
 
       {/* 6. Packages / pricing */}
       <Section tone="muted" labelledBy="packages-title">
-        <SectionHeading id="packages-title" title={t.packages.title} sub={t.packages.sub} />
+        <SectionHeading id="packages-title" eyebrow={eyebrows.serviceDetail.packages} title={t.packages.title} sub={t.packages.sub} />
         <div className="hidden overflow-hidden rounded-card border border-neutral-200 bg-white md:block">
           <table className="w-full text-left">
             <thead className="bg-neutral-50 text-sm uppercase tracking-wider text-neutral-600">
@@ -111,7 +126,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </thead>
             <tbody className="divide-y divide-neutral-200">
               {s.packages.rows.map((r) => (
-                <tr key={r.name}>
+                <tr key={r.name} className="transition-colors hover:bg-brand-50/50">
                   <th scope="row" className="px-6 py-5 text-lg font-bold text-ink">
                     {r.name}
                   </th>
@@ -152,7 +167,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 7. Tech stack */}
       <Section labelledBy="tech-title">
-        <SectionHeading id="tech-title" title={t.tech.title} sub={t.tech.sub} />
+        <SectionHeading id="tech-title" eyebrow={eyebrows.serviceDetail.tech} title={t.tech.title} sub={t.tech.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {s.techStack.map((x, i) => (
             <li key={i}>
@@ -164,7 +179,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 8. Service FAQ */}
       <Section tone="muted" labelledBy="faq-title">
-        <SectionHeading id="faq-title" title={t.faq.title} sub={t.faq.sub} />
+        <SectionHeading id="faq-title" eyebrow={eyebrows.serviceDetail.faq} title={t.faq.title} sub={t.faq.sub} />
         <div className="mx-auto max-w-3xl">
           <FaqAccordion items={s.faqs} />
         </div>
@@ -172,10 +187,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* 9. Related services */}
       <Section labelledBy="related-title">
-        <SectionHeading id="related-title" title={t.related.title} sub={t.related.sub} />
+        <SectionHeading id="related-title" eyebrow={eyebrows.serviceDetail.related} title={t.related.title} sub={t.related.sub} />
         <div className="grid gap-4 md:grid-cols-3">
-          {s.related.map((r) => (
-            <ServiceCard key={r} service={serviceBySlug(r)} />
+          {s.related.map((r, i) => (
+            <ServiceCard key={r} service={serviceBySlug(r)} index={i} />
           ))}
         </div>
       </Section>

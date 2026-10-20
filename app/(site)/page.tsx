@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import { home } from "@/content/home";
+import { eyebrows } from "@/content/eyebrows";
 import { services } from "@/content/services";
 import { processSteps } from "@/content/process";
 import { LinkButton } from "@/components/ui/Button";
@@ -55,17 +56,22 @@ export default function HomePage() {
 
       {/* 2. Pain points */}
       <Section labelledBy="pain-title">
-        <SectionHeading id="pain-title" title={home.pain.title} sub={home.pain.sub} />
+        <SectionHeading id="pain-title" eyebrow={eyebrows.home.pain} title={home.pain.title} sub={home.pain.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {home.pain.cards.map((c) => (
-            <div key={c.title} className="rounded-card border border-neutral-200 bg-white p-6 md:p-7">
+          {home.pain.cards.map((c, i) => (
+            <div
+              key={c.title}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+              className="card-interactive group rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+            >
               <IconTile name={c.icon} />
               <h3 className="mt-6 text-[19px] font-bold leading-snug text-pretty text-ink">{c.title}</h3>
               <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">{c.body}</p>
             </div>
           ))}
         </div>
-        <p className="mt-8 flex items-start gap-3 rounded-card border border-neutral-200 bg-neutral-50 px-5 py-4 text-lg font-semibold text-ink">
+        <p data-reveal className="mt-8 flex items-start gap-3 rounded-card border border-brand/15 bg-brand-50/60 px-5 py-4 text-lg font-semibold text-ink">
           <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-brand" aria-hidden="true" />
           {home.pain.closing}
         </p>
@@ -73,10 +79,10 @@ export default function HomePage() {
 
       {/* 3. Services */}
       <Section tone="muted" labelledBy="services-title">
-        <SectionHeading id="services-title" title={home.services.title} sub={home.services.sub} />
+        <SectionHeading id="services-title" eyebrow={eyebrows.home.services} title={home.services.title} sub={home.services.sub} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
+          {services.map((s, i) => (
+            <ServiceCard key={s.slug} service={s} index={i} />
           ))}
         </div>
         <div className="mt-10 flex justify-center">
@@ -88,11 +94,18 @@ export default function HomePage() {
 
       {/* 4. Why Daberau */}
       <Section labelledBy="why-title">
-        <SectionHeading id="why-title" title={home.why.title} sub={home.why.sub} />
-        <ul className="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
-          {home.why.points.map((p) => (
-            <li key={p.title} className="border-t-2 border-brand pt-5">
-              <h3 className="text-[19px] font-bold leading-snug text-pretty text-ink">{p.title}</h3>
+        <SectionHeading id="why-title" eyebrow={eyebrows.home.why} title={home.why.title} sub={home.why.sub} />
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {home.why.points.map((p, i) => (
+            <li
+              key={p.title}
+              data-reveal
+              style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+              className="card-interactive group relative overflow-hidden rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+            >
+              <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-brand transition-transform duration-500 group-hover:scale-x-100" />
+              <IconTile name={p.icon} />
+              <h3 className="mt-6 text-[19px] font-bold leading-snug text-pretty text-ink">{p.title}</h3>
               <p className="mt-2.5 leading-relaxed text-neutral-500 md:text-[17px]">
                 <Text>{p.body}</Text>
               </p>
@@ -103,7 +116,7 @@ export default function HomePage() {
 
       {/* 5. How we work */}
       <Section tone="muted" labelledBy="process-title">
-        <SectionHeading id="process-title" title={home.process.title} sub={home.process.sub} />
+        <SectionHeading id="process-title" eyebrow={eyebrows.home.process} title={home.process.title} sub={home.process.sub} />
         <ProcessSteps steps={processSteps} />
         <div className="mt-10 flex justify-center">
           <TextLink href={home.process.link.href}>{home.process.link.label}</TextLink>

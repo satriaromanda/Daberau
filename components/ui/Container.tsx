@@ -63,8 +63,13 @@ export function SectionHeading({
 }) {
   const centered = align === "center";
   return (
-    <div className={`mb-10 max-w-3xl md:mb-14 ${centered ? "mx-auto text-center" : ""} ${className}`}>
-      {eyebrow && <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-brand">{eyebrow}</p>}
+    <div data-reveal className={`mb-10 max-w-3xl md:mb-14 ${centered ? "mx-auto text-center" : ""} ${className}`}>
+      {eyebrow && (
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/15 bg-brand-50 px-3.5 py-1 text-[13px] font-semibold uppercase tracking-wider text-brand">
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-brand" />
+          {eyebrow}
+        </p>
+      )}
       <h2 id={id} className="text-[30px] font-extrabold leading-[1.12] tracking-tight text-ink md:text-[44px] lg:text-[48px]">
         <Accent>{title}</Accent>
       </h2>

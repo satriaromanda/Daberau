@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import type { Service, Stat } from "@/content/types";
 import { microcopy } from "@/content/site";
 import { asset } from "@/lib/asset";
@@ -12,9 +12,25 @@ const cardBase = "rounded-card border border-neutral-200 bg-white transition-col
 // Service cards use a stretched title link (after:absolute after:inset-0) so the whole card is clickable.
 // Readable text is lifted above that overlay with `relative z-10` so visitors can still select and copy it.
 
-export function ServiceCard({ service, showScope = false }: { service: Service; showScope?: boolean }) {
+/** "Learn more" affordance: a round arrow button that fills brand red when its card is hovered. */
+export function MoreCue({ label }: { label: string }) {
   return (
-    <article className={`${cardBase} group relative flex h-full flex-col overflow-hidden hover:border-neutral-300`}>
+    <span className="mt-auto inline-flex items-center gap-3 pt-6 text-[15px] font-semibold text-ink">
+      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-white transition-all duration-300 group-hover:rotate-45 group-hover:bg-brand">
+        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+      </span>
+      <span className="transition-colors group-hover:text-brand">{label}</span>
+    </span>
+  );
+}
+
+export function ServiceCard({ service, showScope = false, index = 0 }: { service: Service; showScope?: boolean; index?: number }) {
+  return (
+    <article
+      data-reveal
+      style={{ "--reveal-delay": `${(index % 3) * 90}ms` } as React.CSSProperties}
+      className={`${cardBase} card-interactive group relative flex h-full flex-col overflow-hidden`}
+    >
       <div className="aspect-[16/10] overflow-hidden border-b border-neutral-200 bg-neutral-100">
         <Image
           src={asset(service.image.src)}
@@ -22,7 +38,7 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
           width={800}
           height={800}
           sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
         />
       </div>
       <div className="flex flex-1 flex-col p-6 md:p-7">
@@ -48,9 +64,7 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
             </ul>
           </div>
         )}
-        <span className="mt-auto inline-flex items-center gap-1 pt-5 text-[15px] font-semibold text-brand group-hover:text-brand-700">
-          {microcopy.learnMore}
-        </span>
+        <MoreCue label={microcopy.learnMore.replace(" →", "")} />
       </div>
       {/* Visible focus ring for the stretched link */}
       <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-card ring-brand group-has-[a:focus-visible]:ring-2" />
@@ -60,9 +74,9 @@ export function ServiceCard({ service, showScope = false }: { service: Service; 
 
 export function StatCard({ stat }: { stat: Stat }) {
   return (
-    <div className="flex flex-col-reverse justify-end rounded-card border border-neutral-200 bg-white p-6">
+    <div data-reveal className="card-interactive group flex flex-col-reverse justify-end rounded-card border border-neutral-200 bg-white p-6">
       <dt className="mt-3 text-[15px] text-neutral-600">{stat.label}</dt>
-      <dd className="text-[34px] font-extrabold leading-none tracking-tight text-ink md:text-[40px]">
+      <dd className="text-[34px] font-extrabold leading-none tracking-tight text-ink transition-colors group-hover:text-brand md:text-[40px]">
         <Text>{stat.value}</Text>
       </dd>
     </div>
@@ -81,18 +95,22 @@ export function StatsGrid({ stats }: { stats: Stat[] }) {
 
 export function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-700 hover:underline underline-offset-4">
-      {children}
-      {typeof children === "string" && !children.includes("→") && <ArrowRight className="h-4 w-4" aria-hidden="true" />}
+    <Link href={href} className="group inline-flex items-center gap-1.5 font-semibold text-brand hover:text-brand-700">
+      {typeof children === "string" ? children.replace(" →", "") : children}
+      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
     </Link>
   );
 }
 
-export function TitledTextCard({ title, body, index }: { title: string; body: string; index?: number }) {
+export function TitledTextCard({ title, body, index, delay = 0 }: { title: string; body: string; index?: number; delay?: number }) {
   return (
-    <div className="rounded-card border border-neutral-200 bg-white p-6 md:p-7">
+    <div
+      data-reveal
+      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+      className="card-interactive group rounded-card border border-neutral-200 bg-white p-6 md:p-7"
+    >
       {index !== undefined && (
-        <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-lg font-extrabold text-brand">
+        <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-lg font-extrabold text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
           {index}
         </span>
       )}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Layers } from "lucide-react";
 import { meta } from "@/content/meta";
+import { eyebrows } from "@/content/eyebrows";
 import { servicesOverview as o } from "@/content/services";
 import { primaryCta } from "@/content/site";
 import { home } from "@/content/home";
@@ -24,14 +25,14 @@ export default function ServicesPage() {
       </PageHero>
 
       <Section labelledBy="grid-title">
-        <SectionHeading id="grid-title" title={o.grid.title} sub={o.grid.sub} />
+        <SectionHeading id="grid-title" eyebrow={eyebrows.servicesOverview.grid} title={o.grid.title} sub={o.grid.sub} />
         <ServicesFilter />
       </Section>
 
       <Section tone="muted" labelledBy="bundled-title">
-        <div className="flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
+        <div data-reveal className="card-interactive group flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
           <div className="flex gap-5">
-            <span className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-card bg-brand-50 text-brand sm:inline-flex">
+            <span className="hidden h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white sm:inline-flex">
               <Layers className="h-6 w-6" aria-hidden="true" />
             </span>
             <div>
@@ -48,7 +49,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section labelledBy="tech-title">
-        <SectionHeading id="tech-title" title={o.tech.title} sub={o.tech.sub} />
+        <SectionHeading id="tech-title" eyebrow={eyebrows.servicesOverview.tech} title={o.tech.title} sub={o.tech.sub} />
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {o.tech.items.map((t) => (
             <li key={t}>
@@ -59,7 +60,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section tone="muted" labelledBy="faq-title">
-        <SectionHeading id="faq-title" title={o.faqTitle} sub={o.faqSub} />
+        <SectionHeading id="faq-title" eyebrow={eyebrows.servicesOverview.faq} title={o.faqTitle} sub={o.faqSub} />
         <div className="mx-auto max-w-3xl">
           <FaqAccordion items={o.faqs} />
         </div>

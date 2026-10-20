@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Clock, FileText, Headset, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { contactPage as c } from "@/content/contact";
 import { site } from "@/content/site";
+import { eyebrows } from "@/content/eyebrows";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
@@ -21,18 +22,18 @@ export default function ContactPage() {
       {/* Contact options */}
       <section aria-labelledby="options-title" className="bg-white pt-12 md:pt-16">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionHeading id="options-title" title={c.optionsHeading.title} sub={c.optionsHeading.sub} />
+          <SectionHeading id="options-title" eyebrow={eyebrows.contact.options} title={c.optionsHeading.title} sub={c.optionsHeading.sub} />
         </div>
         <div className="mx-auto grid w-full max-w-[1200px] gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
-          {c.options.map((o) => {
+          {c.options.map((o, i) => {
             const Icon = optionIcons[o.kind as keyof typeof optionIcons];
             const isWa = o.kind === "whatsapp";
             return (
-              <div key={o.title} className="flex flex-col rounded-card border border-neutral-200 bg-white p-6">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-[10px] bg-brand-50 text-brand">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+              <div key={o.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="card-interactive group flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
+                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white">
+                  <Icon className="h-7 w-7" strokeWidth={2.2} aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 text-lg font-bold text-ink">{o.title}</h3>
+                <h3 className="mt-6 text-[19px] font-bold text-ink">{o.title}</h3>
                 <p className="mt-1.5 flex-1 leading-relaxed text-neutral-600">{o.body}</p>
                 <LinkButton
                   href={isWa ? site.whatsappHref : o.cta.href}
@@ -51,7 +52,7 @@ export default function ContactPage() {
 
       {/* Form + info */}
       <Section labelledBy="form-title" id="contact-form">
-        <SectionHeading id="form-title" title={c.formTitle} sub={c.formSub} />
+        <SectionHeading id="form-title" eyebrow={eyebrows.contact.form} title={c.formTitle} sub={c.formSub} />
         <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
           <div>
             <LeadForm />
@@ -95,7 +96,7 @@ export default function ContactPage() {
 
       {/* Map & office */}
       <Section tone="muted" labelledBy="map-title">
-        <SectionHeading id="map-title" title={c.map.title} sub={site.address} />
+        <SectionHeading id="map-title" eyebrow={eyebrows.contact.map} title={c.map.title} sub={site.address} />
         <div className="aspect-[4/3] overflow-hidden rounded-card border border-neutral-200 bg-neutral-100 md:aspect-[21/8]">
           <iframe
             title={c.map.label}
@@ -114,7 +115,7 @@ export default function ContactPage() {
 
       {/* Quick FAQ */}
       <Section labelledBy="faq-title">
-        <SectionHeading id="faq-title" title={c.faq.title} sub={c.faq.sub} />
+        <SectionHeading id="faq-title" eyebrow={eyebrows.contact.faq} title={c.faq.title} sub={c.faq.sub} />
         <div className="mx-auto max-w-3xl">
           <FaqAccordion items={c.faq.items} />
         </div>

@@ -49,8 +49,8 @@ export function ServicesFilter() {
       )}
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((s) => (
-          <ServiceCard key={s.slug} service={s} showScope />
+        {visible.map((s, i) => (
+          <ServiceCard key={s.slug} service={s} showScope index={i} />
         ))}
       </div>
     </div>

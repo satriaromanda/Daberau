@@ -15,7 +15,7 @@ import { MobileMenu } from "./MobileMenu";
 type MenuId = "services" | null;
 
 const navLinkBase =
-  "relative inline-flex h-10 items-center gap-1 rounded-btn px-3 text-[15px] font-medium transition-colors hover:text-ink hover:bg-neutral-50";
+  "relative inline-flex h-10 items-center gap-1 rounded-btn px-3 text-[15px] font-medium transition-colors hover:text-brand after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-brand/40 after:transition-transform after:duration-300 hover:after:scale-x-100";
 
 function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -158,7 +158,7 @@ export function Header() {
                           onMouseEnter={() => setActiveService(i)}
                           onFocus={() => setActiveService(i)}
                           aria-current={pathname === `/services/${s.slug}` ? "page" : undefined}
-                          className={`flex items-center gap-3 rounded-btn px-3 py-2.5 text-[15px] font-semibold transition-colors ${
+                          className={`group flex items-center gap-3 rounded-btn px-3 py-2.5 text-[15px] font-semibold transition-colors ${
                             activeService === i ? "bg-neutral-50 text-ink" : "text-neutral-700"
                           } hover:bg-neutral-50 aria-[current=page]:text-brand`}
                         >

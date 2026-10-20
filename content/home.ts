@@ -49,11 +49,11 @@ export const home = {
     title: "Why clients stay with us *long after launch*",
     sub: "Clear pricing, progress you can see, and a team that's still here when something needs fixing.",
     points: [
-      { title: "One team, one point of contact.", body: "No juggling vendors. A single project manager owns your project from kickoff to launch." },
-      { title: "Clear pricing from day one.", body: "Itemized quotes for every phase, with no hidden fees." },
-      { title: "Progress you can see.", body: "Weekly updates and access to the project board." },
-      { title: "We don't disappear after launch.", body: "A 30-day bug-fix warranty and monthly maintenance plans." },
-    ],
+      { icon: "users", title: "One team, one point of contact.", body: "No juggling vendors. A single project manager owns your project from kickoff to launch." },
+      { icon: "receipt", title: "Clear pricing from day one.", body: "Itemized quotes for every phase, with no hidden fees." },
+      { icon: "chart", title: "Progress you can see.", body: "Weekly updates and access to the project board." },
+      { icon: "shield", title: "We don't disappear after launch.", body: "A 30-day bug-fix warranty and monthly maintenance plans." },
+    ] as { icon: IconName; title: string; body: string }[],
   },
   process: {
     title: "From first call to launch in *5 clear steps*",

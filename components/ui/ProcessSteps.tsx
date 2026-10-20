@@ -1,28 +1,61 @@
+import { ArrowRight } from "lucide-react";
 import type { Step } from "@/content/types";
+import { IconTile } from "./Icons";
 import { Text } from "./Text";
 
-/** Numbered steps: horizontal timeline on desktop, vertical on mobile. */
+/**
+ * Connected step cards. Desktop: one row with arrow connectors between cards.
+ * Mobile: a vertical timeline with a rail on the left.
+ */
 export function ProcessSteps({ steps }: { steps: Step[] }) {
   const cols = steps.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4";
   return (
-    <ol className={`relative grid gap-6 lg:gap-5 ${cols}`}>
+    <ol className={`relative grid gap-4 lg:gap-5 ${cols}`}>
+      {/* mobile/tablet rail */}
+      <span aria-hidden="true" className="absolute bottom-6 left-[27px] top-6 w-px bg-gradient-to-b from-brand/40 via-brand/20 to-transparent lg:hidden" />
       {steps.map((s, i) => (
-        <li key={i} className="relative flex gap-4 lg:flex-col lg:gap-0">
-          {/* connector line */}
-          {i < steps.length - 1 && (
-            <span aria-hidden="true" className="absolute left-5 top-11 h-[calc(100%-8px)] w-px bg-neutral-200 lg:left-11 lg:right-0 lg:top-5 lg:h-px lg:w-auto" />
-          )}
-          <span className="relative z-10 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand bg-white text-[15px] font-bold text-brand">
-            {i + 1}
+        <li
+          key={i}
+          data-reveal
+          style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
+          className="group relative pl-16 lg:pl-0"
+        >
+          {/* mobile timeline marker */}
+          <span
+            aria-hidden="true"
+            className="absolute left-0 top-5 inline-flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-brand text-[15px] font-extrabold text-white shadow-sm lg:hidden"
+          >
+            {String(i + 1).padStart(2, "0")}
           </span>
-          <div className="pb-2 lg:mt-5 lg:pr-4">
-            <h3 className="text-[17px] font-bold text-ink">
+
+          <div className="card-interactive flex h-full flex-col rounded-card border border-neutral-200 bg-white p-6">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-[13px] font-bold uppercase tracking-wider text-brand">Step {String(i + 1).padStart(2, "0")}</span>
+              {s.icon ? (
+                <IconTile name={s.icon} size="sm" />
+              ) : (
+                <span className="hidden h-9 w-9 items-center justify-center rounded-full bg-brand-50 text-sm font-extrabold text-brand transition-colors duration-300 group-hover:bg-brand group-hover:text-white lg:inline-flex">
+                  {i + 1}
+                </span>
+              )}
+            </div>
+            <h3 className="mt-5 text-[18px] font-bold leading-snug text-ink">
               <Text>{s.title}</Text>
             </h3>
-            <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-600">
+            <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">
               <Text>{s.body}</Text>
             </p>
           </div>
+
+          {/* desktop connector to the next step */}
+          {i < steps.length - 1 && (
+            <span
+              aria-hidden="true"
+              className="absolute -right-[26px] top-1/2 z-20 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-brand shadow-sm lg:inline-flex"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          )}
         </li>
       ))}
     </ol>

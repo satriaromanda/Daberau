@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { pricing as p } from "@/content/pricing";
+import { eyebrows } from "@/content/eyebrows";
 import { serviceBySlug, services } from "@/content/services";
 import { microcopy, primaryCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
@@ -18,10 +19,10 @@ export default function PricingPage() {
       <PageHero crumbs={[{ label: "Pricing" }]} title={p.h1} sub={p.micro} />
 
       <Section labelledBy="per-service">
-        <SectionHeading id="per-service" title={p.perService.title} sub={p.perService.sub} />
+        <SectionHeading id="per-service" eyebrow={eyebrows.pricing.perService} title={p.perService.title} sub={p.perService.sub} />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => (
-            <li key={s.slug} className="flex flex-col rounded-card border border-neutral-200 bg-white p-6">
+          {services.map((s, i) => (
+            <li key={s.slug} data-reveal style={{ "--reveal-delay": `${(i % 3) * 90}ms` } as React.CSSProperties} className="card-interactive group flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
               <IconTile name={s.icon} />
               <h3 className="mt-5 text-lg font-bold text-ink">{s.name}</h3>
               <p className="mt-2 mb-5 text-[15px] leading-relaxed text-neutral-600">{s.short}</p>
@@ -37,10 +38,10 @@ export default function PricingPage() {
       </Section>
 
       <Section tone="muted" labelledBy="web-packages">
-        <SectionHeading id="web-packages" title={p.webPackages.title} sub={p.webPackages.sub} />
+        <SectionHeading id="web-packages" eyebrow={eyebrows.pricing.packages} title={p.webPackages.title} sub={p.webPackages.sub} />
         <div className="grid gap-4 md:grid-cols-3">
           {web.packages.rows.map((r, i) => (
-            <div key={r.name} className={`flex flex-col rounded-card bg-white p-6 ${i === 1 ? "border-2 border-brand" : "border border-neutral-200"}`}>
+            <div key={r.name} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className={`card-interactive group relative flex flex-col rounded-card bg-white p-6 md:p-7 ${i === 1 ? "border-2 border-brand" : "border border-neutral-200"}`}>
               <h3 className="text-xl font-bold text-ink">{r.name}</h3>
               <p className="mt-1 text-[15px] text-neutral-600">{r.bestFor}</p>
               <p className="mt-5 text-2xl font-extrabold text-ink">
