@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { footer, site } from "@/content/site";
 
@@ -8,7 +9,7 @@ export function MinimalHeader() {
     <header className="border-b border-neutral-200 bg-white">
       <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center px-4 sm:px-6 lg:h-[76px] lg:px-8">
         <Link href="/" className="rounded-md" aria-label={`${site.brand} home`}>
-          <Image src="/logo-daberau.png" alt={site.brand} width={720} height={502} className="h-11 w-auto lg:h-[54px]" priority />
+          <Image src={asset("/logo-daberau.png")} alt={site.brand} width={720} height={502} className="h-11 w-auto lg:h-[54px]" priority />
         </Link>
       </div>
     </header>

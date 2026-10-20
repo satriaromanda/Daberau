@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
@@ -33,7 +34,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_2.6fr]">
           <div>
             <Link href="/" className="inline-block rounded-md" aria-label={`${site.brand} home`}>
-              <Image src="/logo-daberau.png" alt={site.brand} width={720} height={502} className="h-20 w-auto" />
+              <Image src={asset("/logo-daberau.png")} alt={site.brand} width={720} height={502} className="h-20 w-auto" />
             </Link>
             <p className="mt-5 max-w-xs text-[15px] font-medium leading-relaxed text-ink">{site.tagline}</p>
             <ul className="mt-5 space-y-3 text-[15px] text-neutral-600">

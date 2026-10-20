@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -62,7 +63,7 @@ export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose
     >
       <div className="flex h-16 items-center justify-between border-b border-neutral-200 px-4 sm:px-6">
         <Link href="/" onClick={onClose} aria-label={`${site.brand} home`} className="rounded-md">
-          <Image src="/logo-monogram.png" alt="" width={40} height={40} className="h-9 w-9" />
+          <Image src={asset("/logo-monogram.png")} alt="" width={40} height={40} className="h-9 w-9" />
         </Link>
         <button
           ref={closeRef}

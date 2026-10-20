@@ -9,7 +9,7 @@ import { WhatsAppIcon } from "@/components/ui/Icons";
 const EXCLUDED = ["/contact", "/consultation", "/privacy-policy", "/terms-and-conditions"];
 
 export function PreFooterCTA() {
-  const pathname = usePathname();
+  const pathname = usePathname().replace(/(.)\/$/, "$1");
   if (EXCLUDED.includes(pathname)) return null;
   return (
     <section aria-labelledby="prefooter-title" className="bg-white pb-16 pt-4 md:pb-24">

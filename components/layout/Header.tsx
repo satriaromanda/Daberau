@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -44,7 +45,8 @@ function handleMenuKeys(e: React.KeyboardEvent<HTMLElement>, close: () => void) 
 }
 
 export function Header() {
-  const pathname = usePathname();
+  // trailingSlash export: normalize "/about-us/" to "/about-us"
+  const pathname = usePathname().replace(/(.)\/$/, "$1");
   const [open, setOpen] = useState<MenuId>(null);
   const [activeService, setActiveService] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -114,9 +116,9 @@ export function Header() {
       </a>
       <div className="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between gap-4 px-4 sm:px-6 lg:h-[76px] lg:px-8">
         <Link href="/" className="flex shrink-0 items-center rounded-md" aria-label={`${site.brand} home`}>
-          <Image src="/logo-monogram.png" alt="" width={40} height={40} className="h-9 w-9 lg:hidden" priority />
+          <Image src={asset("/logo-monogram.png")} alt="" width={40} height={40} className="h-9 w-9 lg:hidden" priority />
           <Image
-            src="/logo-daberau.png"
+            src={asset("/logo-daberau.png")}
             alt={site.brand}
             width={720}
             height={502}
