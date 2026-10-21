@@ -6,10 +6,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ChevronDown, Mail, Phone, X } from "lucide-react";
-import { nav, primaryCta, site, whatsappCta } from "@/content/site";
+import { nav, primaryCta, site } from "@/content/site";
 import { services } from "@/content/services";
 import { LinkButton } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/Icons";
 
 export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose: () => void; pathname: string }) {
   const panelRef = useRef<HTMLDivElement>(null);
@@ -136,13 +135,9 @@ export function MobileMenu({ open, onClose, pathname }: { open: boolean; onClose
         </div>
       </nav>
 
-      <div className="grid gap-2 border-t border-neutral-200 p-4 sm:grid-cols-2 sm:px-6">
-        <LinkButton href={primaryCta.href} size="lg" onClick={onClose}>
+      <div className="border-t border-neutral-200 p-4 sm:px-6">
+        <LinkButton href={primaryCta.href} size="lg" onClick={onClose} className="w-full">
           {primaryCta.label}
-        </LinkButton>
-        <LinkButton href={whatsappCta.href} external variant="secondary" size="lg">
-          <WhatsAppIcon className="h-5 w-5 text-[#128C7E]" />
-          {whatsappCta.label}
         </LinkButton>
       </div>
     </div>,

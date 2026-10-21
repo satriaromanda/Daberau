@@ -38,7 +38,7 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
       body: [
         "PT Daberau Mikro Elit is the data controller responsible for your personal data.",
         "We are a limited liability company registered in Indonesia, with our office at Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840. You can reach us about anything in this policy at cs@daberau-me.com or +62 21 5431 6725.",
-        "This policy applies to daberau-me.com, our forms, our WhatsApp and email channels, and the services we provide to clients.",
+        "This policy applies to daberau-me.com, our forms, our email and phone channels, and the services we provide to clients.",
       ],
     },
     {
@@ -49,7 +49,7 @@ export const privacy: LegalDoc & { meta: { title: string; description: string } 
         "Information you give us:",
         {
           list: [
-            "Contact details: your name, company, work email, and WhatsApp or phone number.",
+            "Contact details: your name, company, work email, and phone number.",
             "Project details: the service you're interested in, your budget range, timeline, message, and any files you attach.",
           ],
         },

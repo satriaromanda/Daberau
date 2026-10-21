@@ -41,12 +41,58 @@ function daberau_f_seo( $title, $description ) {
 }
 
 /**
- * Field schema for a page or service: [ group title => [ key => field ] ].
+ * Sections each page type can show or hide: schema => [ section key => label ].
+ * Each becomes a "show_{key}" checkbox (on by default) at the top of the "Page content" box.
+ */
+function daberau_section_toggles() {
+	return array(
+		'home'        => array( 'pain' => __( 'Pain points', 'daberau' ), 'services' => __( 'Services', 'daberau' ), 'industries' => __( 'Industries', 'daberau' ), 'why' => __( 'Why Daberau', 'daberau' ), 'process' => __( 'Process', 'daberau' ) ),
+		'services'    => array( 'grid' => __( 'Service grid', 'daberau' ), 'bundled' => __( 'Bundled services', 'daberau' ), 'tech' => __( 'Tech stack', 'daberau' ), 'faq' => __( 'FAQ', 'daberau' ) ),
+		'industries'  => array( 'closing' => __( '"Don\'t see your industry?"', 'daberau' ) ),
+		'about'       => array( 'story' => __( 'Our story', 'daberau' ), 'vm' => __( 'Vision & mission', 'daberau' ), 'values' => __( 'Values', 'daberau' ), 'team' => __( 'Team', 'daberau' ), 'numbers' => __( 'Numbers', 'daberau' ) ),
+		'how-we-work' => array( 'stages' => __( 'Stages', 'daberau' ), 'models' => __( 'Engagement models', 'daberau' ), 'warranty' => __( 'Warranty & SLA', 'daberau' ), 'tools' => __( 'Tools', 'daberau' ) ),
+		'contact'     => array( 'options' => __( 'Contact options', 'daberau' ), 'map' => __( 'Map', 'daberau' ), 'faq' => __( 'FAQ', 'daberau' ) ),
+		'service'     => array( 'problem' => __( 'Problem', 'daberau' ), 'deliver' => __( 'What we deliver', 'daberau' ), 'benefits' => __( 'Benefits', 'daberau' ), 'process' => __( 'Process', 'daberau' ), 'tech' => __( 'Tech stack', 'daberau' ), 'faq' => __( 'FAQ', 'daberau' ), 'related' => __( 'Related services', 'daberau' ) ),
+	);
+}
+
+/**
+ * Field schema for a page or service: [ group title => [ key => field ] ], with the
+ * "Show sections" checkboxes first.
  *
  * @param string  $schema Schema key.
  * @param WP_Post $post   Post being edited (used for per-post defaults).
  */
 function daberau_schema( $schema, $post = null ) {
+	$groups  = daberau_schema_groups( $schema, $post );
+	$toggles = daberau_section_toggles();
+	if ( empty( $toggles[ $schema ] ) ) {
+		return $groups;
+	}
+	$fields = array();
+	foreach ( $toggles[ $schema ] as $key => $label ) {
+		$fields[ 'show_' . $key ] = array( $label, 'toggle', '1', '' );
+	}
+	return array_merge( array( __( 'Show sections', 'daberau' ) => $fields ), $groups );
+}
+
+/**
+ * Whether a section is switched on in the "Show sections" box.
+ *
+ * @param array  $f   Values from daberau_fields().
+ * @param string $key Section key.
+ */
+function daberau_show( $f, $key ) {
+	return ! isset( $f[ 'show_' . $key ] ) || '0' !== (string) $f[ 'show_' . $key ];
+}
+
+/**
+ * Content fields for a page or service, grouped.
+ *
+ * @param string  $schema Schema key.
+ * @param WP_Post $post   Post being edited.
+ */
+function daberau_schema_groups( $schema, $post = null ) {
 	$d  = 'daberau_default';
 	$eb = $d( 'eyebrows' );
 	switch ( $schema ) {
@@ -272,7 +318,7 @@ function daberau_schema( $schema, $post = null ) {
 				__( 'Page', 'daberau' ) => array(
 					'hero_h1'  => daberau_f_text( __( 'Headline (H1)', 'daberau' ), $f['h1'] ),
 					'hero_sub' => daberau_f_area( __( 'Subheadline', 'daberau' ), $f['sub'] ),
-					'bottom'   => daberau_f_text( __( 'Text above the WhatsApp button', 'daberau' ), $f['bottom'] ),
+					'bottom'   => daberau_f_text( __( 'Text above the contact button', 'daberau' ), $f['bottom'] ),
 				),
 				__( 'SEO', 'daberau' )  => daberau_f_seo( $f['meta']['title'], $f['meta']['description'] ),
 			);
@@ -433,7 +479,9 @@ function daberau_render_fields_box( $post ) {
 			$id    = 'daberau_' . $key;
 			$value = $values[ $key ];
 			echo '<tr><th scope="row"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label></th><td>';
-			if ( 'text' === $type ) {
+			if ( 'toggle' === $type ) {
+				echo '<input type="hidden" name="' . esc_attr( $id ) . '" value="0"><label><input type="checkbox" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" value="1"' . checked( '0' !== (string) $value, true, false ) . '> ' . esc_html__( 'Show', 'daberau' ) . '</label>';
+			} elseif ( 'text' === $type ) {
 				echo '<input type="text" class="large-text" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" value="' . esc_attr( $value ) . '">';
 			} elseif ( 'image' === $type ) {
 				echo '<input type="url" class="large-text" id="' . esc_attr( $id ) . '" name="' . esc_attr( $id ) . '" value="' . esc_attr( $value ) . '"> ';
@@ -467,7 +515,11 @@ add_action(
 					continue;
 				}
 				$raw   = wp_unslash( $_POST[ $name ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sanitized below per type.
-				$value = 'text' === $field[1] ? sanitize_text_field( $raw ) : ( 'image' === $field[1] ? esc_url_raw( $raw ) : sanitize_textarea_field( $raw ) );
+				if ( 'toggle' === $field[1] ) {
+					$value = '1' === $raw ? '1' : '0';
+				} else {
+					$value = 'text' === $field[1] ? sanitize_text_field( $raw ) : ( 'image' === $field[1] ? esc_url_raw( $raw ) : sanitize_textarea_field( $raw ) );
+				}
 				// Store nothing when the value equals the default, so later default updates still apply.
 				if ( $value === $field[2] || '' === $value ) {
 					delete_post_meta( $post_id, '_daberau_' . $key );

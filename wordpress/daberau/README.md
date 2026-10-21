@@ -17,7 +17,7 @@ No plugins are needed. Page builders such as Elementor aren't used by the Dabera
    - **Create missing content**: run the setup again.
    - **Use Daberau menus**: replace menus carried over from the previous theme.
    - **Send test email**: check that contact form emails arrive.
-4. Go to **Appearance → Customize → Daberau → Contact details & WhatsApp** and enter the **WhatsApp number**. Until it is set, WhatsApp buttons open WhatsApp without a recipient.
+4. Check **Appearance → Customize → Daberau → Contact details** (phone, email, address, hours).
 5. If the test email doesn't arrive, open **Customize → Daberau → Email delivery** and enter the mailbox from your hosting panel. For Hostinger: server `smtp.hostinger.com`, port `465`, encryption SSL, your mailbox address and its password. Inquiries are also saved under **Inquiries**, so none are lost while email is being set up.
 
 Requirements: WordPress 6.2+ and PHP 7.4+.
@@ -39,7 +39,11 @@ open it and pick the template under **Page Attributes → Template**.
 | Service pages and service cards | **Services → (service)**. Order: "Post Attributes → Order". Photo: "Featured image" |
 | Shared service-page headings | **Customize → Daberau → Service page headings** |
 | FAQs | **FAQs**. Each FAQ Group becomes a section on the FAQ page. Groups "Contact page" and "Services page" show on those pages |
-| Phone, email, address, hours, WhatsApp | **Customize → Daberau → Contact details & WhatsApp** |
+| Phone, email, address, hours | **Customize → Daberau → Contact details** |
+| Hide a section on one page | Open the page (or service) → **"Show sections"** at the top of the "Page content (Daberau)" box → untick it |
+| Remove a single card | Delete its line in the list field (e.g. "Cards", "Values", "Stats") |
+| Pre-footer CTA, sticky phone button, cookie banner on/off | **Customize → Daberau → Show / hide** |
+| WhatsApp buttons (off by default) | **Customize → Daberau → WhatsApp (optional)**: tick "Show WhatsApp buttons" and enter the number |
 | Header button, pre-footer CTA text and background image | **Customize → Daberau → Header & calls to action** |
 | Footer tagline, copyright, social links | **Customize → Daberau → Footer & social links**. Social icons appear only when a URL is set |
 | Header and footer links | **Appearance → Menus** (locations: Header, Footer: Company, Footer: Help, Footer: Legal) |

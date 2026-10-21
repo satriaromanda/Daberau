@@ -401,7 +401,7 @@ function daberau_setup_page() {
 		array( admin_url( 'edit.php?post_type=daberau_service' ), __( 'Services: one entry per service page', 'daberau' ) ),
 		array( admin_url( 'edit.php?post_type=daberau_industry' ), __( 'Industries: text and photo (featured image) for each industry', 'daberau' ) ),
 		array( admin_url( 'edit.php?post_type=daberau_faq' ), __( 'FAQs, grouped by FAQ Group', 'daberau' ) ),
-		array( admin_url( 'customize.php?autofocus[panel]=daberau' ), __( 'Customizer → Daberau: phone, email, WhatsApp, address, CTA background, footer, social links', 'daberau' ) ),
+		array( admin_url( 'customize.php?autofocus[panel]=daberau' ), __( 'Customizer → Daberau: phone, email, address, CTA background, WhatsApp (optional), footer, social links', 'daberau' ) ),
 		array( admin_url( 'nav-menus.php' ), __( 'Menus: header and footer links', 'daberau' ) ),
 		array( admin_url( 'edit.php?post_type=daberau_inquiry' ), __( 'Inquiries: requests sent through the contact form', 'daberau' ) ),
 	);
@@ -421,7 +421,7 @@ add_action(
 		}
 		$text = $seen
 			/* translators: %s: theme version */
-			? sprintf( __( 'Version %s adds an Industries page. Open setup, click "Create missing content", then "Use Daberau menus".', 'daberau' ), DABERAU_VERSION )
+			? sprintf( __( 'Theme updated to %s. Open setup and click "Create missing content", then "Use Daberau menus", so new pages and menu links are added.', 'daberau' ), DABERAU_VERSION )
 			: __( 'Check that all pages are connected and send a test email.', 'daberau' );
 		echo '<div class="notice notice-info"><p><strong>Daberau:</strong> ' . esc_html( $text ) . ' <a class="button button-primary" href="' . esc_url( admin_url( 'themes.php?page=daberau-setup' ) ) . '">' . esc_html__( 'Open Daberau setup', 'daberau' ) . '</a></p></div>';
 	}
@@ -430,5 +430,32 @@ add_action(
 	'load-appearance_page_daberau-setup',
 	function () {
 		update_option( 'daberau_setup_seen', DABERAU_VERSION, false );
+	}
+);
+
+/*
+ * One-time content updates for sites set up with an older version. Only replaces the exact default
+ * sentences, so text an editor has changed is left alone.
+ */
+add_action(
+	'admin_init',
+	function () {
+		if ( version_compare( (string) get_option( 'daberau_content_version', '0' ), '1.3.0', '>=' ) || ! current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+		$replacements = array(
+			'our forms, our WhatsApp and email channels,'                       => 'our forms, our email and phone channels,',
+			'your name, company, work email, and WhatsApp or phone number.' => 'your name, company, work email, and phone number.',
+		);
+		$page = daberau_find_page( 'legal', 'privacy-policy' );
+		if ( $page ) {
+			$content = str_replace( array_keys( $replacements ), array_values( $replacements ), $page->post_content );
+			if ( $content !== $page->post_content ) {
+				kses_remove_filters();
+				wp_update_post( array( 'ID' => $page->ID, 'post_content' => $content ) );
+				kses_init_filters();
+			}
+		}
+		update_option( 'daberau_content_version', '1.3.0', false );
 	}
 );

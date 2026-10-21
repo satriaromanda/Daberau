@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { asset } from "@/lib/asset";
-import { preFooter, primaryCta, whatsappCta } from "@/content/site";
+import { preFooter, primaryCta } from "@/content/site";
 import { LinkButton } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/Icons";
 
 // Spec: shown on every page except Contact and the legal pages.
 const EXCLUDED = ["/contact", "/privacy-policy", "/terms-and-conditions"];
@@ -29,10 +28,6 @@ export function PreFooterCTA() {
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
               <LinkButton href={primaryCta.href} size="lg">
                 {primaryCta.label}
-              </LinkButton>
-              <LinkButton href={whatsappCta.href} external variant="inverse" size="lg">
-                <WhatsAppIcon className="h-5 w-5" />
-                {whatsappCta.label}
               </LinkButton>
             </div>
           </div>

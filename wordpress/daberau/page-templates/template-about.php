@@ -26,6 +26,7 @@ get_template_part(
 );
 ?>
 
+<?php if ( daberau_show( $f, 'story' ) ) : ?>
 <?php daberau_section_open( 'story-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'story-title', 'eyebrow' => $f['story_eyebrow'], 'title' => $f['story_title'], 'sub' => $f['story_sub'] ) ); ?>
 	<div data-reveal class="mx-auto max-w-3xl space-y-5 text-lg leading-relaxed text-neutral-700">
@@ -34,7 +35,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</div>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'vm' ) ) : ?>
 <?php daberau_section_open( 'vm-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'vm-title', 'eyebrow' => $f['vm_eyebrow'], 'title' => $f['vm_title'], 'sub' => $f['vm_sub'] ) ); ?>
 	<div class="grid gap-4 lg:grid-cols-2">
@@ -54,7 +57,9 @@ get_template_part(
 		</div>
 	</div>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'values' ) ) : ?>
 <?php daberau_section_open( 'values-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'values-title', 'eyebrow' => $f['values_eyebrow'], 'title' => $f['values_title'], 'sub' => $f['values_sub'] ) ); ?>
 	<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -63,7 +68,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'team' ) ) : ?>
 <?php daberau_section_open( 'team-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'team-title', 'eyebrow' => $f['team_eyebrow'], 'title' => $f['team_title'], 'sub' => $f['team_sub'] ) ); ?>
 	<ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -72,7 +79,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'numbers' ) ) : ?>
 <?php daberau_section_open( 'numbers-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'numbers-title', 'eyebrow' => $f['numbers_eyebrow'], 'title' => $f['numbers_title'], 'sub' => $f['numbers_sub'] ) ); ?>
 	<dl class="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -84,6 +93,7 @@ get_template_part(
 		<?php endforeach; ?>
 	</dl>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
 <?php
 get_footer();

@@ -30,8 +30,8 @@ npx serve out      # preview the static export
 | Path | What |
 | --- | --- |
 | `content/*.ts` | **All copy**, typed (`content/types.ts`). Edit copy here, not in JSX. |
-| `content/site.ts` | Contact data, nav, footer, microcopy library, cookie copy, stats, `WHATSAPP_NUMBER` |
-| `components/layout` | Header + Services mega menu, mobile menu, sticky mobile CTA, WhatsApp button, pre-footer CTA, footer |
+| `content/site.ts` | Contact data, nav, footer, microcopy library, cookie copy, stats, optional WhatsApp copy (off) |
+| `components/layout` | Header + Services mega menu, mobile menu, sticky mobile CTA, pre-footer CTA, footer |
 | `components/ui` | Buttons, cards (service, stat), process steps, FAQ accordion, breadcrumb, placeholders |
 | `components/forms/LeadForm.tsx` | Contact form (validation, loading, success, system error) |
 | `components/cookies` | Cookie banner + Manage Preferences modal |
@@ -55,7 +55,7 @@ All copy is filled in. A few values are realistic defaults that must be confirme
 
 Still needed from the client:
 
-- **WhatsApp number:** set `WHATSAPP_NUMBER` in `content/site.ts` (links work without it, but open WhatsApp with no recipient)
+- **WhatsApp:** removed from the site. The WordPress theme can switch WhatsApp buttons back on (Customizer → Daberau → WhatsApp).
 - **Testimonials:** none on the site yet; add a section once real, approved quotes exist
 - **Team names and photos** (team cards currently show roles only), **client logos**, and **social media URLs**
   (footer icons appear once a URL is set in `content/site.ts`)

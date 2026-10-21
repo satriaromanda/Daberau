@@ -1,18 +1,14 @@
 import type { Cta, Stat } from "./types";
 
-/** Set once the business WhatsApp number is confirmed, digits only with country code, e.g. "6281234567890". */
-export const WHATSAPP_NUMBER = "";
-
 export const microcopy = {
   ctaPrimary: "Get a Free Consultation",
   exploreServices: "Explore Services",
-  chatWhatsApp: "Chat on WhatsApp",
+  emailUs: "Email Us",
   serviceCta: "Talk to Us About [Service]",
   sendRequest: "Send Request",
   reassurance: "Free and no commitment. We reply within one business day.",
   companyProfile: "Download Company Profile (PDF, 3 MB)",
   learnMore: "Learn more →",
-  whatsappPrefill: "Hi Daberau, I'm [name] from [company]. I'd like to discuss…",
   budgetTooltip: "A rough range is fine. It helps us suggest the right solution.",
   errorSummary: "A few fields need your attention. Please check the highlighted fields.",
   notFound: {
@@ -21,13 +17,21 @@ export const microcopy = {
     primary: { label: "Back to Home", href: "/" },
     secondary: { label: "Explore Services", href: "/services" },
   },
-  whatsappTooltip: "Questions? Chat with our team.",
   loading: "Loading…",
 } as const;
 
-export const whatsappHref = WHATSAPP_NUMBER
-  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(microcopy.whatsappPrefill)}`
-  : `https://wa.me/?text=${encodeURIComponent(microcopy.whatsappPrefill)}`;
+/**
+ * WhatsApp is switched off: the mockup shows no WhatsApp buttons. The WordPress theme keeps an optional
+ * "Show WhatsApp buttons" setting (Customizer → Daberau, off by default) that uses this copy.
+ */
+export const whatsapp = {
+  enabled: false,
+  label: "Chat on WhatsApp",
+  tooltip: "Questions? Chat with our team.",
+  prefill: "Hi Daberau, I'd like to discuss a project.",
+  contactOption: { title: "Quick question?", body: "Chat with our team during business hours." },
+  infoLabel: "WhatsApp",
+};
 
 const address = "Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840";
 
@@ -38,7 +42,6 @@ export const site = {
   email: "cs@daberau-me.com",
   phone: "+62 21 5431 6725",
   phoneHref: "tel:+622154316725",
-  whatsappHref,
   address,
   mapsHref: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
   mapsEmbed: `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`,
@@ -57,7 +60,6 @@ export const site = {
 };
 
 export const primaryCta: Cta = { label: microcopy.ctaPrimary, href: "/contact#contact-form" };
-export const whatsappCta: Cta = { label: microcopy.chatWhatsApp, href: whatsappHref, external: true };
 
 export const nav = {
   links: [

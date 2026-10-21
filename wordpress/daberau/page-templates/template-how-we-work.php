@@ -24,6 +24,7 @@ get_template_part(
 );
 ?>
 
+<?php if ( daberau_show( $f, 'stages' ) ) : ?>
 <?php daberau_section_open( 'stages-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'stages-title', 'eyebrow' => $f['stages_eyebrow'], 'title' => $f['stages_title'] ) ); ?>
 	<ol class="space-y-6">
@@ -51,7 +52,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ol>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'models' ) ) : ?>
 <?php daberau_section_open( 'models-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'models-title', 'eyebrow' => $f['models_eyebrow'], 'title' => $f['models_title'], 'sub' => $f['models_sub'] ) ); ?>
 	<ul class="grid gap-4 md:grid-cols-3">
@@ -60,7 +63,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'warranty' ) ) : ?>
 <?php daberau_section_open( 'warranty-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'warranty-title', 'eyebrow' => $f['warranty_eyebrow'], 'title' => $f['warranty_title'], 'sub' => $f['warranty_sub'] ) ); ?>
 	<ul class="grid gap-4 md:grid-cols-3">
@@ -75,11 +80,14 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'tools' ) ) : ?>
 <?php daberau_section_open( 'tools-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'tools-title', 'eyebrow' => $f['tools_eyebrow'], 'title' => $f['tools_title'], 'sub' => $f['tools_sub'] ) ); ?>
 	<?php get_template_part( 'template-parts/tech-chips', null, array( 'items' => daberau_lines( $f['tools_items'] ), 'cols' => 'grid-cols-2 sm:grid-cols-4' ) ); ?>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
 <?php
 get_footer();

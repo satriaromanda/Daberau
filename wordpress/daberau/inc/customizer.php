@@ -21,8 +21,15 @@ function daberau_customizer_settings() {
 		'address'          => array( 'contact', __( 'Office address', 'daberau' ), $d( 'site.address' ), 'textarea' ),
 		'hours'            => array( 'contact', __( 'Business hours (short)', 'daberau' ), $d( 'site.hours' ), 'text' ),
 		'hours_long'       => array( 'contact', __( 'Business hours (long)', 'daberau' ), $d( 'site.hoursLong' ), 'text' ),
-		'whatsapp_number'  => array( 'contact', __( 'WhatsApp number (digits with country code, e.g. 6281234567890)', 'daberau' ), '', 'text' ),
-		'whatsapp_message' => array( 'contact', __( 'WhatsApp prefilled message', 'daberau' ), $d( 'microcopy.whatsappPrefill' ), 'textarea' ),
+		// Site-wide elements that can be switched off.
+		'show_prefooter'   => array( 'display', __( 'Show the pre-footer call to action ("Have an IT project…")', 'daberau' ), '1', 'checkbox' ),
+		'show_sticky_cta'  => array( 'display', __( 'Show the sticky button at the bottom on phones', 'daberau' ), '1', 'checkbox' ),
+		'show_cookies'     => array( 'display', __( 'Show the cookie banner', 'daberau' ), '1', 'checkbox' ),
+		// WhatsApp (optional, off by default).
+		'whatsapp_enabled' => array( 'whatsapp', __( 'Show WhatsApp buttons', 'daberau' ), '', 'checkbox' ),
+		'whatsapp_number'  => array( 'whatsapp', __( 'WhatsApp number (digits with country code, e.g. 6281234567890)', 'daberau' ), '', 'text' ),
+		'whatsapp_message' => array( 'whatsapp', __( 'Prefilled message', 'daberau' ), $d( 'whatsapp.prefill' ), 'textarea' ),
+		'whatsapp_label'   => array( 'whatsapp', __( 'Button label', 'daberau' ), $d( 'whatsapp.label' ), 'text' ),
 		// Header & CTAs.
 		'cta_label'        => array( 'header', __( 'Header button label', 'daberau' ), $d( 'microcopy.ctaPrimary' ), 'text' ),
 		'sticky_label'     => array( 'header', __( 'Mobile sticky button label', 'daberau' ), $d( 'nav.stickyCta.label' ), 'text' ),
@@ -72,6 +79,10 @@ function daberau_mod( $key ) {
 	}
 	$default = isset( $settings[ $key ] ) ? $settings[ $key ][2] : '';
 	$value   = get_theme_mod( 'daberau_' . $key, $default );
+	// Checkboxes and selects may legitimately be empty (switched off / no encryption).
+	if ( isset( $settings[ $key ] ) && in_array( $settings[ $key ][3], array( 'select', 'checkbox' ), true ) ) {
+		return null === $value ? $default : $value;
+	}
 	return ( '' === $value || null === $value ) ? $default : $value;
 }
 
@@ -80,7 +91,9 @@ add_action(
 	function ( WP_Customize_Manager $wp_customize ) {
 		$wp_customize->add_panel( 'daberau', array( 'title' => __( 'Daberau', 'daberau' ), 'priority' => 30 ) );
 		$sections = array(
-			'contact'  => __( 'Contact details & WhatsApp', 'daberau' ),
+			'contact'  => __( 'Contact details', 'daberau' ),
+			'whatsapp' => __( 'WhatsApp (optional)', 'daberau' ),
+			'display'  => __( 'Show / hide', 'daberau' ),
 			'header'   => __( 'Header & calls to action', 'daberau' ),
 			'footer'   => __( 'Footer & social links', 'daberau' ),
 			'services' => __( 'Service page headings', 'daberau' ),
@@ -90,6 +103,8 @@ add_action(
 			$wp_customize->add_section( 'daberau_' . $id, array( 'title' => $title, 'panel' => 'daberau' ) );
 		}
 		$wp_customize->get_section( 'daberau_services' )->description = __( 'Shared by all service pages. Wrap words in *asterisks* to show them in brand red.', 'daberau' );
+		$wp_customize->get_section( 'daberau_display' )->description  = __( 'Site-wide elements. To hide a section of a single page, open the page and use "Show sections" in the "Page content (Daberau)" box. To remove one card, delete its line in the list field.', 'daberau' );
+		$wp_customize->get_section( 'daberau_whatsapp' )->description = __( 'Off by default. When switched on, WhatsApp buttons appear in the header (mobile), pre-footer, contact page, FAQ page and a floating chat button.', 'daberau' );
 		$wp_customize->get_section( 'daberau_email' )->description    = __( 'Only needed if contact form emails don\'t arrive. Enter the mailbox you created in your hosting panel, then use Appearance → Daberau setup → Send test email. No plugin needed.', 'daberau' );
 
 		$sanitizers = array(
@@ -100,6 +115,7 @@ add_action(
 			'image'    => 'esc_url_raw',
 			'select'   => 'sanitize_key',
 			'password' => 'daberau_sanitize_password',
+			'checkbox' => 'daberau_sanitize_checkbox',
 		);
 		foreach ( daberau_customizer_settings() as $key => $s ) {
 			list( $section, $label, $default, $type ) = $s;
@@ -113,7 +129,7 @@ add_action(
 			$args = array(
 				'label'   => $label,
 				'section' => 'daberau_' . $section,
-				'type'    => in_array( $type, array( 'textarea', 'url', 'email', 'password', 'select' ), true ) ? $type : 'text',
+				'type'    => in_array( $type, array( 'textarea', 'url', 'email', 'password', 'select', 'checkbox' ), true ) ? $type : 'text',
 			);
 			if ( 'select' === $type ) {
 				$args['choices'] = $s[4];
@@ -126,6 +142,11 @@ add_action(
 		}
 	}
 );
+
+/** Checkbox value: '1' or ''. */
+function daberau_sanitize_checkbox( $value ) {
+	return ( $value && '0' !== $value ) ? '1' : '';
+}
 
 /** Keeps a password exactly as typed (only trims surrounding spaces). */
 function daberau_sanitize_password( $value ) {

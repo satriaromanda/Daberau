@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { faqPage as f } from "@/content/faq";
-import { whatsappCta } from "@/content/site";
+import { microcopy, site } from "@/content/site";
+import { Mail } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
-import { WhatsAppIcon } from "@/components/ui/Icons";
 import { PageHero } from "@/components/sections/PageHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 
@@ -48,9 +48,9 @@ export default function FaqPage() {
 
           <div className="flex flex-col items-start gap-4 rounded-card border border-neutral-200 bg-neutral-50 p-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-lg font-semibold text-ink">{f.bottom}</p>
-            <LinkButton href={whatsappCta.href} external variant="secondary">
-              <WhatsAppIcon className="h-5 w-5 text-[#128C7E]" />
-              {whatsappCta.label}
+            <LinkButton href={`mailto:${site.email}`} variant="secondary">
+              <Mail className="h-5 w-5 text-brand" aria-hidden="true" />
+              {microcopy.emailUs}
             </LinkButton>
           </div>
         </div>

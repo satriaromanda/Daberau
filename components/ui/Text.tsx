@@ -4,7 +4,7 @@ const SPLIT = /(\[[^\]]+\]|cs@daberau-me\.com)/g;
 const TOKEN = /^\[[^\]]+\]$/;
 
 /**
- * Renders a content string. Bracketed placeholder tokens ([X], [year], [WhatsApp number]…)
+ * Renders a content string. Bracketed placeholder tokens ([X], [year], [phone number]…)
  * get the dashed highlight so they are easy to find and replace. Optionally links the email.
  */
 export function Text({ children, linkEmail = false }: { children: string; linkEmail?: boolean }) {

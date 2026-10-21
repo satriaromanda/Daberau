@@ -47,6 +47,7 @@ get_template_part(
 );
 ?>
 
+<?php if ( daberau_show( $f, 'problem' ) ) : ?>
 <?php daberau_section_open( 'problem-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'problem-title', 'eyebrow' => $eb['problem'], 'title' => $f['problem_title'], 'sub' => daberau_mod( 'svc_problem_sub' ) ) ); ?>
 	<ul class="grid gap-4 lg:grid-cols-3">
@@ -58,7 +59,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'deliver' ) ) : ?>
 <?php daberau_section_open( 'deliver-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'deliver-title', 'eyebrow' => $eb['deliver'], 'title' => daberau_mod( 'svc_deliver_title' ), 'sub' => daberau_mod( 'svc_deliver_sub' ) ) ); ?>
 	<ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -70,7 +73,9 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'benefits' ) ) : ?>
 <?php daberau_section_open( 'benefits-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'benefits-title', 'eyebrow' => $eb['benefits'], 'title' => daberau_mod( 'svc_benefits_title' ), 'sub' => daberau_mod( 'svc_benefits_sub' ) ) ); ?>
 	<ul class="grid gap-4 md:grid-cols-3">
@@ -79,14 +84,17 @@ get_template_part(
 		<?php endforeach; ?>
 	</ul>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'process' ) ) : ?>
 <?php daberau_section_open( 'process-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'process-title', 'eyebrow' => $eb['process'], 'title' => daberau_mod( 'svc_process_title' ), 'sub' => daberau_mod( 'svc_process_sub' ) ) ); ?>
 	<?php get_template_part( 'template-parts/process-steps', null, array( 'steps' => daberau_lines( $f['process'], array( 'title', 'body' ) ) ) ); ?>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
 <?php $tech = daberau_lines( $f['tech'] ); ?>
-<?php if ( $tech ) : ?>
+<?php if ( $tech && daberau_show( $f, 'tech' ) ) : ?>
 	<?php daberau_section_open( 'tech-title' ); ?>
 		<?php daberau_section_heading( array( 'id' => 'tech-title', 'eyebrow' => $eb['tech'], 'title' => daberau_mod( 'svc_tech_title' ), 'sub' => daberau_mod( 'svc_tech_sub' ) ) ); ?>
 		<?php get_template_part( 'template-parts/tech-chips', null, array( 'items' => $tech ) ); ?>
@@ -94,7 +102,7 @@ get_template_part(
 <?php endif; ?>
 
 <?php $faqs = daberau_lines( $f['faqs'], array( 'q', 'a' ) ); ?>
-<?php if ( $faqs ) : ?>
+<?php if ( $faqs && daberau_show( $f, 'faq' ) ) : ?>
 	<?php daberau_section_open( 'faq-title', 'muted' ); ?>
 		<?php daberau_section_heading( array( 'id' => 'faq-title', 'eyebrow' => $eb['faq'], 'title' => daberau_mod( 'svc_faq_title' ), 'sub' => daberau_mod( 'svc_faq_sub' ) ) ); ?>
 		<div class="mx-auto max-w-3xl"><?php get_template_part( 'template-parts/faq-accordion', null, array( 'items' => $faqs ) ); ?></div>
@@ -110,7 +118,7 @@ foreach ( daberau_lines( $f['related'] ) as $slug ) {
 	}
 }
 ?>
-<?php if ( $related ) : ?>
+<?php if ( $related && daberau_show( $f, 'related' ) ) : ?>
 	<?php daberau_section_open( 'related-title' ); ?>
 		<?php daberau_section_heading( array( 'id' => 'related-title', 'eyebrow' => $eb['related'], 'title' => daberau_mod( 'svc_related_title' ), 'sub' => daberau_mod( 'svc_related_sub' ) ) ); ?>
 		<div class="grid gap-4 md:grid-cols-3">

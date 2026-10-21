@@ -65,9 +65,11 @@ $nav_base        = 'nav-link relative inline-flex h-10 items-center gap-1 rounde
 		</div>
 
 		<div class="flex items-center gap-1 lg:hidden">
-			<a href="<?php echo esc_url( daberau_whatsapp_url() ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( daberau_default( 'microcopy.chatWhatsApp' ) ); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-btn text-[#128C7E] hover:bg-neutral-50">
+			<?php if ( daberau_whatsapp_on() ) : ?>
+			<a href="<?php echo esc_url( daberau_whatsapp_url() ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( daberau_mod( 'whatsapp_label' ) ); ?>" class="inline-flex h-11 w-11 items-center justify-center rounded-btn text-[#128C7E] hover:bg-neutral-50">
 				<?php echo daberau_whatsapp_icon( 'h-6 w-6' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</a>
+			<?php endif; ?>
 			<button type="button" aria-label="<?php esc_attr_e( 'Open menu', 'daberau' ); ?>" aria-expanded="false" aria-controls="mobile-menu" data-mobile-open class="inline-flex h-11 w-11 items-center justify-center rounded-btn text-ink hover:bg-neutral-50">
 				<?php echo daberau_icon( 'menu', 'h-6 w-6' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</button>

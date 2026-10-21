@@ -6,7 +6,6 @@
     "email": "cs@daberau-me.com",
     "phone": "+62 21 5431 6725",
     "phoneHref": "tel:+622154316725",
-    "whatsappHref": "https://wa.me/?text=Hi%20Daberau%2C%20I'm%20%5Bname%5D%20from%20%5Bcompany%5D.%20I'd%20like%20to%20discuss%E2%80%A6",
     "address": "Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840",
     "mapsHref": "https://www.google.com/maps/search/?api=1&query=Jl.%20Peta%20Selatan%2C%20Citi%20Business%20Park%20Blok%20A%20No.%2031%2C%20Kalideres%2C%20West%20Jakarta%2011840",
     "mapsEmbed": "https://www.google.com/maps?q=Jl.%20Peta%20Selatan%2C%20Citi%20Business%20Park%20Blok%20A%20No.%2031%2C%20Kalideres%2C%20West%20Jakarta%2011840&output=embed",
@@ -160,13 +159,12 @@
   "microcopy": {
     "ctaPrimary": "Get a Free Consultation",
     "exploreServices": "Explore Services",
-    "chatWhatsApp": "Chat on WhatsApp",
+    "emailUs": "Email Us",
     "serviceCta": "Talk to Us About [Service]",
     "sendRequest": "Send Request",
     "reassurance": "Free and no commitment. We reply within one business day.",
     "companyProfile": "Download Company Profile (PDF, 3 MB)",
     "learnMore": "Learn more →",
-    "whatsappPrefill": "Hi Daberau, I'm [name] from [company]. I'd like to discuss…",
     "budgetTooltip": "A rough range is fine. It helps us suggest the right solution.",
     "errorSummary": "A few fields need your attention. Please check the highlighted fields.",
     "notFound": {
@@ -181,7 +179,6 @@
         "href": "/services"
       }
     },
-    "whatsappTooltip": "Questions? Chat with our team.",
     "loading": "Loading…"
   },
   "home": {
@@ -319,7 +316,7 @@
         "Online stores",
         "Website redesigns",
         "Technical & on-page SEO",
-        "WhatsApp, payment gateway, and analytics integration"
+        "Payment gateway, chat, and analytics integration"
       ],
       "benefits": [
         {
@@ -437,7 +434,7 @@
         "Customer-facing iOS & Android apps",
         "Web portals & dashboards",
         "Booking, ordering & payment systems",
-        "Integrations with accounting, ERP & WhatsApp",
+        "Integrations with accounting, ERP & messaging apps",
         "Rebuilds of legacy systems"
       ],
       "benefits": [
@@ -499,7 +496,7 @@
         },
         {
           "q": "Can the app connect to the software we already use?",
-          "a": "Usually, yes. We regularly integrate with accounting software, ERPs, payment gateways, and WhatsApp."
+          "a": "Usually, yes. We regularly integrate with accounting software, ERPs, payment gateways, and messaging apps."
         },
         {
           "q": "What happens after the app launches?",
@@ -786,7 +783,7 @@
         ]
       },
       "deliver": [
-        "Helpdesk via WhatsApp, email & phone",
+        "Helpdesk via email, phone & remote support",
         "Website & application maintenance",
         "Security updates & patching",
         "Uptime & performance monitoring",
@@ -1187,13 +1184,13 @@
         "kind": "form"
       },
       {
-        "title": "Quick question?",
-        "body": "Chat with our team during business hours.",
+        "title": "Prefer email?",
+        "body": "Send us your brief or questions anytime.",
         "cta": {
-          "label": "Chat on WhatsApp",
-          "href": "whatsapp"
+          "label": "Email Us",
+          "href": "mailto:cs@daberau-me.com"
         },
-        "kind": "whatsapp"
+        "kind": "email"
       },
       {
         "title": "Need urgent support?",
@@ -1213,11 +1210,9 @@
         "address": "Address",
         "email": "Email",
         "phone": "Phone",
-        "whatsapp": "WhatsApp",
         "hours": "Business hours"
       },
       "mapsLink": "Open in Google Maps",
-      "whatsappLink": "Chat on WhatsApp",
       "micro": "Messages sent outside business hours will be answered the next business day."
     },
     "map": {
@@ -1261,8 +1256,8 @@
         "placeholder": "name@company.com",
         "error": "Please enter a valid email, e.g. name@company.com"
       },
-      "whatsapp": {
-        "label": "WhatsApp number",
+      "phone": {
+        "label": "Phone number",
         "placeholder": "+62 812 xxxx xxxx",
         "error": "Please enter an active number with at least 10 digits."
       },
@@ -1367,7 +1362,7 @@
     "loading": "Sending…",
     "success": {
       "title": "Thanks, [Name]! We've received your request.",
-      "body": "Our team will reach out via WhatsApp or email within one business day. In the meantime, take a look at what we can do for you.",
+      "body": "Our team will reach out by phone or email within one business day. In the meantime, take a look at what we can do for you.",
       "primary": {
         "label": "Explore Services",
         "href": "/services"
@@ -1379,7 +1374,7 @@
     },
     "failure": {
       "title": "Sorry, your message didn't go through.",
-      "body": "Something went wrong on our end. Your answers are still here, so try again or reach us directly on WhatsApp.",
+      "body": "Something went wrong on our end. Your answers are still here, so try again or email us at cs@daberau-me.com.",
       "retry": "Try Again"
     }
   },
@@ -1471,7 +1466,7 @@
       "items": [
         "Google Meet",
         "Zoom",
-        "WhatsApp",
+        "Notion",
         "Slack",
         "Jira",
         "Trello",
@@ -1610,7 +1605,7 @@
         "body": [
           "PT Daberau Mikro Elit is the data controller responsible for your personal data.",
           "We are a limited liability company registered in Indonesia, with our office at Jl. Peta Selatan, Citi Business Park Blok A No. 31, Kalideres, West Jakarta 11840. You can reach us about anything in this policy at cs@daberau-me.com or +62 21 5431 6725.",
-          "This policy applies to daberau-me.com, our forms, our WhatsApp and email channels, and the services we provide to clients."
+          "This policy applies to daberau-me.com, our forms, our email and phone channels, and the services we provide to clients."
         ]
       },
       {
@@ -1621,7 +1616,7 @@
           "Information you give us:",
           {
             "list": [
-              "Contact details: your name, company, work email, and WhatsApp or phone number.",
+              "Contact details: your name, company, work email, and phone number.",
               "Project details: the service you're interested in, your budget range, timeline, message, and any files you attach."
             ]
           },
@@ -2191,5 +2186,16 @@
       "sub": "From shop floors to clinics, we've seen the same IT headaches in many forms.",
       "link": "See all industries"
     }
+  },
+  "whatsapp": {
+    "enabled": false,
+    "label": "Chat on WhatsApp",
+    "tooltip": "Questions? Chat with our team.",
+    "prefill": "Hi Daberau, I'd like to discuss a project.",
+    "contactOption": {
+      "title": "Quick question?",
+      "body": "Chat with our team during business hours."
+    },
+    "infoLabel": "WhatsApp"
   }
 }

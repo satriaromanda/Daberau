@@ -311,7 +311,7 @@
     var dropzone = $("[data-dropzone]", form);
     var errors = data.errors || {};
     var maxBytes = data.maxBytes || 10485760;
-    var ORDER = ["name", "email", "whatsapp", "service", "message", "attachment", "consent"];
+    var ORDER = ["name", "email", "phone", "service", "message", "attachment", "consent"];
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     var attempted = false;
     var forceError = new URLSearchParams(window.location.search).get("formError") === "1";
@@ -326,7 +326,7 @@
       var e = {};
       if (!String(val("name")).trim()) e.name = errors.name;
       if (!EMAIL_RE.test(String(val("email")).trim())) e.email = errors.email;
-      if (String(val("whatsapp")).replace(/\D/g, "").length < 10) e.whatsapp = errors.whatsapp;
+      if (String(val("phone")).replace(/\D/g, "").length < 10) e.phone = errors.phone;
       if (!val("service")) e.service = errors.service;
       if (!String(val("message")).trim()) e.message = errors.message;
       if (file() && file().size > maxBytes) e.attachment = errors.attachment;

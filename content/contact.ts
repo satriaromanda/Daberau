@@ -22,10 +22,10 @@ export const contactPage = {
       kind: "form",
     },
     {
-      title: "Quick question?",
-      body: "Chat with our team during business hours.",
-      cta: { label: "Chat on WhatsApp", href: "whatsapp" },
-      kind: "whatsapp",
+      title: "Prefer email?",
+      body: "Send us your brief or questions anytime.",
+      cta: { label: "Email Us", href: "mailto:cs@daberau-me.com" },
+      kind: "email",
     },
     {
       title: "Need urgent support?",
@@ -38,9 +38,8 @@ export const contactPage = {
   formSub: "The more you share, the better our first recommendation will be.",
   info: {
     title: "Contact info",
-    labels: { address: "Address", email: "Email", phone: "Phone", whatsapp: "WhatsApp", hours: "Business hours" },
+    labels: { address: "Address", email: "Email", phone: "Phone", hours: "Business hours" },
     mapsLink: "Open in Google Maps",
-    whatsappLink: "Chat on WhatsApp",
     micro: "Messages sent outside business hours will be answered the next business day.",
   },
   map: { title: "Come *visit us*", label: "Map of the Daberau office at Citi Business Park, Kalideres" },
@@ -73,7 +72,7 @@ export const leadForm = {
     name: { label: "Full name", placeholder: "e.g. John Smith", error: "Please enter your name." },
     company: { label: "Company name", placeholder: "e.g. Acme Corp (leave blank if individual)" },
     email: { label: "Work email", placeholder: "name@company.com", error: "Please enter a valid email, e.g. name@company.com" },
-    whatsapp: { label: "WhatsApp number", placeholder: "+62 812 xxxx xxxx", error: "Please enter an active number with at least 10 digits." },
+    phone: { label: "Phone number", placeholder: "+62 812 xxxx xxxx", error: "Please enter an active number with at least 10 digits." },
     service: {
       label: "What do you need help with?",
       error: "Please choose a service.",
@@ -113,13 +112,13 @@ export const leadForm = {
   loading: "Sending…",
   success: {
     title: "Thanks, [Name]! We've received your request.",
-    body: "Our team will reach out via WhatsApp or email within one business day. In the meantime, take a look at what we can do for you.",
+    body: "Our team will reach out by phone or email within one business day. In the meantime, take a look at what we can do for you.",
     primary: { label: "Explore Services", href: "/services" },
     secondary: { label: "Back to Home", href: "/" },
   },
   failure: {
     title: "Sorry, your message didn't go through.",
-    body: "Something went wrong on our end. Your answers are still here, so try again or reach us directly on WhatsApp.",
+    body: "Something went wrong on our end. Your answers are still here, so try again or email us at cs@daberau-me.com.",
     retry: "Try Again",
   },
 };

@@ -1,6 +1,6 @@
 <?php
 /**
- * Pre-footer CTA, footer, cookie banner, sticky mobile CTA and WhatsApp button.
+ * Pre-footer CTA, footer, cookie banner, sticky mobile CTA and the optional WhatsApp button.
  *
  * @package Daberau
  */
@@ -40,7 +40,9 @@ $columns = array(
 				</div>
 				<div class="flex shrink-0 flex-col gap-3 sm:flex-row">
 					<?php echo daberau_button( daberau_url( 'form' ), daberau_mod( 'cta_label' ), 'primary', 'lg' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo daberau_button( daberau_whatsapp_url(), daberau_default( 'microcopy.chatWhatsApp' ), 'inverse', 'lg', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php if ( daberau_whatsapp_on() ) : ?>
+					<?php echo daberau_button( daberau_whatsapp_url(), daberau_mod( 'whatsapp_label' ), 'inverse', 'lg', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -96,16 +98,22 @@ $columns = array(
 	</div>
 </footer>
 
-<a href="<?php echo esc_url( daberau_whatsapp_url() ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( daberau_default( 'microcopy.chatWhatsApp' ) . '. ' . daberau_default( 'microcopy.whatsappTooltip' ) ); ?>" class="wa-fab group fixed bottom-5 right-4 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] transition-[bottom,background-color] duration-300 hover:bg-[#0e7368] sm:right-6 lg:bottom-6">
+<?php if ( daberau_whatsapp_on() ) : ?>
+<a href="<?php echo esc_url( daberau_whatsapp_url() ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( daberau_mod( 'whatsapp_label' ) . '. ' . daberau_default( 'whatsapp.tooltip' ) ); ?>" class="wa-fab group fixed bottom-5 right-4 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] transition-[bottom,background-color] duration-300 hover:bg-[#0e7368] sm:right-6 lg:bottom-6">
 	<?php echo daberau_whatsapp_icon( 'relative h-7 w-7' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	<span role="tooltip" class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-btn bg-ink px-3 py-2 text-sm font-medium text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 sm:block"><?php echo esc_html( daberau_default( 'microcopy.whatsappTooltip' ) ); ?></span>
+	<span role="tooltip" class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-btn bg-ink px-3 py-2 text-sm font-medium text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 sm:block"><?php echo esc_html( daberau_default( 'whatsapp.tooltip' ) ); ?></span>
 </a>
+<?php endif; ?>
 
+<?php if ( '1' === (string) daberau_mod( 'show_sticky_cta' ) ) : ?>
 <div data-sticky-cta aria-hidden="true" inert class="fixed inset-x-0 bottom-0 z-30 translate-y-full border-t border-neutral-200 bg-white/95 px-4 py-3 backdrop-blur transition-transform duration-300 lg:hidden">
 	<?php echo daberau_button( daberau_url( 'form' ), daberau_mod( 'sticky_label' ), 'primary', 'lg', array( 'class' => 'w-full' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </div>
+<?php endif; ?>
 
-<?php get_template_part( 'template-parts/cookie-banner' ); ?>
+<?php if ( '1' === (string) daberau_mod( 'show_cookies' ) ) : ?>
+	<?php get_template_part( 'template-parts/cookie-banner' ); ?>
+<?php endif; ?>
 <?php wp_footer(); ?>
 </body>
 </html>

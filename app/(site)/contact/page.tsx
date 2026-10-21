@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Clock, FileText, Headset, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, FileText, Headset, Mail, MapPin, Phone } from "lucide-react";
 import { contactPage as c } from "@/content/contact";
 import { site } from "@/content/site";
 import { eyebrows } from "@/content/eyebrows";
 import { LinkButton } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Container";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
-import { WhatsAppIcon } from "@/components/ui/Icons";
 import { PageHero } from "@/components/sections/PageHero";
 import { LeadForm } from "@/components/forms/LeadForm";
 
 export const metadata: Metadata = { title: c.meta.title, description: c.meta.description };
 
-const optionIcons = { form: FileText, whatsapp: MessageCircle, support: Headset };
+const optionIcons = { form: FileText, email: Mail, support: Headset };
 
 export default function ContactPage() {
   return (
@@ -27,7 +26,6 @@ export default function ContactPage() {
         <div className="mx-auto grid w-full max-w-[1200px] gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           {c.options.map((o, i) => {
             const Icon = optionIcons[o.kind as keyof typeof optionIcons];
-            const isWa = o.kind === "whatsapp";
             return (
               <div key={o.title} data-reveal style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties} className="flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
                 <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand">
@@ -36,12 +34,10 @@ export default function ContactPage() {
                 <h3 className="mt-6 text-[19px] font-bold text-ink">{o.title}</h3>
                 <p className="mt-1.5 flex-1 leading-relaxed text-neutral-600">{o.body}</p>
                 <LinkButton
-                  href={isWa ? site.whatsappHref : o.cta.href}
-                  external={isWa}
+                  href={o.cta.href}
                   variant={o.kind === "form" ? "primary" : "secondary"}
                   className="mt-5 self-start"
                 >
-                  {isWa && <WhatsAppIcon className="h-4 w-4 text-[#128C7E]" />}
                   {o.cta.label}
                 </LinkButton>
               </div>
@@ -77,11 +73,6 @@ export default function ContactPage() {
                 <InfoRow icon={Phone} label={c.info.labels.phone}>
                   <a href={site.phoneHref} className="hover:text-brand">
                     {site.phone}
-                  </a>
-                </InfoRow>
-                <InfoRow icon={MessageCircle} label={c.info.labels.whatsapp}>
-                  <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand hover:text-brand-700">
-                    {c.info.whatsappLink} →
                   </a>
                 </InfoRow>
                 <InfoRow icon={Clock} label={c.info.labels.hours}>

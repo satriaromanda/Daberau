@@ -22,13 +22,6 @@ export function StickyMobileCTA() {
     };
   }, []);
 
-  // Lets the floating WhatsApp button move up while the bar is visible.
-  useEffect(() => {
-    document.documentElement.dataset.stickyCta = show ? "on" : "off";
-    return () => {
-      delete document.documentElement.dataset.stickyCta;
-    };
-  }, [show]);
 
   return (
     <div

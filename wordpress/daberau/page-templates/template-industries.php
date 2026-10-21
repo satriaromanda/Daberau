@@ -82,7 +82,7 @@ get_template_part(
 	</section>
 <?php endforeach; ?>
 
-<?php if ( $f['closing_title'] ) : ?>
+<?php if ( $f['closing_title'] && daberau_show( $f, 'closing' ) ) : ?>
 	<section aria-labelledby="other-title" class="bg-white pb-6 pt-16 md:pt-20">
 		<div class="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
 			<div data-reveal class="mx-auto max-w-3xl text-center">

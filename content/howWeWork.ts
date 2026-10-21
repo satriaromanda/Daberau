@@ -60,6 +60,6 @@ export const howWeWork = {
   tools: {
     title: "Work with us in the tools *you already use*",
     sub: "Updates, files, and feedback stay in one place.",
-    items: ["Google Meet", "Zoom", "WhatsApp", "Slack", "Jira", "Trello", "Figma", "Google Drive"],
+    items: ["Google Meet", "Zoom", "Notion", "Slack", "Jira", "Trello", "Figma", "Google Drive"],
   },
 };

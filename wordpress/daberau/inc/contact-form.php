@@ -41,8 +41,8 @@ function daberau_validate_contact( $v, $file ) {
 	if ( ! preg_match( '/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/', trim( $v['email'] ) ) || ! is_email( trim( $v['email'] ) ) ) {
 		$errors['email'] = $e['email']['error'];
 	}
-	if ( strlen( preg_replace( '/\D/', '', $v['whatsapp'] ) ) < 10 ) {
-		$errors['whatsapp'] = $e['whatsapp']['error'];
+	if ( strlen( preg_replace( '/\D/', '', $v['phone'] ) ) < 10 ) {
+		$errors['phone'] = $e['phone']['error'];
 	}
 	$services = wp_list_pluck( $e['service']['options'], 'value' );
 	if ( ! in_array( $v['service'], $services, true ) ) {
@@ -98,7 +98,7 @@ function daberau_process_contact( WP_REST_Request $request ) {
 	set_transient( $key, $hits + 1, 10 * MINUTE_IN_SECONDS );
 
 	$v = array();
-	foreach ( array( 'name', 'company', 'email', 'whatsapp', 'service', 'budget', 'timeline' ) as $k ) {
+	foreach ( array( 'name', 'company', 'email', 'phone', 'service', 'budget', 'timeline' ) as $k ) {
 		$v[ $k ] = sanitize_text_field( (string) $request->get_param( $k ) );
 	}
 	$v['message'] = sanitize_textarea_field( (string) $request->get_param( 'message' ) );
@@ -133,7 +133,7 @@ function daberau_process_contact( WP_REST_Request $request ) {
 		true
 	);
 	if ( ! is_wp_error( $post_id ) ) {
-		foreach ( array( 'name', 'company', 'email', 'whatsapp', 'service', 'budget', 'timeline', 'message', 'page' ) as $k ) {
+		foreach ( array( 'name', 'company', 'email', 'phone', 'service', 'budget', 'timeline', 'message', 'page' ) as $k ) {
 			update_post_meta( $post_id, '_inquiry_' . $k, $v[ $k ] );
 		}
 		if ( $attachment_url ) {
@@ -144,7 +144,7 @@ function daberau_process_contact( WP_REST_Request $request ) {
 	// Email the team.
 	$labels = daberau_inquiry_labels();
 	$lines  = array();
-	foreach ( array( 'name', 'company', 'email', 'whatsapp', 'service', 'budget', 'timeline', 'message', 'page' ) as $k ) {
+	foreach ( array( 'name', 'company', 'email', 'phone', 'service', 'budget', 'timeline', 'message', 'page' ) as $k ) {
 		if ( '' !== $v[ $k ] ) {
 			$lines[] = $labels[ $k ] . ":\n" . $v[ $k ];
 		}

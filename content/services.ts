@@ -37,7 +37,7 @@ export const services: Service[] = [
       "Online stores",
       "Website redesigns",
       "Technical & on-page SEO",
-      "WhatsApp, payment gateway, and analytics integration",
+      "Payment gateway, chat, and analytics integration",
     ],
     benefits: [
       { title: "Get found faster.", body: "SEO structure built in from day one." },
@@ -102,7 +102,7 @@ export const services: Service[] = [
       "Customer-facing iOS & Android apps",
       "Web portals & dashboards",
       "Booking, ordering & payment systems",
-      "Integrations with accounting, ERP & WhatsApp",
+      "Integrations with accounting, ERP & messaging apps",
       "Rebuilds of legacy systems",
     ],
     benefits: [
@@ -130,7 +130,7 @@ export const services: Service[] = [
       { q: "Will I own the source code?", a: "Yes. Ownership of the source code transfers to you once all payments are complete." },
       {
         q: "Can the app connect to the software we already use?",
-        a: "Usually, yes. We regularly integrate with accounting software, ERPs, payment gateways, and WhatsApp.",
+        a: "Usually, yes. We regularly integrate with accounting software, ERPs, payment gateways, and messaging apps.",
       },
       {
         q: "What happens after the app launches?",
@@ -295,7 +295,7 @@ export const services: Service[] = [
       ],
     },
     deliver: [
-      "Helpdesk via WhatsApp, email & phone",
+      "Helpdesk via email, phone & remote support",
       "Website & application maintenance",
       "Security updates & patching",
       "Uptime & performance monitoring",

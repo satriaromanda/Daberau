@@ -69,7 +69,11 @@ get_template_part(
 
 		<div class="flex flex-col items-start gap-4 rounded-card border border-neutral-200 bg-neutral-50 p-6 sm:flex-row sm:items-center sm:justify-between">
 			<p class="text-lg font-semibold text-ink"><?php echo esc_html( $f['bottom'] ); ?></p>
-			<?php echo daberau_button( daberau_whatsapp_url(), daberau_default( 'microcopy.chatWhatsApp' ), 'secondary', 'md', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php if ( daberau_whatsapp_on() ) : ?>
+				<?php echo daberau_button( daberau_whatsapp_url(), daberau_mod( 'whatsapp_label' ), 'secondary', 'md', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php else : ?>
+				<?php echo daberau_button( 'mailto:' . daberau_mod( 'email' ), daberau_default( 'microcopy.emailUs' ), 'secondary', 'md', array( 'icon' => daberau_icon( 'mail', 'h-5 w-5 text-brand' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php endif; ?>
 		</div>
 	</div>
 <?php daberau_section_close(); ?>

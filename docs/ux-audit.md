@@ -29,14 +29,13 @@ All fixes above apply to the WordPress theme too. The theme adds:
 ## Kept (already working well)
 
 - Clear page hierarchy: eyebrow → headline (key words in brand red) → one-line subheadline → content.
-- Single primary action site-wide ("Get a Free Consultation" → contact form), with WhatsApp as the secondary path.
+- Single primary action site-wide ("Get a Free Consultation" → contact form), with email and phone as the other paths. WhatsApp was removed at the client's request (the WordPress theme can switch it back on).
 - Short contact form: 6 required fields, inline error messages with icon + text (not color alone), loading and success states.
 - Breadcrumbs on inner pages; keyboard-operable menu, mega menu and FAQ; visible focus rings; one H1 per page.
 - Process shown as a connected 5-step flow on desktop and a numbered timeline on mobile.
 
 ## Still needs content from Daberau
 
-- WhatsApp business number (buttons currently open WhatsApp without a recipient).
 - Real testimonials, team names/photos, client logos, social profile URLs.
 - About page team photo (currently a reused service photo).
 - Confirmation of the default figures (stats, warranty, timelines) listed in the README.

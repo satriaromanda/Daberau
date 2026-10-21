@@ -238,6 +238,9 @@ add_action(
 				echo '<table class="widefat striped"><tbody>';
 				foreach ( $labels as $key => $label ) {
 					$value = get_post_meta( $post->ID, '_inquiry_' . $key, true );
+					if ( '' === $value && 'phone' === $key ) {
+						$value = get_post_meta( $post->ID, '_inquiry_whatsapp', true ); // Inquiries sent before 1.3.
+					}
 					if ( '' === $value ) {
 						continue;
 					}
@@ -266,7 +269,7 @@ function daberau_inquiry_labels() {
 		'name'       => $f['name']['label'],
 		'company'    => $f['company']['label'],
 		'email'      => $f['email']['label'],
-		'whatsapp'   => $f['whatsapp']['label'],
+		'phone'      => $f['phone']['label'],
 		'service'    => $f['service']['label'],
 		'budget'     => $f['budget']['label'],
 		'timeline'   => $f['timeline']['label'],

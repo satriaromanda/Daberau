@@ -26,6 +26,7 @@ get_template_part(
 );
 ?>
 
+<?php if ( daberau_show( $f, 'grid' ) ) : ?>
 <?php daberau_section_open( 'grid-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'grid-title', 'eyebrow' => $f['grid_eyebrow'], 'title' => $f['grid_title'], 'sub' => $f['grid_sub'] ) ); ?>
 	<div data-services-filter>
@@ -46,7 +47,9 @@ get_template_part(
 		</div>
 	</div>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'bundled' ) ) : ?>
 <?php daberau_section_open( 'bundled-title', 'muted' ); ?>
 	<div data-reveal class="flex flex-col gap-6 rounded-card border border-neutral-200 bg-white p-8 md:flex-row md:items-center md:justify-between md:p-10">
 		<div class="flex gap-5">
@@ -59,14 +62,17 @@ get_template_part(
 		<?php echo daberau_button( daberau_url( 'form' ), daberau_mod( 'cta_label' ), 'primary', 'lg', array( 'class' => 'shrink-0' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
+<?php if ( daberau_show( $f, 'tech' ) ) : ?>
 <?php daberau_section_open( 'tech-title' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'tech-title', 'eyebrow' => $f['tech_eyebrow'], 'title' => $f['tech_title'], 'sub' => $f['tech_sub'] ) ); ?>
 	<?php get_template_part( 'template-parts/tech-chips', null, array( 'items' => daberau_lines( $f['tech_items'] ) ) ); ?>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
 <?php $faqs = daberau_faqs( 'services-page' ); ?>
-<?php if ( $faqs ) : ?>
+<?php if ( $faqs && daberau_show( $f, 'faq' ) ) : ?>
 	<?php daberau_section_open( 'faq-title', 'muted' ); ?>
 		<?php daberau_section_heading( array( 'id' => 'faq-title', 'eyebrow' => $f['faq_eyebrow'], 'title' => $f['faq_title'], 'sub' => $f['faq_sub'] ) ); ?>
 		<div class="mx-auto max-w-3xl"><?php get_template_part( 'template-parts/faq-accordion', null, array( 'items' => $faqs, 'html' => true ) ); ?></div>

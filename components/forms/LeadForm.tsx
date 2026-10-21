@@ -2,17 +2,16 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Paperclip, X, XCircle } from "lucide-react";
+import { AlertCircle, CheckCircle2, ChevronDown, Info, Loader2, Mail, Paperclip, X, XCircle } from "lucide-react";
 import { leadForm as f } from "@/content/contact";
-import { microcopy, whatsappCta } from "@/content/site";
+import { microcopy, site } from "@/content/site";
 import { Button, LinkButton } from "@/components/ui/Button";
-import { WhatsAppIcon } from "@/components/ui/Icons";
 
 type Values = {
   name: string;
   company: string;
   email: string;
-  whatsapp: string;
+  phone: string;
   service: string;
   budget: string;
   timeline: string;
@@ -25,13 +24,13 @@ type Status = "idle" | "loading" | "success" | "error";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const MAX_BYTES = 10 * 1024 * 1024;
-const ORDER: FieldKey[] = ["name", "email", "whatsapp", "service", "message", "attachment", "consent"];
+const ORDER: FieldKey[] = ["name", "email", "phone", "service", "message", "attachment", "consent"];
 
 function validate(v: Values, file: File | null): Errors {
   const e: Errors = {};
   if (!v.name.trim()) e.name = f.fields.name.error;
   if (!EMAIL_RE.test(v.email.trim())) e.email = f.fields.email.error;
-  if (v.whatsapp.replace(/\D/g, "").length < 10) e.whatsapp = f.fields.whatsapp.error;
+  if (v.phone.replace(/\D/g, "").length < 10) e.phone = f.fields.phone.error;
   if (!v.service) e.service = f.fields.service.error;
   if (!v.message.trim()) e.message = f.fields.message.error;
   if (file && file.size > MAX_BYTES) e.attachment = f.fields.attachment.error;
@@ -53,7 +52,7 @@ export function LeadForm() {
     name: "",
     company: "",
     email: "",
-    whatsapp: "",
+    phone: "",
     service: "",
     budget: "",
     timeline: "",
@@ -165,9 +164,9 @@ export function LeadForm() {
                 <Button type="submit" size="sm">
                   {f.failure.retry}
                 </Button>
-                <LinkButton href={whatsappCta.href} external variant="secondary" size="sm">
-                  <WhatsAppIcon className="h-4 w-4 text-[#128C7E]" />
-                  {whatsappCta.label}
+                <LinkButton href={`mailto:${site.email}`} variant="secondary" size="sm">
+                  <Mail className="h-4 w-4 text-brand" aria-hidden="true" />
+                  {microcopy.emailUs}
                 </LinkButton>
               </div>
             </div>
@@ -235,23 +234,23 @@ export function LeadForm() {
           <ErrorText k="email" />
         </div>
         <div>
-          <Label k="whatsapp" required>
-            {f.fields.whatsapp.label}
+          <Label k="phone" required>
+            {f.fields.phone.label}
           </Label>
           <input
-            id={id("whatsapp")}
+            id={id("phone")}
             type="tel"
             autoComplete="tel"
             inputMode="tel"
-            value={values.whatsapp}
-            onChange={(e) => set("whatsapp", e.target.value)}
-            placeholder={f.fields.whatsapp.placeholder}
+            value={values.phone}
+            onChange={(e) => set("phone", e.target.value)}
+            placeholder={f.fields.phone.placeholder}
             aria-required="true"
-            aria-invalid={!!errors.whatsapp}
-            aria-describedby={describedBy("whatsapp")}
-            className={`${inputBase} h-12 ${errors.whatsapp ? inputErr : inputOk}`}
+            aria-invalid={!!errors.phone}
+            aria-describedby={describedBy("phone")}
+            className={`${inputBase} h-12 ${errors.phone ? inputErr : inputOk}`}
           />
-          <ErrorText k="whatsapp" />
+          <ErrorText k="phone" />
         </div>
 
         <div className="sm:col-span-2">

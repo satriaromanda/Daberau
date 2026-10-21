@@ -59,7 +59,11 @@ $success_title = $f['success']['title'];
 					<p class="mt-1 text-[15px] leading-relaxed text-neutral-700"><?php echo esc_html( $f['failure']['body'] ); ?></p>
 					<div class="mt-4 flex flex-col gap-2 sm:flex-row">
 						<button type="submit" class="btn inline-flex min-h-9 items-center justify-center rounded-btn bg-brand px-3.5 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"><?php echo esc_html( $f['failure']['retry'] ); ?></button>
-						<?php echo daberau_button( daberau_whatsapp_url(), $micro['chatWhatsApp'], 'secondary', 'sm', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-4 w-4 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php if ( daberau_whatsapp_on() ) : ?>
+							<?php echo daberau_button( daberau_whatsapp_url(), daberau_mod( 'whatsapp_label' ), 'secondary', 'sm', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-4 w-4 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php else : ?>
+							<?php echo daberau_button( 'mailto:' . daberau_mod( 'email' ), $micro['emailUs'], 'secondary', 'sm', array( 'icon' => daberau_icon( 'mail', 'h-4 w-4 text-brand' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -95,9 +99,9 @@ $success_title = $f['success']['title'];
 				<?php $error( 'email' ); ?>
 			</div>
 			<div>
-				<?php $label( 'whatsapp', $fields['whatsapp']['label'], true ); ?>
-				<input id="cf-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" placeholder="<?php echo esc_attr( $fields['whatsapp']['placeholder'] ); ?>" aria-required="true" class="<?php echo esc_attr( $input_ok ); ?> h-12">
-				<?php $error( 'whatsapp' ); ?>
+				<?php $label( 'phone', $fields['phone']['label'], true ); ?>
+				<input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="<?php echo esc_attr( $fields['phone']['placeholder'] ); ?>" aria-required="true" class="<?php echo esc_attr( $input_ok ); ?> h-12">
+				<?php $error( 'phone' ); ?>
 			</div>
 
 			<div class="sm:col-span-2">

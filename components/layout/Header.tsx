@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { nav, site, primaryCta } from "@/content/site";
 import { services } from "@/content/services";
-import { IconTile, WhatsAppIcon } from "@/components/ui/Icons";
+import { IconTile } from "@/components/ui/Icons";
 import { LinkButton } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
 
@@ -221,15 +221,6 @@ export function Header() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-1 lg:hidden">
-          <a
-            href={site.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-btn text-[#128C7E] hover:bg-neutral-50"
-          >
-            <WhatsAppIcon className="h-6 w-6" />
-          </a>
           <button
             type="button"
             aria-label="Open menu"

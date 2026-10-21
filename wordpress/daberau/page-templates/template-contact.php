@@ -17,7 +17,17 @@ $email   = daberau_mod( 'email' );
 $tel     = 'tel:' . preg_replace( '/[^\d+]/', '', $phone );
 $maps    = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $address );
 $embed   = 'https://www.google.com/maps?q=' . rawurlencode( $address ) . '&output=embed';
-$icons   = array( 'form' => 'file-text', 'whatsapp' => 'message-circle', 'support' => 'headset' );
+$icons   = array( 'form' => 'file-text', 'email' => 'mail', 'whatsapp' => 'message-circle', 'support' => 'headset' );
+$wa      = daberau_default( 'whatsapp' );
+$options = $c['options'];
+// With WhatsApp switched on, the "Prefer email?" card becomes a WhatsApp card.
+if ( daberau_whatsapp_on() ) {
+	foreach ( $options as $k => $o ) {
+		if ( 'email' === $o['kind'] ) {
+			$options[ $k ] = array( 'title' => $wa['contactOption']['title'], 'body' => $wa['contactOption']['body'], 'cta' => array( 'label' => daberau_mod( 'whatsapp_label' ) ), 'kind' => 'whatsapp' );
+		}
+	}
+}
 
 get_template_part(
 	'template-parts/page-hero',
@@ -30,14 +40,16 @@ get_template_part(
 );
 ?>
 
+<?php if ( daberau_show( $f, 'options' ) ) : ?>
 <section aria-labelledby="options-title" class="bg-white pt-12 md:pt-16">
 	<div class="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
 		<?php daberau_section_heading( array( 'id' => 'options-title', 'eyebrow' => $f['options_eyebrow'], 'title' => $f['options_title'], 'sub' => $f['options_sub'] ) ); ?>
 		<ul class="grid gap-4 md:grid-cols-3">
-			<?php foreach ( $c['options'] as $i => $o ) : ?>
+			<?php foreach ( $options as $i => $o ) : ?>
 				<?php
 				$is_wa = 'whatsapp' === $o['kind'];
-				$href  = $is_wa ? daberau_whatsapp_url() : ( 'support' === $o['kind'] ? $tel : '#contact-form' );
+				$hrefs = array( 'whatsapp' => daberau_whatsapp_url(), 'email' => 'mailto:' . $email, 'support' => $tel, 'form' => '#contact-form' );
+				$href  = $hrefs[ $o['kind'] ];
 				?>
 				<li data-reveal<?php echo daberau_delay( $i * 90 ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="flex flex-col rounded-card border border-neutral-200 bg-white p-6 md:p-7">
 					<span class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand"><?php echo daberau_icon( $icons[ $o['kind'] ], 'h-7 w-7', array( 'stroke' => 2.2 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
@@ -61,6 +73,7 @@ get_template_part(
 		</ul>
 	</div>
 </section>
+<?php endif; ?>
 
 <?php daberau_section_open( 'form-title', 'white', 'id="contact-form"' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'form-title', 'eyebrow' => $f['form_eyebrow'], 'title' => $f['form_title'], 'sub' => $f['form_sub'] ) ); ?>
@@ -71,13 +84,13 @@ get_template_part(
 				<h2 id="info-title" class="text-lg font-bold text-ink"><?php echo esc_html( $c['info']['title'] ); ?></h2>
 				<dl class="mt-5 space-y-5 text-[15px]">
 					<?php
-					$rows = array(
+					$rows = array_filter( array(
 						array( 'map-pin', $c['info']['labels']['address'], esc_html( $address ) . '<a href="' . esc_url( $maps ) . '" target="_blank" rel="noopener noreferrer" class="mt-1 block font-semibold text-brand hover:text-brand-700">' . esc_html( $c['info']['mapsLink'] ) . ' →</a>' ),
 						array( 'mail', $c['info']['labels']['email'], '<a href="mailto:' . esc_attr( $email ) . '" class="hover:text-brand">' . esc_html( $email ) . '</a>' ),
 						array( 'phone', $c['info']['labels']['phone'], '<a href="' . esc_attr( $tel ) . '" class="hover:text-brand">' . esc_html( $phone ) . '</a>' ),
-						array( 'message-circle', $c['info']['labels']['whatsapp'], '<a href="' . esc_url( daberau_whatsapp_url() ) . '" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand hover:text-brand-700">' . esc_html( $c['info']['whatsappLink'] ) . ' →</a>' ),
+						daberau_whatsapp_on() ? array( 'message-circle', $wa['infoLabel'], '<a href="' . esc_url( daberau_whatsapp_url() ) . '" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand hover:text-brand-700">' . esc_html( daberau_mod( 'whatsapp_label' ) ) . ' →</a>' ) : null,
 						array( 'clock', $c['info']['labels']['hours'], esc_html( daberau_mod( 'hours_long' ) ) ),
-					);
+					) );
 					foreach ( $rows as $row ) :
 						?>
 						<div class="flex gap-3">
@@ -95,6 +108,7 @@ get_template_part(
 	</div>
 <?php daberau_section_close(); ?>
 
+<?php if ( daberau_show( $f, 'map' ) ) : ?>
 <?php daberau_section_open( 'map-title', 'muted' ); ?>
 	<?php daberau_section_heading( array( 'id' => 'map-title', 'eyebrow' => $f['map_eyebrow'], 'title' => $f['map_title'], 'sub' => $address ) ); ?>
 	<div class="aspect-[4/3] overflow-hidden rounded-card border border-neutral-200 bg-neutral-100 md:aspect-[21/8]">
@@ -104,9 +118,10 @@ get_template_part(
 		<?php echo daberau_button( $maps, $c['info']['mapsLink'], 'secondary', 'md', array( 'external' => true ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 	</div>
 <?php daberau_section_close(); ?>
+<?php endif; ?>
 
 <?php $faqs = daberau_faqs( 'contact-page' ); ?>
-<?php if ( $faqs ) : ?>
+<?php if ( $faqs && daberau_show( $f, 'faq' ) ) : ?>
 	<?php daberau_section_open( 'faq-title' ); ?>
 		<?php daberau_section_heading( array( 'id' => 'faq-title', 'eyebrow' => $f['faq_eyebrow'], 'title' => $f['faq_title'], 'sub' => $f['faq_sub'] ) ); ?>
 		<div class="mx-auto max-w-3xl"><?php get_template_part( 'template-parts/faq-accordion', null, array( 'items' => $faqs, 'html' => true ) ); ?></div>

@@ -50,7 +50,7 @@ body {
   border-radius: 4px;
 }
 
-/* Replaceable placeholder tokens such as [X], [year], [WhatsApp number] */
+/* Replaceable placeholder tokens such as [X], [year], [phone number] */
 .ph {
   background: #fff7e0;
   color: #1a1a1a;

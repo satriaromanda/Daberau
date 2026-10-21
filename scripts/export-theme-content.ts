@@ -1,7 +1,7 @@
 // Exports the typed content in /content to JSON for the WordPress theme (wordpress/daberau/inc/defaults.json).
 // The theme uses it as default copy and to seed services, FAQs and legal pages on activation.
 import { writeFileSync } from "node:fs";
-import { site, nav, footer, preFooter, cookies, stats, microcopy } from "../content/site";
+import { site, nav, footer, preFooter, cookies, stats, microcopy, whatsapp } from "../content/site";
 import { home } from "../content/home";
 import { services, serviceTemplate, servicesOverview } from "../content/services";
 import { about } from "../content/about";
@@ -39,6 +39,7 @@ const data = {
   meta,
   industries,
   industriesPage,
+  whatsapp,
 };
 
 const out = "wordpress/daberau/inc/defaults.json";

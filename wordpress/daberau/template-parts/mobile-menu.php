@@ -53,8 +53,10 @@ $email    = daberau_mod( 'email' );
 		</div>
 	</nav>
 
-	<div class="grid gap-2 border-t border-neutral-200 p-4 sm:grid-cols-2 sm:px-6">
+	<div class="grid gap-2 border-t border-neutral-200 p-4 sm:px-6<?php echo daberau_whatsapp_on() ? ' sm:grid-cols-2' : ''; ?>">
 		<?php echo daberau_button( daberau_url( 'form' ), daberau_mod( 'cta_label' ), 'primary', 'lg', array( 'attrs' => 'data-mobile-close-link' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php echo daberau_button( daberau_whatsapp_url(), daberau_default( 'microcopy.chatWhatsApp' ), 'secondary', 'lg', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php if ( daberau_whatsapp_on() ) : ?>
+		<?php echo daberau_button( daberau_whatsapp_url(), daberau_mod( 'whatsapp_label' ), 'secondary', 'lg', array( 'external' => true, 'icon' => daberau_whatsapp_icon( 'h-5 w-5 text-[#128C7E]' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php endif; ?>
 	</div>
 </div>
